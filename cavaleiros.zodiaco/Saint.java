@@ -6,7 +6,8 @@ public class Saint {
     private Armadura armadura;
     private boolean armaduraVestida;
     private Genero genero = Genero.NAO_INFORMADO;
-    private StatusVida vida = StatusVida.VIVO;
+    private StatusVida statusVida = StatusVida.VIVO;
+    private double vida;
     
     public Saint(String nome, Armadura armadura) {
         this.nome = nome;
@@ -27,5 +28,9 @@ public class Saint {
     
     public void setGenero(Genero genero) {
         this.genero = genero;
+    }
+    
+    public void perderVida(double quant) {
+        vida -= quant;
     }
 }
