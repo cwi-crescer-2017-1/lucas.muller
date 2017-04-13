@@ -33,4 +33,8 @@ public class Saint {
     public void perderVida(double quant) {
         vida -= quant;
     }
+    
+    public Armadura getArmadura() {
+        return armadura;
+    }
 }
