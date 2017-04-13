@@ -20,4 +20,12 @@ public class Batalha {
         else
             saintDois.perderVida(10);
     }
+    
+    public Saint getSaintUm() {
+        return saintUm;
+    }
+    
+    public Saint getSaintDois() {
+        return saintDois;
+    }
 }
