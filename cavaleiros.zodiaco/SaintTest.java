@@ -6,13 +6,12 @@ import org.junit.Test;
 /*
  * Classe de testes da classe Saint
  */
-public class SaintTest {
+public class SaintTest {    
     @Test
     public void vestirArmaduraDeixaArmaduraVestida() {
         // AAA
         // 1. Arrange - Montagem dos dados de teste
-        Armadura escorpiao = new Armadura("Escorpião", Categoria.OURO);
-        Saint milo = new Saint("Milo", escorpiao);
+        Saint milo = new Saint("Milo", new Armadura("Escorpião", Categoria.OURO));
         // 2. Act - Invocar a ação a ser testada
         milo.vestirArmadura();
         // 3. Assert - Verificação dos resultados do teste
@@ -27,8 +26,16 @@ public class SaintTest {
     }
     
     @Test
-    public void aoCriarSaintGeneroNaoEInformado() { 
+    public void aoCriarSaintGeneroENaoInformado() { 
         Saint milo = new Saint("Milo", new Armadura("Escorpião", Categoria.OURO));
         assertEquals(Genero.NAO_INFORMADO, milo.getGenero());
+    }
+    
+    @Test
+    public void perderVidaDiminuiVida() {
+        Saint milo = new Saint("Milo", new Armadura("Escorpião", Categoria.OURO));
+        double vida = milo.getVida();
+        milo.perderVida(1.5);
+        assertEquals(vida - 1.5, milo.getVida(), 0.01);
     }
 }
