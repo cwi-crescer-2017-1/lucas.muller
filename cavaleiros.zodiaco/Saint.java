@@ -37,4 +37,8 @@ public class Saint {
     public Armadura getArmadura() {
         return armadura;
     }
+    
+    public double getVida() {
+        return vida;
+    }
 }
