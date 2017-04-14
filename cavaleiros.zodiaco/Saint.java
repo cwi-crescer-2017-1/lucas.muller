@@ -7,7 +7,7 @@ public class Saint {
     private boolean armaduraVestida;
     private Genero genero = Genero.NAO_INFORMADO;
     private StatusVida statusVida = StatusVida.VIVO;
-    private double vida;
+    private double vida = 100;
     
     public Saint(String nome, Armadura armadura) {
         this.nome = nome;
