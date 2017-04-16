@@ -5,22 +5,32 @@ import org.junit.Test;
 
 public class BatalhaTest {
     @Test
-    public void aoIniciarSaintDeMenorCategoriaPerdeVida() {
+    public void aoIniciarSaintDoisDeMenorCategoriaPerdeVida() {
         Saint milo = new Saint("Milo", new Armadura("Escorpião", Categoria.OURO));
         Saint ares = new Saint("Ares", new Armadura("Touro", Categoria.BRONZE));
         double vidaAres = ares.getVida();
         Batalha epicBattle = new Batalha(milo, ares);
         epicBattle.iniciar();
-        assertEquals((vidaAres - 10), epicBattle.getSaintDois().getVida(), 0.01);
+        assertEquals((vidaAres - 10), ares.getVida(), 0.01);
     }
     
     @Test
-    public void aoIniciarSaintDeMesmaCategoriaPerdeVida() {
+    public void aoIniciarSaintUmDeMenorCategoriaPerdeVida() {
+        Saint milo = new Saint("Milo", new Armadura("Escorpião", Categoria.BRONZE));
+        Saint ares = new Saint("Ares", new Armadura("Touro", Categoria.OURO));
+        double vidaMilo = milo.getVida();
+        Batalha epicBattle = new Batalha(milo, ares);
+        epicBattle.iniciar();
+        assertEquals((vidaMilo - 10), milo.getVida(), 0.01);
+    }
+    
+    @Test
+    public void aoIniciarSaintDoisDeMesmaCategoriaPerdeVida() {
         Saint milo = new Saint("Milo", new Armadura("Escorpião", Categoria.OURO));
         Saint ares = new Saint("Ares", new Armadura("Touro", Categoria.OURO));
         double vidaAres = ares.getVida();
         Batalha epicBattle = new Batalha(milo, ares);
         epicBattle.iniciar();
-        assertEquals((vidaAres - 10), epicBattle.getSaintDois().getVida(), 0.01);
+        assertEquals((vidaAres - 10), ares.getVida(), 0.01);
     }
 }
