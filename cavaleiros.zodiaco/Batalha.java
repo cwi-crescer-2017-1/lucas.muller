@@ -18,12 +18,4 @@ public class Batalha {
         else //if(catSaintUm.getValor() > catSaintDois.getValor() || catSaintUm.getValor() = catSaintDois.getValor())
             saintDois.perderVida(10);
     }
-    
-    public Saint getSaintUm() {
-        return saintUm;
-    }
-    
-    public Saint getSaintDois() {
-        return saintDois;
-    }
 }
