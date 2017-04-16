@@ -38,6 +38,10 @@ public class Saint {
         return armadura;
     }
     
+    public Status getStatus() {
+        return statusVida;
+    }
+    
     public double getVida() {
         return vida;
     }
