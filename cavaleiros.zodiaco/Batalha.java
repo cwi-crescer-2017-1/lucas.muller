@@ -13,11 +13,9 @@ public class Batalha {
     public void iniciar() {
         Categoria catSaintUm = saintUm.getArmadura().getCategoria();
         Categoria catSaintDois = saintDois.getArmadura().getCategoria();
-        if(catSaintUm.getValor() > catSaintDois.getValor())
-            saintDois.perderVida(10);
-        else if(catSaintDois.getValor() > catSaintUm.getValor())
+        if(catSaintDois.getValor() > catSaintUm.getValor())
             saintUm.perderVida(10);
-        else
+        else //if(catSaintUm.getValor() > catSaintDois.getValor() || catSaintUm.getValor() = catSaintDois.getValor())
             saintDois.perderVida(10);
     }
     
