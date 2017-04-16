@@ -32,10 +32,22 @@ public class SaintTest {
     }
     
     @Test
+    public void aoCriarSaintStatusEVivo() { 
+        Saint milo = new Saint("Milo", new Armadura("Escorpião", Categoria.OURO));
+        assertEquals(Status.VIVO, milo.getStatus());
+    }
+    
+    @Test
+    public void aoCriarSaintVidaE100() { 
+        Saint milo = new Saint("Milo", new Armadura("Escorpião", Categoria.OURO));
+        assertEquals(100.0, milo.getVida(), 0.01);
+    }
+    
+    @Test
     public void perderVidaDiminuiVida() {
         Saint milo = new Saint("Milo", new Armadura("Escorpião", Categoria.OURO));
         double vida = milo.getVida();
         milo.perderVida(1.5);
-        assertEquals(vida - 1.5, milo.getVida(), 0.01);
+        assertEquals((vida - 1.5), milo.getVida(), 0.01);
     }
 }
