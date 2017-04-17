@@ -51,6 +51,27 @@ public class SaintTest {
     }
     
     @Test
+    public void perder100DeVida() {
+        Saint milo = new Saint("Milo", new Armadura("Escorpião", Categoria.OURO));
+        milo.perderVida(100);
+        assertEquals(0, milo.getVida(), 0.01);
+    }
+    
+    @Test
+    public void perder1000DeVida() {
+        Saint milo = new Saint("Milo", new Armadura("Escorpião", Categoria.OURO));
+        milo.perderVida(1000);
+        assertEquals(-900, milo.getVida(), 0.01);
+    }
+    
+    @Test
+    public void perderMenos1000DeVida() {
+        Saint milo = new Saint("Milo", new Armadura("Escorpião", Categoria.OURO));
+        milo.perderVida(-1000);
+        assertEquals(1100, milo.getVida(), 0.01);
+    }
+    
+    @Test
     public void setGeneroTrocaGenero() { 
         Saint milo = new Saint("Milo", new Armadura("Escorpião", Categoria.OURO));
         milo.setGenero(Genero.MASCULINO);
