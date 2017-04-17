@@ -10,10 +10,21 @@ public class Saint {
     private double vida = 100;
     private int quantSentidosDespertados = 4;
     
-    public Saint(String nome, Armadura armadura) {
+    public Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
         this.armadura = armadura;
         this.quantSentidosDespertados += this.armadura.getCategoria().getValor();
+        
+        if(this.armadura.getCategoria() == Categoria.OURO) {
+            String constelacao = this.armadura.getConstelacao();
+            if(
+                !constelacao.equals("Áries") 
+                && !constelacao.equals("Touro")
+                && !constelacao.equals("Escorpião")
+                && !constelacao.equals("Peixes")
+            )
+                throw new Exception("Constelação inválida.");
+        }
     }
     
     public void vestirArmadura() {
