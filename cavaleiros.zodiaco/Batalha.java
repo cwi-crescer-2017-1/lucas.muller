@@ -1,9 +1,8 @@
 /*
- * Class de batalhas entre Saints
+ * Classe de batalhas entre Saints
  */
 public class Batalha {
-    private Saint saintUm;
-    private Saint saintDois;
+    private Saint saintUm, saintDois;
     
     public Batalha(Saint saintUm, Saint saintDois) {
         this.saintUm = saintUm;
@@ -15,7 +14,7 @@ public class Batalha {
         Categoria catSaintDois = saintDois.getArmadura().getCategoria();
         if(catSaintDois.getValor() > catSaintUm.getValor())
             saintUm.perderVida(10);
-        else //if(catSaintUm.getValor() > catSaintDois.getValor() || catSaintUm.getValor() = catSaintDois.getValor())
+        else //if(catSaintUm.getValor() > catSaintDois.getValor() || catSaintUm.getValor() == catSaintDois.getValor())
             saintDois.perderVida(10);
     }
 }
