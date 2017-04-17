@@ -8,10 +8,16 @@ public class Saint {
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
     private double vida = 100;
-    
+    private int quantSentidosDespertados = 5;
+    //prata - 6 sentidos
+    //ouro - 7 sentidos
     public Saint(String nome, Armadura armadura) {
         this.nome = nome;
         this.armadura = armadura;
+        if(armadura.getCategoria() == Categoria.OURO)
+            this.quantSentidosDespertados = 7;
+        else if(armadura.getCategoria() == Categoria.PRATA)
+            this.quantSentidosDespertados = 6;
     }
     
     public void vestirArmadura() {
@@ -44,5 +50,9 @@ public class Saint {
     
     public double getVida() {
         return vida;
+    }
+    
+    public int getQuantSentidosDespertados() {
+        return quantSentidosDespertados;
     }
 }

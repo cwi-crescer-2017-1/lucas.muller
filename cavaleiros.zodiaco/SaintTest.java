@@ -77,4 +77,22 @@ public class SaintTest {
         milo.setGenero(Genero.MASCULINO);
         assertEquals(Genero.MASCULINO, milo.getGenero());
     }
+    
+    @Test
+    public void saintDeArmaduraDeCategoriaOuroNasceCom7SentidosDespertados() {
+        Saint afrodite = new Saint("Afrodite", new Armadura("Peixes", Categoria.OURO));
+        assertEquals(7, afrodite.getQuantSentidosDespertados());
+    }
+    
+    @Test
+    public void saintDeArmaduraDeCategoriaPrataNasceCom6SentidosDespertados() {
+        Saint marin = new Saint("Marin", new Armadura("Águia", Categoria.PRATA));
+        assertEquals(6, marin.getQuantSentidosDespertados());
+    }
+    
+    @Test
+    public void saintDeArmaduraDeCategoriaBronzeNasceCom5SentidosDespertados() {
+        Saint seiya = new Saint("Seiya", new Armadura("Pégaso", Categoria.BRONZE));
+        assertEquals(5, seiya.getQuantSentidosDespertados());
+    }
 }
