@@ -44,11 +44,10 @@ public class SaintTest {
     }
     
     @Test
-    public void perderVidaDiminuiVida() {
+    public void perder10DeVida() {
         Saint milo = new Saint("Milo", new Armadura("Escorpião", Categoria.OURO));
-        double vida = milo.getVida();
-        milo.perderVida(1.5);
-        assertEquals((vida - 1.5), milo.getVida(), 0.01);
+        milo.perderVida(10);
+        assertEquals(90, milo.getVida(), 0.01);
     }
     
     @Test
