@@ -22,6 +22,7 @@ public class Saint {
                 && !constelacao.equals("Touro")
                 && !constelacao.equals("Escorpião")
                 && !constelacao.equals("Peixes")
+                && !constelacao.equals("Virgem")
             )
                 throw new Exception("Constelação inválida.");
         }

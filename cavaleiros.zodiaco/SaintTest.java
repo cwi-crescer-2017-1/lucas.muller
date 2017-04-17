@@ -95,4 +95,9 @@ public class SaintTest {
         Saint seiya = new Saint("Seiya", new Armadura("Pégaso", Categoria.BRONZE));
         assertEquals(5, seiya.getQuantSentidosDespertados());
     }
+    
+    @Test(expected=Exception.class)
+    public void constelacaoInvalidaDeOuroDeveLancarErro() throws Exception {
+        new Saint("Lucas", new Armadura("Café", Categoria.OURO));
+    }
 }
