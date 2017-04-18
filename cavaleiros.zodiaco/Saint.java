@@ -61,18 +61,22 @@ public class Saint {
     public int getQuantSentidosDespertados() {
         return quantSentidosDespertados;
     }
+
+	private Constelacao getConstelacao() {
+		return this.armadura.getConstelacao();
+	}
     
     public Golpe[] getGolpes() {
-        return this.armadura.getConstelacao().getGolpes();
+        return this.getConstelacao().getGolpes();
     }
     
     public void aprenderGolpe(Golpe golpe) {
-        this.armadura.getConstelacao().adicionarGolpe(golpe);
+        this.getConstelacao().adicionarGolpe(golpe);
     }
     
     public Golpe getProximoGolpe() {
-        Golpe g = this.armadura.getConstelacao().getGolpes()[ultimoGolpe++];
-        if(ultimoGolpe >= this.armadura.getConstelacao().getGolpes().length)
+        Golpe g = this.getConstelacao().getGolpes()[ultimoGolpe++];
+        if(ultimoGolpe >= this.getConstelacao().getGolpes().length)
             ultimoGolpe = 0;
         return g;
     }
