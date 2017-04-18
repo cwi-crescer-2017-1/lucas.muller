@@ -62,7 +62,7 @@ public class SaintTest {
     public void perder1000DeVida() throws Exception {
         GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
         milo.perderVida(1000);
-        assertEquals(-900, milo.getVida(), 0.01);
+        assertEquals(0, milo.getVida(), 0.01);
     }
     
     @Test(expected=InvalidParameterException.class)

@@ -39,8 +39,10 @@ public class Saint {
             throw new InvalidParameterException("Quantidade de vida a ser perdida não pode ser menor que zero.");
         else if(this.status != Status.MORTO) {
             this.vida -= quant;
-            if(this.vida < 1)
+            if(this.vida < 1) {
                 this.status = Status.MORTO;
+                this.vida = 0;
+            }
         }
     }
     
