@@ -11,6 +11,7 @@ public class Saint {
     private Status status = Status.VIVO;
     private double vida = 100;
     protected int quantSentidosDespertados = 0;
+    private int ultimoGolpe = 0;
     
     public Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
@@ -57,5 +58,20 @@ public class Saint {
     
     public int getQuantSentidosDespertados() {
         return quantSentidosDespertados;
+    }
+    
+    public Golpe[] getGolpes() {
+        return this.armadura.getConstelacao().getGolpes();
+    }
+    
+    public void aprenderGolpe(Golpe golpe) {
+        this.armadura.getConstelacao().adicionarGolpe(golpe);
+    }
+    
+    public Golpe getProximoGolpe() {
+        Golpe g = this.armadura.getConstelacao().getGolpes()[ultimoGolpe++];
+        if(ultimoGolpe >= this.armadura.getConstelacao().getGolpes().length)
+            ultimoGolpe = 0;
+        return g;
     }
 }

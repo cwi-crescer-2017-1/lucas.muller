@@ -108,4 +108,27 @@ public class SaintTest {
         milo.perderVida(100);
         assertEquals(Status.MORTO, milo.getStatus());
     }
+    
+    @Test
+    public void aprenderGolpeAdicionaGolpe() throws Exception {
+        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        Golpe g = new Golpe("Cólera do Dragão", 25);
+        milo.aprenderGolpe(g);
+        assertEquals(g, milo.getGolpes()[0]);
+    }
+    
+    @Test
+    public void proximoGolpeRetornaProximoGolpe() throws Exception {
+        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        Golpe g = new Golpe("Meteoro de Pégasos", 50);
+        Golpe g2 = new Golpe("Cometa de Pégaso", 10);
+        Golpe g3 = new Golpe("Cólera do Dragão", 25);
+        milo.aprenderGolpe(g);
+        milo.aprenderGolpe(g2);
+        milo.aprenderGolpe(g3);
+        assertEquals(g, milo.getProximoGolpe());
+        assertEquals(g2, milo.getProximoGolpe());
+        assertEquals(g3, milo.getProximoGolpe());
+        assertEquals(g, milo.getProximoGolpe());
+    }
 }
