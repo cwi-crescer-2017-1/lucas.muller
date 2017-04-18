@@ -1,17 +1,18 @@
+import java.util.ArrayList;
+
 public class Constelacao {
     private String nome;
-    private Golpe[] golpes = new Golpe[3];
-	private int ultimoIndexGolpe = 0;
+    private ArrayList<Golpe> golpes = new ArrayList<Golpe>();
     
     public Constelacao(String nome) {
         this.nome = nome;
     }
     
     public void adicionarGolpe(Golpe golpe) {
-		this.golpes[ultimoIndexGolpe++] = golpe;
+		this.golpes.add(golpe);
     }
     
-    public Golpe[] getGolpes() {
+    public ArrayList<Golpe> getGolpes() {
         return this.golpes;
     }
     

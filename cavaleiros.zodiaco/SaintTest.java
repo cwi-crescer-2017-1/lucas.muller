@@ -114,9 +114,7 @@ public class SaintTest {
         GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
         Golpe g = new Golpe("Cólera do Dragão", 25);
         milo.aprenderGolpe(g);
-        assertEquals(g, milo.getGolpes()[0]);
-		assertNull(milo.getGolpes()[1]);
-        assertNull(milo.getGolpes()[2]);
+        assertEquals(g, milo.getGolpes().get(0));
     }
 
 	@Test
@@ -126,9 +124,8 @@ public class SaintTest {
 		Golpe g2 = new Golpe("Cometa de Pégaso", 10);
         milo.aprenderGolpe(g);
 		milo.aprenderGolpe(g2);
-        assertEquals(g, milo.getGolpes()[0]);
-		assertEquals(g2, milo.getGolpes()[1]);
-		assertNull(milo.getGolpes()[2]);
+        assertEquals(g, milo.getGolpes().get(0));
+		assertEquals(g2, milo.getGolpes().get(1));
     }
 
 	@Test
@@ -140,22 +137,9 @@ public class SaintTest {
         milo.aprenderGolpe(g);
 		milo.aprenderGolpe(g2);
 		milo.aprenderGolpe(g3);
-        assertEquals(g, milo.getGolpes()[0]);
-		assertEquals(g2, milo.getGolpes()[1]);
-		assertEquals(g3, milo.getGolpes()[2]);
-    }
-
-	@Test(expected=ArrayIndexOutOfBoundsException.class)
-    public void aprenderQuatroGolpes() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
-        Golpe g = new Golpe("Meteoro de Pégasos", 50);
-        Golpe g2 = new Golpe("Cometa de Pégaso", 10);
-        Golpe g3 = new Golpe("Cólera do Dragão", 25);
-        Golpe g4 = new Golpe("Meteoro do Dragão", 5);
-        milo.aprenderGolpe(g);
-        milo.aprenderGolpe(g2);
-        milo.aprenderGolpe(g3);
-        milo.aprenderGolpe(g4);
+        assertEquals(g, milo.getGolpes().get(0));
+		assertEquals(g2, milo.getGolpes().get(1));
+		assertEquals(g3, milo.getGolpes().get(2));
     }
     
     @Test

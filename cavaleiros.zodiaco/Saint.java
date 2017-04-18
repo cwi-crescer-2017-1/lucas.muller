@@ -1,4 +1,5 @@
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
 
 /*
  * Classe de cavaleiros(as)
@@ -66,7 +67,7 @@ public class Saint {
 		return this.armadura.getConstelacao();
 	}
     
-    public Golpe[] getGolpes() {
+    public ArrayList<Golpe> getGolpes() {
         return getConstelacao().getGolpes();
     }
     
@@ -75,7 +76,7 @@ public class Saint {
     }
     
     public Golpe getProximoGolpe() {
-        Golpe g = getConstelacao().getGolpes()[ultimoGolpe++ % getGolpes().length];
+        Golpe g = getConstelacao().getGolpes().get(ultimoGolpe++ % getGolpes().size());
         return g;
     }
 }
