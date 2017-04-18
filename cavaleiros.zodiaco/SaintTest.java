@@ -110,11 +110,52 @@ public class SaintTest {
     }
     
     @Test
-    public void aprenderGolpeAdicionaGolpe() throws Exception {
+    public void aprenderUmGolpe() throws Exception {
         GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
         Golpe g = new Golpe("Cólera do Dragão", 25);
         milo.aprenderGolpe(g);
         assertEquals(g, milo.getGolpes()[0]);
+		assertNull(milo.getGolpes()[1]);
+        assertNull(milo.getGolpes()[2]);
+    }
+
+	@Test
+    public void aprenderDoisGolpes() throws Exception {
+        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        Golpe g = new Golpe("Cólera do Dragão", 25);
+		Golpe g2 = new Golpe("Cometa de Pégaso", 10);
+        milo.aprenderGolpe(g);
+		milo.aprenderGolpe(g2);
+        assertEquals(g, milo.getGolpes()[0]);
+		assertEquals(g2, milo.getGolpes()[1]);
+		assertNull(milo.getGolpes()[2]);
+    }
+
+	@Test
+    public void aprenderTresGolpes() throws Exception {
+        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        Golpe g = new Golpe("Cólera do Dragão", 25);
+		Golpe g2 = new Golpe("Cometa de Pégaso", 10);
+		Golpe g3 = new Golpe("Cólera do Dragão", 25);
+        milo.aprenderGolpe(g);
+		milo.aprenderGolpe(g2);
+		milo.aprenderGolpe(g3);
+        assertEquals(g, milo.getGolpes()[0]);
+		assertEquals(g2, milo.getGolpes()[1]);
+		assertEquals(g3, milo.getGolpes()[2]);
+    }
+
+	@Test(expected=ArrayIndexOutOfBoundsException.class)
+    public void aprenderQuatroGolpes() throws Exception {
+        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        Golpe g = new Golpe("Meteoro de Pégasos", 50);
+        Golpe g2 = new Golpe("Cometa de Pégaso", 10);
+        Golpe g3 = new Golpe("Cólera do Dragão", 25);
+        Golpe g4 = new Golpe("Meteoro do Dragão", 5);
+        milo.aprenderGolpe(g);
+        milo.aprenderGolpe(g2);
+        milo.aprenderGolpe(g3);
+        milo.aprenderGolpe(g4);
     }
     
     @Test
@@ -130,5 +171,6 @@ public class SaintTest {
         assertEquals(g2, milo.getProximoGolpe());
         assertEquals(g3, milo.getProximoGolpe());
         assertEquals(g, milo.getProximoGolpe());
+		assertEquals(g2, milo.getProximoGolpe());
     }
 }

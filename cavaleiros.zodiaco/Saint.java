@@ -67,17 +67,15 @@ public class Saint {
 	}
     
     public Golpe[] getGolpes() {
-        return this.getConstelacao().getGolpes();
+        return getConstelacao().getGolpes();
     }
     
     public void aprenderGolpe(Golpe golpe) {
-        this.getConstelacao().adicionarGolpe(golpe);
+        getConstelacao().adicionarGolpe(golpe);
     }
     
     public Golpe getProximoGolpe() {
-        Golpe g = this.getConstelacao().getGolpes()[ultimoGolpe++];
-        if(ultimoGolpe >= this.getConstelacao().getGolpes().length)
-            ultimoGolpe = 0;
+        Golpe g = getConstelacao().getGolpes()[ultimoGolpe++ % getGolpes().length];
         return g;
     }
 }
