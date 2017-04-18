@@ -2,6 +2,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.security.InvalidParameterException;
 
 /*
  * Classe de testes da classe Saint
@@ -64,7 +65,7 @@ public class SaintTest {
         assertEquals(-900, milo.getVida(), 0.01);
     }
     
-    @Test
+    @Test(expected=InvalidParameterException.class)
     public void perderMenos1000DeVida() throws Exception {
         GoldSaint milo = new GoldSaint("Milo", new Armadura("Escorpião", Categoria.OURO));
         milo.perderVida(-1000);
@@ -99,5 +100,12 @@ public class SaintTest {
     @Test(expected=Exception.class)
     public void constelacaoInvalidaDeOuroDeveLancarErro() throws Exception {
         new GoldSaint("Lucas", new Armadura("Café", Categoria.OURO));
+    }
+    
+    @Test
+    public void saintMorreAoFicaCom0DeVida() throws Exception {
+        GoldSaint milo = new GoldSaint("Milo", new Armadura("Escorpião", Categoria.OURO));
+        milo.perderVida(100);
+        assertEquals(Status.MORTO, milo.getStatus());
     }
 }
