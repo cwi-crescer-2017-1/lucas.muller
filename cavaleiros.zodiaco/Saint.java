@@ -79,4 +79,8 @@ public class Saint {
         Golpe g = getConstelacao().getGolpes().get(ultimoGolpe++ % getGolpes().size());
         return g;
     }
+
+	public String getNome() {
+		return nome;
+	}
 }
