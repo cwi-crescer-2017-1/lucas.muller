@@ -4,7 +4,7 @@ public class GoldSaint extends Saint {
         if(armadura.getCategoria() != Categoria.OURO)
             throw new Exception("Categoria da armadura inválida.");
             
-        String constelacao = armadura.getConstelacao();
+        String constelacao = armadura.getConstelacao().getNome();
         if( 
             !constelacao.equals("Áries") 
             && !constelacao.equals("Touro")
