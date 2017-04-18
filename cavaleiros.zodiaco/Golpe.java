@@ -14,4 +14,11 @@ public class Golpe {
     public int getFatorDano() {
         return fatorDano;
     }
+
+	public boolean equals(Object object) {
+		return (
+			this.nome.equals(((Golpe)object).getNome())
+			&& this.fatorDano == ((Golpe)object).getFatorDano()
+		);
+	}
 }
