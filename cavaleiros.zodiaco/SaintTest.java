@@ -115,6 +115,7 @@ public class SaintTest {
         Golpe g = new Golpe("Cólera do Dragão", 25);
         milo.aprenderGolpe(g);
         assertEquals(g, milo.getGolpes().get(0));
+        assertEquals(1, milo.getGolpes().size());
     }
 
 	@Test
@@ -126,6 +127,7 @@ public class SaintTest {
 		milo.aprenderGolpe(g2);
         assertEquals(g, milo.getGolpes().get(0));
 		assertEquals(g2, milo.getGolpes().get(1));
+		assertEquals(2, milo.getGolpes().size());
     }
 
 	@Test
@@ -140,6 +142,7 @@ public class SaintTest {
         assertEquals(g, milo.getGolpes().get(0));
 		assertEquals(g2, milo.getGolpes().get(1));
 		assertEquals(g3, milo.getGolpes().get(2));
+		assertEquals(3, milo.getGolpes().size());
     }
     
     @Test
