@@ -9,6 +9,10 @@ public class ListaSaints {
         this.saints.add(s);
     }
     
+    private void adicionarTudo(ListaSaints lista) {
+        this.saints.addAll(lista.todos());
+    }
+    
     public Saint get(int i) {
         return this.saints.get(i);
     }
@@ -81,5 +85,12 @@ public class ListaSaints {
         this.ordenar();
         if(tipoOrdenacao == TipoOrdenacao.DESCENDENTE)
             Collections.reverse(this.saints);
+    }
+    
+    public ListaSaints unir(ListaSaints listaRecebida) {
+        ListaSaints listaRetorno = new ListaSaints();
+        listaRetorno.adicionarTudo(this);
+        listaRetorno.adicionarTudo(listaRecebida);
+        return listaRetorno;
     }
 }

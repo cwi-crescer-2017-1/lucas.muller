@@ -239,4 +239,18 @@ public class ListaSainsTest {
         assertEquals(marin, lista.get(2));
         assertEquals(ares, lista.get(3));
     }
+    
+    @Test
+    public void unirListasComUmSaint() throws Exception {
+        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
+        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        ListaSaints lista1 = new ListaSaints();
+        lista1.adicionar(ares);
+        ListaSaints lista2 = new ListaSaints();
+        lista2.adicionar(marin);
+        ListaSaints resultado = lista1.unir(lista2);
+        assertEquals(2, resultado.todos().size());
+        assertEquals(ares, resultado.get(0));
+        assertEquals(marin, resultado.get(1));
+    }
 }
