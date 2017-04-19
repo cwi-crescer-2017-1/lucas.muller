@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.stream.Collectors;
 
 public class ListaSaints {
     private ArrayList<Saint> saints = new ArrayList<>();
@@ -21,29 +21,15 @@ public class ListaSaints {
     }
     
     public Saint buscarPorNome(String nome) {
-        for(Saint s: this.saints) {
-            if(s.getNome().equals(nome))
-                return s;
-        }
-        return null;
+        return this.saints.stream().filter(s -> s.getNome().equals(nome)).findFirst().orElse(null);
     }
     
     public ArrayList<Saint> buscarPorCategoria(Categoria categoria) {
-        ArrayList<Saint> saintsSubList = new ArrayList<>();
-        for(Saint s: this.saints) {
-            if(s.getArmadura().getCategoria() == categoria)
-                saintsSubList.add(s);
-        }
-        return saintsSubList;
+        return this.saints.stream().filter(s -> s.getArmadura().getCategoria().equals(categoria)).collect(Collectors.toCollection(ArrayList::new));
     }
     
     public ArrayList<Saint> buscarPorStatus(Status status) {
-        ArrayList<Saint> saintsSubList = new ArrayList<>();
-        for(Saint s: this.saints) {
-            if(s.getStatus() == status)
-                saintsSubList.add(s);
-        }
-        return saintsSubList;
+        return this.saints.stream().filter(s -> s.getStatus().equals(status)).collect(Collectors.toCollection(ArrayList::new));
     }
     
     public Saint getSaintMaiorVida() {
