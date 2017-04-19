@@ -47,7 +47,7 @@ public class ListaSaints {
     }
     
     public Saint getSaintMaiorVida() {
-        if(this.saints.size() > 0)
+        if(this.saints.size() < 1)
             return null;
         
         Saint saintRetorno = this.saints.get(0);
@@ -59,7 +59,7 @@ public class ListaSaints {
     }
     
     public Saint getSaintMenorVida() {
-        if(this.saints.size() > 0)
+        if(this.saints.size() < 1)
             return null;
         
         Saint saintRetorno = this.saints.get(0);
@@ -70,12 +70,17 @@ public class ListaSaints {
         return saintRetorno;
     }
     
-    public void ordernar() {
-        this.saints.sort(new Comparator<Saint>() {
-            @Override
-            public int compare(Saint s1, Saint s2) {
-                return Double.compare(s1.getVida(), s2.getVida());
+    public void ordenar() {
+        if(this.saints.size() < 1)
+            return;
+        
+        ArrayList<Saint> listaOrdenada = new ArrayList<Saint>(this.saints);
+        for (int i = 0; i < listaOrdenada.size(); i++) {
+            for (int j = listaOrdenada.size() - 1; j > i; j--) {
+                if (listaOrdenada.get(i).getVida() > listaOrdenada.get(j).getVida())
+                    listaOrdenada.set(i, listaOrdenada.set(j, listaOrdenada.get(i)));
             }
-        });
+        }
+        this.saints = listaOrdenada;
     }
 }
