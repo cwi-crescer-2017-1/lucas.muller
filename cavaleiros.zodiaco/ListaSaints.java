@@ -59,14 +59,20 @@ public class ListaSaints {
     public void ordenar() {
         if(this.saints.size() < 1)
             return;
-        
-        ArrayList<Saint> listaOrdenada = new ArrayList<Saint>(this.saints);
-        for (int i = 0; i < listaOrdenada.size(); i++) {
-            for (int j = listaOrdenada.size() - 1; j > i; j--) {
-                if (listaOrdenada.get(i).getVida() > listaOrdenada.get(j).getVida())
-                    listaOrdenada.set(i, listaOrdenada.set(j, listaOrdenada.get(i)));
+            
+        // Bubble Sort
+        boolean posicoesSendoTrocadas = false;
+        do {
+            posicoesSendoTrocadas = false;
+            for(int i = 0; i < this.saints.size() - 1; i++) {
+                Saint atual = this.saints.get(i);
+                Saint proximo = this.saints.get(i + 1);
+                if(atual.getVida() > proximo.getVida()) {
+                    this.saints.set(i, proximo);
+                    this.saints.set(i + 1, atual);
+                    posicoesSendoTrocadas = true;
+                }
             }
-        }
-        this.saints = listaOrdenada;
+        } while (posicoesSendoTrocadas == true);
     }
 }
