@@ -10,6 +10,7 @@ public class ConstelacaoTest {
         Golpe g = new Golpe("Meteoro de Pégasos", 50);
         c.adicionarGolpe(g);
         assertEquals(g, c.getGolpes().get(0));
+        assertEquals(1, c.getGolpes().size());
     }
     
     @Test
@@ -21,6 +22,7 @@ public class ConstelacaoTest {
         c.adicionarGolpe(g2);
         assertEquals(g2, c.getGolpes().get(1));
         assertEquals(g, c.getGolpes().get(0));
+        assertEquals(2, c.getGolpes().size());
     }
     
     @Test
@@ -35,5 +37,6 @@ public class ConstelacaoTest {
         assertEquals(g3, c.getGolpes().get(2));
         assertEquals(g2, c.getGolpes().get(1));
         assertEquals(g, c.getGolpes().get(0));
+        assertEquals(3, c.getGolpes().size());
     }
 }
