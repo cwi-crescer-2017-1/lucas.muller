@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.stream.Collectors;
 
 public class ListaSaints {
@@ -74,5 +75,11 @@ public class ListaSaints {
                 }
             }
         } while (posicoesSendoTrocadas == true);
+    }
+    
+    public void ordenar(TipoOrdenacao tipoOrdenacao) {
+        this.ordenar();
+        if(tipoOrdenacao == TipoOrdenacao.DESCENDENTE)
+            Collections.reverse(this.saints);
     }
 }
