@@ -113,12 +113,13 @@ public class ListaSaints {
     }
     
     public String getCSV() {
-        StringBuilder resultado = new StringBuilder();
-        for(Saint s: this.saints) {
-            resultado.append(s.getCSV())
-                .append(System.lineSeparator());
+        if(this.saints.size() < 1)
+            return "";
+            
+        String resultado = this.saints.get(0).getCSV();
+        for(int i = 1; i < this.saints.size(); i++){
+            resultado += "\n" + this.saints.get(i).getCSV();
         }
-        resultado.setLength(resultado.length() - 1);
-        return resultado.toString();
+        return resultado;
     }
 }
