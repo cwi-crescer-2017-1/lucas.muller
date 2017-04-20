@@ -93,4 +93,38 @@ public class ListaSaints {
         listaRetorno.adicionarTudo(listaRecebida);
         return listaRetorno;
     }
+    
+    public ListaSaints diff(ListaSaints listaRecebida) {
+        ListaSaints listaRetorno = new ListaSaints();
+        for(Saint s: this.saints) {
+            if(!listaRecebida.todos().contains(s))
+                listaRetorno.adicionar(s);
+        }
+        return listaRetorno;
+    } 
+    
+    public ListaSaints intersec(ListaSaints listaRecebida) {
+        ListaSaints listaRetorno = new ListaSaints();
+        for(Saint s: this.saints) {
+            if(listaRecebida.todos().contains(s))
+                listaRetorno.adicionar(s);
+        }
+        return listaRetorno;
+    }
+    
+    public String getCSV() {
+        StringBuilder resultado = new StringBuilder();
+        for(Saint s: this.saints) {
+            resultado.append(s.getNome() + ",")
+                .append(s.getVida() + ",")
+                .append(s.getArmadura().getConstelacao().getNome() + ",")
+                .append(s.getArmadura().getCategoria().toString() + ",")
+                .append(s.getStatus().toString() + ",")
+                .append(s.getGenero().toString() + ",")
+                .append(s.isArmaduraVestida())
+                .append(System.lineSeparator());
+        }
+        resultado.setLength(resultado.length() - 1);
+        return resultado.toString();
+    }
 }

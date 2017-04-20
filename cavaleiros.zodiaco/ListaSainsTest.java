@@ -252,5 +252,97 @@ public class ListaSainsTest {
         assertEquals(2, resultado.todos().size());
         assertEquals(ares, resultado.get(0));
         assertEquals(marin, resultado.get(1));
+        System.out.println(resultado.getCSV());
+    }
+    
+    @Test
+    public void diffListasComUmSaintIgual() throws Exception {
+        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
+        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        ListaSaints lista1 = new ListaSaints();
+        lista1.adicionar(marin);
+        lista1.adicionar(ares);
+        ListaSaints lista2 = new ListaSaints();
+        lista2.adicionar(marin);
+        ListaSaints resultado = lista1.diff(lista2);
+        assertEquals(1, resultado.todos().size());
+        assertEquals(ares, resultado.get(0));
+    }
+    
+    @Test
+    public void diffListasComVariosSaintsIguais() throws Exception {
+        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
+        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
+        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        ListaSaints lista1 = new ListaSaints();
+        lista1.adicionar(marin);
+        lista1.adicionar(milo);
+        lista1.adicionar(ares);
+        ListaSaints lista2 = new ListaSaints();
+        lista2.adicionar(marin);
+        lista2.adicionar(afrodite);
+        lista2.adicionar(milo);
+        ListaSaints resultado = lista1.diff(lista2);
+        assertEquals(1, resultado.todos().size());
+        assertEquals(ares, resultado.get(0));
+    }
+    
+    @Test
+    public void diffListasComNenhumSaintDiferente() throws Exception {
+        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
+        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        ListaSaints lista1 = new ListaSaints();
+        lista1.adicionar(marin);
+        lista1.adicionar(ares);
+        ListaSaints lista2 = new ListaSaints();
+        lista2.adicionar(marin);
+        lista2.adicionar(ares);
+        ListaSaints resultado = lista1.diff(lista2);
+        assertEquals(0, resultado.todos().size());
+    }
+    
+    @Test
+    public void intersecListasComUmSaintIgual() throws Exception {
+        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
+        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        ListaSaints lista1 = new ListaSaints();
+        lista1.adicionar(marin);
+        lista1.adicionar(ares);
+        ListaSaints lista2 = new ListaSaints();
+        lista2.adicionar(ares);
+        ListaSaints resultado = lista1.intersec(lista2);
+        assertEquals(1, resultado.todos().size());
+        assertEquals(ares, resultado.get(0));
+    }
+    
+    @Test
+    public void intersecListasComVariosSaintsIguais() throws Exception {
+        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
+        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
+        ListaSaints lista1 = new ListaSaints();
+        lista1.adicionar(marin);
+        lista1.adicionar(afrodite);
+        lista1.adicionar(ares);
+        ListaSaints lista2 = new ListaSaints();
+        lista2.adicionar(ares);
+        lista2.adicionar(afrodite);
+        ListaSaints resultado = lista1.intersec(lista2);
+        assertEquals(2, resultado.todos().size());
+        assertEquals(afrodite, resultado.get(0));
+        assertEquals(ares, resultado.get(1));
+    }
+    
+    @Test
+    public void intersecListasComNenhumSaintIgual() throws Exception {
+        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
+        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        ListaSaints lista1 = new ListaSaints();
+        lista1.adicionar(marin);
+        ListaSaints lista2 = new ListaSaints();
+        lista2.adicionar(ares);
+        ListaSaints resultado = lista1.intersec(lista2);
+        assertEquals(0, resultado.todos().size());
     }
 }
