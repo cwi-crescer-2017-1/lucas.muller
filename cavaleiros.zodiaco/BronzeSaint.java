@@ -2,6 +2,10 @@
  * Classe de Saints de Bronze
  */
 public class BronzeSaint extends Saint {
+    public BronzeSaint(String nome, String constelacao) throws Exception {
+        this(nome, new Armadura(new Constelacao(constelacao), Categoria.BRONZE));
+    }
+    
     public BronzeSaint(String nome, Armadura armadura) throws Exception {
         super(nome, armadura);
         if(armadura.getCategoria() != Categoria.BRONZE)
