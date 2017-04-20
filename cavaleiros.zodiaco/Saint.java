@@ -63,9 +63,9 @@ public class Saint {
         return quantSentidosDespertados;
     }
 
-	private Constelacao getConstelacao() {
-		return this.armadura.getConstelacao();
-	}
+    private Constelacao getConstelacao() {
+        return this.armadura.getConstelacao();
+    }
     
     public ArrayList<Golpe> getGolpes() {
         return getConstelacao().getGolpes();
@@ -80,7 +80,19 @@ public class Saint {
         return g;
     }
 
-	public String getNome() {
-		return nome;
-	}
+    public String getNome() {
+        return nome;
+    }
+    
+    public String getCSV() {
+        return new StringBuilder()
+            .append(this.getNome() + ",")
+            .append(this.getVida() + ",")
+            .append(this.getArmadura().getConstelacao().getNome() + ",")
+            .append(this.getArmadura().getCategoria().toString() + ",")
+            .append(this.getStatus().toString() + ",")
+            .append(this.getGenero().toString() + ",")
+            .append(this.isArmaduraVestida())
+            .toString();
+    }
 }
