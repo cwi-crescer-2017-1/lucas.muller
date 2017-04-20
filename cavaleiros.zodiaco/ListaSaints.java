@@ -115,13 +115,7 @@ public class ListaSaints {
     public String getCSV() {
         StringBuilder resultado = new StringBuilder();
         for(Saint s: this.saints) {
-            resultado.append(s.getNome() + ",")
-                .append(s.getVida() + ",")
-                .append(s.getArmadura().getConstelacao().getNome() + ",")
-                .append(s.getArmadura().getCategoria().toString() + ",")
-                .append(s.getStatus().toString() + ",")
-                .append(s.getGenero().toString() + ",")
-                .append(s.isArmaduraVestida())
+            resultado.append(s.getCSV())
                 .append(System.lineSeparator());
         }
         resultado.setLength(resultado.length() - 1);
