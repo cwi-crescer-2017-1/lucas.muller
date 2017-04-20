@@ -115,11 +115,12 @@ public class ListaSaints {
     public String getCSV() {
         if(this.saints.size() < 1)
             return "";
-            
-        String resultado = this.saints.get(0).getCSV();
+        
+        String separador = "\n";
+        StringBuilder resultado = new StringBuilder(512).append(this.saints.get(0).getCSV());
         for(int i = 1; i < this.saints.size(); i++){
-            resultado += "\n" + this.saints.get(i).getCSV();
+            resultado.append(separador).append(this.saints.get(i).getCSV());
         }
-        return resultado;
+        return resultado.toString();
     }
 }
