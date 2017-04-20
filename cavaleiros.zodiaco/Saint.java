@@ -14,7 +14,7 @@ public class Saint {
     protected int quantSentidosDespertados = 0;
     private int ultimoGolpe = 0;
     
-    public Saint(String nome, Armadura armadura) throws Exception {
+    public Saint(String nome, Armadura armadura) {
         this.nome = nome;
         this.armadura = armadura;
     }
