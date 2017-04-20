@@ -85,14 +85,16 @@ public class Saint {
     }
     
     public String getCSV() {
-        return new StringBuilder()
-            .append(this.getNome() + ",")
-            .append(this.getVida() + ",")
-            .append(this.getArmadura().getConstelacao().getNome() + ",")
-            .append(this.getArmadura().getCategoria().toString() + ",")
-            .append(this.getStatus().toString() + ",")
-            .append(this.getGenero().toString() + ",")
-            .append(this.isArmaduraVestida())
-            .toString();
+        String s = String.format(
+            "%s,%s,%s,%s,%s,%s,%s",
+            this.getNome(),
+            this.getVida(),
+            this.armadura.getConstelacao().getNome(),
+            this.armadura.getCategoria(),
+            this.status.toString(),
+            this.genero.toString(),
+            this.armaduraVestida
+        );
+        return s;
     }
 }
