@@ -193,7 +193,7 @@ public class SaintTest {
     
     @Test
     public void  getCSVSemArmaduraVestida() throws Exception {
-        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        BronzeSaint june = new BronzeSaint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
         june.setGenero(Genero.FEMININO);
         june.perderVida(15.5);
         assertEquals("June,84.5,Camaleão,BRONZE,VIVO,FEMININO,false", june.getCSV());
@@ -201,9 +201,9 @@ public class SaintTest {
     
     @Test
     public void  getCSVComArmaduraVestida() throws Exception {
-        Saint dohko = new Saint("Dohko", new Armadura(new Constelacao(""), Categoria.OURO));
+        GoldSaint dohko = new GoldSaint("Dohko", new Armadura(new Constelacao("Áries"), Categoria.OURO));
         dohko.perderVida(90);
         dohko.vestirArmadura();
-        assertEquals("Dohko,10.0,,OURO,VIVO,NAO_INFORMADO,true", dohko.getCSV());
+        assertEquals("Dohko,10.0,Áries,OURO,VIVO,NAO_INFORMADO,true", dohko.getCSV());
     }
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /*
  * Classe de cavaleiros(as)
  */
-public class Saint {
+public abstract class Saint {
     private String nome;
     private Armadura armadura;
     private boolean armaduraVestida;
