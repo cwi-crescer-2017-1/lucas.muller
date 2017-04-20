@@ -61,18 +61,20 @@ public class ListaSaints {
         return saintRetorno;
     }
     
-    public void ordenar() {
+    public void ordenar(TipoOrdenacao tipoOrdenacao) {
         if(this.saints.size() < 1)
             return;
             
         // Bubble Sort
+        boolean isAscendente = tipoOrdenacao == TipoOrdenacao.ASCENDENTE;
         boolean posicoesSendoTrocadas = false;
         do {
             posicoesSendoTrocadas = false;
             for(int i = 0; i < this.saints.size() - 1; i++) {
                 Saint atual = this.saints.get(i);
                 Saint proximo = this.saints.get(i + 1);
-                if(atual.getVida() > proximo.getVida()) {
+                boolean precisaTrocar = isAscendente ? atual.getVida() > proximo.getVida() : atual.getVida() < proximo.getVida();
+                if(precisaTrocar) {
                     this.saints.set(i, proximo);
                     this.saints.set(i + 1, atual);
                     posicoesSendoTrocadas = true;
@@ -81,10 +83,8 @@ public class ListaSaints {
         } while (posicoesSendoTrocadas == true);
     }
     
-    public void ordenar(TipoOrdenacao tipoOrdenacao) {
-        this.ordenar();
-        if(tipoOrdenacao == TipoOrdenacao.DESCENDENTE)
-            Collections.reverse(this.saints);
+    public void ordenar() {
+        this.ordenar(TipoOrdenacao.ASCENDENTE);
     }
     
     public ListaSaints unir(ListaSaints listaRecebida) {
