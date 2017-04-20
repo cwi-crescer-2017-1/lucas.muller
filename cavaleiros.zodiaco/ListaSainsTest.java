@@ -252,7 +252,50 @@ public class ListaSainsTest {
         assertEquals(2, resultado.todos().size());
         assertEquals(ares, resultado.get(0));
         assertEquals(marin, resultado.get(1));
-        System.out.println(resultado.getCSV());
+    }
+    
+    @Test
+    public void unirListasComVariosSaints() throws Exception {
+        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
+        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
+        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        ListaSaints lista1 = new ListaSaints();
+        lista1.adicionar(ares);
+        lista1.adicionar(milo);
+        lista1.adicionar(afrodite);
+        ListaSaints lista2 = new ListaSaints();
+        lista2.adicionar(marin);
+        ListaSaints resultado = lista1.unir(lista2);
+        assertEquals(4, resultado.todos().size());
+        assertEquals(ares, resultado.get(0));
+        assertEquals(milo, resultado.get(1));
+        assertEquals(afrodite, resultado.get(2));
+        assertEquals(marin, resultado.get(3));
+    }
+    
+    @Test
+    public void unirListasComSaintIgual() throws Exception {
+        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
+        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        ListaSaints lista1 = new ListaSaints();
+        lista1.adicionar(ares);
+        lista1.adicionar(marin);
+        ListaSaints lista2 = new ListaSaints();
+        lista2.adicionar(marin);
+        ListaSaints resultado = lista1.unir(lista2);
+        assertEquals(3, resultado.todos().size());
+        assertEquals(ares, resultado.get(0));
+        assertEquals(marin, resultado.get(1));
+        assertEquals(marin, resultado.get(2));
+    }
+    
+    @Test
+    public void unirListasComNenhumSaint() throws Exception {
+        ListaSaints lista1 = new ListaSaints();
+        ListaSaints lista2 = new ListaSaints();
+        ListaSaints resultado = lista1.unir(lista2);
+        assertEquals(0, resultado.todos().size());
     }
     
     @Test
