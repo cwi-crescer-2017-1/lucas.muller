@@ -197,7 +197,68 @@ public class ListaSainsTest {
     }
     
     @Test
-    public void ordenarDescendenteSaintsComListaTotalmenteOrdenada() throws Exception {
+    public void ordenarTipoOrdernacaoAscendenteSaintsComListaTotalmenteDesordenada() throws Exception {
+        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
+        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
+        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        milo.perderVida(10);
+        afrodite.perderVida(20);
+        marin.perderVida(30);
+        ares.perderVida(40);
+        ListaSaints lista = new ListaSaints();
+        lista.adicionar(milo);
+        lista.adicionar(afrodite);
+        lista.adicionar(marin);
+        lista.adicionar(ares);
+        lista.ordenar(TipoOrdenacao.ASCENDENTE);
+        assertEquals(ares, lista.get(0));
+        assertEquals(marin, lista.get(1));
+        assertEquals(afrodite, lista.get(2));
+        assertEquals(milo, lista.get(3));
+    }
+    
+    @Test
+    public void ordenarTipoOrdernacaoAscendenteSaintsComListaTotalmenteOrdenada() throws Exception {
+        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
+        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
+        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        milo.perderVida(10);
+        afrodite.perderVida(20);
+        marin.perderVida(30);
+        ares.perderVida(40);
+        ListaSaints lista = new ListaSaints();
+        lista.adicionar(ares);
+        lista.adicionar(marin);
+        lista.adicionar(afrodite);
+        lista.adicionar(milo);
+        lista.ordenar(TipoOrdenacao.ASCENDENTE);
+        assertEquals(ares, lista.get(0));
+        assertEquals(marin, lista.get(1));
+        assertEquals(afrodite, lista.get(2));
+        assertEquals(milo, lista.get(3));
+    }
+    
+    @Test
+    public void ordenarTipoOrdernacaoAscendenteSaintsComUmSaintNaLista() throws Exception {
+        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        ListaSaints lista = new ListaSaints();
+        lista.adicionar(milo);
+        lista.ordenar(TipoOrdenacao.ASCENDENTE);
+        assertEquals(milo, lista.get(0));
+        assertFalse(lista.todos().isEmpty());
+    }
+    
+    @Test
+    public void ordenarTipoOrdernacaoAscendenteSaintsComListaVazia() {
+        ListaSaints lista = new ListaSaints();
+        lista.ordenar(TipoOrdenacao.ASCENDENTE);
+        assertTrue(lista.todos().isEmpty());
+    }
+    
+    @Test
+    public void ordenarTipoOrdernacaoDescendenteSaintsComListaTotalmenteOrdenada() throws Exception {
         GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
         GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
         BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
@@ -219,7 +280,7 @@ public class ListaSainsTest {
     }
     
     @Test
-    public void ordenarDescendenteSaintsComListaTotalmenteDesordenada() throws Exception {
+    public void ordenarTipoOrdernacaoDescendenteSaintsComListaTotalmenteDesordenada() throws Exception {
         GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
         GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
         BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
@@ -238,6 +299,23 @@ public class ListaSainsTest {
         assertEquals(afrodite, lista.get(1));
         assertEquals(marin, lista.get(2));
         assertEquals(ares, lista.get(3));
+    }
+    
+    @Test
+    public void ordenarTipoOrdernacaoDescendenteSaintsComUmSaintNaLista() throws Exception {
+        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        ListaSaints lista = new ListaSaints();
+        lista.adicionar(milo);
+        lista.ordenar(TipoOrdenacao.DESCENDENTE);
+        assertEquals(milo, lista.get(0));
+        assertFalse(lista.todos().isEmpty());
+    }
+    
+    @Test
+    public void ordenarTipoOrdernacaoDescendenteSaintsComListaVazia() {
+        ListaSaints lista = new ListaSaints();
+        lista.ordenar(TipoOrdenacao.DESCENDENTE);
+        assertTrue(lista.todos().isEmpty());
     }
     
     @Test
