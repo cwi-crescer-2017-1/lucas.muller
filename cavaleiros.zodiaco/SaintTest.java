@@ -102,6 +102,36 @@ public class SaintTest {
         new GoldSaint("Lucas", new Armadura(new Constelacao("Café"), Categoria.OURO));
     }
     
+    @Test(expected=Exception.class)
+    public void criarGoldSaintComCategoriaInvalidaDeveLancarErro() throws Exception {
+        new GoldSaint("Lucas", new Armadura(new Constelacao("Áries"), Categoria.PRATA));
+    }
+    
+    @Test(expected=Exception.class)
+    public void criarSilverSaintComCategoriaInvalidaDeveLancarErro() throws Exception {
+        new SilverSaint("Lucas", new Armadura(new Constelacao("Áries"), Categoria.OURO));
+    }
+    
+    @Test(expected=Exception.class)
+    public void criarBronzeSaintComCategoriaInvalidaDeveLancarErro() throws Exception {
+        new BronzeSaint("Lucas", new Armadura(new Constelacao("Áries"), Categoria.OURO));
+    }
+    
+    @Test
+    public void criarGoldSaintComCategoriaValidaNaoDeveLancarErro() throws Exception {
+        new GoldSaint("Lucas", new Armadura(new Constelacao("Áries"), Categoria.OURO));
+    }
+    
+    @Test
+    public void criarSilverSaintComCategoriaValidaNaoDeveLancarErro() throws Exception {
+        new SilverSaint("Lucas", new Armadura(new Constelacao("Áries"), Categoria.PRATA));
+    }
+    
+    @Test
+    public void criarBronzeSaintComCategoriaValidaNaoDeveLancarErro() throws Exception {
+        new BronzeSaint("Lucas", new Armadura(new Constelacao("Áries"), Categoria.BRONZE));
+    }
+    
     @Test
     public void saintMorreAoFicaCom0DeVida() throws Exception {
         GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
