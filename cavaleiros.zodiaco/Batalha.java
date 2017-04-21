@@ -10,11 +10,19 @@ public class Batalha {
         this.saintDois = saintDois;
     }
     
-    public void iniciar() {
+    /*public void iniciar() {
         Categoria catSaintUm = saintUm.getArmadura().getCategoria();
         Categoria catSaintDois = saintDois.getArmadura().getCategoria();
         if(catSaintDois.getValor() > catSaintUm.getValor())
             saintUm.perderVida(dano);
         else saintDois.perderVida(dano);
+    }*/
+    
+    public void iniciar() {
+        Saint golpeadorAtual = saintUm;
+        do {
+            golpeadorAtual.getProximoMovimento().executar();
+            golpeadorAtual = (golpeadorAtual == saintUm) ? saintDois : saintUm;
+        } while(saintUm.getStatus() != Status.MORTO && saintDois.getStatus() != Status.MORTO);
     }
 }
