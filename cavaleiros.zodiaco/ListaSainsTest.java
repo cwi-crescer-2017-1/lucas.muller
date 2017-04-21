@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class ListaSainsTest {
     @Test
     public void buscarSaintExistentePorNome() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         ListaSaints lista = new ListaSaints();
         lista.adicionar(milo);
         assertEquals(milo, lista.buscarPorNome("Milo"));
@@ -15,8 +15,8 @@ public class ListaSainsTest {
     
     @Test
     public void buscarSaintExistenteComRepeticaoDeNomes() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
-        SilverSaint milo2 = new SilverSaint("Milo", new Armadura(new Constelacao("Pégaso"), Categoria.PRATA));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
+        SilverSaint milo2 = new SilverSaint("Milo", "Pégaso");
         ListaSaints lista = new ListaSaints();
         lista.adicionar(milo);
         lista.adicionar(milo2);
@@ -25,7 +25,7 @@ public class ListaSainsTest {
     
     @Test
     public void buscarSaintInexistentePorNome() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         ListaSaints lista = new ListaSaints();
         lista.adicionar(milo);
         assertNull(lista.buscarPorNome("Marin"));
@@ -39,8 +39,8 @@ public class ListaSainsTest {
     
     @Test
     public void buscarPorCategoria() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
-        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
+        GoldSaint afrodite = new GoldSaint("Afrodite", "Peixes");
         ListaSaints lista = new ListaSaints();
         lista.adicionar(milo);
         lista.adicionar(afrodite);
@@ -52,7 +52,7 @@ public class ListaSainsTest {
     
     @Test
     public void buscarPorCategoriaInexistente() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         ListaSaints lista = new ListaSaints();
         lista.adicionar(milo);
         ArrayList<Saint> subLista = lista.buscarPorCategoria(Categoria.PRATA);
@@ -67,9 +67,9 @@ public class ListaSainsTest {
     
     @Test
     public void buscarPorStatus() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
-        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
+        GoldSaint afrodite = new GoldSaint("Afrodite", "Peixes");
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
         marin.perderVida(100);
         afrodite.perderVida(90);
         ListaSaints lista = new ListaSaints();
@@ -84,7 +84,7 @@ public class ListaSainsTest {
     
     @Test
     public void buscarPorStatusInexistente() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         ListaSaints lista = new ListaSaints();
         lista.adicionar(milo);
         ArrayList<Saint> subLista = lista.buscarPorStatus(Status.MORTO);
@@ -99,9 +99,9 @@ public class ListaSainsTest {
     
     @Test
     public void getSaintDeMaiorVida() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
-        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
+        GoldSaint afrodite = new GoldSaint("Afrodite", "Peixes");
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
         marin.perderVida(100);
         afrodite.perderVida(90);
         ListaSaints lista = new ListaSaints();
@@ -118,9 +118,9 @@ public class ListaSainsTest {
     
     @Test
     public void getSaintDeMenorVida() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
-        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
+        GoldSaint afrodite = new GoldSaint("Afrodite", "Peixes");
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
         marin.perderVida(100);
         afrodite.perderVida(90);
         ListaSaints lista = new ListaSaints();
@@ -137,10 +137,10 @@ public class ListaSainsTest {
     
     @Test
     public void ordenarSaintsComListaTotalmenteDesordenada() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
-        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
-        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
+        GoldSaint afrodite = new GoldSaint("Afrodite", "Peixes");
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
+        BronzeSaint ares = new BronzeSaint("Ares", "Touro");
         milo.perderVida(10);
         afrodite.perderVida(20);
         marin.perderVida(30);
@@ -159,10 +159,10 @@ public class ListaSainsTest {
     
     @Test
     public void ordenarSaintsComListaTotalmenteOrdenada() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
-        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
-        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
+        GoldSaint afrodite = new GoldSaint("Afrodite", "Peixes");
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
+        BronzeSaint ares = new BronzeSaint("Ares", "Touro");
         milo.perderVida(10);
         afrodite.perderVida(20);
         marin.perderVida(30);
@@ -181,7 +181,7 @@ public class ListaSainsTest {
     
     @Test
     public void ordenarSaintsComUmSaintNaLista() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         ListaSaints lista = new ListaSaints();
         lista.adicionar(milo);
         lista.ordenar();
@@ -198,10 +198,10 @@ public class ListaSainsTest {
     
     @Test
     public void ordenarTipoOrdernacaoAscendenteSaintsComListaTotalmenteDesordenada() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
-        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
-        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
+        GoldSaint afrodite = new GoldSaint("Afrodite", "Peixes");
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
+        BronzeSaint ares = new BronzeSaint("Ares", "Touro");
         milo.perderVida(10);
         afrodite.perderVida(20);
         marin.perderVida(30);
@@ -220,10 +220,10 @@ public class ListaSainsTest {
     
     @Test
     public void ordenarTipoOrdernacaoAscendenteSaintsComListaTotalmenteOrdenada() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
-        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
-        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
+        GoldSaint afrodite = new GoldSaint("Afrodite", "Peixes");
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
+        BronzeSaint ares = new BronzeSaint("Ares", "Touro");
         milo.perderVida(10);
         afrodite.perderVida(20);
         marin.perderVida(30);
@@ -242,7 +242,7 @@ public class ListaSainsTest {
     
     @Test
     public void ordenarTipoOrdernacaoAscendenteSaintsComUmSaintNaLista() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         ListaSaints lista = new ListaSaints();
         lista.adicionar(milo);
         lista.ordenar(TipoOrdenacao.ASCENDENTE);
@@ -259,10 +259,10 @@ public class ListaSainsTest {
     
     @Test
     public void ordenarTipoOrdernacaoDescendenteSaintsComListaTotalmenteOrdenada() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
-        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
-        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
+        GoldSaint afrodite = new GoldSaint("Afrodite", "Peixes");
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
+        BronzeSaint ares = new BronzeSaint("Ares", "Touro");
         milo.perderVida(10);
         afrodite.perderVida(20);
         marin.perderVida(30);
@@ -281,10 +281,10 @@ public class ListaSainsTest {
     
     @Test
     public void ordenarTipoOrdernacaoDescendenteSaintsComListaTotalmenteDesordenada() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
-        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
-        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
+        GoldSaint afrodite = new GoldSaint("Afrodite", "Peixes");
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
+        BronzeSaint ares = new BronzeSaint("Ares", "Touro");
         milo.perderVida(10);
         afrodite.perderVida(20);
         marin.perderVida(30);
@@ -303,7 +303,7 @@ public class ListaSainsTest {
     
     @Test
     public void ordenarTipoOrdernacaoDescendenteSaintsComUmSaintNaLista() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         ListaSaints lista = new ListaSaints();
         lista.adicionar(milo);
         lista.ordenar(TipoOrdenacao.DESCENDENTE);
@@ -320,8 +320,8 @@ public class ListaSainsTest {
     
     @Test
     public void unirListasComUmSaint() throws Exception {
-        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        BronzeSaint ares = new BronzeSaint("Ares", "Touro");
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
         ListaSaints lista1 = new ListaSaints();
         lista1.adicionar(ares);
         ListaSaints lista2 = new ListaSaints();
@@ -334,10 +334,10 @@ public class ListaSainsTest {
     
     @Test
     public void unirListasComVariosSaints() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
-        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
-        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
+        GoldSaint afrodite = new GoldSaint("Afrodite", "Peixes");
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
+        BronzeSaint ares = new BronzeSaint("Ares", "Touro");
         ListaSaints lista1 = new ListaSaints();
         lista1.adicionar(ares);
         lista1.adicionar(milo);
@@ -354,8 +354,8 @@ public class ListaSainsTest {
     
     @Test
     public void unirListasComSaintIgual() throws Exception {
-        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
+        BronzeSaint ares = new BronzeSaint("Ares", "Touro");
         ListaSaints lista1 = new ListaSaints();
         lista1.adicionar(ares);
         lista1.adicionar(marin);
@@ -378,8 +378,8 @@ public class ListaSainsTest {
     
     @Test
     public void diffListasComUmSaintIgual() throws Exception {
-        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
+        BronzeSaint ares = new BronzeSaint("Ares", "Touro");
         ListaSaints lista1 = new ListaSaints();
         lista1.adicionar(marin);
         lista1.adicionar(ares);
@@ -392,10 +392,10 @@ public class ListaSainsTest {
     
     @Test
     public void diffListasComVariosSaintsIguais() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
-        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
-        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
+        GoldSaint afrodite = new GoldSaint("Afrodite", "Peixes");
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
+        BronzeSaint ares = new BronzeSaint("Ares", "Touro");
         ListaSaints lista1 = new ListaSaints();
         lista1.adicionar(marin);
         lista1.adicionar(milo);
@@ -411,8 +411,8 @@ public class ListaSainsTest {
     
     @Test
     public void diffListasComNenhumSaintDiferente() throws Exception {
-        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
+        BronzeSaint ares = new BronzeSaint("Ares", "Touro");
         ListaSaints lista1 = new ListaSaints();
         lista1.adicionar(marin);
         lista1.adicionar(ares);
@@ -425,8 +425,8 @@ public class ListaSainsTest {
     
     @Test
     public void intersecListasComUmSaintIgual() throws Exception {
-        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
+        BronzeSaint ares = new BronzeSaint("Ares", "Touro");
         ListaSaints lista1 = new ListaSaints();
         lista1.adicionar(marin);
         lista1.adicionar(ares);
@@ -439,9 +439,9 @@ public class ListaSainsTest {
     
     @Test
     public void intersecListasComVariosSaintsIguais() throws Exception {
-        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
-        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
+        BronzeSaint ares = new BronzeSaint("Ares", "Touro");
+        GoldSaint afrodite = new GoldSaint("Afrodite", "Peixes");
         ListaSaints lista1 = new ListaSaints();
         lista1.adicionar(marin);
         lista1.adicionar(afrodite);
@@ -457,8 +457,8 @@ public class ListaSainsTest {
     
     @Test
     public void intersecListasComNenhumSaintIgual() throws Exception {
-        BronzeSaint ares = new BronzeSaint("Ares", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
+        BronzeSaint ares = new BronzeSaint("Ares", "Touro");
         ListaSaints lista1 = new ListaSaints();
         lista1.adicionar(marin);
         ListaSaints lista2 = new ListaSaints();
@@ -470,7 +470,7 @@ public class ListaSainsTest {
     @Test
     public void getCSVComUmSaint() throws Exception {
         ListaSaints lista = new ListaSaints();
-        BronzeSaint june = new BronzeSaint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        BronzeSaint june = new BronzeSaint("June", "Camaleão");
         june.setGenero(Genero.FEMININO);
         june.perderVida(15.5);
         lista.adicionar(june);
@@ -481,12 +481,12 @@ public class ListaSainsTest {
     @Test
     public void getCSVComDoisSaints() throws Exception {
         ListaSaints lista = new ListaSaints();
-        BronzeSaint june = new BronzeSaint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        BronzeSaint june = new BronzeSaint("June", "Camaleão");
         june.setGenero(Genero.FEMININO);
         june.perderVida(15.5);
         lista.adicionar(june);
         
-        GoldSaint dohko = new GoldSaint("Dohko", new Armadura(new Constelacao("Áries"), Categoria.OURO));
+        GoldSaint dohko = new GoldSaint("Dohko", "Áries");
         dohko.perderVida(90);
         dohko.vestirArmadura();
         lista.adicionar(dohko);

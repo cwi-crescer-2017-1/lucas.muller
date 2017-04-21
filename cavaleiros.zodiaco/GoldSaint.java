@@ -1,14 +1,7 @@
 public class GoldSaint extends Saint {
     public GoldSaint(String nome, String constelacao) throws Exception {
-        this(nome, new Armadura(new Constelacao(constelacao), Categoria.OURO));
-    }
-    
-    public GoldSaint(String nome, Armadura armadura) throws Exception {
-        super(nome, armadura);
-        if(armadura.getCategoria() != Categoria.OURO)
-            throw new Exception("Categoria da armadura inválida.");
-            
-        String constelacao = armadura.getConstelacao().getNome();
+        super(nome, new Armadura(new Constelacao(constelacao), Categoria.OURO));
+        
         if( 
             !constelacao.equals("Áries") 
             && !constelacao.equals("Touro")

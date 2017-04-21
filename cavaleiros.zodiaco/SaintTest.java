@@ -12,7 +12,7 @@ public class SaintTest {
     public void vestirArmaduraDeixaArmaduraVestida() throws Exception {
         // AAA
         // 1. Arrange - Montagem dos dados de teste
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         // 2. Act - Invocar a ação a ser testada
         milo.vestirArmadura();
         // 3. Assert - Verificação dos resultados do teste
@@ -22,126 +22,96 @@ public class SaintTest {
     
     @Test
     public void naoVestirArmaduraDeixaArmaduraNaoVestida() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         assertEquals(false, milo.isArmaduraVestida());
     }
     
     @Test
     public void aoCriarSaintGeneroENaoInformado() throws Exception { 
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         assertEquals(Genero.NAO_INFORMADO, milo.getGenero());
     }
     
     @Test
     public void aoCriarSaintStatusEVivo() throws Exception { 
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         assertEquals(Status.VIVO, milo.getStatus());
     }
     
     @Test
     public void aoCriarSaintVidaE100() throws Exception { 
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         assertEquals(100.0, milo.getVida(), 0.01);
     }
     
     @Test
     public void perder10DeVida() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         milo.perderVida(10);
         assertEquals(90, milo.getVida(), 0.01);
     }
     
     @Test
     public void perder100DeVida() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         milo.perderVida(100);
         assertEquals(0, milo.getVida(), 0.01);
     }
     
     @Test
     public void perder1000DeVida() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         milo.perderVida(1000);
         assertEquals(0, milo.getVida(), 0.01);
     }
     
     @Test(expected=InvalidParameterException.class)
     public void perderMenos1000DeVida() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         milo.perderVida(-1000);
         assertEquals(1100, milo.getVida(), 0.01);
     }
     
     @Test
     public void setGeneroTrocaGenero() throws Exception { 
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         milo.setGenero(Genero.MASCULINO);
         assertEquals(Genero.MASCULINO, milo.getGenero());
     }
     
     @Test
     public void saintDeArmaduraDeCategoriaOuroNasceCom7SentidosDespertados() throws Exception {
-        GoldSaint afrodite = new GoldSaint("Afrodite", new Armadura(new Constelacao("Peixes"), Categoria.OURO));
+        GoldSaint afrodite = new GoldSaint("Afrodite", "Peixes");
         assertEquals(7, afrodite.getQuantSentidosDespertados());
     }
     
     @Test
     public void saintDeArmaduraDeCategoriaPrataNasceCom6SentidosDespertados() throws Exception {
-        SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
+        SilverSaint marin = new SilverSaint("Marin", "Águia");
         assertEquals(6, marin.getQuantSentidosDespertados());
     }
     
     @Test
     public void saintDeArmaduraDeCategoriaBronzeNasceCom5SentidosDespertados() throws Exception {
-        BronzeSaint seiya = new BronzeSaint("Seiya", new Armadura(new Constelacao("Pégaso"), Categoria.BRONZE));
+        BronzeSaint seiya = new BronzeSaint("Seiya", "Pégaso");
         assertEquals(5, seiya.getQuantSentidosDespertados());
     }
     
     @Test(expected=Exception.class)
     public void constelacaoInvalidaDeOuroDeveLancarErro() throws Exception {
-        new GoldSaint("Lucas", new Armadura(new Constelacao("Café"), Categoria.OURO));
-    }
-    
-    @Test(expected=Exception.class)
-    public void criarGoldSaintComCategoriaInvalidaDeveLancarErro() throws Exception {
-        new GoldSaint("Lucas", new Armadura(new Constelacao("Áries"), Categoria.PRATA));
-    }
-    
-    @Test(expected=Exception.class)
-    public void criarSilverSaintComCategoriaInvalidaDeveLancarErro() throws Exception {
-        new SilverSaint("Lucas", new Armadura(new Constelacao("Áries"), Categoria.OURO));
-    }
-    
-    @Test(expected=Exception.class)
-    public void criarBronzeSaintComCategoriaInvalidaDeveLancarErro() throws Exception {
-        new BronzeSaint("Lucas", new Armadura(new Constelacao("Áries"), Categoria.OURO));
-    }
-    
-    @Test
-    public void criarGoldSaintComCategoriaValidaNaoDeveLancarErro() throws Exception {
-        new GoldSaint("Lucas", new Armadura(new Constelacao("Áries"), Categoria.OURO));
-    }
-    
-    @Test
-    public void criarSilverSaintComCategoriaValidaNaoDeveLancarErro() throws Exception {
-        new SilverSaint("Lucas", new Armadura(new Constelacao("Áries"), Categoria.PRATA));
-    }
-    
-    @Test
-    public void criarBronzeSaintComCategoriaValidaNaoDeveLancarErro() throws Exception {
-        new BronzeSaint("Lucas", new Armadura(new Constelacao("Áries"), Categoria.BRONZE));
+        new GoldSaint("Lucas", "Café");
     }
     
     @Test
     public void saintMorreAoFicaCom0DeVida() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         milo.perderVida(100);
         assertEquals(Status.MORTO, milo.getStatus());
     }
     
     @Test
     public void aprenderUmGolpe() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         Golpe g = new Golpe("Cólera do Dragão", 25);
         milo.aprenderGolpe(g);
         assertEquals(g, milo.getGolpes().get(0));
@@ -150,7 +120,7 @@ public class SaintTest {
 
 	@Test
     public void aprenderDoisGolpes() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         Golpe g = new Golpe("Cólera do Dragão", 25);
 		Golpe g2 = new Golpe("Cometa de Pégaso", 10);
         milo.aprenderGolpe(g);
@@ -162,7 +132,7 @@ public class SaintTest {
 
 	@Test
     public void aprenderTresGolpes() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         Golpe g = new Golpe("Cólera do Dragão", 25);
 		Golpe g2 = new Golpe("Cometa de Pégaso", 10);
 		Golpe g3 = new Golpe("Cólera do Dragão", 25);
@@ -177,7 +147,7 @@ public class SaintTest {
     
     @Test
     public void proximoGolpeRetornaProximoGolpe() throws Exception {
-        GoldSaint milo = new GoldSaint("Milo", new Armadura(new Constelacao("Escorpião"), Categoria.OURO));
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         Golpe g = new Golpe("Meteoro de Pégasos", 50);
         Golpe g2 = new Golpe("Cometa de Pégaso", 10);
         Golpe g3 = new Golpe("Cólera do Dragão", 25);
@@ -193,7 +163,7 @@ public class SaintTest {
     
     @Test
     public void  getCSVSemArmaduraVestida() throws Exception {
-        BronzeSaint june = new BronzeSaint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        BronzeSaint june = new BronzeSaint("June", "Camaleão");
         june.setGenero(Genero.FEMININO);
         june.perderVida(15.5);
         assertEquals("June,84.5,Camaleão,BRONZE,VIVO,FEMININO,false", june.getCSV());
@@ -201,7 +171,7 @@ public class SaintTest {
     
     @Test
     public void  getCSVComArmaduraVestida() throws Exception {
-        GoldSaint dohko = new GoldSaint("Dohko", new Armadura(new Constelacao("Áries"), Categoria.OURO));
+        GoldSaint dohko = new GoldSaint("Dohko", "Áries");
         dohko.perderVida(90);
         dohko.vestirArmadura();
         assertEquals("Dohko,10.0,Áries,OURO,VIVO,NAO_INFORMADO,true", dohko.getCSV());
