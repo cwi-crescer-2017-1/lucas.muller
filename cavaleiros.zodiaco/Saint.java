@@ -13,6 +13,8 @@ public abstract class Saint {
     private double vida = 100;
     protected int quantSentidosDespertados = 0;
     private int ultimoGolpe = 0;
+    private ArrayList<Movimento> movimentos = new ArrayList<>();
+    private int ultimoMovimento = 0;
     
     public Saint(String nome, Armadura armadura) {
         this.nome = nome;
@@ -78,6 +80,15 @@ public abstract class Saint {
     public Golpe getProximoGolpe() {
         Golpe g = getConstelacao().getGolpes().get(ultimoGolpe++ % getGolpes().size());
         return g;
+    }
+    
+    public void adicionarMovimento(Movimento movimento) {
+        this.movimentos.add(movimento);
+    }
+    
+    public Movimento getProximoMovimento() {
+        Movimento mov = this.movimentos.get(ultimoMovimento++ % this.movimentos.size());
+        return mov;
     }
 
     public String getNome() {
