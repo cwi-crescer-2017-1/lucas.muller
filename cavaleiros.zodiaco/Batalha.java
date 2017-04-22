@@ -20,9 +20,14 @@ public class Batalha {
     
     public void iniciar() {
         Saint golpeadorAtual = saintUm;
-        do {
-            golpeadorAtual.getProximoMovimento().executar();
-            golpeadorAtual = (golpeadorAtual == saintUm) ? saintDois : saintUm;
-        } while(saintUm.getStatus() != Status.MORTO && saintDois.getStatus() != Status.MORTO);
+        if(saintUm.hasMovimentos() || saintDois.hasMovimentos()) {
+            do {
+                Movimento mov = golpeadorAtual.getProximoMovimento();
+                if(mov != null) {
+                    mov.executar();
+                    golpeadorAtual = (golpeadorAtual == saintUm) ? saintDois : saintUm;
+                }
+            } while(saintUm.getStatus() != Status.MORTO && saintDois.getStatus() != Status.MORTO);
+        }
     }
 }

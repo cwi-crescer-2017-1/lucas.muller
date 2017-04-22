@@ -87,8 +87,14 @@ public abstract class Saint {
     }
     
     public Movimento getProximoMovimento() {
+        if(this.movimentos.isEmpty())
+            return null;
         Movimento mov = this.movimentos.get(ultimoMovimento++ % this.movimentos.size());
         return mov;
+    }
+    
+    public boolean hasMovimentos() {
+        return !this.movimentos.isEmpty();
     }
 
     public String getNome() {
