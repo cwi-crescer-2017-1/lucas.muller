@@ -1,3 +1,4 @@
 public interface Movimento {
-    void executar();
+    void executar(); // método para executar o movimento
+    boolean movimentoTiraDano(); // retorna se o movimento tira ou não dano
 }

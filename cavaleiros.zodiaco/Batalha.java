@@ -10,17 +10,12 @@ public class Batalha {
         this.saintDois = saintDois;
     }
     
-    /*public void iniciar() {
-        Categoria catSaintUm = saintUm.getArmadura().getCategoria();
-        Categoria catSaintDois = saintDois.getArmadura().getCategoria();
-        if(catSaintDois.getValor() > catSaintUm.getValor())
-            saintUm.perderVida(dano);
-        else saintDois.perderVida(dano);
-    }*/
-    
     public void iniciar() {
         Saint golpeadorAtual = saintUm;
-        if(saintUm.hasMovimentos() || saintDois.hasMovimentos()) {
+        if(
+            (saintUm.hasMovimentos() || saintDois.hasMovimentos()) 
+            && (saintUm.hasMovimentosDeDano() || saintDois.hasMovimentosDeDano())
+        ) {
             do {
                 Movimento mov = golpeadorAtual.getProximoMovimento();
                 if(mov != null) {

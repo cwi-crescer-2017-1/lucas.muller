@@ -20,4 +20,8 @@ public class Golpear implements Movimento {
         
         this.golpeado.perderVida(quantVidaAPerder);
     }
+    
+    public boolean movimentoTiraDano() {
+        return true;
+    }
 }

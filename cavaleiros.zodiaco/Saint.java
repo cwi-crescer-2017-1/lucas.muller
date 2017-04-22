@@ -96,6 +96,10 @@ public abstract class Saint {
     public boolean hasMovimentos() {
         return !this.movimentos.isEmpty();
     }
+    
+    public boolean hasMovimentosDeDano() {
+        return (this.movimentos.stream().filter(m -> m.movimentoTiraDano() == true).findFirst().orElse(null) != null)?true:false;
+    }
 
     public String getNome() {
         return nome;
