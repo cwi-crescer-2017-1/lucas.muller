@@ -42,10 +42,7 @@ public class BatalhaTest {
         assertEquals(100, ares.getVida(), 0.01);
     }
     
-    /*
-     * Batalha bugando:
-     * 
-     * @Test
+    @Test
     public void iniciarBatalhaSemGolpes() throws Exception {
         GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         BronzeSaint ares = new BronzeSaint("Ares", "Touro");
@@ -54,5 +51,5 @@ public class BatalhaTest {
         epicBattle.iniciar();
         assertEquals(100, milo.getVida(), 0.01);
         assertEquals(100, ares.getVida(), 0.01);
-    }*/
+    }
 }

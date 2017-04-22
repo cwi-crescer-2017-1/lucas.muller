@@ -82,6 +82,10 @@ public abstract class Saint {
         return g;
     }
     
+    public boolean hasGolpes() {
+        return !getConstelacao().getGolpes().isEmpty();
+    }
+    
     public void adicionarMovimento(Movimento movimento) {
         this.movimentos.add(movimento);
     }

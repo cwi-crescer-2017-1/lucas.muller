@@ -15,6 +15,7 @@ public class Batalha {
         if(
             (saintUm.hasMovimentos() || saintDois.hasMovimentos()) 
             && (saintUm.hasMovimentosDeDano() || saintDois.hasMovimentosDeDano())
+            && (saintUm.hasGolpes() || saintDois.hasGolpes())
         ) {
             do {
                 Movimento mov = golpeadorAtual.getProximoMovimento();
