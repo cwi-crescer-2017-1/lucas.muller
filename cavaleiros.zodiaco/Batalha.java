@@ -12,6 +12,9 @@ public class Batalha {
     
     public void iniciar() {
         Saint golpeadorAtual = saintUm;
+        if(saintDois.getArmadura().getCategoria().getValor() > saintUm.getArmadura().getCategoria().getValor())
+            golpeadorAtual = saintDois;
+        
         if(
             (saintUm.hasMovimentos() || saintDois.hasMovimentos()) 
             && (saintUm.hasMovimentosDeDano() || saintDois.hasMovimentosDeDano() && (saintUm.hasGolpes() || saintDois.hasGolpes()))   
