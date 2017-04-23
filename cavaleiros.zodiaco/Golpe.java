@@ -15,10 +15,12 @@ public class Golpe {
         return fatorDano;
     }
 
-	public boolean equals(Object object) {
-		return (
-			this.nome.equals(((Golpe)object).getNome())
-			&& this.fatorDano == ((Golpe)object).getFatorDano()
-		);
-	}
+    public boolean equals(Object object) {
+        boolean equal = false;
+        if(object != null && object instanceof Golpe){
+            Golpe g = (Golpe)object;
+            equal = this.nome.equals(g.getNome()) && this.fatorDano == g.getFatorDano();
+        }
+        return equal;
+    }
 }

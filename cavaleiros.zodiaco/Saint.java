@@ -12,9 +12,9 @@ public abstract class Saint {
     private Status status = Status.VIVO;
     private double vida = 100;
     protected int quantSentidosDespertados = 0;
-    private int ultimoGolpe = 0;
     private ArrayList<Movimento> movimentos = new ArrayList<>();
     private int ultimoMovimento = 0;
+    private int ultimoGolpe = 0;
     
     public Saint(String nome, Armadura armadura) {
         this.nome = nome;
@@ -121,5 +121,21 @@ public abstract class Saint {
             this.armaduraVestida
         );
         return s;
+    }
+    
+    public boolean equals(Object object) {
+        boolean equal = false;
+        if(object != null && object instanceof Saint) {
+            Saint s = (Saint) object;
+            equal = this.nome.equals(s.nome) 
+                && this.armadura.equals(s.armadura)
+                && this.armaduraVestida == s.armaduraVestida
+                && this.genero == s.genero
+                && this.status == s.status
+                && this.vida == s.vida
+                && this.quantSentidosDespertados == s.quantSentidosDespertados
+                && this.movimentos.equals(s.movimentos);
+        }
+        return equal;
     }
 }

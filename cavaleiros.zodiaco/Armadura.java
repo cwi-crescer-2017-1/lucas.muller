@@ -17,4 +17,14 @@ public class Armadura {
     public Constelacao getConstelacao() {
         return constelacao;
     }
+    
+    public boolean equals(Object object) {
+        boolean equal = false;
+        if(object != null && object instanceof Armadura){
+            Armadura a = (Armadura)object;
+            equal = this.constelacao.equals(a.getConstelacao())
+                && this.categoria == a.getCategoria();
+        }
+        return equal;
+    }
 }

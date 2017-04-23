@@ -19,4 +19,13 @@ public class Constelacao {
     public String getNome() {
         return this.nome;
     }
+    
+    public boolean equals(Object object) {
+        boolean equal = false;
+        if(object != null && object instanceof Constelacao){
+            Constelacao c = (Constelacao)object;
+            equal = this.nome.equals(c.getNome()) && this.golpes.equals(c.getGolpes());
+        }
+        return equal;
+    }
 }

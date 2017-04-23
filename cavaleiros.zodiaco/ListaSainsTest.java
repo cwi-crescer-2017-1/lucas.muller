@@ -384,7 +384,7 @@ public class ListaSainsTest {
         lista1.adicionar(marin);
         lista1.adicionar(ares);
         ListaSaints lista2 = new ListaSaints();
-        lista2.adicionar(marin);
+        lista2.adicionar(new SilverSaint("Marin", "Águia"));
         ListaSaints resultado = lista1.diff(lista2);
         assertEquals(1, resultado.todos().size());
         assertEquals(ares, resultado.get(0));
