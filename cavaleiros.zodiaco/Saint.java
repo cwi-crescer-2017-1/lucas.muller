@@ -78,6 +78,8 @@ public abstract class Saint {
     }
     
     public Golpe getProximoGolpe() {
+        if(getConstelacao().getGolpes().isEmpty())
+            return null;
         Golpe g = getConstelacao().getGolpes().get(ultimoGolpe++ % getGolpes().size());
         return g;
     }
