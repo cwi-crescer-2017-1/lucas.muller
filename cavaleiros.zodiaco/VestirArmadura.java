@@ -12,4 +12,13 @@ public class VestirArmadura implements Movimento {
     public boolean movimentoTiraDano() {
         return false;
     }
+    
+    public boolean equals(Object object) {
+        boolean equal = false;
+        if(object != null && object instanceof VestirArmadura) {
+            VestirArmadura v = (VestirArmadura) object;
+            equal = this.saint.equals(v.saint);
+        }
+        return equal;
+    }
 }

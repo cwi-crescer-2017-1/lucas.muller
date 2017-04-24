@@ -26,4 +26,14 @@ public class Golpear implements Movimento {
     public boolean movimentoTiraDano() {
         return true;
     }
+    
+    public boolean equals(Object object) {
+        boolean equal = false;
+        if(object != null && object instanceof Golpear) {
+            Golpear g = (Golpear) object;
+            equal = this.golpeador.equals(g.golpeador)
+                    && this.golpeado.equals(g.golpeado);
+        }
+        return equal;
+    }
 }
