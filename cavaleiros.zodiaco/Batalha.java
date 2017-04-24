@@ -11,11 +11,17 @@ public class Batalha {
     }
     
     public void iniciar() {
-        Saint golpeadorAtual = saintUm;
+        int categoriaSaintUm = this.saintUm.getArmadura().getCategoria().getValor();
+        int categoriaSaintDois = this.saintDois.getArmadura().getCategoria().getValor();
+        Saint golpeadorAtual = null;
         
-        boolean saintDoisTemCategoriaMelhor = saintDois.getArmadura().getCategoria().getValor() > saintUm.getArmadura().getCategoria().getValor();
-        if(saintDoisTemCategoriaMelhor)
-            golpeadorAtual = saintDois;
+        if(categoriaSaintUm >= categoriaSaintDois) {
+            golpeadorAtual = this.saintUm;
+            this.saintDois.perderVida(this.dano);
+        } else {
+            golpeadorAtual = this.saintDois;
+            this.saintUm.perderVida(this.dano);
+        }
         
         boolean saintsTemMovimentosDeDanoEGolpes = (saintUm.hasMovimentosDeDano() || saintDois.hasMovimentosDeDano()) 
             && (saintUm.hasGolpes() || saintDois.hasGolpes());

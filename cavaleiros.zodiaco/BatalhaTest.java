@@ -18,7 +18,7 @@ public class BatalhaTest {
         Batalha epicBattle = new Batalha(milo, ares);
         epicBattle.iniciar();
         assertEquals(0, milo.getVida(), 0.01);
-        assertEquals(60, ares.getVida(), 0.01);
+        assertEquals(50, ares.getVida(), 0.01);
     }
     
     @Test
@@ -28,7 +28,7 @@ public class BatalhaTest {
         Batalha epicBattle = new Batalha(milo, ares);
         epicBattle.iniciar();
         assertEquals(100, milo.getVida(), 0.01);
-        assertEquals(100, ares.getVida(), 0.01);
+        assertEquals(90, ares.getVida(), 0.01);
     }
     
     @Test
@@ -39,7 +39,7 @@ public class BatalhaTest {
         Batalha epicBattle = new Batalha(milo, ares);
         epicBattle.iniciar();
         assertEquals(100, milo.getVida(), 0.01);
-        assertEquals(100, ares.getVida(), 0.01);
+        assertEquals(90, ares.getVida(), 0.01);
     }
     
     @Test
@@ -50,6 +50,6 @@ public class BatalhaTest {
         Batalha epicBattle = new Batalha(milo, ares);
         epicBattle.iniciar();
         assertEquals(100, milo.getVida(), 0.01);
-        assertEquals(100, ares.getVida(), 0.01);
+        assertEquals(90, ares.getVida(), 0.01);
     }
 }
