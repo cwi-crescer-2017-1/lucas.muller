@@ -118,35 +118,35 @@ public class SaintTest {
         assertEquals(1, milo.getGolpes().size());
     }
 
-	@Test
+    @Test
     public void aprenderDoisGolpes() throws Exception {
         GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         Golpe g = new Golpe("Cólera do Dragão", 25);
-		Golpe g2 = new Golpe("Cometa de Pégaso", 10);
+        Golpe g2 = new Golpe("Cometa de Pégaso", 10);
         milo.aprenderGolpe(g);
-		milo.aprenderGolpe(g2);
+        milo.aprenderGolpe(g2);
         assertEquals(g, milo.getGolpes().get(0));
-		assertEquals(g2, milo.getGolpes().get(1));
-		assertEquals(2, milo.getGolpes().size());
+        assertEquals(g2, milo.getGolpes().get(1));
+        assertEquals(2, milo.getGolpes().size());
     }
 
-	@Test
+    @Test
     public void aprenderTresGolpes() throws Exception {
         GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         Golpe g = new Golpe("Cólera do Dragão", 25);
-		Golpe g2 = new Golpe("Cometa de Pégaso", 10);
-		Golpe g3 = new Golpe("Cólera do Dragão", 25);
+        Golpe g2 = new Golpe("Cometa de Pégaso", 10);
+        Golpe g3 = new Golpe("Cólera do Dragão", 25);
         milo.aprenderGolpe(g);
-		milo.aprenderGolpe(g2);
-		milo.aprenderGolpe(g3);
+        milo.aprenderGolpe(g2);
+        milo.aprenderGolpe(g3);
         assertEquals(g, milo.getGolpes().get(0));
-		assertEquals(g2, milo.getGolpes().get(1));
-		assertEquals(g3, milo.getGolpes().get(2));
-		assertEquals(3, milo.getGolpes().size());
+        assertEquals(g2, milo.getGolpes().get(1));
+        assertEquals(g3, milo.getGolpes().get(2));
+        assertEquals(3, milo.getGolpes().size());
     }
     
     @Test
-    public void proximoGolpeRetornaProximoGolpe() throws Exception {
+    public void getProximoGolpeRetornaProximoGolpe() throws Exception {
         GoldSaint milo = new GoldSaint("Milo", "Escorpião");
         Golpe g = new Golpe("Meteoro de Pégasos", 50);
         Golpe g2 = new Golpe("Cometa de Pégaso", 10);
@@ -158,7 +158,32 @@ public class SaintTest {
         assertEquals(g2, milo.getProximoGolpe());
         assertEquals(g3, milo.getProximoGolpe());
         assertEquals(g, milo.getProximoGolpe());
-		assertEquals(g2, milo.getProximoGolpe());
+        assertEquals(g2, milo.getProximoGolpe());
+    }
+    
+    @Test
+    public void getProximoGolpeComListaVazia() throws Exception {
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
+        assertNull(milo.getProximoGolpe());
+    }
+    
+    @Test
+    public void getProximoMovimento() throws Exception {
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
+        BronzeSaint june = new BronzeSaint("June", "Camaleão");
+        Movimento vestirArmadura = new VestirArmadura(milo);
+        Movimento golpear = new Golpear(milo, june);
+        milo.adicionarMovimento(vestirArmadura);
+        milo.adicionarMovimento(golpear);
+        assertEquals(vestirArmadura, milo.getProximoMovimento());
+        assertEquals(golpear, milo.getProximoMovimento());
+        assertEquals(vestirArmadura, milo.getProximoMovimento());
+    }
+    
+    @Test
+    public void getProximoMovimentoComListaVazia() throws Exception {
+        GoldSaint milo = new GoldSaint("Milo", "Escorpião");
+        assertNull(milo.getProximoMovimento());
     }
     
     @Test
