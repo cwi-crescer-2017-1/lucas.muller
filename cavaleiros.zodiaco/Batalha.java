@@ -12,18 +12,14 @@ public class Batalha {
     
     public void iniciar() {
         Saint golpeadorAtual = saintUm;
-        // verifica se o saintDois tem categoria maior que um
-        if(saintDois.getArmadura().getCategoria().getValor() > saintUm.getArmadura().getCategoria().getValor())
+        
+        boolean saintDoisTemCategoriaMelhor = saintDois.getArmadura().getCategoria().getValor() > saintUm.getArmadura().getCategoria().getValor();
+        if(saintDoisTemCategoriaMelhor)
             golpeadorAtual = saintDois;
         
-        // verifica se os saints tem movimentos de dano e golpes para evitar loop infinito
-        if(
-            (saintUm.hasMovimentos() || saintDois.hasMovimentos()) 
-            && (
-                (saintUm.hasMovimentosDeDano() || saintDois.hasMovimentosDeDano()) 
-                && (saintUm.hasGolpes() || saintDois.hasGolpes())
-            )   
-        ) {
+        boolean saintsTemMovimentosDeDanoEGolpes = (saintUm.hasMovimentosDeDano() || saintDois.hasMovimentosDeDano()) 
+            && (saintUm.hasGolpes() || saintDois.hasGolpes());
+        if(saintsTemMovimentosDeDanoEGolpes) {
             do {
                 Movimento mov = golpeadorAtual.getProximoMovimento();
                 if(mov != null) {
