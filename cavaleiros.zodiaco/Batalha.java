@@ -28,10 +28,10 @@ public class Batalha {
         if(saintsTemMovimentosDeDanoEGolpes) {
             do {
                 Movimento mov = golpeadorAtual.getProximoMovimento();
-                if(mov != null) {
+                if(mov != null)
                     mov.executar();
-                    golpeadorAtual = (golpeadorAtual == saintUm) ? saintDois : saintUm;
-                }
+                    
+                golpeadorAtual = (golpeadorAtual == saintUm) ? saintDois : saintUm;
             } while(saintUm.getStatus() != Status.MORTO && saintDois.getStatus() != Status.MORTO);
         }
     }
