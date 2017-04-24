@@ -10,8 +10,8 @@ public class BatalhaTest {
         BronzeSaint ares = new BronzeSaint("Ares", "Touro");
         Golpe basico = new Golpe("Ataque básico", 10);
         milo.aprenderGolpe(basico);
-        milo.adicionarMovimento(new VestirArmadura(milo));
-        milo.adicionarMovimento(new Golpear(milo, ares));
+        milo.adicionarMovimentoVestirArmadura();
+        milo.adicionarMovimentoGolpear(ares);
         Golpe forte = new Golpe("Ataque básico", 50);
         ares.aprenderGolpe(forte);
         ares.adicionarMovimento(new Golpear(ares, milo));
