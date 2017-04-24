@@ -187,7 +187,7 @@ public class SaintTest {
     }
     
     @Test
-    public void  getCSVSemArmaduraVestida() throws Exception {
+    public void getCSVSemArmaduraVestida() throws Exception {
         BronzeSaint june = new BronzeSaint("June", "Camaleão");
         june.setGenero(Genero.FEMININO);
         june.perderVida(15.5);
@@ -195,10 +195,25 @@ public class SaintTest {
     }
     
     @Test
-    public void  getCSVComArmaduraVestida() throws Exception {
+    public void getCSVComArmaduraVestida() throws Exception {
         GoldSaint dohko = new GoldSaint("Dohko", "Áries");
         dohko.perderVida(90);
         dohko.vestirArmadura();
         assertEquals("Dohko,10.0,Áries,OURO,VIVO,NAO_INFORMADO,true", dohko.getCSV());
+    }
+    
+    @Test
+    public void adicionarMovimentoGolpearAdicionaGolpear() throws Exception {
+        GoldSaint dohko = new GoldSaint("Dohko", "Áries");
+        BronzeSaint june = new BronzeSaint("June", "Camaleão");
+        dohko.adicionarMovimentoGolpear(june);
+        assertEquals(new Golpear(dohko, june), dohko.getProximoMovimento());
+    }
+    
+    @Test
+    public void adicionarMovimentoVestirArmaduraAdicionaVestirArmadura() throws Exception {
+        GoldSaint dohko = new GoldSaint("Dohko", "Áries");
+        dohko.adicionarMovimentoVestirArmadura();
+        assertEquals(new VestirArmadura(dohko), dohko.getProximoMovimento());
     }
 }
