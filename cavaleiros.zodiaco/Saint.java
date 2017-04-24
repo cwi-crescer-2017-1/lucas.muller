@@ -125,6 +125,14 @@ public abstract class Saint {
         return s;
     }
     
+    public void adicionarMovimentoGolpear(Saint golpeado) {
+        this.adicionarMovimento(new Golpear(this, golpeado));
+    }
+    
+    public void adicionarMovimentoVestirArmadura() {
+        this.adicionarMovimento(new VestirArmadura(this));
+    }
+    
     public boolean equals(Object object) {
         boolean equal = false;
         if(object != null && object instanceof Saint) {
