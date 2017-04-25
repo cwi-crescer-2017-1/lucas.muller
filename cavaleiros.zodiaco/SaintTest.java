@@ -218,10 +218,32 @@ public class SaintTest {
     }
     
     @Test
-    public void qtdSaintsEIdFunciona() throws Exception {
+    public void criarNenhumSaintQtdSaintsDeveContinuarIgual() throws Exception {
         int qtdAtual = Saint.getQtdSaints();
-        GoldSaint dohko = new GoldSaint("Dohko", "Áries");
+        assertEquals(qtdAtual, Saint.getQtdSaints());
+    }
+    
+    @Test
+    public void criarUmSaintQtdSaintsDeveSerUmAMais() throws Exception {
+        int qtdAtual = Saint.getQtdSaints();
+        new GoldSaint("Dohko", "Áries");
         assertEquals(qtdAtual + 1, Saint.getQtdSaints());
-        assertEquals(Saint.getQtdSaints(), dohko.getID());
+    }
+    
+    @Test
+    public void criarDoisSaintsQtdSaintsDeveSerDoisAMais() throws Exception {
+        int qtdAtual = Saint.getQtdSaints();
+        new GoldSaint("Dohko", "Áries");
+        new BronzeSaint("Shun", "Andrômeda");
+        assertEquals(qtdAtual + 2, Saint.getQtdSaints());
+    }
+    
+    @Test
+    public void criarCinquentaSaintsQtdSaintsDeveSerCinquentaAMais() throws Exception {
+        int qtdAtual = Saint.getQtdSaints();
+        for(int i = 1; i <= 50; i++) {
+            new GoldSaint("Dohko", "Áries");
+        }
+        assertEquals(qtdAtual + 50, Saint.getQtdSaints());
     }
 }
