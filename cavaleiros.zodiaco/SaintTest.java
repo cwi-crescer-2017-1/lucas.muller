@@ -216,4 +216,12 @@ public class SaintTest {
         dohko.adicionarMovimentoVestirArmadura();
         assertEquals(new VestirArmadura(dohko), dohko.getProximoMovimento());
     }
+    
+    @Test
+    public void qtdSaintsEIdFunciona() throws Exception {
+        int qtdAtual = Saint.getQtdSaints();
+        GoldSaint dohko = new GoldSaint("Dohko", "Áries");
+        assertEquals(qtdAtual + 1, Saint.getQtdSaints());
+        assertEquals(Saint.getQtdSaints(), dohko.getID());
+    }
 }

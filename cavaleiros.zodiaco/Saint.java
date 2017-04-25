@@ -5,9 +5,10 @@ import java.util.ArrayList;
  * Classe de cavaleiros(as)
  */
 public abstract class Saint {
-	// Atributos da classe
+    // Atributos da classe
     private static int qtdSaints = 0; //qtd de Saints já instânciados
     // Atributos das instâncias
+    private int id;
     private String nome;
     private Armadura armadura;
     private boolean armaduraVestida;
@@ -23,10 +24,15 @@ public abstract class Saint {
         this.nome = nome;
         this.armadura = armadura;
         Saint.qtdSaints++;
+        this.id = Saint.qtdSaints;
     }
     
     public static int getQtdSaints() {
         return Saint.qtdSaints;
+    }
+    
+    public int getID() {
+        return this.id;
     }
     
     public void vestirArmadura() {
