@@ -20,11 +20,15 @@ public abstract class Saint {
     private int ultimoMovimento = 0;
     private int ultimoGolpe = 0;
     
-    public Saint(String nome, Armadura armadura) {
+    protected Saint(String nome, Armadura armadura) {
         this.nome = nome;
         this.armadura = armadura;
         Saint.qtdSaints++;
         this.id = Saint.qtdSaints;
+    }
+    
+    protected void finalize() throws Throwable {
+        Saint.qtdSaints--;
     }
     
     public static int getQtdSaints() {
