@@ -36,6 +36,10 @@ public abstract class Saint {
         return Saint.qtdSaints;
     }
     
+    public static int getUltimoID() {
+        return Saint.ultimoId;
+    }
+    
     public int getID() {
         return this.id;
     }

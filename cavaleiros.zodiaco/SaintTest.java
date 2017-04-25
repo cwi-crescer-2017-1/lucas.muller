@@ -218,12 +218,6 @@ public class SaintTest {
     }
     
     @Test
-    public void criarNenhumSaintQtdSaintsDeveContinuarIgual() throws Exception {
-        int qtdAtual = Saint.getQtdSaints();
-        assertEquals(qtdAtual, Saint.getQtdSaints());
-    }
-    
-    @Test
     public void criarUmSaintQtdSaintsDeveSerUmAMais() throws Exception {
         int qtdAtual = Saint.getQtdSaints();
         new GoldSaint("Dohko", "Áries");
@@ -245,5 +239,26 @@ public class SaintTest {
             new GoldSaint("Dohko", "Áries");
         }
         assertEquals(qtdAtual + 50, Saint.getQtdSaints());
+    }
+    
+    @Test
+    public void criarUmSaintIncrementaID() throws Exception {
+        int ultimoIdAntes = Saint.getUltimoID();
+        assertEquals(ultimoIdAntes + 1, new BronzeSaint("Shun", "Andrômeda").getID());
+    }
+    
+    @Test
+    public void criarDoisSaintIncrementaID() throws Exception {
+        int ultimoIdAntes = Saint.getUltimoID();
+        assertEquals(ultimoIdAntes + 1, new BronzeSaint("Shun", "Andrômeda").getID());
+        assertEquals(ultimoIdAntes + 2, new BronzeSaint("Shun", "Andrômeda").getID());
+    }
+    
+    @Test
+    public void criarSaintEDepoisLimparEDeveIncrementarId() throws Exception {
+        int ultimoIdAntes = Saint.getUltimoID();
+        Saint shun = new BronzeSaint("Shun", "Andrômeda");
+        shun = null;
+        assertEquals(ultimoIdAntes + 2, new BronzeSaint("Shun", "Andrômeda").getID());
     }
 }
