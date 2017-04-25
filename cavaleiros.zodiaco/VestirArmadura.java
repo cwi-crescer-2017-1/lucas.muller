@@ -1,5 +1,6 @@
 public class VestirArmadura implements Movimento {
     private Saint saint;
+    private TipoMovimento tipoMovimento = TipoMovimento.DEFENSIVO;
     
     public VestirArmadura(Saint saint) {
         this.saint = saint;
@@ -9,8 +10,8 @@ public class VestirArmadura implements Movimento {
         this.saint.vestirArmadura();
     }
     
-    public boolean movimentoTiraDano() {
-        return false;
+    public TipoMovimento getTipoMovimento() {
+        return this.tipoMovimento;
     }
     
     public boolean equals(Object object) {

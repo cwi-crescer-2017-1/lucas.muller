@@ -118,7 +118,7 @@ public abstract class Saint {
     }
     
     public boolean hasMovimentosDeDano() {
-        return (this.movimentos.stream().filter(m -> m.movimentoTiraDano() == true).findFirst().orElse(null) != null)?true:false;
+        return (this.movimentos.stream().filter(m -> m.getTipoMovimento() == TipoMovimento.OFENSIVO).findFirst().orElse(null) != null)?true:false;
     }
 
     public String getNome() {

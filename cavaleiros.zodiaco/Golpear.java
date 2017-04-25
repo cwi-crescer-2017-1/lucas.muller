@@ -1,5 +1,6 @@
 public class Golpear implements Movimento {
     private Saint golpeador, golpeado;
+    private TipoMovimento tipoMovimento = TipoMovimento.OFENSIVO;
     
     public Golpear(Saint golpeador, Saint golpeado) {
         this.golpeador = golpeador;
@@ -23,8 +24,8 @@ public class Golpear implements Movimento {
         this.golpeado.perderVida(quantVidaAPerder);
     }
     
-    public boolean movimentoTiraDano() {
-        return true;
+    public TipoMovimento getTipoMovimento() {
+        return this.tipoMovimento;
     }
     
     public boolean equals(Object object) {
