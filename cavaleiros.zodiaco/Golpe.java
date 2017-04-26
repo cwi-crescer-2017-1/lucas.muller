@@ -7,6 +7,23 @@ public class Golpe {
         this.fatorDano = fatorDano;
     }
     
+    public static double calcularDanoTotal(Saint golpeador) {
+        if(golpeador == null)
+            return 0;
+        
+        Golpe g = golpeador.getProximoGolpe();
+        Categoria cat = golpeador.getArmadura().getCategoria();
+        
+        if(g == null || cat == null)
+            return 0;
+            
+        double quantVidaAPerder = g.getFatorDano();
+        if(golpeador.isArmaduraVestida())
+            quantVidaAPerder *= (1 + cat.getValor());
+            
+        return quantVidaAPerder;
+    }
+    
     public String getNome() {
         return nome;
     }

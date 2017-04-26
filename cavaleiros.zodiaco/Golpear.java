@@ -11,17 +11,7 @@ public class Golpear implements Movimento {
         if(this.golpeador == null || this.golpeado == null)
             return;
             
-        Golpe g = this.golpeador.getProximoGolpe();
-        Categoria cat = this.golpeador.getArmadura().getCategoria();
-        
-        if(g == null || cat == null)
-            return;
-            
-        double quantVidaAPerder = g.getFatorDano();
-        if(this.golpeador.isArmaduraVestida())
-            quantVidaAPerder *= (1 + cat.getValor());
-        
-        this.golpeado.perderVida(quantVidaAPerder);
+        this.golpeado.perderVida(Golpe.calcularDanoTotal(this.golpeador));
     }
     
     public TipoMovimento getTipoMovimento() {
