@@ -8,7 +8,7 @@
    Faça uma consulta que liste o total de empregados admitidos no ano de 1980. 
    Deve ser projetado nesta consulta: ID, Nome e Idade no momento da admissão.
 */
-select IDEmpregado, NomeEmpregado, DataAdmissao
+select IDEmpregado, NomeEmpregado, DATEDIFF(year, DataNascimento, DataAdmissao) as IdadeQuandoAdmitido
 from Empregado
 where datepart(year, DataAdmissao) = 1980;
 
