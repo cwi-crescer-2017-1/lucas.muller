@@ -44,7 +44,7 @@ where d.Localizacao = 'SAO PAULO';
 select distinct c1.Nome, c1.UF from Cidade c1
 join Cidade c2 on c1.Nome like c2.Nome and c1.UF like c2.UF and c1.IDCidade != c2.IDCidade;
 
-/* exercício 07:
+/* exercício 05:
    Faça uma alteraçao nas cidades que tenham nome+UF duplicados, 
    adicione no final do nome um asterisco. 
    Mas atenção! apenas a cidade com maior ID deve ser alterada.
