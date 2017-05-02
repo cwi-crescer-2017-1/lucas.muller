@@ -33,7 +33,7 @@ where IDDepartamento = (select top 1 IDDepartamento
 */
 select * into CopiaEmpregado from Empregado;
 
-update e set e.Salario = (e.Salario * 1.0173)
+update e set e.Salario = (e.Salario * 1.173)
 from Empregado e
 join Departamento d on d.IDDepartamento = e.IDDepartamento
 where d.Localizacao = 'SAO PAULO';
