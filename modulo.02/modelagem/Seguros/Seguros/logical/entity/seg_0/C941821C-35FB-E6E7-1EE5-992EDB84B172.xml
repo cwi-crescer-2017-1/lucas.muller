@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="C941821C-35FB-E6E7-1EE5-992EDB84B172" name="Cidade">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:30:58 UTC</createdTime>
+<generatorID>B5D3AA29-9A5D-E487-651F-528943A689FD</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDCidade" id="EBDE3F7E-1B23-B430-3446-D53E840BB234">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:30:58 UTC</createdTime>
+<generatorID>03D0F42D-2C84-4AD7-6921-C44E320404FA</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nome" id="02A17231-C9FE-EC16-1D31-5E949AFBC04A">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:30:58 UTC</createdTime>
+<generatorID>2EB1969D-4005-BD44-8D13-12839F45A22E</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="UF" id="64B5DD5A-D8A8-F906-7204-674DCEA0655B">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:30:58 UTC</createdTime>
+<generatorID>A287F1D9-F085-6D35-D336-7F6F19F64E9D</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="012B8E1B-D4BE-B147-7DEE-AB5630CA9412" name="Cidade PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:30:58 UTC</createdTime>
+<generatorID>911B760F-9EAA-77DB-B621-DB5C46D5258D</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>EBDE3F7E-1B23-B430-3446-D53E840BB234</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

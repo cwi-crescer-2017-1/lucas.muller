@@ -1,0 +1,114 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="58DBC2D3-55F7-D0A1-A4A9-C786551DBEBC" name="Contrato">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:21:50 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<ordsAlias>table_4</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDContrato" id="26F0E280-E55E-E027-8E4C-0FA564DB6741">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:23:29 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDPlano" id="B2B53FCF-4CD6-9E96-DD95-9FE7194B18A9">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:23:39 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="456CD581-E3CF-0AED-FEF0-CB572E2B2BEC" referredColumn="898D37A0-ABBB-92DE-6DBB-992826AAB5B0"/>
+</associations>
+</Column>
+<Column name="IDClienteTitular" id="35C2BA28-CDCB-14B5-FDBC-C5328105B768">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:23:52 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D2062354-645B-0B0B-A065-DBFFEDDAE457" referredColumn="A8B6CAB0-ACBF-33FB-CE58-F1CE7E980566"/>
+</associations>
+</Column>
+<Column name="DataInicio" id="0EE20940-CE96-56B1-FCC9-A9886B27FA68">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:23:29 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataFim" id="F96A543C-F529-925B-7C11-64945416AC32">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:23:29 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Situacao" id="F3DF1667-6D17-9F35-7A2C-36F7192FA5ED">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:23:29 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E7DFBBE8-8F7D-120D-117F-89CE8F2FEC92" name="Contrato_PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:23:29 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="26F0E280-E55E-E027-8E4C-0FA564DB6741"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C269A3C7-23B2-860C-6DA7-F9BC27A86379" name="Contrato_Plano_FK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:23:39 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B2B53FCF-4CD6-9E96-DD95-9FE7194B18A9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B657B7C6-4935-623B-EE6D-AF4A5C5B9413" name="Contrato_Cliente_FK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:23:52 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="35C2BA28-CDCB-14B5-FDBC-C5328105B768"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

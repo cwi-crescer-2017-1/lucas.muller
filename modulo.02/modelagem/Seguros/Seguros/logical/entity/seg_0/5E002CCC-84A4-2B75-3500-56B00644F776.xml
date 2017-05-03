@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5E002CCC-84A4-2B75-3500-56B00644F776" name="SeguroVida">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:30:58 UTC</createdTime>
+<generatorID>F22B535F-CD0F-9CE0-9EA2-75C60807EFC5</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDSeguroVida" id="F8E66B77-5ABD-DB97-A722-DC95E83C191B">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:30:58 UTC</createdTime>
+<generatorID>1CB40C12-73BF-CAD8-96A1-9281B2266DFF</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ValorPorMorte" id="B717D91D-1329-622E-D31F-51697BCC94C9">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:30:58 UTC</createdTime>
+<generatorID>89FEC9D0-CC0E-9C58-C72A-C4F03408017D</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,12,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ValorPorIncapacitacao" id="7CE580F1-D59E-52E5-2686-567C6A12C259">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:30:58 UTC</createdTime>
+<generatorID>47C258C9-34C8-57D6-0499-12597BB48C29</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,12,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDSeguro" id="7D39881A-6BF2-C51E-5223-2E8F6CD50AE5">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:30:58 UTC</createdTime>
+<generatorID>83041F74-63EB-1CCA-6F6E-F08FFA31192D</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<referedAttribute>D7D84BAB-8309-C637-DCB5-C6069E725C2D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="59243745-730E-2842-805A-DEED3F01A979" name="SeguroVida PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:30:58 UTC</createdTime>
+<generatorID>8E1F0A2C-4872-9E4B-A33F-36C54B4AC33D</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>F8E66B77-5ABD-DB97-A722-DC95E83C191B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

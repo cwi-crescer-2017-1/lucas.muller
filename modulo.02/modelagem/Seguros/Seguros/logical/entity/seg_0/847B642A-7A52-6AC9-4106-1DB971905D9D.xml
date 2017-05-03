@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="847B642A-7A52-6AC9-4106-1DB971905D9D" name="Seguro">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:49:00 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDSeguro" id="D7D84BAB-8309-C637-DCB5-C6069E725C2D">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:49:04 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TipoSeguro" id="A287DD7E-14AC-5899-AC80-B60DBAA11802">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:49:15 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Valor" id="D9F3CFEE-4C25-62F8-8357-80C25CB2F325">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:30:58 UTC</createdTime>
+<generatorID>5E2F8892-7BED-BB75-416A-8107AB9289AF</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,12,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Data" id="4F3B51FC-6FB0-D43F-F122-D4435036BB5A">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:30:58 UTC</createdTime>
+<generatorID>4DFEC68A-22B4-CDEF-E5B3-18140A0DBE58</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F68D4D7A-4C54-C220-4389-A26E7B0BF22B" name="Seguro PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:49:13 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D7D84BAB-8309-C637-DCB5-C6069E725C2D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

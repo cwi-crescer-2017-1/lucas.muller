@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="99EF48C1-0BA0-76CC-2DD5-466C286EEF90" name="Acessos">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:47:05 UTC</createdTime>
+<generatorID>76BACD2F-1D4A-3AAF-14C2-672FCDC2409D</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDAcesso" id="45AC3E7A-F41F-3747-1164-A6DF88C0B8E9">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:47:05 UTC</createdTime>
+<generatorID>14BF863A-EAC9-1DD1-A43B-D0CB34707278</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDCliente" id="EC56D42B-A85D-BA01-D9F1-D737048715A8">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:47:05 UTC</createdTime>
+<generatorID>11C4927A-F985-F9E1-9D68-C5DBE2170E14</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<referedAttribute>631A0A02-2964-4BDE-3BEA-D090D0C550DE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Tipo" id="D1FC54BA-4570-5515-2753-7D54D29E8D36">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:47:05 UTC</createdTime>
+<generatorID>E8DEB253-99B7-8150-0635-0264BCC2D7E1</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="HoraAcesso" id="BBBD36B6-0392-68B8-DB3F-7540709FA359">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:47:05 UTC</createdTime>
+<generatorID>4EDCDF2C-8A98-26A7-AE70-5D6D1FACA6FB</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

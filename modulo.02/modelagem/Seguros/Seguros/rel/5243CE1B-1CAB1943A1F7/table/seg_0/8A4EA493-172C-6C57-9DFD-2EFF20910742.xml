@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8A4EA493-172C-6C57-9DFD-2EFF20910742" name="Seguro">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:00 UTC</createdTime>
+<generatorID>847B642A-7A52-6AC9-4106-1DB971905D9D</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDSeguro" id="5453353E-86C4-4080-321A-223BF1FE4329">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:00 UTC</createdTime>
+<generatorID>D7D84BAB-8309-C637-DCB5-C6069E725C2D</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TipoSeguro" id="DA588EC9-647A-90DF-A246-AAD7F4D6D409">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:00 UTC</createdTime>
+<generatorID>A287DD7E-14AC-5899-AC80-B60DBAA11802</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Valor" id="5E2F8892-7BED-BB75-416A-8107AB9289AF">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:02:01 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,12,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Data" id="4DFEC68A-22B4-CDEF-E5B3-18140A0DBE58">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:02:01 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B9C365E1-57D9-D84F-967C-3E856EFBA179" name="Seguro_PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:00 UTC</createdTime>
+<generatorID>F68D4D7A-4C54-C220-4389-A26E7B0BF22B</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5453353E-86C4-4080-321A-223BF1FE4329"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

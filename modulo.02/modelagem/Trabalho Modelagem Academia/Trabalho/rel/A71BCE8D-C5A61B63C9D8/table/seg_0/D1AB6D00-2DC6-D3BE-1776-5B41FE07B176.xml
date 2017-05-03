@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D1AB6D00-2DC6-D3BE-1776-5B41FE07B176" name="Endereco">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:44:36 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<ordsAlias>table_8</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDEndereco" id="DEC41E84-935E-4C5F-C497-19D9165108FF">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:46:06 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Endereco" id="10D3F0F7-2458-A0B0-B640-26858419547D">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:46:06 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Numero" id="C410BCF5-9758-6DB4-1B38-720A18DEE57D">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:46:06 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Complemento" id="C6E92DB0-F398-E670-D872-1C209C2439EE">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:46:06 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CEP" id="B49DAA93-6540-52E0-7FCF-C2BF2B453EA5">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:46:54 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cidade" id="2097DE90-CF4E-1BA2-1061-AE09941168DF">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:46:06 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UF" id="43EB362E-A2E9-2F09-F510-41884465F973">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:46:06 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D9CC1B07-A4AB-6065-CB15-3DC096323D1C" name="Endereco_PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:46:06 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DEC41E84-935E-4C5F-C497-19D9165108FF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

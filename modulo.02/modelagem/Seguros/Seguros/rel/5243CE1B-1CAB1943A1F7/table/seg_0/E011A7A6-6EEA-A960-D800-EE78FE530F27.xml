@@ -1,0 +1,113 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E011A7A6-6EEA-A960-D800-EE78FE530F27" name="SeguroCarro">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:03:18 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<ordsAlias>table_6</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDSeguroCarro" id="C4BD6F44-DA2A-B111-C675-7791B5483CBD">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:07:15 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PlacaCarro" id="C7550C45-6EF1-AA9C-324C-AF643D469579">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:07:15 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MarcaCarro" id="C80E74BE-1177-EDE9-6B78-901C33583E40">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:07:15 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AnoCarro" id="C8ACCED9-9327-CCC3-F708-FA776AC14151">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:07:15 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ValorCarro" id="CAFB3AB1-8A36-E2AE-A8EF-1A670C127C42">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:07:15 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,12,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NumeroCRV" id="F54B3AAF-5C8F-6613-C823-20D2DB584DE9">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:07:15 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDSeguro" id="EFFAC85D-50D7-CA85-78EF-E770D639FA3C">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:07:29 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FCBE9DFA-B929-C57E-2F82-BD3192591D3A" referredColumn="5453353E-86C4-4080-321A-223BF1FE4329"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9B959BB5-4857-0FFC-1286-06C9765439AB" name="SeguroCarro_PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:07:15 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C4BD6F44-DA2A-B111-C675-7791B5483CBD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B8316E57-60D7-2FCA-CCC4-0E2EB89FB3DB" name="SeguroCarro_Seguro_FK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:07:29 UTC</createdTime>
+<generatorID>F68D4D7A-4C54-C220-4389-A26E7B0BF22B</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EFFAC85D-50D7-CA85-78EF-E770D639FA3C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

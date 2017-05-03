@@ -1,0 +1,132 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5A4CF2AA-6AD3-662B-9A37-F2C42D939349" name="Endereco">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:47:05 UTC</createdTime>
+<generatorID>D1AB6D00-2DC6-D3BE-1776-5B41FE07B176</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDEndereco" id="49A42599-D608-2E91-C374-DCF61B01DC17">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:47:05 UTC</createdTime>
+<generatorID>DEC41E84-935E-4C5F-C497-19D9165108FF</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Endereco" id="74424F25-4559-1727-6516-2F1633914866">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:47:05 UTC</createdTime>
+<generatorID>10D3F0F7-2458-A0B0-B640-26858419547D</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Numero" id="64C66456-E560-0138-A4E2-B5F45EF7D92A">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:47:05 UTC</createdTime>
+<generatorID>C410BCF5-9758-6DB4-1B38-720A18DEE57D</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Complemento" id="00F01EC2-947D-C3F9-D3AE-58A49F1EB247">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:47:05 UTC</createdTime>
+<generatorID>C6E92DB0-F398-E670-D872-1C209C2439EE</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CEP" id="06DF39A5-0653-466D-91DD-661DACA42716">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:47:05 UTC</createdTime>
+<generatorID>B49DAA93-6540-52E0-7FCF-C2BF2B453EA5</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Cidade" id="4161920B-B0AD-02F5-1F51-62540A304FDE">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:47:05 UTC</createdTime>
+<generatorID>2097DE90-CF4E-1BA2-1061-AE09941168DF</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="UF" id="348186A1-FEEC-E713-FB75-1229FD1306C6">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:47:05 UTC</createdTime>
+<generatorID>43EB362E-A2E9-2F09-F510-41884465F973</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A303F237-C98F-8267-113C-151BE7357EC3" name="Endereco PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:47:05 UTC</createdTime>
+<generatorID>D9CC1B07-A4AB-6065-CB15-3DC096323D1C</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>49A42599-D608-2E91-C374-DCF61B01DC17</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

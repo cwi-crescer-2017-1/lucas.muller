@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="456CD581-E3CF-0AED-FEF0-CB572E2B2BEC" containerWithKeyObject="58DBC2D3-55F7-D0A1-A4A9-C786551DBEBC" localFKIndex="C269A3C7-23B2-860C-6DA7-F9BC27A86379" name="Contrato_Plano_FK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:23:39 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>98124285-5581-FD8A-B3B3-8BF5D675BEFC</referredTableID>
+<keyObject>D43D471A-6836-AFF4-0343-E6DC43A1469C</keyObject>
+<referredKeyID>D43D471A-6836-AFF4-0343-E6DC43A1469C</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="09144F87-E2E1-38F4-21E3-9AF56BDEE06F" name="Mensalidade">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:31:55 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<ordsAlias>table_6</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDMensalidade" id="A4E6F0A7-0D62-864C-E8F7-B360F6488E07">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:33:52 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDContrato" id="586C14B1-D804-1113-13BF-47564CB8BEB1">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:33:59 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="66DF925B-E9B8-64BA-60C9-43A7CC75EB9A" referredColumn="26F0E280-E55E-E027-8E4C-0FA564DB6741"/>
+</associations>
+</Column>
+<Column name="Valor" id="636C1192-1058-E09C-ECC1-9E28F4C91E28">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:33:52 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,12,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Desconto" id="1E440F28-DAC9-B6DC-DBE8-9CEB99A7F6DD">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:37:15 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,12,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Situacao" id="1947E6EC-2B8D-2548-06A5-A5586158B785">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:33:52 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataVencimento" id="5C67A59D-C4CA-6D90-26C7-B2D0EF81E652">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:33:52 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataPagamento" id="5726983E-4519-25DD-E19C-D461F08CA615">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:33:52 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8DB5F935-446D-B01A-AFD9-6DDA94AE4C46" name="Mensalidade_Contrato_FK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:33:59 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="586C14B1-D804-1113-13BF-47564CB8BEB1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

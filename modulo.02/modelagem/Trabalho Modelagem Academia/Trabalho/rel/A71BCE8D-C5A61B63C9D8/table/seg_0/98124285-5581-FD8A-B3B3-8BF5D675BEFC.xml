@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="98124285-5581-FD8A-B3B3-8BF5D675BEFC" name="Plano">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:19:06 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDPlano" id="898D37A0-ABBB-92DE-6DBB-992826AAB5B0">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:20:46 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Descricao" id="DFDDBC9A-8B14-8029-76F9-F8B014CCD679">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:20:46 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Situacao" id="F24DD9DC-05AD-B5C2-8B96-35B610ED776C">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:21:25 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Valor" id="10D93BF4-8BF0-497D-15AD-67FC4F590EC4">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:20:46 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,12,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Multa" id="E7993950-C387-C051-36C1-F273E4171020">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:40:27 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,12,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Desconto" id="62068D56-7F30-CD50-BC92-E6B68D87941C">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:40:27 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,12,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tipo" id="CB47B1D3-2ACA-B889-874B-BD387FA2A2F3">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:20:46 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Quantidade" id="057E2149-2412-A485-E198-380CE7A6CEF9">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:20:46 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="QuantDependentes" id="3C3EAD02-D44B-A928-B408-2614C5C80C5D">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:25:50 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D43D471A-6836-AFF4-0343-E6DC43A1469C" name="Plano_PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:20:46 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="898D37A0-ABBB-92DE-6DBB-992826AAB5B0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

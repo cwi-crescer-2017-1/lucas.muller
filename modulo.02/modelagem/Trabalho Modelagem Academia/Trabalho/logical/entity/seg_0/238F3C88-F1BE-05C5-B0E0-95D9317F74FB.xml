@@ -1,0 +1,117 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="238F3C88-F1BE-05C5-B0E0-95D9317F74FB" name="Contrato">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:26:27 UTC</createdTime>
+<generatorID>58DBC2D3-55F7-D0A1-A4A9-C786551DBEBC</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDContrato" id="95422A41-5824-8915-2D3C-07DDAB4942A3">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:26:27 UTC</createdTime>
+<generatorID>26F0E280-E55E-E027-8E4C-0FA564DB6741</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDPlano" id="E9859097-6D84-8E40-2E9E-B893AA62242F">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:26:27 UTC</createdTime>
+<generatorID>0C1BBA8F-F294-6210-AD19-5C1DA7F8EBA2</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<referedAttribute>D451E8E7-D12A-A2D7-71FC-3B1BE4ED37EC</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDClienteTitular" id="C983120C-C9DB-4028-CC93-0B49CA14FBE9">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:26:27 UTC</createdTime>
+<generatorID>EDDD35D5-C9D0-E22A-D856-4B0461BAD2A7</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<referedAttribute>631A0A02-2964-4BDE-3BEA-D090D0C550DE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DataInicio" id="F51BCD6C-F31A-04B3-B8B9-88B8362EA8C5">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:26:27 UTC</createdTime>
+<generatorID>0EE20940-CE96-56B1-FCC9-A9886B27FA68</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DataFim" id="2DFB67DD-EAB9-87AD-939F-8A6905A3968C">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:26:27 UTC</createdTime>
+<generatorID>F96A543C-F529-925B-7C11-64945416AC32</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Situacao" id="18621A4A-E669-3C37-CB79-AD342B0242AC">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:26:27 UTC</createdTime>
+<generatorID>F3DF1667-6D17-9F35-7A2C-36F7192FA5ED</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="97E79F55-DD46-CCED-80BF-C9F20237DFD3" name="Contrato PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:26:27 UTC</createdTime>
+<generatorID>E7DFBBE8-8F7D-120D-117F-89CE8F2FEC92</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>95422A41-5824-8915-2D3C-07DDAB4942A3</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

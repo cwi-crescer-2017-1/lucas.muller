@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="7798CF77-61EB-3836-D21B-29107ADC8A6D" containerWithKeyObject="B8370CBC-EF12-85FD-9F07-9A49D710AB79" localFKIndex="511B08AB-CC6D-3548-DB51-136D54BE31EF" name="Endereco_Cidade_FK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:20:15 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>B5D3AA29-9A5D-E487-651F-528943A689FD</referredTableID>
+<keyObject>911B760F-9EAA-77DB-B621-DB5C46D5258D</keyObject>
+<referredKeyID>911B760F-9EAA-77DB-B621-DB5C46D5258D</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

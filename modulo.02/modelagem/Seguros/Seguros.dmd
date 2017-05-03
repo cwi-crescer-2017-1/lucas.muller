@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Seguros" id="CEB39141-4385-3981-213D-A8C2265CE389" version="3.5">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:42:33 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>CEB39141-4385-3981-213D-A8C2265CE389</designId>
+</OSDM_Design>

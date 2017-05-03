@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B8370CBC-EF12-85FD-9F07-9A49D710AB79" name="Endereco">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:16:54 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<ordsAlias>table_9</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDEndereco" id="428552F9-EBAE-F969-7176-BF9CBD57BE35">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:17:47 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Endereco" id="656EA22C-04A6-28AA-8E8C-DD83F28C9207">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:17:47 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Numero" id="83E03DEF-D9EB-EB49-371B-59D7F00A5C4B">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:17:47 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Complemento" id="B73875BA-F764-F6DB-DC9E-A78494053CBB">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:17:47 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CEP" id="01BB4DE9-0EC0-0040-C38E-D227143C5326">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:17:47 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDCidade" id="40AD28AD-27EB-48AF-864B-2A3A3EEA77D1">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:20:15 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7798CF77-61EB-3836-D21B-29107ADC8A6D" referredColumn="03D0F42D-2C84-4AD7-6921-C44E320404FA"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1CA0982C-0ED6-2842-C239-A946E9DA9660" name="Endereco_PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:17:47 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="428552F9-EBAE-F969-7176-BF9CBD57BE35"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="511B08AB-CC6D-3548-DB51-136D54BE31EF" name="Endereco_Cidade_FK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:20:15 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="40AD28AD-27EB-48AF-864B-2A3A3EEA77D1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

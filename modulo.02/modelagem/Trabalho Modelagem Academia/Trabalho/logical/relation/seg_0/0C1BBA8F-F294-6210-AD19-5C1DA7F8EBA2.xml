@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Contrato_Plano_FK" directorySegmentName="seg_0" id="0C1BBA8F-F294-6210-AD19-5C1DA7F8EBA2">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:26:27 UTC</createdTime>
+<generatorID>456CD581-E3CF-0AED-FEF0-CB572E2B2BEC</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<sourcePk>142F9286-F23C-84F6-7C91-2B97A460A07C</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>89143448-4E6B-8DEB-BC5E-8559965275DF</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>238F3C88-F1BE-05C5-B0E0-95D9317F74FB</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

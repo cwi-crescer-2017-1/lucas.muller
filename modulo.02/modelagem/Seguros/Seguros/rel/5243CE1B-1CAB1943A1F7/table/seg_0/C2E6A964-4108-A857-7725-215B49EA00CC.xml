@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C2E6A964-4108-A857-7725-215B49EA00CC" name="SeguroCasa">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:13:56 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDSeguroCasa" id="0862C459-5BE8-22F8-A0D3-79A55CDD3CBC">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:16:11 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDSeguro" id="B4B12181-F438-A3B5-BA48-9B3636CCC750">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:16:17 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="78A76305-B107-5645-1E6D-B2F1BAB40AE4" referredColumn="5453353E-86C4-4080-321A-223BF1FE4329"/>
+</associations>
+</Column>
+<Column name="IDEnderecoCasa" id="277D3AAE-0552-52FC-A2A4-B5CC21CDCE8E">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:17:57 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9E2E387E-6358-E0CF-D84B-A1801655E26C" referredColumn="428552F9-EBAE-F969-7176-BF9CBD57BE35"/>
+</associations>
+</Column>
+<Column name="TipoCasa" id="B6DB4EA4-6073-E76D-A29E-BC509F6F2C12">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:16:11 UTC</createdTime>
+<commentInRDBMS>Casa - C&lt;br/&gt;Apartamento - A</commentInRDBMS>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="839C4CEC-0907-108C-9CAE-B7928E0B9375" name="SeguroCasa_PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:16:11 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0862C459-5BE8-22F8-A0D3-79A55CDD3CBC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4B322C8E-11F2-8790-A1A3-1A28D35A3637" name="SeguroCasa_Seguro_FK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:16:17 UTC</createdTime>
+<generatorID>F68D4D7A-4C54-C220-4389-A26E7B0BF22B</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B4B12181-F438-A3B5-BA48-9B3636CCC750"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="99427009-0388-6AAB-2FF6-C127BB363F42" name="SeguroCasa_Endereco_FK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:17:57 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="277D3AAE-0552-52FC-A2A4-B5CC21CDCE8E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

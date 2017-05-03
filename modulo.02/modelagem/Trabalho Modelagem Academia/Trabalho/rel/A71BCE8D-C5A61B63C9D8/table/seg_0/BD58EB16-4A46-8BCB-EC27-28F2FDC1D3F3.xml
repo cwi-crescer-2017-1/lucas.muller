@@ -1,0 +1,141 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BD58EB16-4A46-8BCB-EC27-28F2FDC1D3F3" name="Cliente">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:11:59 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDCliente" id="A8B6CAB0-ACBF-33FB-CE58-F1CE7E980566">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:18:15 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="D9C115C5-08AD-BA89-2A77-8278DFF53EBF">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:18:15 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Biometria" id="5E165ADD-7D79-CBA0-C2B6-91CEAAD4CE8E">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:18:15 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataNascimento" id="B8EA0EBE-A335-D8BF-4879-61032C108CE9">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:18:15 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataCadastro" id="E5AA1702-4DB4-171D-999D-53476F20A8DB">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:18:15 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CPF" id="23F8C522-B051-47B7-584D-4C67306F2C1D">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:18:15 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RG" id="7F9A90F7-B301-661C-991B-209605086745">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:18:15 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDEndereco" id="E231D69E-6B61-D6A5-3A94-92C7105D2EA0">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:46:23 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2AD08687-CAE4-EE77-5A4A-C3590C5F1748" referredColumn="DEC41E84-935E-4C5F-C497-19D9165108FF"/>
+</associations>
+</Column>
+<Column name="Telefone" id="EFAD2737-5A61-5399-E43B-1D682BA013C7">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:18:15 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Situacao" id="45B81CDB-7956-9EA7-FC26-8617534A5E0D">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:18:15 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="275F3121-80E4-1A8A-C91D-8E6B4F0F1CCA" name="Cliente_PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:18:15 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A8B6CAB0-ACBF-33FB-CE58-F1CE7E980566"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A2BE400E-2A59-AC46-A168-E8DD438F8DEC" name="Cliente_Endereco_FK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:46:23 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E231D69E-6B61-D6A5-3A94-92C7105D2EA0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

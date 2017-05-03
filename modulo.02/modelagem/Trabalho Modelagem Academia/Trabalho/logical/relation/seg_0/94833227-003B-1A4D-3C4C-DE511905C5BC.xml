@@ -1,0 +1,44 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ContratoDependentes" directorySegmentName="seg_0" id="94833227-003B-1A4D-3C4C-DE511905C5BC">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:26:50 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>5AC77A06-0761-5EF4-5210-BB57CBC17508</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>238F3C88-F1BE-05C5-B0E0-95D9317F74FB</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<attribute name="IDContrato" id="2E5D97AF-9B34-CFA7-55B2-60FF5A70468F">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:47:05 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+<attribute name="IDClienteDependente" id="3A70D26B-806E-D993-F6AF-4077A90065F8">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:47:05 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+</attributes>
+</Relation>

@@ -1,0 +1,118 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="06633DD9-EF4E-6C5E-B361-CDF3934F4068" name="Pessoa">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:00 UTC</createdTime>
+<generatorID>918D8FA4-BD8D-9437-3985-D4862EFB9E5E</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<ordsAlias>cliente</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDPessoa" id="7888732E-51E1-E107-3F69-5D39E4AA9B9C">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:00 UTC</createdTime>
+<generatorID>B0932C64-79C5-22AB-E709-21EEF3C420ED</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="23FCC60C-4FFD-01B0-C086-BDEF3F2C1D30">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:00 UTC</createdTime>
+<generatorID>5B88D512-C027-33B1-C7B7-9D7E729B7295</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CPF" id="2262E0AC-4BE7-52DA-5CB1-55AB18FC2C57">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:00 UTC</createdTime>
+<generatorID>04B757A0-10B4-D00D-6FB7-B32C04E7B620</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RG" id="A0514F5F-FDE3-C1A3-F2FC-B556E8BE7A42">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:00 UTC</createdTime>
+<generatorID>A70513C0-BF62-1223-7D84-83C2BA459363</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataNascimento" id="3570C1B8-3658-EDD3-4660-248FE1B530CC">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:00 UTC</createdTime>
+<generatorID>C92805E8-A765-E5EE-D7D3-03A155E55955</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDEndereco" id="90B22531-FE5B-DCD9-54D6-AAF64E31B2ED">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:18:38 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7B1A0D14-3DDE-F800-3C7E-B9FEA096315F" referredColumn="428552F9-EBAE-F969-7176-BF9CBD57BE35"/>
+</associations>
+</Column>
+<Column name="Telefone" id="BB54BC9C-E6A3-399C-5889-245D40AE3876">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:00 UTC</createdTime>
+<generatorID>3082F432-71B1-8559-C49E-5475DC5E0D50</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3DEFED8B-2C6E-C7B5-46C3-AC452D73A87E" name="Cliente_PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:00 UTC</createdTime>
+<generatorID>5DA97891-1E4F-8B32-DF8A-322A0F933B9A</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7888732E-51E1-E107-3F69-5D39E4AA9B9C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="12F2CE02-D9B9-CECF-4D2C-26B1DFD6F584" name="Pessoa_Endereco_FK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:18:38 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="90B22531-FE5B-DCD9-54D6-AAF64E31B2ED"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

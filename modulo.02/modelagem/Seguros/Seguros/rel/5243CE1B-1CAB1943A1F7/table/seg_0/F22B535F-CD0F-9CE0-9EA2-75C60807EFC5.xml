@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F22B535F-CD0F-9CE0-9EA2-75C60807EFC5" name="SeguroVida">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:02:14 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDSeguroVida" id="1CB40C12-73BF-CAD8-96A1-9281B2266DFF">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:02:32 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ValorPorMorte" id="89FEC9D0-CC0E-9C58-C72A-C4F03408017D">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:09:14 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,12,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ValorPorIncapacitacao" id="47C258C9-34C8-57D6-0499-12597BB48C29">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:09:14 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,12,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDSeguro" id="2B19170A-A32D-2B96-A959-AA9AB1AC3EAA">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:10:15 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CB558088-1572-8EB9-01EC-F233BFFB9C7D" referredColumn="5453353E-86C4-4080-321A-223BF1FE4329"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8E1F0A2C-4872-9E4B-A33F-36C54B4AC33D" name="SeguroVida_PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:02:32 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1CB40C12-73BF-CAD8-96A1-9281B2266DFF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="11F1FEB5-D457-3DB5-4476-35E96CFB3AB8" name="SeguroVida_Seguro_FK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:10:15 UTC</createdTime>
+<generatorID>F68D4D7A-4C54-C220-4389-A26E7B0BF22B</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2B19170A-A32D-2B96-A959-AA9AB1AC3EAA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

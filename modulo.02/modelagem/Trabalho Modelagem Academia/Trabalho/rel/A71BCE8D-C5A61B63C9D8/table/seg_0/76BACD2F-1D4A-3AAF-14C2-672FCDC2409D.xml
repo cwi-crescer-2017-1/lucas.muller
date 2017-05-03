@@ -1,0 +1,69 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="76BACD2F-1D4A-3AAF-14C2-672FCDC2409D" name="Acessos">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:41:34 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDAcesso" id="14BF863A-EAC9-1DD1-A43B-D0CB34707278">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:42:29 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDCliente" id="1D4F611D-3C91-EAA4-469C-F2A9BAB2AB5B">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:42:38 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F7C176CA-2260-DA8E-470D-6FE7F0A6E672" referredColumn="A8B6CAB0-ACBF-33FB-CE58-F1CE7E980566"/>
+</associations>
+</Column>
+<Column name="Tipo" id="E8DEB253-99B7-8150-0635-0264BCC2D7E1">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:42:29 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HoraAcesso" id="4EDCDF2C-8A98-26A7-AE70-5D6D1FACA6FB">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:42:29 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="95D39025-C10E-3B3D-66D4-C9B81D95FA7A" name="Acessos_Cliente_FK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:42:38 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1D4F611D-3C91-EAA4-469C-F2A9BAB2AB5B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

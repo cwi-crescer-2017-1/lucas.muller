@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Mensalidade_Contrato_FK" directorySegmentName="seg_0" id="DE66D9C2-5F9D-ADE1-ED7E-3E2769202CB8">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:47:05 UTC</createdTime>
+<generatorID>66DF925B-E9B8-64BA-60C9-43A7CC75EB9A</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<sourcePk>97E79F55-DD46-CCED-80BF-C9F20237DFD3</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>238F3C88-F1BE-05C5-B0E0-95D9317F74FB</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>281DD34D-1135-19EB-8E8F-326284B9A840</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

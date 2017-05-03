@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="SeguroCasa_Endereco_FK" directorySegmentName="seg_0" id="C4A70E53-9FC9-DB26-DA6D-8D68FD0EA019">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:30:58 UTC</createdTime>
+<generatorID>9E2E387E-6358-E0CF-D84B-A1801655E26C</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<sourcePk>01A554D4-9AA0-B06D-8BA1-72305B1B42A0</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>2BC93AA7-0C62-582D-1E64-4F9CBCC56521</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>1B8A93E4-A2FF-16CC-B259-3652C8E31259</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

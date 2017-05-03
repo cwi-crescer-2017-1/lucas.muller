@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="SeguroCarro_Seguro_FK" directorySegmentName="seg_0" id="D5EA0138-9936-9447-57A1-9FD6D2C8F51C">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:30:58 UTC</createdTime>
+<generatorID>FCBE9DFA-B929-C57E-2F82-BD3192591D3A</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<engineerTo>
+<item key="5243CE1B-3CE8-2912-EEF3-1CAB1943A1F7" value="true"/>
+</engineerTo>
+<sourcePk>F68D4D7A-4C54-C220-4389-A26E7B0BF22B</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>847B642A-7A52-6AC9-4106-1DB971905D9D</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>B60E04C1-91E6-AD9B-04BE-CF0FAA7BD130</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

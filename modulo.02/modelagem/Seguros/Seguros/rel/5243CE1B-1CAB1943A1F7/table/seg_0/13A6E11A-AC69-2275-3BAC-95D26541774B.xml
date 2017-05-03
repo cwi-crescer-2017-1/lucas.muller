@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="13A6E11A-AC69-2275-3BAC-95D26541774B" name="ContratoBeneficiarios">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:00 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<ordsAlias>contratocliente</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDContratoBeneficiarios" id="891E53A5-A47B-AD30-B9C6-8FF497BCD6D3">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:36 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDContrato" id="0F27DBC6-7A1C-74B5-9023-FD9D23CD8007">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:00 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0206A8C1-2817-45C8-6203-C55F7CDEFB7A" referredColumn="BEA84FE9-2668-E19A-58F9-EAE8C3DF6CA4"/>
+</associations>
+</Column>
+<Column name="IDPessoaBeneficiaria" id="007AAE0A-CD25-99F6-33B1-8EB01A682783">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:00 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E50CB73C-519A-A2E7-D983-BB5D6AC2D63A" referredColumn="7888732E-51E1-E107-3F69-5D39E4AA9B9C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EF455279-76AA-A9A6-5A5B-78C4CAFD097C" name="ContratoCliente_PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:00 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="891E53A5-A47B-AD30-B9C6-8FF497BCD6D3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="27FBDE7A-5176-9A08-A830-204798552ED4" name="FK_ASS_1">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:00 UTC</createdTime>
+<generatorID>845EEC70-98B0-EED9-2F52-4933D338173F</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0F27DBC6-7A1C-74B5-9023-FD9D23CD8007"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="282EA1ED-3C1C-B887-F2F7-B68AFD422F4B" name="FK_ASS_2">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:58:00 UTC</createdTime>
+<generatorID>845EEC70-98B0-EED9-2F52-4933D338173F</generatorID>
+<ownerDesignName>Seguros</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="007AAE0A-CD25-99F6-33B1-8EB01A682783"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

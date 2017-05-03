@@ -1,0 +1,56 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B5D3AA29-9A5D-E487-651F-528943A689FD" name="Cidade">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:19:11 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<ordsAlias>table_10</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDCidade" id="03D0F42D-2C84-4AD7-6921-C44E320404FA">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:20:09 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="2EB1969D-4005-BD44-8D13-12839F45A22E">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:20:09 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UF" id="A287F1D9-F085-6D35-D336-7F6F19F64E9D">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:20:09 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="911B760F-9EAA-77DB-B621-DB5C46D5258D" name="Cidade_PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 19:20:09 UTC</createdTime>
+<ownerDesignName>Seguros</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="03D0F42D-2C84-4AD7-6921-C44E320404FA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
