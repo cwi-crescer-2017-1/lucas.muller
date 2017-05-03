@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9041825F-D686-F159-A5B0-6EFCF64FE238" name="PessoaFisica">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:52:47 UTC</createdTime>
+<ownerDesignName>Cadastro de Pessoas</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDPessoaFisica" id="AD611E9F-6E29-0240-2408-2FD92A68D4DC">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:53:22 UTC</createdTime>
+<ownerDesignName>Cadastro de Pessoas</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDPessoa" id="27D1EC88-2A32-9743-4DDB-A972894F1345">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:53:29 UTC</createdTime>
+<ownerDesignName>Cadastro de Pessoas</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0C8268F6-C920-A995-EE88-7B57D1674BCC" referredColumn="83360789-413D-749C-8448-9163303B01FA"/>
+</associations>
+</Column>
+<Column name="CPF" id="88B33D39-C1D2-CE14-53F5-B3A907D2B8D2">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:00:07 UTC</createdTime>
+<ownerDesignName>Cadastro de Pessoas</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RG" id="5F9E1831-95B1-867E-5505-16CED3947EB6">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:00:07 UTC</createdTime>
+<ownerDesignName>Cadastro de Pessoas</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9083BE0F-4BA6-C8C5-013D-C591E055F379" name="PessoaFisica_PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:53:22 UTC</createdTime>
+<ownerDesignName>Cadastro de Pessoas</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AD611E9F-6E29-0240-2408-2FD92A68D4DC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="912E5959-A72B-116B-FA76-885E4DBC8AB6" name="FK_PessoaFisica_Pessoa">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:53:29 UTC</createdTime>
+<ownerDesignName>Cadastro de Pessoas</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="27D1EC88-2A32-9743-4DDB-A972894F1345"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

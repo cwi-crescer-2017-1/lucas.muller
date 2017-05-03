@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="081A73C3-7A56-FD0C-4BA0-233074CD0AFD" name="Endereco">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:02:13 UTC</createdTime>
+<ownerDesignName>Cadastro de Pessoas</ownerDesignName>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDEndereco" id="E895BAB4-ED77-73BB-D1FE-588380ACE347">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:04:49 UTC</createdTime>
+<ownerDesignName>Cadastro de Pessoas</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Endereco" id="75700F94-11D4-93A5-6691-68AE240619C4">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:04:49 UTC</createdTime>
+<ownerDesignName>Cadastro de Pessoas</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Numero" id="6757AAF2-1E5B-8401-F046-938753D749E9">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:04:49 UTC</createdTime>
+<ownerDesignName>Cadastro de Pessoas</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Complemento" id="8D776BD2-8526-680B-ECEE-EF45BD6DB474">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:04:49 UTC</createdTime>
+<ownerDesignName>Cadastro de Pessoas</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CEP" id="B2D259BE-C9F1-AF93-035F-D6C7CD0B8C6E">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:04:49 UTC</createdTime>
+<ownerDesignName>Cadastro de Pessoas</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cidade" id="B811BDF2-2970-73AD-B252-0206B595DBD3">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:04:49 UTC</createdTime>
+<ownerDesignName>Cadastro de Pessoas</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UF" id="8BA7049B-CF2B-3C6A-D3AC-873B61020D39">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:04:49 UTC</createdTime>
+<ownerDesignName>Cadastro de Pessoas</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C91CEBA6-0D40-011C-28A4-79941B6D5AA6" name="Endereco_PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 18:04:49 UTC</createdTime>
+<ownerDesignName>Cadastro de Pessoas</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E895BAB4-ED77-73BB-D1FE-588380ACE347"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
