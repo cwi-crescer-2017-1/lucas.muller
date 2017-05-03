@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.logical.LogicalDesign>
+   <object objectType="Entity" objectID="3731AFDA-3689-3A82-F32A-7CB899EE3558" name="Empregado" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Entity" propertyParentId="CCD71385-0650-FE93-E9C3-121975F66221" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Entity" objectID="7370208E-603D-D1BC-F1A9-5EF9A79DE7B7" name="Projeto" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Entity" propertyParentId="CCD71385-0650-FE93-E9C3-121975F66221" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Relation" objectID="954610EE-2833-B491-75B6-7F65F2BDC0A1" name="FK_Projeto_Empregado" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Relation" propertyParentId="CCD71385-0650-FE93-E9C3-121975F66221" propertySourceId="3731AFDA-3689-3A82-F32A-7CB899EE3558" propertyTargetId="7370208E-603D-D1BC-F1A9-5EF9A79DE7B7"/>
+   <object objectType="Relation" objectID="FE623C41-2D3F-F77B-F34D-064B39B74442" name="ProjetoEmpregado" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Relation" propertyParentId="CCD71385-0650-FE93-E9C3-121975F66221" propertySourceId="7370208E-603D-D1BC-F1A9-5EF9A79DE7B7" propertyTargetId="3731AFDA-3689-3A82-F32A-7CB899EE3558"/>
+</oracle.dbtools.crest.model.design.logical.LogicalDesign>

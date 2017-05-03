@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DD62BE40-6BF6-2A75-86FA-8481CA186412" name="ProjetoEmpregado">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:00:36 UTC</createdTime>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDProjetoEmpregado" id="781305A4-1022-9FC1-3D2A-A176DE073182">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:07:55 UTC</createdTime>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDProjeto" id="DD7FC9C1-3A8F-36EE-300E-E8DAECFB7538">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:00:36 UTC</createdTime>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B5A37B96-8098-EE07-0E98-9FA94CE06FA2" referredColumn="F06D8053-69D8-E0FF-05A8-7E8B3A71A8E0"/>
+</associations>
+</Column>
+<Column name="IDEmpregado" id="943DF7FC-F5AF-AA72-37EC-B1C4304915E8">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:00:36 UTC</createdTime>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EE226641-5F1B-4DE6-7811-4CEBC8476570" referredColumn="3D416177-397D-225A-CB32-5E341834C90B"/>
+</associations>
+</Column>
+<Column name="PercentualParticipacao" id="4AA7137D-0A4C-99D0-59DE-0C973C3ADE67">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:15:14 UTC</createdTime>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,3,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1D150884-0D0D-2F93-A9E0-5F37B06847F7" name="ProjetoEmpregado_PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:00:36 UTC</createdTime>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="781305A4-1022-9FC1-3D2A-A176DE073182"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="891888C2-FF03-D2D5-BE7D-539465A41D06" name="FK_ProjetoEmpregado_Projeto">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:00:36 UTC</createdTime>
+<generatorID>FE623C41-2D3F-F77B-F34D-064B39B74442</generatorID>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DD7FC9C1-3A8F-36EE-300E-E8DAECFB7538"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F9876773-FC26-AB04-8116-674A5B916501" name="FK_ProjetoEmpregado_Empregado">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:00:36 UTC</createdTime>
+<generatorID>FE623C41-2D3F-F77B-F34D-064B39B74442</generatorID>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="943DF7FC-F5AF-AA72-37EC-B1C4304915E8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

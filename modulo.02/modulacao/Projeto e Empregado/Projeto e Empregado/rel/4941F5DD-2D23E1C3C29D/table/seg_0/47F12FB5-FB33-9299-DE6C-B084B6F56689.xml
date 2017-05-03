@@ -1,0 +1,158 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="47F12FB5-FB33-9299-DE6C-B084B6F56689" name="Projeto">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:00:36 UTC</createdTime>
+<generatorID>7370208E-603D-D1BC-F1A9-5EF9A79DE7B7</generatorID>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDProjeto" id="F06D8053-69D8-E0FF-05A8-7E8B3A71A8E0">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:00:36 UTC</createdTime>
+<generatorID>E6A41B76-4B41-088C-D488-F31C81CC341E</generatorID>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="A983A019-D82F-AC4D-09C1-0E02754B3C25">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:00:36 UTC</createdTime>
+<generatorID>615EA149-FF10-A58C-07DD-D8306B1D70D3</generatorID>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Situacao" id="66AA6DAB-637D-0CA0-27FC-C5058CAA03B5">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:32:03 UTC</createdTime>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataInicio" id="6E4EF631-642A-039A-BE59-75A0BA9A3605">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:00:36 UTC</createdTime>
+<generatorID>59A57DC1-8829-8DE1-2412-370247F17479</generatorID>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataFimPrevisto" id="4C282021-FE0D-C47C-34FD-92FEEA711292">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:00:36 UTC</createdTime>
+<generatorID>7C8E7D6D-0C91-44FB-DED8-213488C34A68</generatorID>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataFimReal" id="DFB93B73-061E-139A-3E33-3A9D6EE8E4EE">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:00:36 UTC</createdTime>
+<generatorID>CCCC8803-E4EF-4195-217A-B5CD9404EFD5</generatorID>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ValorPrevisto" id="6A241A0A-6048-0A4A-29FA-1D16B33CC107">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:00:36 UTC</createdTime>
+<generatorID>C5F42DBD-8E03-07DC-5E32-9F57DB4685C9</generatorID>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ValorRealizado" id="C99BC56D-A445-2986-F134-5F6DE5B8907F">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:00:36 UTC</createdTime>
+<generatorID>84F6201D-95D7-ED7D-BFF0-FEF9FBA657FE</generatorID>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ValorFaturado" id="7305F8FD-048D-6DED-A141-7F8B5155A538">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:00:36 UTC</createdTime>
+<generatorID>C1202C86-2CB6-2F03-3722-26F7F714349E</generatorID>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDEmpregadoResponsavel" id="9FD377F4-743C-3D07-8A7D-58DCCDC9C471">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:17:36 UTC</createdTime>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="604FE58F-F2FB-5A78-B4D8-2E34995805DE" referredColumn="3D416177-397D-225A-CB32-5E341834C90B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C661531E-FAC1-E5DB-EC76-9B15D10912A1" name="Projeto_PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:00:36 UTC</createdTime>
+<generatorID>7B533265-1F5D-3DAB-D775-6654BF2426D2</generatorID>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F06D8053-69D8-E0FF-05A8-7E8B3A71A8E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="99656E1D-8A74-66FB-D5E4-7DB0CF5D1B8B" name="FK_Projeto_Empregado">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:17:36 UTC</createdTime>
+<generatorID>3C35F66B-EBA9-AD57-E266-93BFF286520B</generatorID>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9FD377F4-743C-3D07-8A7D-58DCCDC9C471"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

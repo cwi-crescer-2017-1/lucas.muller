@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ProjetoEmpregado" directorySegmentName="seg_0" id="FE623C41-2D3F-F77B-F34D-064B39B74442">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 16:59:35 UTC</createdTime>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<engineerTo>
+<item key="4941F5DD-51C4-C9C3-2B1C-2D23E1C3C29D" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>7370208E-603D-D1BC-F1A9-5EF9A79DE7B7</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>3731AFDA-3689-3A82-F32A-7CB899EE3558</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<attribute name="IDProjeto" id="071D57F1-7312-1766-3B41-07EEE291EF3E">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:36:57 UTC</createdTime>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<engineerTo>
+<item key="4941F5DD-51C4-C9C3-2B1C-2D23E1C3C29D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+<attribute name="IDEmpregado" id="26A591CD-0702-8181-8147-9DA74C3E050D">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:36:57 UTC</createdTime>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<engineerTo>
+<item key="4941F5DD-51C4-C9C3-2B1C-2D23E1C3C29D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+<attribute name="PercentualParticipacao" id="9C35B463-9C46-EBF8-BA83-15546051E522">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 17:36:57 UTC</createdTime>
+<generatorID>4AA7137D-0A4C-99D0-59DE-0C973C3ADE67</generatorID>
+<ownerDesignName>Projeto e Empregado</ownerDesignName>
+<engineerTo>
+<item key="4941F5DD-51C4-C9C3-2B1C-2D23E1C3C29D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,3,2</ownDataTypeParameters>
+</attribute>
+</attributes>
+</Relation>
