@@ -32,6 +32,17 @@
 <colAssociation fkAssociation="66DF925B-E9B8-64BA-60C9-43A7CC75EB9A" referredColumn="26F0E280-E55E-E027-8E4C-0FA564DB6741"/>
 </associations>
 </Column>
+<Column name="Situacao" id="1947E6EC-2B8D-2548-06A5-A5586158B785">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-03 20:33:52 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="Valor" id="636C1192-1058-E09C-ECC1-9E28F4C91E28">
 <createdBy>lucas.muller</createdBy>
 <createdTime>2017-05-03 20:33:52 UTC</createdTime>
@@ -39,6 +50,18 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,12,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Multa" id="3DB0AFB0-917A-5B8E-1F59-50F49C68928C">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 00:16:23 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>12</dataTypePrecision>
 <dataTypeScale>2</dataTypeScale>
 <ownDataTypeParameters>,12,2</ownDataTypeParameters>
@@ -56,15 +79,17 @@
 <ownDataTypeParameters>,12,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Situacao" id="1947E6EC-2B8D-2548-06A5-A5586158B785">
+<Column name="ValorPago" id="5C68FDE1-F2BA-5A03-BF01-73F04B30E47F">
 <createdBy>lucas.muller</createdBy>
-<createdTime>2017-05-03 20:33:52 UTC</createdTime>
+<createdTime>2017-05-04 19:21:21 UTC</createdTime>
 <ownerDesignName>Trabalho</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,12,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="DataVencimento" id="5C67A59D-C4CA-6D90-26C7-B2D0EF81E652">
@@ -86,18 +111,6 @@
 <use>1</use>
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="Multa" id="3DB0AFB0-917A-5B8E-1F59-50F49C68928C">
-<createdBy>William</createdBy>
-<createdTime>2017-05-04 00:16:23 UTC</createdTime>
-<ownerDesignName>Trabalho</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>12</dataTypePrecision>
-<dataTypeScale>2</dataTypeScale>
-<ownDataTypeParameters>,12,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>

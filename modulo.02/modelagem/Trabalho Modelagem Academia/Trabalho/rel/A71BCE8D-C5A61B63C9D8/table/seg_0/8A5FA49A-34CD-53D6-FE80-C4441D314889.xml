@@ -56,6 +56,38 @@
 <ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="DataVinculacao" id="E2E8EB21-CDB7-FF28-93D6-04418DFBE994">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-04 19:22:45 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataDesvinculacao" id="0CC30716-DBBD-603F-8986-2CA8924DA717">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-04 19:22:45 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Situacao" id="29ED89DC-8741-E851-0424-612E3D05BF8A">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-04 19:22:45 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="D9AB7047-FD75-A745-A428-71CFEDF787B8" name="ContratoDependentes_PK">

@@ -18,7 +18,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Cliente_IDCliente" id="1D4F611D-3C91-EAA4-469C-F2A9BAB2AB5B">
+<Column name="IDCliente" id="1D4F611D-3C91-EAA4-469C-F2A9BAB2AB5B">
 <createdBy>lucas.muller</createdBy>
 <createdTime>2017-05-03 20:42:38 UTC</createdTime>
 <ownerDesignName>Trabalho</ownerDesignName>
