@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5EE1A6AA-0A11-82DE-4298-2DA2CF81C290" name="Usuario">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-04 16:43:37 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<ordsAlias>table_8</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDUsuario" id="BA63ACFB-1916-67CE-B69B-6C9EEA7113E3">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-04 16:45:42 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Email" id="CDF8C3C1-4C2D-8793-B017-967F8F28B5FA">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-04 16:45:42 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Senha" id="E4F05551-45FC-F6BD-4370-089F0F5DE284">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-04 16:45:42 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TipoAcesso" id="5C18AF90-C687-548C-CF3B-957D2595BC51">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-04 16:47:01 UTC</createdTime>
+<commentInRDBMS>Cliente normal - C&lt;br/&gt;Administrador - A</commentInRDBMS>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BE798D5A-383A-E034-F6DE-CE5346A7AC2F" name="Usuario_PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-04 16:45:42 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BA63ACFB-1916-67CE-B69B-6C9EEA7113E3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -162,6 +162,20 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="IDUsuario" id="1530AC84-1D59-DE2E-4D84-9EF9D75246F1">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-04 17:00:34 UTC</createdTime>
+<generatorID>7EE57465-7DDF-A32D-32D1-9E093107CEE8</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<referedAttribute>6F93FAFC-D178-0A67-91B7-B08BDE8B6BB1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="B40A3CF2-EEE1-DF62-3D07-3E524FBB892A" name="Cliente PK">

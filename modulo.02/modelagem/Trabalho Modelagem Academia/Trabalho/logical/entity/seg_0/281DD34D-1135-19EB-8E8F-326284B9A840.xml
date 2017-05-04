@@ -108,6 +108,7 @@
 <engineerTo>
 <item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT007</logicalDatatype>
@@ -127,5 +128,35 @@
 <dataTypeScale>2</dataTypeScale>
 <ownDataTypeParameters>,4,2</ownDataTypeParameters>
 </Attribute>
+<Attribute name="Multa2" id="D82E781B-3035-0D0A-224C-6CFA3166332E">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-04 16:33:07 UTC</createdTime>
+<generatorID>3DB0AFB0-917A-5B8E-1F59-50F49C68928C</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,12,2</ownDataTypeParameters>
+</Attribute>
 </attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="ECD5471D-9A16-13D8-8DD4-00734F2FED1B" name="Mensalidade PK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-04 16:33:07 UTC</createdTime>
+<generatorID>BABF421D-9255-DE04-4D85-31C4723794B3</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>FC3926E9-BA0E-4AE5-F04A-D4181E25D24D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
 </Entity>

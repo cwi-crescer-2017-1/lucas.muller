@@ -1,8 +1,8 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="99EF48C1-0BA0-76CC-2DD5-466C286EEF90" name="Acessos">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="19237038-653A-215C-423C-998FD2891422" name="Usuario">
 <createdBy>lucas.muller</createdBy>
-<createdTime>2017-05-03 20:47:05 UTC</createdTime>
-<generatorID>76BACD2F-1D4A-3AAF-14C2-672FCDC2409D</generatorID>
+<createdTime>2017-05-04 17:00:34 UTC</createdTime>
+<generatorID>5EE1A6AA-0A11-82DE-4298-2DA2CF81C290</generatorID>
 <ownerDesignName>Trabalho</ownerDesignName>
 <engineerTo>
 <item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
@@ -16,10 +16,10 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="IDAcesso" id="45AC3E7A-F41F-3747-1164-A6DF88C0B8E9">
+<Attribute name="IDUsuario" id="6F93FAFC-D178-0A67-91B7-B08BDE8B6BB1">
 <createdBy>lucas.muller</createdBy>
-<createdTime>2017-05-03 20:47:05 UTC</createdTime>
-<generatorID>14BF863A-EAC9-1DD1-A43B-D0CB34707278</generatorID>
+<createdTime>2017-05-04 17:00:34 UTC</createdTime>
+<generatorID>BA63ACFB-1916-67CE-B69B-6C9EEA7113E3</generatorID>
 <ownerDesignName>Trabalho</ownerDesignName>
 <engineerTo>
 <item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
@@ -29,24 +29,37 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Cliente IDCliente" id="EC56D42B-A85D-BA01-D9F1-D737048715A8">
+<Attribute name="Email" id="5E9C3698-A35F-2DFF-80FD-207C65A8CE88">
 <createdBy>lucas.muller</createdBy>
-<createdTime>2017-05-03 20:47:05 UTC</createdTime>
-<generatorID>11C4927A-F985-F9E1-9D68-C5DBE2170E14</generatorID>
+<createdTime>2017-05-04 17:00:34 UTC</createdTime>
+<generatorID>CDF8C3C1-4C2D-8793-B017-967F8F28B5FA</generatorID>
 <ownerDesignName>Trabalho</ownerDesignName>
 <engineerTo>
 <item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
 </engineerTo>
-<referedAttribute>631A0A02-2964-4BDE-3BEA-D090D0C550DE</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Tipo" id="D1FC54BA-4570-5515-2753-7D54D29E8D36">
+<Attribute name="Senha" id="EFE00278-7F35-61BD-5CF6-195F7719F7AB">
 <createdBy>lucas.muller</createdBy>
-<createdTime>2017-05-03 20:47:05 UTC</createdTime>
-<generatorID>E8DEB253-99B7-8150-0635-0264BCC2D7E1</generatorID>
+<createdTime>2017-05-04 17:00:34 UTC</createdTime>
+<generatorID>E4F05551-45FC-F6BD-4370-089F0F5DE284</generatorID>
+<ownerDesignName>Trabalho</ownerDesignName>
+<engineerTo>
+<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TipoAcesso" id="F52780A9-82F3-8502-12A3-8C899868EB62">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-04 17:00:34 UTC</createdTime>
+<commentInRDBMS>Cliente normal - C&lt;br/&gt;Administrador - A</commentInRDBMS>
+<generatorID>5C18AF90-C687-548C-CF3B-957D2595BC51</generatorID>
 <ownerDesignName>Trabalho</ownerDesignName>
 <engineerTo>
 <item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
@@ -57,32 +70,19 @@
 <dataTypeSize>1</dataTypeSize>
 <ownDataTypeParameters>1,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="HoraAcesso" id="BBBD36B6-0392-68B8-DB3F-7540709FA359">
-<createdBy>lucas.muller</createdBy>
-<createdTime>2017-05-03 20:47:05 UTC</createdTime>
-<generatorID>4EDCDF2C-8A98-26A7-AE70-5D6D1FACA6FB</generatorID>
-<ownerDesignName>Trabalho</ownerDesignName>
-<engineerTo>
-<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT008</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="974C1D8C-022E-5DC0-2276-6CE024D5B85B" name="Acessos PK">
+<identifier id="2533500D-1D60-4678-6D75-DD78C8E5B7F0" name="Usuario PK">
 <createdBy>lucas.muller</createdBy>
-<createdTime>2017-05-04 16:33:07 UTC</createdTime>
-<generatorID>5E2A4CA5-8377-FE56-2647-21B257D4CAB7</generatorID>
+<createdTime>2017-05-04 17:00:34 UTC</createdTime>
+<generatorID>BE798D5A-383A-E034-F6DE-CE5346A7AC2F</generatorID>
 <ownerDesignName>Trabalho</ownerDesignName>
 <engineerTo>
 <item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>45AC3E7A-F41F-3747-1164-A6DF88C0B8E9</attributeRef>
+<attributeRef>6F93FAFC-D178-0A67-91B7-B08BDE8B6BB1</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

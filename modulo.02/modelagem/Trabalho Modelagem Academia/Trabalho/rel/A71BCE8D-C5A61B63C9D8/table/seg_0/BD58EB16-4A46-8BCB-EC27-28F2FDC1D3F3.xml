@@ -114,6 +114,20 @@
 <ownDataTypeParameters>1,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="IDUsuario" id="5B679350-2BF2-28E6-03D2-65B35BE1639D">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-04 16:48:48 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B306114F-F5D3-DE6C-E4A0-49007ED93C3A" referredColumn="BA63ACFB-1916-67CE-B69B-6C9EEA7113E3"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="275F3121-80E4-1A8A-C91D-8E6B4F0F1CCA" name="Cliente_PK">
@@ -135,6 +149,16 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="E231D69E-6B61-D6A5-3A94-92C7105D2EA0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5B53B401-0AE8-31FF-CF5F-50D4AF66C2FC" name="Cliente_Usuario_FK">
+<createdBy>lucas.muller</createdBy>
+<createdTime>2017-05-04 16:48:48 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5B679350-2BF2-28E6-03D2-65B35BE1639D"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
