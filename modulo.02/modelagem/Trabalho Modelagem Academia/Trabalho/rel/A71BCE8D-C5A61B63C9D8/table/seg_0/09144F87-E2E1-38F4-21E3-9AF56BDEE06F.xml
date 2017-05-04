@@ -81,14 +81,38 @@
 <createdBy>lucas.muller</createdBy>
 <createdTime>2017-05-03 20:33:52 UTC</createdTime>
 <ownerDesignName>Trabalho</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="Multa" id="3DB0AFB0-917A-5B8E-1F59-50F49C68928C">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 00:16:23 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,12,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BABF421D-9255-DE04-4D85-31C4723794B3" name="Mensalidade_PK">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 01:35:31 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A4E6F0A7-0D62-864C-E8F7-B360F6488E07"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="8DB5F935-446D-B01A-AFD9-6DDA94AE4C46" name="Mensalidade_Contrato_FK">
 <createdBy>lucas.muller</createdBy>
 <createdTime>2017-05-03 20:33:59 UTC</createdTime>

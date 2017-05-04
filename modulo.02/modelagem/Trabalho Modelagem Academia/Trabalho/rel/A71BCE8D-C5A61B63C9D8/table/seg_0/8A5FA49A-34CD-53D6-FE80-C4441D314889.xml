@@ -45,6 +45,17 @@
 <colAssociation fkAssociation="0DBB79E8-62FB-63FD-F7DD-88FFD076B1D8" referredColumn="A8B6CAB0-ACBF-33FB-CE58-F1CE7E980566"/>
 </associations>
 </Column>
+<Column name="GrauParentescoTitular" id="8FB399A7-9408-DBB9-1D5C-39B49FBD68FD">
+<createdBy>Lucas</createdBy>
+<createdTime>2017-05-04 15:38:16 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="D9AB7047-FD75-A745-A428-71CFEDF787B8" name="ContratoDependentes_PK">
@@ -58,7 +69,7 @@
 <colUsage columnID="83ADF35F-B5CD-07F6-52B9-EC024238DA54"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="95CBC46C-E505-A808-32AB-7C4C35EC493E" name="FK_ASS_5">
+<ind_PK_UK id="95CBC46C-E505-A808-32AB-7C4C35EC493E" name="Contrato_Cliente_FK (IDCliente)">
 <createdBy>lucas.muller</createdBy>
 <createdTime>2017-05-03 20:27:07 UTC</createdTime>
 <generatorID>94833227-003B-1A4D-3C4C-DE511905C5BC</generatorID>
@@ -69,7 +80,7 @@
 <colUsage columnID="A59D63B7-B9B4-9B68-DD21-AD5B24C9F7B1"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="C674DA26-E96C-10C2-CA22-27B2ED660B4A" name="FK_ASS_6">
+<ind_PK_UK id="C674DA26-E96C-10C2-CA22-27B2ED660B4A" name="Contrato_Contrato_FK (IDContrato)">
 <createdBy>lucas.muller</createdBy>
 <createdTime>2017-05-03 20:27:07 UTC</createdTime>
 <generatorID>94833227-003B-1A4D-3C4C-DE511905C5BC</generatorID>

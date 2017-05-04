@@ -1,14 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="0DBB79E8-62FB-63FD-F7DD-88FFD076B1D8" containerWithKeyObject="8A5FA49A-34CD-53D6-FE80-C4441D314889" localFKIndex="95CBC46C-E505-A808-32AB-7C4C35EC493E" name="FK_ASS_5">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="0DBB79E8-62FB-63FD-F7DD-88FFD076B1D8" containerWithKeyObject="8A5FA49A-34CD-53D6-FE80-C4441D314889" localFKIndex="95CBC46C-E505-A808-32AB-7C4C35EC493E" name="Contrato_Cliente_FK (IDCliente)">
 <createdBy>lucas.muller</createdBy>
 <createdTime>2017-05-03 20:27:07 UTC</createdTime>
 <generatorID>94833227-003B-1A4D-3C4C-DE511905C5BC</generatorID>
 <ownerDesignName>Trabalho</ownerDesignName>
+<referredTableLongName>Cliente</referredTableLongName>
 <deleteRule>NO ACTION</deleteRule>
 <referredTableID>BD58EB16-4A46-8BCB-EC27-28F2FDC1D3F3</referredTableID>
 <keyObject>275F3121-80E4-1A8A-C91D-8E6B4F0F1CCA</keyObject>
 <referredKeyID>275F3121-80E4-1A8A-C91D-8E6B4F0F1CCA</referredKeyID>
 <mandatory>true</mandatory>
+<refColNames>IDCliente</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>
 <columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>

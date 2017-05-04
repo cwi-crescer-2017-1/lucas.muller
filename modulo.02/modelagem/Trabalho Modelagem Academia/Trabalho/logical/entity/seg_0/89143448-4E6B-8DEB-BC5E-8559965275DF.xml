@@ -72,75 +72,32 @@
 <dataTypeScale>2</dataTypeScale>
 <ownDataTypeParameters>,12,2</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Tipo" id="C3D9D575-3400-A12F-825A-6658B1EECCBE">
-<createdBy>lucas.muller</createdBy>
-<createdTime>2017-05-03 20:26:27 UTC</createdTime>
-<generatorID>CB47B1D3-2ACA-B889-874B-BD387FA2A2F3</generatorID>
+<Attribute name="DiasDaSemana" id="59B2B0C6-3162-30BA-00E1-0C09EDAA08DC">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 03:46:22 UTC</createdTime>
 <ownerDesignName>Trabalho</ownerDesignName>
 <engineerTo>
 <item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Quantidade" id="83C78D2C-C9D2-D2B7-9026-34B776445308">
-<createdBy>lucas.muller</createdBy>
-<createdTime>2017-05-03 20:26:27 UTC</createdTime>
-<generatorID>057E2149-2412-A485-E198-380CE7A6CEF9</generatorID>
+<Attribute name="AdicionalPorDependente" id="0FCB0DE2-776E-8A48-A51C-D72764B691C0">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 03:46:46 UTC</createdTime>
 <ownerDesignName>Trabalho</ownerDesignName>
 <engineerTo>
 <item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="QuantDependentes" id="BEDD209A-4774-1E39-EE23-92826908DB05">
-<createdBy>lucas.muller</createdBy>
-<createdTime>2017-05-03 20:26:27 UTC</createdTime>
-<generatorID>3C3EAD02-D44B-A928-B408-2614C5C80C5D</generatorID>
-<ownerDesignName>Trabalho</ownerDesignName>
-<engineerTo>
-<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Multa" id="8B3D6EFF-C1EF-B958-F77D-543601474196">
-<createdBy>lucas.muller</createdBy>
-<createdTime>2017-05-03 20:47:05 UTC</createdTime>
-<generatorID>E7993950-C387-C051-36C1-F273E4171020</generatorID>
-<ownerDesignName>Trabalho</ownerDesignName>
-<engineerTo>
-<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT026</logicalDatatype>
-<dataTypePrecision>12</dataTypePrecision>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
 <dataTypeScale>2</dataTypeScale>
-<ownDataTypeParameters>,12,2</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Desconto" id="8E765B16-93C7-4B54-D85D-7935D75E8B3D">
-<createdBy>lucas.muller</createdBy>
-<createdTime>2017-05-03 20:47:05 UTC</createdTime>
-<generatorID>62068D56-7F30-CD50-BC92-E6B68D87941C</generatorID>
-<ownerDesignName>Trabalho</ownerDesignName>
-<engineerTo>
-<item key="A71BCE8D-73DF-2969-D01B-C5A61B63C9D8" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT026</logicalDatatype>
-<dataTypePrecision>12</dataTypePrecision>
-<dataTypeScale>2</dataTypeScale>
-<ownDataTypeParameters>,12,2</ownDataTypeParameters>
+<ownDataTypeParameters>,4,2</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">

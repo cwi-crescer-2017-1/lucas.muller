@@ -18,7 +18,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="IDCliente" id="1D4F611D-3C91-EAA4-469C-F2A9BAB2AB5B">
+<Column name="Cliente_IDCliente" id="1D4F611D-3C91-EAA4-469C-F2A9BAB2AB5B">
 <createdBy>lucas.muller</createdBy>
 <createdTime>2017-05-03 20:42:38 UTC</createdTime>
 <ownerDesignName>Trabalho</ownerDesignName>
@@ -55,6 +55,17 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5E2A4CA5-8377-FE56-2647-21B257D4CAB7" name="Acessos_PK">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 01:35:44 UTC</createdTime>
+<ownerDesignName>Trabalho</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="14BF863A-EAC9-1DD1-A43B-D0CB34707278"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="95D39025-C10E-3B3D-66D4-C9B81D95FA7A" name="Acessos_Cliente_FK">
 <createdBy>lucas.muller</createdBy>
 <createdTime>2017-05-03 20:42:38 UTC</createdTime>

@@ -52,44 +52,10 @@
 <ownDataTypeParameters>,12,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Multa" id="E7993950-C387-C051-36C1-F273E4171020">
-<createdBy>lucas.muller</createdBy>
-<createdTime>2017-05-03 20:40:27 UTC</createdTime>
-<ownerDesignName>Trabalho</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT026</logicalDatatype>
-<dataTypePrecision>12</dataTypePrecision>
-<dataTypeScale>2</dataTypeScale>
-<ownDataTypeParameters>,12,2</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="Desconto" id="62068D56-7F30-CD50-BC92-E6B68D87941C">
-<createdBy>lucas.muller</createdBy>
-<createdTime>2017-05-03 20:40:27 UTC</createdTime>
-<ownerDesignName>Trabalho</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT026</logicalDatatype>
-<dataTypePrecision>12</dataTypePrecision>
-<dataTypeScale>2</dataTypeScale>
-<ownDataTypeParameters>,12,2</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="Tipo" id="CB47B1D3-2ACA-B889-874B-BD387FA2A2F3">
-<createdBy>lucas.muller</createdBy>
-<createdTime>2017-05-03 20:20:46 UTC</createdTime>
-<ownerDesignName>Trabalho</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="Quantidade" id="057E2149-2412-A485-E198-380CE7A6CEF9">
-<createdBy>lucas.muller</createdBy>
-<createdTime>2017-05-03 20:20:46 UTC</createdTime>
+<Column name="QuantAcessosSemanais" id="ED48FEB7-4109-6233-E53C-E7422E2B5C42">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 03:53:37 UTC</createdTime>
+<generatorID>59B2B0C6-3162-30BA-00E1-0C09EDAA08DC</generatorID>
 <ownerDesignName>Trabalho</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -97,14 +63,16 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="QuantDependentes" id="3C3EAD02-D44B-A928-B408-2614C5C80C5D">
-<createdBy>lucas.muller</createdBy>
-<createdTime>2017-05-03 20:25:50 UTC</createdTime>
+<Column name="AdicionalPorDependente" id="04D56B8A-9198-A110-2B7F-14B1194A7D9B">
+<createdBy>William</createdBy>
+<createdTime>2017-05-04 01:31:28 UTC</createdTime>
 <ownerDesignName>Trabalho</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,12,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
