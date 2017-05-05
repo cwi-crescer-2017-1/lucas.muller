@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+p {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+div.conteudo p {
+    text-indent: 20px;
+    font-size: 20px;
+    text-align: justify;
+}
+
+div.conteudo small {
+    font-size: 10px;
+}
+
+div.conteudo .right-image {
+    height: 200px;
+    width: auto;
+    float: right;
+    border-radius: 3px;
+    margin-left: 20px;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.right-align { 
+    text-align: right;
+}
+
+h1 {
+    margin: 20px 0 0 0;
+}
+
+header { 
+    padding: 20px 0;
+    background-color: #2D6BEF;
+    color: #EDEFF4;
+}
+
+img.capa-livro {
+    border-radius: 5px;
+    width: 150px;
+    height: auto;
+    -webkit-box-shadow: 4px 6px 11px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 6px 11px 1px rgba(0,0,0,0.75);
+    box-shadow: 4px 6px 11px 1px rgba(0,0,0,0.75);
+}
