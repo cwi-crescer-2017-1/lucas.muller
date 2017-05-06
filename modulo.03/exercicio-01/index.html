@@ -3,24 +3,43 @@
     <head>
         <title>Veronika Decide Morrer</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans+Condensed:300" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
         <link href="styles.css" rel="stylesheet">
     </head>
     <body>
-        <header class="center-align">
-            <img class="capa-livro animated rollIn" src="http://br.web.img3.acsta.net/c_300_300/medias/nmedia/18/87/29/70/19908895.jpg">
-            <h1 class="center-align animated zoomIn">Veronika Decide Morrer</h1>
-        </header>
-        <div class="container conteudo animated slideInUp">
-            <img class="right-image" src="http://www.gazetadepiracicaba.com.br/_midias/jpg/2016/03/20/paulocoelho-6634200.jpg" alt="Paulo Coelho">
-            <p>
-                No fundo, <b>a culpa de tudo o que acontece em nossa vida é exclusivamente <em>nossa</em></b>. 
-                Muitas pessoas passaram pelas mesmas dificuldades que passamos, e reagiram de maneira diferente.
-                Nós procuramos o mais fácil: uma realidade separada. <em>(Paulo Coelho)</em>
-            </p>
-            <small>Página desconhecida.</small>
-            <small>Parágrafo também.</small>
+        <div class="main">
+            <div id="header" class="header all-page center-align">
+                <div class="vertical-align">
+                    <img class="capa-livro animated rollIn" src="http://br.web.img3.acsta.net/c_300_300/medias/nmedia/18/87/29/70/19908895.jpg">
+                    <h1 class="center-align animated zoomIn">Veronika Decide Morrer</h1>
+                </div>
+            </div>
+            <div id="conteudo" class="container hide conteudo animated slideInUp">
+                <img class="right-image" src="http://www.gazetadepiracicaba.com.br/_midias/jpg/2016/03/20/paulocoelho-6634200.jpg" alt="Paulo Coelho">
+                <p>
+                    No fundo, <b>a culpa de tudo o que acontece em nossa vida é exclusivamente <em>nossa</em></b>. 
+                    Muitas pessoas passaram pelas mesmas dificuldades que passamos, e reagiram de maneira diferente.
+                    Nós procuramos o mais fácil: uma realidade separada. <em>(Paulo Coelho)</em>
+                </p>
+                <small>Página desconhecida.</small>
+                <small>Parágrafo também.</small>
+            </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                console.log("Documento pronto!");
+                setTimeout(function() {
+                    $("#header").addClass("animated slideOutUp").removeClass("all-page slideOutUp");
+                    $("#header>div").removeClass("vertical-align");
+                    $("#header").addClass("slideInDown");
+                    setTimeout(function() {
+                        $("#conteudo").show();
+                    }, 750);
+                }, 2000);
+            });
+        </script>
     </body>
 </html>
