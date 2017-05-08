@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.row {
+    height: 25%;
+    font-size: 0;
+}
+
+.row div {
+    display: inline-block;
+    height: 100%;
+    border: 2px solid black;
+    font-size: initial;
+}
+
+.row-1 {
+    background-color: red;
+}
+
+.row-1 div {
+    width: 25%;
+}
+
+.row-2 {
+    background-color: blue;
+}
+
+.row-2 div {
+    width: 50%;
+}
+
+.row-3 {
+    background-color: purple;
+}
+
+.row-3 div {
+    width: 100%;
+}
+
+.row-4 {
+    background-color: yellow;
+}
+
+.row-4 div {
+    width: 10%;
+}
