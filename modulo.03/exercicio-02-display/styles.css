@@ -14,6 +14,7 @@ body {
 .row {
     height: 25%;
     font-size: 0;
+    color: white;
 }
 
 .row div {
@@ -49,6 +50,7 @@ body {
 
 .row-4 {
     background-color: yellow;
+    color: black;
 }
 
 .row-4 div {
