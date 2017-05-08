@@ -1,9 +1,10 @@
 /*
-    -- UTILIZANDO DISPLAY INLINE-BLOCK --
+    -- UTILIZANDO DISPLAY FLEX --
 */
 
 body {
     margin: 0;
+    color: white;
 }
 
 * {
@@ -11,21 +12,19 @@ body {
 }
 
 .container {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
 }
 
 .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     height: 25%;
-    font-size: 0;
-    color: white;
 }
 
 .row div {
-    display: inline-block;
-    height: 100%;
     border: 2px solid black;
-    font-size: initial;
 }
 
 .row-1 div {
