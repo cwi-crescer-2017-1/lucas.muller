@@ -24,35 +24,23 @@ body {
     font-size: initial;
 }
 
-.row-1 {
-    background-color: red;
-}
-
 .row-1 div {
     width: 25%;
-}
-
-.row-2 {
-    background-color: blue;
+    background-color: red;
 }
 
 .row-2 div {
     width: 50%;
-}
-
-.row-3 {
-    background-color: purple;
+    background-color: blue;
 }
 
 .row-3 div {
     width: 100%;
-}
-
-.row-4 {
-    background-color: yellow;
-    color: black;
+    background-color: purple;
 }
 
 .row-4 div {
     width: 10%;
+    background-color: yellow;
+    color: black;
 }
