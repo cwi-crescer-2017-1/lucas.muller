@@ -90,3 +90,10 @@ body {
     display: block;
     clear: both;
 }
+
+@media only screen and (max-width: 768px) {
+    .container {
+        float: none;
+        width: 100%;
+    }
+}
