@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    height: 200vh;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.header .menu {
+    background-image: url(bg.jpg);
+    /*background-attachment: fixed;*/
+    background-size: cover;
+    width: 100%;
+    margin: 0;
+    padding: 250px 0 70px 0;
+    text-align: center;
+}
+
+.header .menu .menu-lista {
+    margin: 0;
+    border-radius: 10px;
+    background: rgba(225, 255, 255, .4);
+    padding: 0 20px;
+    display: inline-block;
+    border: 1px solid white;
+}
+
+.header .menu .menu-lista .menu-item {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.header .menu .menu-lista .menu-item > a {
+    text-decoration: none;
+    color: white;
+    line-height: 50px;
+    font-weight: bold;
+    display: block;
+}
+
+.container {
+    width: 46%;
+    margin-left: 27%;
+    background-color: #EDEDED;
+}
+
+.container .barra {
+    background-color: #444444;
+    color: #C3CDD8;
+    line-height: 55px;
+    font-weight: bold;
+    padding-left: 10px;
+}

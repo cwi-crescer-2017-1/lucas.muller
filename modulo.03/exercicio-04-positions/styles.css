@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #fafafa;
+    color: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+div.image-container {
+    position: absolute;
+    width: 600px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}
+
+img.silvio {
+    float: left;
+    width: 100%;
+    height: auto;
+}
+
+div.conteudo {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background-color: rgba(0,191,255, .5);
+    padding: 10px;
+    z-index: 1;
+}
+
+div.hidden-texto {
+    display: none;
+    text-align: justify;
+    text-indent: 15px;
+}
+
+div.hidden-texto a {
+    color: white;
+    text-decoration: underline;
+}
+
+div.conteudo:hover {
+    background-color: rgba(0,191,255, .8);
+}
+
+div.conteudo:hover div.hidden-texto {
+    display: block;
+}
+
+div.conteudo:hover + img.silvio {
+    filter: blur(2px);
+}
