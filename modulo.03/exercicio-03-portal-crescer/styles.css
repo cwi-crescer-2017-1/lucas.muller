@@ -70,7 +70,7 @@ body {
     line-height: 35px;
 }
 
-.noticia div.conteudo::first-letter {
+.noticia div.conteudo > p:first-of-type::first-letter {
     color: #c4170c;
     font-size: 65px;
     font-weight: 500;
@@ -103,6 +103,7 @@ body {
     }
 
     .noticia div.conteudo img.imagem {
+        float: none;
         margin: 0;
     }
 }
