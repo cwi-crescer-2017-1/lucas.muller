@@ -96,4 +96,13 @@ body {
         float: none;
         width: 100%;
     }
+
+    .content {
+        width: 100%;
+        margin: 0;
+    }
+
+    .noticia div.conteudo img.imagem {
+        margin: 0;
+    }
 }
