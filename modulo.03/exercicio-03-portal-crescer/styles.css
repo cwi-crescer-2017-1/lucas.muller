@@ -78,11 +78,15 @@ body {
     padding: 18px 8px 0px 0px;
 }
 
-.noticia div.conteudo img.imagem {
+.noticia div.conteudo .imagem {
     float: right;
-    height: 100px;
-    width: auto;
     margin: 10px 20px;
+}
+
+.noticia div.conteudo .imagem > img { 
+    max-width: 200px;
+    height: auto;
+    width: auto;
 }
 
 .clearfix:after {
@@ -102,8 +106,13 @@ body {
         margin: 0;
     }
 
-    .noticia div.conteudo img.imagem {
+    .noticia div.conteudo .imagem {
         float: none;
         margin: 0;
+        text-align: center;
+    }
+
+    .noticia div.conteudo .imagem > img {
+        max-width: 300px;
     }
 }
