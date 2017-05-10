@@ -3,7 +3,6 @@
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
-    height: 200vh;
 }
 
 * {
@@ -55,4 +54,26 @@ body {
     line-height: 55px;
     font-weight: bold;
     padding-left: 10px;
+}
+
+.container .conteudo {
+	padding: 15px;
+	margin-bottom: 20px;
+}
+
+.container .conteudo .blanka {
+    float: left;
+    margin-right: 20px;
+    overflow: hidden;
+}
+
+.clearfix:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.container .conteudo .texto p {
+    margin: 0;
+    font-size: 13px;
 }
