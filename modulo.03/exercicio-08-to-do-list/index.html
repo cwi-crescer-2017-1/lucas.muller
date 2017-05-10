@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>TO-DO List</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Dancing Script', cursive;
+            }
+
+            .titulo {
+                font-size: 60px;
+                font-weight: bold;
+                margin: 50px 0;
+            }
+
+            hr {
+                margin: 0;
+            }
+
+            input[type="checkbox"] {
+                display: none;
+            }
+
+            input[type="checkbox"] + label {
+                font-size: 30px;
+            }
+
+            input[type="checkbox"]:checked + label {
+                color: #bbb;
+                font-style: italic;
+                text-decoration: line-through;
+            }
+
+            input[type="checkbox"] + label::before {
+                content: "";
+                width: 25px;
+                height: 25px;
+                border: 3px solid teal;
+                border-radius: 5px;
+                float: left;
+                margin-right: 15px;
+                transition-duration: 200ms;
+                position: relative;
+                top: 12px;
+            }
+
+            input[type="checkbox"]:checked + label::before {
+                content: "";
+                width: 12px;
+                height: 22px;
+                border: 0;
+                border-radius: 0;
+                border-bottom: 3px solid green;
+                border-right: 3px solid green;
+                transform: rotate(45deg);
+            }
+        </style>
+   </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h1 class="text-center titulo">TO-DO List</h1>
+
+                    <input id="check-1" type="checkbox" checked>
+                    <label for="check-1">Tomar café</label>
+                    <hr>
+                    <input id="check-2" type="checkbox">
+                    <label for="check-2">Comer bis</label>
+                    <hr>
+                    <input id="check-3" type="checkbox">
+                    <label for="check-3">Fazer o tema de casa</label>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
