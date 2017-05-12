@@ -1,13 +1,14 @@
 // exercício 01
 function daisyGame(num) {
-    if(typeof num == "number")
-        return ((parseInt(num)%2)!==0)?"Love me":"Love me not";
+    if(typeof num === "number")
+        return (parseInt(num) % 2 !== 0) ? "Love me" : "Love me not";
+        // OOOUUU: return `Love me${ parseInt(num) % 2 === 0 ? " not" : "" }`;
 }
 
 // exercício 02
 function maiorTexto(array) {
     var maior = "";
-    for(var i = 0; i < array.length; i++) {
+    for(let i = 0; i < array.length; i++) {
         if(array[i].length > maior.length)
             maior = array[i];
     }
@@ -17,25 +18,59 @@ function maiorTexto(array) {
 // exercício 03
 function imprime(array, funcao) {
     if(typeof funcao !== "function") return;
-    for(var i = 0; i < array.length; i++)
+    for(let i = 0; i < array.length; i++)
         funcao(array[i]);
+    // OOOUUU: array.forEach(funcao);
 }
 
 // exercício 04
 function adicionar(num1) {
     return function(num2) {
-        return parseFloat(num1) + parseFloat(num2);
+        if(typeof num1 === "number" && typeof num2 === "number")
+            return parseFloat(num1) + parseFloat(num2);
     };
 }
 
 // exercício 05
 function fiboSum(num) {
+    if(typeof num !== "number") return;
     num = parseInt(num);
     var array = [0, 1];
     var soma = 1;
-    for(var i = 2; i<=num; i++) {
+    for(let i = 2; i<=num; i++) {
         array.push((array[i-2] + array[i-1]));
         soma += array[i];
+    }
+    return soma;
+}
+
+function fiboSumV2(num) {
+    if(typeof num !== "number") return;
+    num = parseInt(num);
+    var getFibo = function(termo) {
+        const a = 1.618034;
+        return Math.floor((Math.pow(a, termo) - Math.pow((1-a), termo)) / Math.sqrt(5));
+    };
+
+    var soma = 0;
+    for(let i = 0; i<=num; i++) {
+        soma += getFibo(i);
+    }
+    return soma;
+}
+
+function fiboSumV3(num) {
+    if(typeof num !== "number") return;
+    num = parseInt(num);
+    var getFibo = function(termo) {
+        if(termo === 0) return 0;
+        if(termo === 1 || termo === 2) return 1;
+        return getFibo(termo - 1) + getFibo(termo - 2);
+    };
+
+    var soma = 0;
+    for(let i = 0; i<=num; i++) {
+        soma += getFibo(i);
     }
     return soma;
 }
@@ -44,11 +79,14 @@ function fiboSum(num) {
 function queroCafe(mascada, precos) {
     mascada = parseFloat(mascada);
     var array = [];
-    for(var i = 0; i<precos.length; i++){
+    for(let i = 0; i<precos.length; i++){
         if(precos[i] <= mascada)
             array.push(precos[i]);
     }
-    return array.sort().toString();
+    var criterioOrdenacao = function(a, b) { return a-b; }
+    return array.sort(criterioOrdenacao).toString();
+    // OOOUUU: return array.sort(criterioOrdenacao).join(",");
+    // OOOUUU: return array.filter(a => a <= mascada).sort((a,b)=>a-b).join(",");
 }
 
 // testes unitários
