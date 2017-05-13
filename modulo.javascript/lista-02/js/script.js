@@ -104,8 +104,9 @@ console.log("creditos", creditosIlluminatis(series[4]));
 function easterEgg(series) {
     var easterEgg = "";
     var temAbreviacao = function(item) {
-        let indexDoPonto = item.indexOf(". ");
+        let indexDoPonto = item.search(/ .\. /);
         if(indexDoPonto === -1) return false;
+        indexDoPonto += 2; // pois regex está pegando index da última letra do primeiro nome
         easterEgg += item.slice((indexDoPonto-1), indexDoPonto);
         return true;
     }
