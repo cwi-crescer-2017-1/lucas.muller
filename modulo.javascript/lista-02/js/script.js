@@ -5,21 +5,13 @@ function seriesInvalidas(series) {
         let anoInvalido =  item.anoEstreia > anoAtual;
         let campoInvalido = false;
 
-        if(anoInvalido === false) {
-            for(let prop in item) {
-                let val = item[prop];
-                if(typeof val === "undefined" || val === null) {
-                    campoInvalido = true;
-                    break;
-                }
-            }
-        }
+        if(anoInvalido === false)
+            campoInvalido = Object.keys(item).some(val => typeof item[val] === "undefined" || item[val] === null);
+
         return anoInvalido || campoInvalido;
     };
     var seriesInvalidas = series.filter(filtraSeriesInvalidas);
-    var titulosSeriesInvalidas=[];
-    seriesInvalidas.forEach((e)=>titulosSeriesInvalidas.push(e.titulo));
-    return "Séries inválidas: " + (titulosSeriesInvalidas).join(" - ");
+    return `Séries inválidas: ${(seriesInvalidas.map(e => e.titulo)).join(" - ")}`;
 }
 console.log("series_invalidas", seriesInvalidas(series));
 
@@ -31,19 +23,17 @@ console.log("filtrar_series_por_ano", filtrarSeriesPorAno(series, 2017));
 
 // exercício 03
 function mediaDeEpisodios(series) {
-    var somaDeEps = 0;
-    var quantDeSeries = series.length;
-    series.forEach((e)=>(somaDeEps+=e.numeroEpisodios));
-    return somaDeEps/quantDeSeries;
+    var numDeEps = (series.map(e=>e.numeroEpisodios)).reduce((a,b) => a+b);
+    return numDeEps / (series.length);
 }
 console.log("media_eps", mediaDeEpisodios(series));
 
 // exercício 04
 function procurarPorNome(series, nome) {
     var filtraNome = function(item) {
-        return (item.elenco.filter((e)=>(e.toLowerCase()).includes(nome.toLowerCase()))).length > 0;
+        return (item.elenco.some((e)=>(e.toLowerCase()).includes(nome.toLowerCase())));
     };
-    return series.filter(filtraNome);
+    return series.some(filtraNome);
 }
 console.log("procurar_por_nome", procurarPorNome(series, "Lucas"));
 
@@ -109,14 +99,12 @@ function easterEgg(series) {
         indexDoPonto += 2; // pois regex está pegando index da última letra do primeiro nome
         easterEgg += item.slice((indexDoPonto-1), indexDoPonto);
         return true;
-    }
+    };
     for(let i = 0; i < series.length; i++){
         let s = series[i];
-        let countAbreviacoes = 0;
-        s.elenco.forEach((e)=>{
-            if(temAbreviacao(e) === true) countAbreviacoes++;
-        });
-        if(countAbreviacoes!==s.elenco.length) easterEgg = "";
+        let todosTemAbreviacao = s.elenco.every(e=> temAbreviacao(e));
+
+        if(todosTemAbreviacao === false) easterEgg = "";
         else break;
     }
     return `#${easterEgg}`;
