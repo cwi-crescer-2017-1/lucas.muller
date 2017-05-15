@@ -48,9 +48,9 @@ console.log("mascada_em_serie", mascadaEmSerie(series[0]));
 // exercício 06
 function queroGenero(genero) {
     var filtraGenero = function(item) {
-        return (item.genero.filter((e)=>(e.toLowerCase()).includes(genero.toLowerCase()))).length > 0;
+        return (item.genero.some((e)=>(e.toLowerCase()).includes(genero.toLowerCase())));
     };
-    return series.filter(filtraGenero);
+    return series.filter(filtraGenero).map(e=>e.titulo);
 }
 console.log("quero_genero", queroGenero("CAOS"));
 
@@ -58,10 +58,9 @@ function queroTitulo(titulo) {
     var filtraTitulo = function(item) {
         return (item.titulo.toLowerCase()).includes(titulo.toLowerCase());
     };
-    return series.filter(filtraTitulo);
+    return series.filter(filtraTitulo).map(e=>e.titulo);
 }
 console.log("quero_titulo", queroTitulo("The"));
-
 
 // exercício 07
 function creditosIlluminatis(serie) {
@@ -78,7 +77,7 @@ function creditosIlluminatis(serie) {
             return -1;
         }
         return 0;
-    }
+    };
     var diretores = serie.diretor.sort(sortPorLastName);
     var elenco = serie.elenco.sort(sortPorLastName);
     creditos += "\n  - DIRETORES -  ";
