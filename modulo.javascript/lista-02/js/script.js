@@ -86,22 +86,13 @@ function creditosIlluminatis(serie) {
 console.log("creditos", creditosIlluminatis(series[4]));
 
 // exercício 08
-function easterEgg(series) {
-    var easterEgg = "";
-    var temAbreviacao = function(item) {
-        let indexDoPonto = item.search(/ .\. /);
-        if(indexDoPonto === -1) return false;
-        indexDoPonto += 2; // pois regex está pegando index da última letra do primeiro nome
-        easterEgg += item.slice((indexDoPonto-1), indexDoPonto);
-        return true;
-    };
-    for(let i = 0; i < series.length; i++){
-        let s = series[i];
-        let todosTemAbreviacao = s.elenco.every(e=> temAbreviacao(e));
+String.prototype.temAbreviacao = function() {
+    return this.match(/ [A-Z][.] /g)  !== null;
+}
 
-        if(todosTemAbreviacao === false) easterEgg = "";
-        else break;
-    }
+function easterEgg(series) {
+    let elencoSerie = series.find(s=>s.elenco.every(e=>e.temAbreviacao())).elenco;
+    var easterEgg = elencoSerie.map(e => e.match(/ [A-Z][.] /g)[0][1]).join("");
     return `#${easterEgg}`;
 }
 console.log("easter_egg", easterEgg(series));
