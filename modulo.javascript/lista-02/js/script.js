@@ -66,17 +66,13 @@ console.log("quero_titulo", queroTitulo("The"));
 function creditosIlluminatis(serie) {
     var creditos = `--- ${serie.titulo.toUpperCase()} ---`;
     var sortPorLastName = function(a, b) {
-        a = a.split(" ");
-        a = a[(a.length-1)];
-        b = b.split(" ");
-        b = b[(b.length-1)];
-        if (a > b) {
-            return 1;
-        }
-        if (a < b) {
-            return -1;
-        }
-        return 0;
+        var getLastName = function(nome) {
+            var nomes = nome.trim().split(" ");
+            return nomes[nomes.length - 1];
+        };
+        a = getLastName(a);
+        b = getLastName(b);
+        return a.localeCompare(b);
     };
     var diretores = serie.diretor.sort(sortPorLastName);
     var elenco = serie.elenco.sort(sortPorLastName);
