@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Arrendondar p/ casas decimais</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.1/jasmine.min.css" />
+    </head>
+    <body>
+        <form onsubmit="event.preventDefault(); calcular();">
+            <label for="numero">Número:</label>
+            <input id="numero" type="number" name="numero" step="any" required>
+            <label for="casas">Casas decimais:</label>
+            <input id="casas" type="number" name="casas">
+            <input type="submit">
+        </form>
+        <br>
+        <span id="resultado"></span>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.1/jasmine.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.1/jasmine-html.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.1/boot.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+        <script type="text/javascript">
+            function calcular() {
+                var resultadoEl = document.getElementById("resultado");
+                var numero = parseFloat(document.getElementById("numero").value);
+                var casas = parseFloat(document.getElementById("casas").value);
+                resultadoEl.innerText = `Resultado: ${numero.arredondar(casas)}`;
+            }
+        </script>
+    </body>
+</html>
