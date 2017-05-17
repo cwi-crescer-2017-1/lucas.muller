@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="app">
+    <head>
+        <title>PokéBusca</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <div class="ui text container" ng-controller="BuscaPokeCtrl">
+            <div class="ui vertical segment">
+                <h1 class="ui center aligned header">PokéBusca</h1>
+                <form id="buscaPokeForm" name="buscaPokeForm" class="ui form" ng-class="{'loading': buscandoPokeByID}" ng-submit="buscaPokeByID(id);">
+                    <div class="field">
+                        <div class="ui fluid action input">
+                            <input type="number" ng-model="id" min="1" placeholder="Digite o ID do Pokémon" autofocus required>
+                            <button type="submit" class="ui button">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="pokemon" class="ui vertical segment" ng-if="pokemon">
+                <br>
+                <div class="ui divided grid">
+                    <div class="four wide column">
+                        <img class="ui centered image" src="{{pokemon.sprites.front_default}}">
+                    </div>
+                    <div class="twelve wide column">
+                        <h3>{{pokemon.name | uppercase}}</h3>
+                        <div class="tipos">
+                            <p><b>Tipos deste Pokémon:</b></p>
+                            <ul class="ui list" ng-repeat="item in pokemon.types">
+                                <li>{{item.type.name | capitalize}}</li>
+                            </ul>
+                        </div><br>
+                        <div class="stats">
+                            <p><b>Estatísticas deste Pokémon:</b></p>
+                            <ul class="ui list" ng-repeat="item in pokemon.stats">
+                                <li>
+                                    {{item.base_stat}}% de {{item.stat.name | capitalize}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+        <script type="text/javascript">
+        </script>
+    </body>
+</html>
