@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="app">
+    <head>
+        <title>AngularJS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <div class="ui text container">
+            <br>
+            <div class="ui segment" ng-controller="Ex01">
+                <h1>Exercício 01</h1>
+                <div class="ui form">
+                    <div class="inline field">
+                        <label for="nome">Nome do Pokémon:</label>
+                        <input id="nome" type="text" ng-model="pokemon.nome" placeholder="Digite seu nome" autofocus>
+                    </div>
+                </div>
+                <br>
+                <div>
+                    <p><b>Dados do Pokémon:</b></p>
+                    <ul>
+                        <li>Nome: {{pokemon.nome}}</li>
+                        <li>Vida: {{pokemon.vida}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ui segment" ng-controller="Ex02">
+                <h1>Exercício 02</h1>
+                <div class="ui fluid icon input">
+                    <i class="search icon"></i>
+                    <input type="text" ng-model="filtroNome" placeholder="Pesquise um Pokémon por nome...">
+                </div>
+                <table class="ui definition table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Pokémon</th>
+                            <th>Tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="pokemon in pokemons | filter: {nome: filtroNome}">
+                            <td>{{$index}}</td>
+                            <td>{{pokemon.nome}}</td>
+                            <td>{{pokemon.tipo}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+    </body>
+</html>
