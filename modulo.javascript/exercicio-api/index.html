@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title></title>
+        <title>Pokémon Search</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     </head>
     <body>
-        <h3>Buscar Pokémon</h3>
-        <form id="buscaPoke" onsubmit="event.preventDefault(); buscarPokemon();">
-            <label>ID do Pokemon:</label>
-            <input name="id" type="number" min="1" required>
-            <input name="submitBt" type="submit" value="Buscar">
-        </form>
-        <div id="resultado"></div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center">
+                <h1>Buscar Pokémon</h1>
+                <hr>
+                <form id="buscaPoke" onsubmit="event.preventDefault(); buscarPokemon();" class="form-inline">
+                    <div class="form-group">
+                        <label for="idPoke">ID do Pokémon:</label>
+                        <input id="idPoke" name="id" class="form-control" placeholder="Digite o ID do Pokémon" type="number" min="1" required>
+                    </div>
+                    <button name="submitBt" type="submit" class="btn btn-default">Buscar</button>
+                </form>
+            </div>
+            <div class="col-md-4 col-md-offset-4 text-center">
+                <div id="resultado"></div>
+            </div>
+        </div>
         <script type="text/javascript" src="script.js"></script>
     </body>
 </html>
