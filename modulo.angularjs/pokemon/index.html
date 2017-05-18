@@ -5,32 +5,31 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" />
+        <link rel="stylesheet" href="styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="app.js"></script>
     </head>
     <body>
         <div class="ui text container" ng-controller="BuscaPokeCtrl">
-            <div class="ui vertical segment">
-                <h1 class="ui center aligned header">PokéBusca</h1>
+            <div class="ui basic segment">
+                <h1 class="ui center aligned inverted header">PokéBusca</h1>
                 <form id="buscaPokeForm" name="buscaPokeForm" class="ui form" ng-class="{'loading': buscandoPokeByID}" ng-submit="buscaPokeByID(id);">
-                    <div class="field">
-                        <div class="ui fluid action input">
-                            <input type="number" ng-model="id" min="1" placeholder="Digite o ID do Pokémon" autofocus required>
-                            <button type="submit" class="ui button">Buscar</button>
-                        </div>
+                    <div class="ui fluid action input">
+                        <input type="number" ng-model="id" min="1" max="721" placeholder="Digite o ID do Pokémon" autofocus required>
+                        <button type="submit" class="ui button">Buscar</button>
                     </div>
                 </form>
             </div>
-            <div id="pokemon" class="ui vertical segment" ng-if="pokemon">
-                <br>
-                <div class="ui divided grid">
+            <div id="pokemon" class="ui segment" ng-if="pokemon || buscandoPokeByID || erroAoBuscarPokeByID">
+                <img src="loading.gif" class="ui centered image" ng-if="buscandoPokeByID" height="50px">
+                <div class="ui divided grid" ng-if="pokemon && !buscandoPokeByID">
                     <div class="four wide column">
-                        <img class="ui centered image" src="{{pokemon.sprites.front_default}}">
+                        <img class="ui centered image" ng-src="{{pokemon.sprites.front_default}}">
                     </div>
                     <div class="twelve wide column">
-                        <h3>{{pokemon.name | uppercase}}</h3>
+                        <h3>{{pokemon.name | uppercase}} ({{pokemon.id}})</h3>
                         <div class="tipos">
-                            <p><b>Tipos deste Pokémon:</b></p>
+                            <p><b>Tipo(s) deste Pokémon:</b></p>
                             <ul class="ui list" ng-repeat="item in pokemon.types">
                                 <li>{{item.type.name | capitalize}}</li>
                             </ul>
@@ -40,10 +39,14 @@
                             <ul class="ui list" ng-repeat="item in pokemon.stats">
                                 <li>
                                     {{item.base_stat}}% de {{item.stat.name | capitalize}}
+                                    <!--<progress max="100" ng-attr-value="{{item.base_stat}}"></progress>-->
                                 </li>
                             </ul>
                         </div>
                     </div>
+                </div>
+                <div ng-if="erroAoBuscarPokeByID && !buscandoPokeByID">
+                    <h3 class="ui centered header">Houve um erro ao buscar este Pokémon!</h3>
                 </div>
             </div>
         </div>
