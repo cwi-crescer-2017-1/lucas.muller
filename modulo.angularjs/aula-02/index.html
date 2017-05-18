@@ -2,6 +2,7 @@
 <html lang="pt-br" ng-app="app">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>AngularJS - Aula 02</title>
         <!--CSS-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" />
@@ -14,13 +15,14 @@
     <body>
         <div class="ui text container" style="padding: 20px 0;">
             <div class="ui segment" ng-controller="Ex01Ctrl">
-                <h1>Exercício 01</h1>
+                <h1>Exercício 01 <span class="ui tag label" style="top: -5px;">Ex01Ctrl</span></h1>
                 <p>Receber uma data em formato específico em campo de texto e converter para formato <em>mediumDate</em>.</p>
                 <form name="dataForm" class="ui form" ng-submit="converterData(data);">
                     <div class="field">
                         <div class="ui fluid action input">
                             <!--fonte do regex do pattern: http://stackoverflow.com/questions/15491894/regex-to-validate-date-format-dd-mm-yyyy-->
                             <input name="data" type="text" ng-model="data" pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$" title="dd/MM/yyyy" placeholder="Digite a sua data no formato dd/MM/yyyy..." autocomplete="off" autofocus required>
+                            <button class="ui button" ng-click="dataFormatada = null;">Limpar</button>
                             <button class="ui button" type="submit" ng-class="{'disabled': dataForm.$invalid}">Formatar</button>
                         </div>
                     </div>
@@ -28,6 +30,33 @@
                 <div ng-if="dataFormatada" style="margin-top: 1em;">
                     <h5 class="ui header">A data formatada é {{dataFormatada}}.</h5> 
                 </div> 
+            </div>
+            <div class="ui segment" ng-controller="Ex02Ctrl">
+                <h1>Exercício 02 <span class="ui tag label" style="top: -5px;">Ex02Ctrl</span></h1>
+                <p>No array de instrutores, caso for encontrado <em>nunes</em> no nome, colocar o nome do instrutor entre cifrões.</p>
+                <div class="ui ordered list">
+                    <div class="item" ng-repeat="instrutor in instrutores">
+                        {{instrutor.nome | mascada}}
+                    </div>
+                </div>
+            </div>
+            <div class="ui segment" ng-controller="Ex03Ctrl">
+                <h1>Exercício 03 <span class="ui tag label" style="top: -5px;">Ex03Ctrl</span></h1>
+                <p>Exibir tabela com as aulas e o nome do instrutor ordenado pelo número da aula.</p>
+                <table class="ui definition table">
+                    <thead>
+                        <tr><th></th>
+                        <th>Aula</th>
+                        <th>Instrutor</th>
+                    </tr></thead>
+                    <tbody>
+                        <tr ng-repeat="aula in arrayAulas | orderBy: 'numero'">
+                            <td>{{aula.numero}}</td>
+                            <td>{{aula.nome}}</td>
+                            <td>{{aula.instrutor}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </body>
