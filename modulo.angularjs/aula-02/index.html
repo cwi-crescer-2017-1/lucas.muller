@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>AngularJS - Aula 02</title>
+        <!--CSS-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" />
+
+        <!--Scripts-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.4/angular-locale_pt-br.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <div class="ui text container" style="padding: 20px 0;">
+            <div class="ui segment" ng-controller="Ex01Ctrl">
+                <h1>Exercício 01</h1>
+                <p>Receber uma data em formato específico em campo de texto e converter para formato <em>mediumDate</em>.</p>
+                <form name="dataForm" class="ui form" ng-submit="converterData(data);">
+                    <div class="field">
+                        <div class="ui fluid action input">
+                            <!--fonte do regex do pattern: http://stackoverflow.com/questions/15491894/regex-to-validate-date-format-dd-mm-yyyy-->
+                            <input name="data" type="text" ng-model="data" pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$" title="dd/MM/yyyy" placeholder="Digite a sua data no formato dd/MM/yyyy..." autocomplete="off" autofocus required>
+                            <button class="ui button" type="submit" ng-class="{'disabled': dataForm.$invalid}">Formatar</button>
+                        </div>
+                    </div>
+                </form>
+                <div ng-if="dataFormatada" style="margin-top: 1em;">
+                    <h5 class="ui header">A data formatada é {{dataFormatada}}.</h5> 
+                </div> 
+            </div>
+        </div>
+    </body>
+</html>
