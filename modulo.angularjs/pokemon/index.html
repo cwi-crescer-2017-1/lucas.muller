@@ -16,7 +16,7 @@
                 <form id="buscaPokeForm" name="buscaPokeForm" class="ui form" ng-submit="buscaPokeByID(id);">
                     <div class="ui fluid action input" ng-class="{'disabled': buscandoPokeByID}" >
                         <input type="number" ng-model="id" min="1" max="721" placeholder="Digite o ID do Pokémon" autofocus required>
-                        <button type="submit" class="ui button">Buscar</button>
+                        <button type="submit" class="ui button" ng-disabled="buscaPokeForm.$invalid">Buscar</button>
                     </div>
                 </form>
             </div>
@@ -38,8 +38,8 @@
                             <p><b>Estatísticas deste Pokémon:</b></p>
                             <ul class="ui list" ng-repeat="item in pokemon.stats">
                                 <li>
-                                    {{item.base_stat}}% de {{item.stat.name | capitalize}}
-                                    <!--<progress max="100" ng-attr-value="{{item.base_stat}}"></progress>-->
+                                    <progress max="100" ng-attr-value="{{item.base_stat}}"></progress>
+                                    &nbsp;{{item.base_stat}}% de {{item.stat.name | capitalize}}
                                 </li>
                             </ul>
                         </div>
