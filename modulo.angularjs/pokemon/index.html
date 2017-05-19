@@ -13,8 +13,8 @@
         <div class="ui text container" ng-controller="BuscaPokeCtrl">
             <div class="ui basic segment">
                 <h1 class="ui center aligned inverted header">PokéBusca</h1>
-                <form id="buscaPokeForm" name="buscaPokeForm" class="ui form" ng-class="{'loading': buscandoPokeByID}" ng-submit="buscaPokeByID(id);">
-                    <div class="ui fluid action input">
+                <form id="buscaPokeForm" name="buscaPokeForm" class="ui form" ng-submit="buscaPokeByID(id);">
+                    <div class="ui fluid action input" ng-class="{'disabled': buscandoPokeByID}" >
                         <input type="number" ng-model="id" min="1" max="721" placeholder="Digite o ID do Pokémon" autofocus required>
                         <button type="submit" class="ui button">Buscar</button>
                     </div>
