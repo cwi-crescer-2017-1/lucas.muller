@@ -72,10 +72,10 @@
                     </form><br>
                     <form id="buscaPokePorCor" onsubmit="event.preventDefault(); buscarPokemonPorCor();" class="form-inline">
                         <div class="form-group">
-                            <label for="cor">Cor:</label>
-                            <input id="cor" name="cor" class="form-control" type="color" style="width: 70px;" required>
+                            <label for="cor">Procurar por cor:</label>
+                            <input id="cor" name="cor" class="form-control" type="color" onchange="buscarPokemonPorCor();" style="width: 70px;" required>
                         </div>
-                        <button name="submitBt" type="submit" class="btn btn-default">Buscar por cor</button>
+                        <!--<button name="submitBt" type="submit" class="btn btn-default">Buscar por cor</button>-->
                     </form>
                     <div id="resultado" style="padding: 0 15;"></div>
                     <br>
