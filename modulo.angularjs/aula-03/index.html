@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="app">
+    <head>
+        <title>AngularJS - Aula 03</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--CSS-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" />
+    </head>
+    <body>
+        <div class="ui text container" style="padding: 20px 0;">
+            <div class="ui segment" ng-controller="InstrutoresCtrl">
+                <h1 class="ui header">Exercício 01 <span class="ui tag label">InstrutoresCtrl</span></h1>
+                <h4 class="ui dividing header">Ações disponíveis</h4>
+                <div class="ui fluid accordion">
+                     <!-- Adicionar instrutor -->
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Adicionar Instrutor
+                    </div>
+                    <div class="content">
+                        <form name="formAddInstrutor" class="ui form" ng-submit="adicionarInstrutor(novoInstrutor);" novalidate>
+                            <div class="two fields">
+                                <div class="required field">
+                                    <label>Nome do instrutor:</label>
+                                    <input nome="nome" ng-model="novoInstrutor.nome" type="text" placeholder="Digite o nome do instrutor" ng-minlength="3" ng-maxlength="20" required>
+                                </div>
+                                <div class="field">
+                                    <label>Sobrenome do instrutor:</label>
+                                    <input name="sobrenome" ng-model="novoInstrutor.sobrenome" type="text" placeholder="Digite o sobrenome do instrutor" ng-maxlength="30">
+                                </div>
+                            </div>
+                            <div class="required field">
+                                <label>Email:</label>
+                                <input name="email" ng-model="novoInstrutor.email" type="email" placeholder="Digite o email do instrutor" required>
+                            </div>
+                            <div class="three fields">
+                                <div class="required field">
+                                    <label>Idade:</label>
+                                    <input name="idade" ng-model="novoInstrutor.idade" type="number" placeholder="Digite a idade do instrutor" required>
+                                </div>
+                                <div class="field">
+                                        <label>&nbsp;</label>
+                                    <div class="ui toggle checkbox" style="top: 7px;">
+                                        <input name="jaDeuAula" type="checkbox" ng-model="novoInstrutor.jaDeuAula" tabindex="0" class="hidden">
+                                        <label>Instrutor já deu aula</label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Aula</label>
+                                    <select class="ui search dropdown" ng-model="novoInstrutor.aula">
+                                        <option value="" disabled hidden>Selecione a aula</option>
+                                        <option class="item" ng-repeat="aula in aulas track by $index" value="{{aula}}">{{aula}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <button type="submit" class="ui button" ng-class="{'disabled': formAddInstrutor.$invalid}" ng-disabled="formAddInstrutor.$invalid">Adicionar instrutor</button>
+                            </div>
+                        </form>
+                    </div>
+                     <!-- Remover instrutor -->
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Remover Instrutor
+                    </div>
+                    <div class="content">
+                        <form name="formExcInstrutor" class="ui form" ng-submit="removerInstrutor(removerInstrutor.index);" novalidate>
+                            <div class="field">
+                                <label>Instrutor</label>
+                                <select class="ui search dropdown" ng-model="removerInstrutor.index" required>
+                                    <option value="" disabled hidden>Selecione o instrutor</option>
+                                    <option class="item" ng-repeat="instrutor in instrutores track by $index" value="{{$index}}">{{instrutor.nome}} {{instrutor.sobrenome}} - {{instrutor.email}}</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <button type="submit" class="ui button" ng-class="{'disabled': formExcInstrutor.$invalid}" ng-disabled="formExcInstrutor.$invalid">Remover instrutor</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <h4 class="ui dividing header">Tabela de instrutores</h4>
+                <div ng-show="instrutores.length > 0">
+                    <div class="ui right action left icon fluid input">
+                        <i class="search icon"></i>
+                        <input type="text" ng-model="filtroInstrutor" placeholder="Pesquisar instrutor...">
+                    </div>
+                    <table class="ui definition striped sortable celled table">
+                        <thead>
+                            <tr><th class="center aligned">#</th>
+                                <th class="sorted descending">Nome</th>
+                                <th>Email</th>
+                                <th>Idade</th>
+                                <th>Já deu aula</th>
+                                <th>Aula</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="instrutor in filterInstrutores = (instrutores | filter: filtroInstrutor) | orderBy: 'nome' track by $index ">
+                                <td class="center aligned">{{$index}}</td>
+                                <td>{{instrutor.nome}} {{instrutor.sobrenome}}</td>
+                                <td><a href="mailto:{{instrutor.email}}">{{instrutor.email}}</a></td>
+                                <td>{{instrutor.idade}}</td>
+                                <td>{{instrutor.jaDeuAula|booleanToYesOrNo}}</td>
+                                <td>{{instrutor.aula}}</td>
+                            </tr>
+                            <tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div ng-show="filterInstrutores.length < 1">
+                    <p>Nenhum instrutor encontrado.</p>
+                </div>
+            </div>
+        </div>
+
+        <!--Scripts-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.4/angular-locale_pt-br.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+        <script src="https://semantic-ui.com/javascript/library/tablesort.min.js"></script>
+        <script src="app.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.ui.checkbox').checkbox();
+                $('.ui.dropdown').dropdown();
+                $('.ui.accordion').accordion();
+                $('table.ui.sortable.table').tablesort();
+            });
+        </script>
+    </body>
+</html>
