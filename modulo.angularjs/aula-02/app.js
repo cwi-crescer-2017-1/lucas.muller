@@ -11,7 +11,7 @@ app.controller('Ex01Ctrl', ['$scope', '$filter', function($s, $filter) {
     };
 }]);
 
-app.controller('Ex02Ctrl', ['$scope', function($s){
+app.controller('InstrutoresCtrl', ['$scope', function($s){
     $s.instrutores = [{
         nome: 'Bernardo',
         aula: [{
@@ -46,43 +46,7 @@ app.controller('Ex02Ctrl', ['$scope', function($s){
         }]
     }
     ];
-}]);
 
-app.controller('Ex03Ctrl', ['$scope', function($s){
-    $s.instrutores = [{
-        nome: 'Bernardo',
-        aula: [{
-            numero: 1,
-            nome: 'OO'
-        },
-        {
-            numero: 4,
-            nome: 'Javascript'
-        }
-        ]
-    },
-    {
-        nome: 'Nunes',
-        aula: [{
-        numero: 2,
-        nome: 'Banco de Dados I'
-        }]
-    },
-    {
-        nome: 'Pedro (PHP)',
-        aula: [{
-        numero: 3,
-        nome: 'HTML e CSS'
-        }]
-    },
-    {
-        nome: 'Zanatta',
-        aula: [{
-        numero: 5,
-        nome: 'AngularJS'
-        }]
-    }
-    ];
     $s.arrayAulas = transformarArrayInstrutores($s.instrutores);
 
     function transformarArrayInstrutores(array) {
@@ -96,8 +60,20 @@ app.controller('Ex03Ctrl', ['$scope', function($s){
     };
 }]);
 
+app.controller('Ex02Ctrl', ['$scope', function($s){  }]);
+
+app.controller('Ex03Ctrl', ['$scope', function($s){  }]);
+
 app.filter('mascada', function() {
     return function(valor) {
         return valor.replace(/(nunes)/ig, '$ $1 $');
+    };
+});
+
+app.filter('formataAula', function() {
+    return function(aula) {
+        var str = "" + aula.numero;
+        var numeroFormatado = "000".substring(0, 3 - str.length) + str;
+        return `${numeroFormatado} - ${aula.nome.toUpperCase()}`;
     };
 });

@@ -22,7 +22,6 @@
                         <div class="ui fluid action input">
                             <!--fonte do regex do pattern: http://stackoverflow.com/questions/15491894/regex-to-validate-date-format-dd-mm-yyyy-->
                             <input name="data" type="text" ng-model="data" pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$" title="dd/MM/yyyy" placeholder="Digite a sua data no formato dd/MM/yyyy..." autocomplete="off" autofocus required>
-                            <button class="ui button" ng-click="dataFormatada = null;">Limpar</button>
                             <button class="ui button" type="submit" ng-class="{'disabled': dataForm.$invalid}">Formatar</button>
                         </div>
                     </div>
@@ -31,32 +30,43 @@
                     <h5 class="ui header">A data formatada é {{dataFormatada}}.</h5> 
                 </div> 
             </div>
-            <div class="ui segment" ng-controller="Ex02Ctrl">
-                <h1>Exercício 02 <span class="ui tag label" style="top: -5px;">Ex02Ctrl</span></h1>
-                <p>No array de instrutores, caso for encontrado <em>nunes</em> no nome, colocar o nome do instrutor entre cifrões.</p>
-                <div class="ui ordered list">
-                    <div class="item" ng-repeat="instrutor in instrutores">
-                        {{instrutor.nome | mascada}}
-                    </div>
+            <div class="ui segment" ng-controller="InstrutoresCtrl">
+                <span class="ui top attached label">InstrutoresCtrl - Link dos exercícios, <a href="https://goo.gl/87dQaz" target="_blank">clique aqui.</a></span>
+                <div class="ui segment" ng-controller="Ex02Ctrl">
+                    <h1>Exercício 02 <span class="ui tag label" style="top: -5px;">Ex02Ctrl</span></h1>
+                    <p>Exibir tabela com as aulas e o nome do instrutor ordenado pelo número da aula.</p>
+                    <table class="ui definition table">
+                        <thead>
+                            <tr><th></th>
+                            <th>Aula</th>
+                            <th>Instrutor</th>
+                        </tr></thead>
+                        <tbody>
+                            <tr ng-repeat="aula in arrayAulas | orderBy: 'numero'">
+                                <td>{{aula.numero}}</td>
+                                <td>{{aula.nome}}</td>
+                                <td>{{aula.instrutor}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-            <div class="ui segment" ng-controller="Ex03Ctrl">
-                <h1>Exercício 03 <span class="ui tag label" style="top: -5px;">Ex03Ctrl</span></h1>
-                <p>Exibir tabela com as aulas e o nome do instrutor ordenado pelo número da aula.</p>
-                <table class="ui definition table">
-                    <thead>
-                        <tr><th></th>
-                        <th>Aula</th>
-                        <th>Instrutor</th>
-                    </tr></thead>
-                    <tbody>
-                        <tr ng-repeat="aula in arrayAulas | orderBy: 'numero'">
-                            <td>{{aula.numero}}</td>
-                            <td>{{aula.nome}}</td>
-                            <td>{{aula.instrutor}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="ui segment" ng-controller="Ex03Ctrl">
+                    <h1>Exercício 03 <span class="ui tag label" style="top: -5px;">Ex03Ctrl</span></h1>
+                    <p>No array de aulas, caso for encontrado <em>nunes</em> no nome do instrutor, colocar o nome entre cifrões.</p>
+                    <p>E também criar um filtro que recebe aula e formata para <em>numero - nome</em>, sendo o nome em <em>uppercase</em>.</p>
+                    <table class="ui table">
+                        <thead>
+                            <th>Aula</th>
+                            <th>Instrutor</th>
+                        </tr></thead>
+                        <tbody>
+                            <tr ng-repeat="aula in arrayAulas | orderBy: 'numero'">
+                                <td>{{aula | formataAula}}</td>
+                                <td>{{aula.instrutor | mascada}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </body>
