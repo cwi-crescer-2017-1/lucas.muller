@@ -163,14 +163,20 @@
                                 <tbody>
                                     <tr ng-repeat="instrutor in filterInstrutores = (instrutores | filter: filtroInstrutor) | orderBy: 'nome' track by instrutor.id">
                                         <td class="center aligned">{{instrutor.id}}</td>
-                                        <td>{{instrutor.nome}} {{instrutor.sobrenome}}</td>
+                                        <td>
+                                            <img class="ui avatar image" ng-src="{{instrutor.fotoUrl}}">
+                                            <span>{{instrutor.nome}} {{instrutor.sobrenome}}</span>
+                                        </td>
                                         <td><a href="mailto:{{instrutor.email}}">{{instrutor.email}}</a></td>
                                         <td>{{instrutor.idade}}</td>
                                         <td>{{instrutor.jaDeuAula|booleanToYesOrNo}}</td>
                                         <td>
                                             <div class="ui list">
-                                                <div class="item" ng-repeat="aula in getAulasPorArray(instrutor.aula) | orderBy: 'nome' track by aula.id">
-                                                    {{aula.id}} - {{aula.nome}}
+                                                <div class="item" ng-repeat="aula in aulasDoInstrutor = (getAulasPorArray(instrutor.aula)) | orderBy: 'nome' track by aula.id">
+                                                    <span title="ID {{aula.id}}">{{aula.nome}}</span>
+                                                </div>
+                                                <div class="item" ng-show="aulasDoInstrutor.length === 0">
+                                                    Instrutor sem aulas adicionadas!
                                                 </div>
                                             </div>
                                         </td>

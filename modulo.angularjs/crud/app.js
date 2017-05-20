@@ -1,6 +1,8 @@
 var app = angular.module('app', []);
 
-app.controller('CrudCtrl', function($scope) {
+app.constant('fotoUrlDefault', 'https://kokensupport.com/styles/simplicity_gray/theme/images/no_avatar.gif');
+
+app.controller('CrudCtrl', function($scope, fotoUrlDefault) {
     $scope.instrutores = [
         {
             id: 0,
@@ -9,7 +11,8 @@ app.controller('CrudCtrl', function($scope) {
             idade: 30,
             email: 'bernardo@cwi.com.br',
             jaDeuAula: true,
-            aula: ["0", "2"]
+            aula: ["0", "2"],
+            fotoUrl: "http://fullmoonbrewwork.com/wp-content/uploads/2014/06/FMBW_Beers_Phuket-Lager-300x300.png"
         },
         {
             id: 1,
@@ -18,7 +21,8 @@ app.controller('CrudCtrl', function($scope) {
             idade: 35,
             email: 'andre.nunes@cwi.com.br',
             jaDeuAula: true,
-            aula: ["4"]
+            aula: ["4"],
+            fotoUrl: "https://pedrotavars.files.wordpress.com/2012/02/moneysmiley.png"
         }
     ];
 
@@ -34,6 +38,7 @@ app.controller('CrudCtrl', function($scope) {
         let nInstrutor = angular.copy(instrutor);
         let instrutores = $scope.instrutores;
         nInstrutor.id = instrutores[instrutores.length-1].id + 1;
+        nInstrutor.fotoUrl = nInstrutor.fotoUrl || fotoUrlDefault;
         $scope.instrutores.push(nInstrutor);
         $scope.novoInstrutor = {};
         $scope.formAddInstrutor.$setPristine();
@@ -117,6 +122,8 @@ app.controller('CrudCtrl', function($scope) {
     };
 
     $scope.getAulasPorArray = function(ids) {
+        if(angular.isUndefined(ids) || ids.length === 0)
+            return [];
         let arr = [];
         ids.forEach(e => arr.push($scope.aulas.find(a => a.id == e)));
         return arr;
