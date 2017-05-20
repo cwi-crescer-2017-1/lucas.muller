@@ -12,8 +12,9 @@
             <div class="ui segment" ng-controller="CrudCtrl">
                 <h1 class="ui header">Trabalho CRUD&nbsp;&nbsp;<span class="ui tag label">CrudCtrl</span></h1>
                 <h4 class="ui dividing header">Ações disponíveis</h4>
+                <!-- Ações de instrutores -->
                 <div class="ui fluid accordion">
-                     <!-- Adicionar instrutor -->
+                    <!-- Adicionar instrutor -->
                     <div class="title">
                         <i class="dropdown icon"></i>
                         Adicionar instrutor
@@ -65,6 +66,67 @@
                             </div>
                         </form>
                     </div>
+                    <!-- Alterar instrutor -->
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Alterar instrutor
+                    </div>
+                    <div class="content">
+                        <form name="formAltInstrutor" class="ui form" ng-submit="alterarInstrutor(altInstrutor);" novalidate>
+                            <div class="required field">
+                                <label>Instrutor:</label>
+                                <select class="ui search dropdown" ng-model="altInstrutorSelectedId" ng-change="altInstrutor = getInstrutorById(altInstrutorSelectedId);" required>
+                                    <option value="" disabled hidden>Selecione o Instrutor</option>
+                                    <option class="item" ng-repeat="instrutor in instrutores | orderBy: 'nome' track by instrutor.id" value="{{instrutor.id}}">{{instrutor.nome}} {{instrutor.sobrenome}} - {{instrutor.email}}</option>
+                                </select>
+                            </div>
+                            <div ng-show="altInstrutorSelectedId >= 0">
+                                <div class="two fields">
+                                    <div class="required field" ng-class="{'error':formAltInstrutor.nome.$invalid && formAltInstrutor.nome.$touched}">
+                                        <label>Nome do instrutor:</label>
+                                        <input name="nome" ng-model="altInstrutor.nome" type="text" placeholder="Digite o nome do instrutor" ng-minlength="3" ng-maxlength="20" required>
+                                    </div>
+                                    <div class="field" ng-class="{'error':formAltInstrutor.sobrenome.$invalid && formAltInstrutor.sobrenome.$touched}">
+                                        <label>Sobrenome do instrutor:</label>
+                                        <input name="sobrenome" ng-model="altInstrutor.sobrenome" type="text" placeholder="Digite o sobrenome do instrutor" ng-maxlength="30">
+                                    </div>
+                                </div>
+                                <div class="two fields">
+                                    <div class="required field" ng-class="{'error':formAltInstrutor.email.$invalid && formAltInstrutor.email.$touched}">
+                                        <label>Email:</label>
+                                        <input name="email" ng-model="altInstrutor.email" type="email" placeholder="Digite o email do instrutor" required>
+                                    </div>
+                                    <div class="field" ng-class="{'error':formAltInstrutor.foto.$invalid && formAltInstrutor.foto.$touched}">
+                                        <label>Url da foto do instrutor:</label>
+                                        <input name="foto" ng-model="altInstrutor.fotoUrl" type="text" placeholder="Digite o url da foto do instrutor">
+                                    </div>
+                                </div>
+                                <div class="three fields">
+                                    <div class="required field" ng-class="{'error':formAltInstrutor.idade.$invalid && formAltInstrutor.idade.$touched}">
+                                        <label>Idade:</label>
+                                        <input name="idade" ng-model="altInstrutor.idade" type="number" placeholder="Digite a idade do instrutor" ng-max="90" required>
+                                    </div>
+                                    <div class="field">
+                                        <label>&nbsp;</label>
+                                        <div class="ui toggle checkbox" style="top: 7px;">
+                                            <input name="jaDeuAula" type="checkbox" ng-model="altInstrutor.jaDeuAula" tabindex="0" class="hidden">
+                                            <label>Instrutor já deu aula</label>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label>Aulas do instrutor:</label>
+                                        <select id="teste" class="ui search dropdown" multiple="" ng-model="altInstrutor.aula">
+                                            <option value="" disabled hidden>Selecione a aula</option>
+                                            <option ng-repeat="aula in aulas | orderBy: 'nome' track by $index" value="{{aula.id}}">{{aula.nome}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <button type="submit" class="ui button" ng-class="{'disabled': formAltInstrutor.$invalid}" ng-disabled="formAltInstrutor.$invalid">Alterar instrutor</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                      <!-- Remover instrutor -->
                     <div class="title">
                         <i class="dropdown icon"></i>
@@ -86,6 +148,7 @@
                     </div>
                 </div>
                 <hr>
+                <!-- Ações de aulas -->
                 <div class="ui fluid accordion">
                     <!-- Adicionar aula -->
                     <div class="title">
@@ -112,12 +175,12 @@
                         <form name="formAltAula" class="ui form" ng-submit="alterarAula(altAula);" novalidate>
                             <div class="required field">
                                 <label>Aula:</label>
-                                <select class="ui search dropdown" ng-model="altAula.id" ng-change="altAula = getAulaById(altAula.id);" required>
+                                <select class="ui search dropdown" ng-model="altAulaSelectedId" ng-change="altAula = getAulaById(altAulaSelectedId);" required>
                                     <option value="" disabled hidden>Selecione a aula</option>
                                     <option class="item" ng-repeat="aula in aulas | orderBy: 'nome' track by aula.id" value="{{aula.id}}">{{aula.nome}}</option>
                                 </select>
                             </div>
-                            <div class="required field" ng-show="altAula.id >= 0" ng-class="{'error': formAltAula.nome.$invalid && formAltAula.nome.$touched}">
+                            <div class="required field" ng-show="altAulaSelectedId >= 0" ng-class="{'error': formAltAula.nome.$invalid && formAltAula.nome.$touched}">
                                 <label>Nome da aula:</label>
                                 <input name="nome" type="text" ng-model="altAula.nome" placeholder="Digite o nome da aula" ng-minlength="3" ng-maxlength="20" required>
                             </div>
