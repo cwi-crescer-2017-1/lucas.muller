@@ -3,20 +3,22 @@ var app = angular.module('app', []);
 app.controller('CrudCtrl', function($scope) {
     $scope.instrutores = [
         {
+            id: 0,
             nome: 'Bernardo',
             sobrenome: 'Rezende',
             idade: 30,
             email: 'bernardo@cwi.com.br',
             jaDeuAula: true,
-            aula: 'OO'
+            aula: [0, 2]
         },
         {
+            id: 1,
             nome: 'André',
             sobrenome: 'Nunes',
             idade: 35,
             email: 'andre.nunes@cwi.com.br',
             jaDeuAula: true,
-            aula: 'Banco de Dados I'
+            aula: [4]
         }
     ];
 
@@ -29,7 +31,9 @@ app.controller('CrudCtrl', function($scope) {
     ];
 
     $scope.adicionarInstrutor = function(instrutor) {
-        $scope.instrutores.push(angular.copy(instrutor));
+        var nInstrutor = angular.copy(instrutor);
+        nInstrutor.id = $scope.instrutores.length;
+        $scope.instrutores.push(nInstrutor);
         $scope.novoInstrutor = {};
         $scope.formAddInstrutor.$setPristine();
     };
@@ -39,6 +43,12 @@ app.controller('CrudCtrl', function($scope) {
         $scope.removerInstrutor = {};
         $scope.formExcInstrutor.$setPristine();
     };
+
+    $scope.getAulas = function(ids) {
+        var arr = [];
+        ids.forEach(e => arr.push($scope.aulas[e]));
+        return arr;
+    }
 });
 
 app.filter('booleanToYesOrNo', function() {

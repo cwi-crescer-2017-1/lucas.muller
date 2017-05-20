@@ -47,10 +47,10 @@
                                     </div>
                                 </div>
                                 <div class="field">
-                                    <label>Aula</label>
-                                    <select class="ui search dropdown" ng-model="novoInstrutor.aula">
+                                    <label>Aulas</label>
+                                    <select class="ui search dropdown" multiple="" ng-model="novoInstrutor.aula">
                                         <option value="" disabled hidden>Selecione a aula</option>
-                                        <option class="item" ng-repeat="aula in aulas track by $index" value="{{aula}}">{{aula}}</option>
+                                        <option ng-repeat="aula in aulas track by $index" value="{{aula.id}}">{{aula.nome}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -99,18 +99,25 @@
                                         <th>Email</th>
                                         <th>Idade</th>
                                         <th>Já deu aula</th>
-                                        <th>Aula</th>
+                                        <th>Aulas</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="instrutor in filterInstrutores = (instrutores | filter: filtroInstrutor) | orderBy: 'nome' track by $index ">
-                                        <td class="center aligned">{{$index}}</td>
+                                    <tr ng-repeat="instrutor in filterInstrutores = (instrutores | filter: filtroInstrutor) | orderBy: 'nome' track by instrutor.id">
+                                        <td class="center aligned">{{instrutor.id}}</td>
                                         <td>{{instrutor.nome}} {{instrutor.sobrenome}}</td>
                                         <td><a href="mailto:{{instrutor.email}}">{{instrutor.email}}</a></td>
                                         <td>{{instrutor.idade}}</td>
                                         <td>{{instrutor.jaDeuAula|booleanToYesOrNo}}</td>
-                                        <td>{{instrutor.aula}}</td>
+                                        <td>
+                                            <ul class="ui list">
+                                                <li ng-repeat="aula in getAulas(instrutor.aula) | orderBy: 'nome' track by aula.id">
+                                                    ({{aula.id}}) {{aula.nome}}
+                                                </li>
+                                            </ul>
+                                        </td>
                                     </tr>
+                                    </div>
                                 </tbody>
                                 <tfoot class="full-width">
                                     <tr>
@@ -176,7 +183,6 @@
                 $('.ui.checkbox').checkbox();
                 $('.ui.dropdown').dropdown();
                 $('.ui.accordion').accordion();
-                $('table.ui.sortable.table').tablesort();
             });
         </script>
     </body>
