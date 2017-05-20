@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br" ng-app="app">
     <head>
-        <title>AngularJS - Aula 03</title>
+        <title>AngularJS - Crud</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--CSS-->
@@ -16,7 +16,7 @@
                      <!-- Adicionar instrutor -->
                     <div class="title">
                         <i class="dropdown icon"></i>
-                        Adicionar Instrutor
+                        Adicionar instrutor
                     </div>
                     <div class="content">
                         <form name="formAddInstrutor" class="ui form" ng-submit="adicionarInstrutor(novoInstrutor);" novalidate>
@@ -47,10 +47,10 @@
                                     </div>
                                 </div>
                                 <div class="field">
-                                    <label>Aulas</label>
+                                    <label>Aulas do instrutor:</label>
                                     <select class="ui search dropdown" multiple="" ng-model="novoInstrutor.aula">
                                         <option value="" disabled hidden>Selecione a aula</option>
-                                        <option ng-repeat="aula in aulas track by $index" value="{{aula.id}}">{{aula.nome}}</option>
+                                        <option ng-repeat="aula in aulas | orderBy: 'nome' track by $index" value="{{aula.id}}">{{aula.nome}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -62,19 +62,54 @@
                      <!-- Remover instrutor -->
                     <div class="title">
                         <i class="dropdown icon"></i>
-                        Remover Instrutor
+                        Remover instrutor
                     </div>
                     <div class="content">
-                        <form name="formExcInstrutor" class="ui form" ng-submit="removerInstrutor(removerInstrutor.index);" novalidate>
-                            <div class="field">
-                                <label>Instrutor</label>
-                                <select class="ui search dropdown" ng-model="removerInstrutor.index" required>
+                        <form name="formExcInstrutor" class="ui form" ng-submit="removerInstrutor(removerInstrutor.id);" novalidate>
+                            <div class="required field">
+                                <label>Instrutor:</label>
+                                <select class="ui search dropdown" ng-model="removerInstrutor.id" required>
                                     <option value="" disabled hidden>Selecione o instrutor</option>
-                                    <option class="item" ng-repeat="instrutor in instrutores track by $index" value="{{$index}}">{{instrutor.nome}} {{instrutor.sobrenome}} - {{instrutor.email}}</option>
+                                    <option class="item" ng-repeat="instrutor in instrutores | orderBy: 'nome' track by instrutor.id" value="{{instrutor.id}}">{{instrutor.nome}} {{instrutor.sobrenome}} - {{instrutor.email}}</option>
                                 </select>
                             </div>
                             <div class="field">
                                 <button type="submit" class="ui button" ng-class="{'disabled': formExcInstrutor.$invalid}" ng-disabled="formExcInstrutor.$invalid">Remover instrutor</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Adicionar aula -->
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Adicionar aula
+                    </div>
+                    <div class="content">
+                        <form name="formAddAula" class="ui form" ng-submit="adicionarAula(novaAula);" novalidate>
+                            <div class="required field">
+                                <label>Nome da aula:</label>
+                                <input type="text" ng-model="novaAula.nome" placeholder="Digite o nome da aula" minlength="3" maxlength="20" required>
+                            </div>
+                            <div class="field">
+                                <button type="submit" class="ui button" ng-class="{'disabled': formAddAula.$invalid}" ng-disabled="formAddAula.$invalid">Adicionar aula</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Remover aula -->
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Remover aula
+                    </div>
+                    <div class="content">
+                        <form name="formExcAula" class="ui form" ng-submit="removerAula(removerAula.id);" novalidate>
+                            <div class="required field">
+                                <label>Aula:</label>
+                                <select class="ui search dropdown" ng-model="removerAula.id" required>
+                                    <option value="" disabled hidden>Selecione a aula</option>
+                                    <option class="item" ng-repeat="aula in aulas | orderBy: 'nome' track by aula.id" value="{{aula.id}}">{{aula.nome}}</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <button type="submit" class="ui button" ng-class="{'disabled': formExcAula.$invalid}" ng-disabled="formExcAula.$invalid">Remover aula</button>
                             </div>
                         </form>
                     </div>
@@ -94,7 +129,7 @@
                             </div>
                             <table class="ui definition striped celled table">
                                 <thead>
-                                    <tr><th class="center aligned">#</th>
+                                    <tr><th class="center aligned">ID</th>
                                         <th>Nome</th>
                                         <th>Email</th>
                                         <th>Idade</th>
@@ -110,11 +145,11 @@
                                         <td>{{instrutor.idade}}</td>
                                         <td>{{instrutor.jaDeuAula|booleanToYesOrNo}}</td>
                                         <td>
-                                            <ul class="ui list">
-                                                <li ng-repeat="aula in getAulas(instrutor.aula) | orderBy: 'nome' track by aula.id">
-                                                    ({{aula.id}}) {{aula.nome}}
-                                                </li>
-                                            </ul>
+                                            <div class="ui list">
+                                                <div class="item" ng-repeat="aula in getAulas(instrutor.aula) | orderBy: 'nome' track by aula.id">
+                                                    {{aula.id}} - {{aula.nome}}
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     </div>
@@ -145,7 +180,7 @@
                             </div>
                             <table class="ui definition striped celled table">
                                     <thead>
-                                        <tr><th class="center aligned">#</th>
+                                        <tr><th class="center aligned">ID</th>
                                             <th>Aula</th>
                                         </tr>
                                     </thead>
