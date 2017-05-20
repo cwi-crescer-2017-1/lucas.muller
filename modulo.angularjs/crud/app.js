@@ -31,8 +31,9 @@ app.controller('CrudCtrl', function($scope) {
     ];
 
     $scope.adicionarInstrutor = function(instrutor) {
-        var nInstrutor = angular.copy(instrutor);
-        nInstrutor.id = $scope.instrutores.length;
+        let nInstrutor = angular.copy(instrutor);
+        let instrutores = $scope.instrutores;
+        nInstrutor.id = instrutores[instrutores.length-1].id + 1;
         $scope.instrutores.push(nInstrutor);
         $scope.novoInstrutor = {};
         $scope.formAddInstrutor.$setPristine();
@@ -40,8 +41,11 @@ app.controller('CrudCtrl', function($scope) {
     };
 
     $scope.removerInstrutor = function(id) {
-        var index = $scope.instrutores.findIndex(e => e.id == id);
-        if(index === -1) return;
+        let index = $scope.instrutores.findIndex(e => e.id == id);
+        if(index === -1) { 
+            alert("Erro interno ao remover instrutor!");
+            return;
+        }
         $scope.instrutores.splice(index, 1);
         $scope.removerInstrutor.id = "";
         $scope.formExcInstrutor.$setPristine();
@@ -49,8 +53,14 @@ app.controller('CrudCtrl', function($scope) {
     };
 
     $scope.adicionarAula = function(aula) {
-        var nAula = angular.copy(aula);
-        nAula.id = $scope.aulas.length;
+        let nAula = angular.copy(aula);
+        let aulas = $scope.aulas
+        let aulaJaExiste = aulas.some(e=>e.nome.toLowerCase().includes(aula.nome.toLowerCase()));
+        if(aulaJaExiste) {
+            alert("Aula já cadastrada!");
+            return;
+        }
+        nAula.id = aulas[aulas.length-1].id + 1;
         $scope.aulas.push(nAula);
         $scope.novaAula = {};
         $scope.formAddAula.$setPristine();
@@ -60,11 +70,14 @@ app.controller('CrudCtrl', function($scope) {
     $scope.removerAula = function(id) {
         var aulaTemVinculos = $scope.instrutores.some(e=>e.aula.includes(""+id));
         if(aulaTemVinculos) {
-            alert("Impossível remover aula pois há instrutores vinculados à ela!");
+            alert("Não é possível excluir esta aula. Está sendo utilizada.");
             return;
         } else {
             var index = $scope.aulas.findIndex(e => e.id == id);
-            if(index === -1) return;
+            if(index === -1) {
+                alert("Erro interno ao remover aula!");
+                return;
+            }
             $scope.aulas.splice(index, 1);
             $scope.removerAula.id = "";
             $scope.formExcAula.$setPristine();
@@ -73,7 +86,7 @@ app.controller('CrudCtrl', function($scope) {
     };
 
     $scope.getAulas = function(ids) {
-        var arr = [];
+        let arr = [];
         ids.forEach(e => arr.push($scope.aulas.find(a => a.id == e)));
         return arr;
     };
