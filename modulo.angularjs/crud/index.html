@@ -21,32 +21,32 @@
                     <div class="content">
                         <form name="formAddInstrutor" class="ui form" ng-submit="adicionarInstrutor(novoInstrutor);" novalidate>
                             <div class="two fields">
-                                <div class="required field">
+                                <div class="required field" ng-class="{'error':formAddInstrutor.nome.$invalid && formAddInstrutor.nome.$touched}">
                                     <label>Nome do instrutor:</label>
-                                    <input nome="nome" ng-model="novoInstrutor.nome" type="text" placeholder="Digite o nome do instrutor" ng-minlength="3" ng-maxlength="20" required>
+                                    <input name="nome" ng-model="novoInstrutor.nome" type="text" placeholder="Digite o nome do instrutor" ng-minlength="3" ng-maxlength="20" required>
                                 </div>
-                                <div class="field">
+                                <div class="field" ng-class="{'error':formAddInstrutor.sobrenome.$invalid && formAddInstrutor.sobrenome.$touched}">
                                     <label>Sobrenome do instrutor:</label>
                                     <input name="sobrenome" ng-model="novoInstrutor.sobrenome" type="text" placeholder="Digite o sobrenome do instrutor" ng-maxlength="30">
                                 </div>
                             </div>
                             <div class="two fields">
-                                <div class="required field">
+                                <div class="required field" ng-class="{'error':formAddInstrutor.email.$invalid && formAddInstrutor.email.$touched}">
                                     <label>Email:</label>
                                     <input name="email" ng-model="novoInstrutor.email" type="email" placeholder="Digite o email do instrutor" required>
                                 </div>
-                                <div class="field">
+                                <div class="field" ng-class="{'error':formAddInstrutor.foto.$invalid && formAddInstrutor.foto.$touched}">
                                     <label>Url da foto do instrutor:</label>
                                     <input name="foto" ng-model="novoInstrutor.fotoUrl" type="text" placeholder="Digite o url da foto do instrutor">
                                 </div>
                             </div>
                             <div class="three fields">
-                                <div class="required field">
+                                <div class="required field" ng-class="{'error':formAddInstrutor.idade.$invalid && formAddInstrutor.idade.$touched}">
                                     <label>Idade:</label>
-                                    <input name="idade" ng-model="novoInstrutor.idade" type="number" placeholder="Digite a idade do instrutor" ng-maxlength="90" required>
+                                    <input name="idade" ng-model="novoInstrutor.idade" type="number" placeholder="Digite a idade do instrutor" ng-max="90" required>
                                 </div>
                                 <div class="field">
-                                        <label>&nbsp;</label>
+                                    <label>&nbsp;</label>
                                     <div class="ui toggle checkbox" style="top: 7px;">
                                         <input name="jaDeuAula" type="checkbox" ng-model="novoInstrutor.jaDeuAula" tabindex="0" class="hidden">
                                         <label>Instrutor já deu aula</label>
@@ -94,9 +94,9 @@
                     </div>
                     <div class="content">
                         <form name="formAddAula" class="ui form" ng-submit="adicionarAula(novaAula);" novalidate>
-                            <div class="required field">
+                            <div class="required field" ng-class="{'error': formAddAula.nome.$invalid && formAddAula.nome.$touched}">
                                 <label>Nome da aula:</label>
-                                <input type="text" ng-model="novaAula.nome" placeholder="Digite o nome da aula" minlength="3" maxlength="20" required>
+                                <input name="nome" type="text" ng-model="novaAula.nome" placeholder="Digite o nome da aula" ng-minlength="3" ng-maxlength="20" required>
                             </div>
                             <div class="field">
                                 <button type="submit" class="ui button" ng-class="{'disabled': formAddAula.$invalid}" ng-disabled="formAddAula.$invalid">Adicionar aula</button>
@@ -117,9 +117,9 @@
                                     <option class="item" ng-repeat="aula in aulas | orderBy: 'nome' track by aula.id" value="{{aula.id}}">{{aula.nome}}</option>
                                 </select>
                             </div>
-                            <div class="required field" ng-show="altAula.id >= 0">
+                            <div class="required field" ng-show="altAula.id >= 0" ng-class="{'error': formAltAula.nome.$invalid && formAltAula.nome.$touched}">
                                 <label>Nome da aula:</label>
-                                <input type="text" ng-model="altAula.nome" placeholder="Digite o nome da aula" minlength="3" maxlength="20" required>
+                                <input name="nome" type="text" ng-model="altAula.nome" placeholder="Digite o nome da aula" ng-minlength="3" ng-maxlength="20" required>
                             </div>
                             <div class="field">
                                 <button type="submit" class="ui button" ng-class="{'disabled': formAltAula.$invalid}" ng-disabled="formAltAula.$invalid">Alterar aula</button>
