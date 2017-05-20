@@ -125,7 +125,6 @@ app.controller('CrudCtrl', function($scope, fotoUrlDefault) {
             return;
         }
         $scope.aulas[index] = nAula;
-        //$scope.altAulaSelectedId = "";
         $scope.altAula = {};
         $scope.formAltAula.$setPristine();
         alert("Aula alterada com sucesso!");
@@ -151,14 +150,6 @@ app.controller('CrudCtrl', function($scope, fotoUrlDefault) {
             $scope.formExcAula.$setPristine();
             alert("Aula removida com sucesso!");
         }
-    };
-
-    $scope.getInstrutorById = function(id) {
-        return angular.copy($scope.instrutores.find(e => e.id == id));
-    };
-
-    $scope.getAulaById = function(id) {
-        return angular.copy($scope.aulas.find(e => e.id == id));
     };
 
     $scope.getAulasPorArray = function(ids) {
