@@ -39,6 +39,14 @@ app.controller('CrudCtrl', function($scope, fotoUrlDefault) {
         let instrutores = $scope.instrutores;
         nInstrutor.id = instrutores[instrutores.length-1].id + 1;
         nInstrutor.fotoUrl = nInstrutor.fotoUrl || fotoUrlDefault;
+        if(verificaNomeInstrutor(nInstrutor.nome + " " + nInstrutor.sobrenome)){
+            alert("Instrutor já cadastrado!");
+            return;
+        } 
+        if(verificaEmailInstrutor(nInstrutor.email)) {
+            alert("Email já está sendo utilizado!");
+            return;
+        }
         $scope.instrutores.push(nInstrutor);
         $scope.novoInstrutor = {};
         $scope.formAddInstrutor.$setPristine();
@@ -55,6 +63,14 @@ app.controller('CrudCtrl', function($scope, fotoUrlDefault) {
         $scope.removerInstrutor.id = "";
         $scope.formExcInstrutor.$setPristine();
         alert("Instrutor removido com sucesso!");
+    };
+
+    function verificaNomeInstrutor(nome) {
+        return $scope.instrutores.some(e=> (e.nome.toLowerCase() + " " + e.sobrenome.toLowerCase()).includes(nome.toLowerCase()));
+    };
+
+    function verificaEmailInstrutor(email) {
+        return $scope.instrutores.some(e=> e.email.toLowerCase().includes(email.toLowerCase()));
     };
 
     $scope.adicionarAula = function(aula) {

@@ -43,7 +43,7 @@
                             <div class="three fields">
                                 <div class="required field">
                                     <label>Idade:</label>
-                                    <input name="idade" ng-model="novoInstrutor.idade" type="number" placeholder="Digite a idade do instrutor" required>
+                                    <input name="idade" ng-model="novoInstrutor.idade" type="number" placeholder="Digite a idade do instrutor" ng-maxlength="90" required>
                                 </div>
                                 <div class="field">
                                         <label>&nbsp;</label>
@@ -84,6 +84,9 @@
                             </div>
                         </form>
                     </div>
+                </div>
+                <hr>
+                <div class="ui fluid accordion">
                     <!-- Adicionar aula -->
                     <div class="title">
                         <i class="dropdown icon"></i>
