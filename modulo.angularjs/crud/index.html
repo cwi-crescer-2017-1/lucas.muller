@@ -9,7 +9,7 @@
     </head>
     <body>
         <div class="ui text container" style="padding: 20px 0;">
-            <div class="ui segment" ng-controller="InstrutoresCtrl">
+            <div class="ui segment" ng-controller="CrudCtrl">
                 <h1 class="ui header">Trabalho CRUD&nbsp;&nbsp;<span class="ui tag label">CrudCtrl</span></h1>
                 <h4 class="ui dividing header">Ações disponíveis</h4>
                 <div class="ui fluid accordion">
@@ -79,38 +79,88 @@
                         </form>
                     </div>
                 </div>
-                <h4 class="ui dividing header">Tabela de instrutores</h4>
-                <div ng-show="instrutores.length > 0">
-                    <div class="ui right action left icon fluid input">
-                        <i class="search icon"></i>
-                        <input type="text" ng-model="filtroInstrutor" placeholder="Pesquisar instrutor...">
+                <h4 class="ui dividing header">Tabelas dos dados</h4>
+                <div class="ui fluid accordion">
+                     <!-- Tabela de instrutores -->
+                    <div class="active title">
+                        <i class="dropdown icon"></i>
+                        Tabela de instrutores
                     </div>
-                    <table class="ui definition striped sortable celled table">
-                        <thead>
-                            <tr><th class="center aligned">#</th>
-                                <th class="sorted descending">Nome</th>
-                                <th>Email</th>
-                                <th>Idade</th>
-                                <th>Já deu aula</th>
-                                <th>Aula</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="instrutor in filterInstrutores = (instrutores | filter: filtroInstrutor) | orderBy: 'nome' track by $index ">
-                                <td class="center aligned">{{$index}}</td>
-                                <td>{{instrutor.nome}} {{instrutor.sobrenome}}</td>
-                                <td><a href="mailto:{{instrutor.email}}">{{instrutor.email}}</a></td>
-                                <td>{{instrutor.idade}}</td>
-                                <td>{{instrutor.jaDeuAula|booleanToYesOrNo}}</td>
-                                <td>{{instrutor.aula}}</td>
-                            </tr>
-                            <tr>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div ng-show="filterInstrutores.length < 1">
-                    <p>Nenhum instrutor encontrado.</p>
+                    <div class="active content">
+                        <div ng-show="instrutores.length > 0">
+                            <div class="ui right action left icon fluid input">
+                                <i class="search icon"></i>
+                                <input type="text" ng-model="filtroInstrutor" placeholder="Pesquisar instrutor...">
+                            </div>
+                            <table class="ui definition striped celled table">
+                                <thead>
+                                    <tr><th class="center aligned">#</th>
+                                        <th>Nome</th>
+                                        <th>Email</th>
+                                        <th>Idade</th>
+                                        <th>Já deu aula</th>
+                                        <th>Aula</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="instrutor in filterInstrutores = (instrutores | filter: filtroInstrutor) | orderBy: 'nome' track by $index ">
+                                        <td class="center aligned">{{$index}}</td>
+                                        <td>{{instrutor.nome}} {{instrutor.sobrenome}}</td>
+                                        <td><a href="mailto:{{instrutor.email}}">{{instrutor.email}}</a></td>
+                                        <td>{{instrutor.idade}}</td>
+                                        <td>{{instrutor.jaDeuAula|booleanToYesOrNo}}</td>
+                                        <td>{{instrutor.aula}}</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="full-width">
+                                    <tr>
+                                        <th colspan="6" class="right aligned">
+                                            {{filterInstrutores.length}} instrutor(es) encontrado(s).
+                                        </th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div ng-if="filterInstrutores.length === 0 || instrutores.length === 0">
+                            <p>Nenhum instrutor encontrado.</p>
+                        </div>
+                    </div>
+                    <!-- Tabela de aulas -->
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Tabela de aulas
+                    </div>
+                    <div class="content">
+                        <div ng-show="aulas.length > 0">
+                            <div class="ui right action left icon fluid input">
+                                <i class="search icon"></i>
+                                <input type="text" ng-model="filtroAula" placeholder="Pesquisar aula...">
+                            </div>
+                            <table class="ui definition striped celled table">
+                                    <thead>
+                                        <tr><th class="center aligned">#</th>
+                                            <th>Aula</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="aula in filterAula = (aulas | filter: filtroAula) | orderBy: 'nome' track by aula.id">
+                                            <td class="center aligned">{{aula.id}}</td>
+                                            <td>{{aula.nome}}</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot class="full-width">
+                                        <tr>
+                                            <th colspan="2" class="right aligned">
+                                                {{filterAula.length}} aula(s) encontrada(s).
+                                            </th>
+                                        </tr>
+                                    </tfoot>
+                            </table>
+                        </div>
+                        <div ng-if="filterAula.length === 0 || aulas.length === 0">
+                            <p>Nenhuma aula encontrada.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -120,7 +170,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.4/angular-locale_pt-br.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-        <script src="https://semantic-ui.com/javascript/library/tablesort.min.js"></script>
         <script src="app.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){

@@ -21,11 +21,11 @@ app.controller('CrudCtrl', function($scope) {
     ];
 
     $scope.aulas = [
-        'OO',
-        'HTML e CSS',
-        'Javascript',
-        'AngularJS',
-        'Banco de Dados I'
+        {id: 0, nome: 'OO'},
+        {id: 1, nome: 'HTML e CSS'},
+        {id: 2, nome: 'Javascript'},
+        {id: 3, nome: 'AngularJS'},
+        {id: 4, nome: 'Banco de Dados I'}
     ];
 
     $scope.adicionarInstrutor = function(instrutor) {
