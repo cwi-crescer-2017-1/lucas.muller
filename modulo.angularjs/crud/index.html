@@ -94,6 +94,29 @@
                             </div>
                         </form>
                     </div>
+                    <!-- Alterar aula -->
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Alterar aula
+                    </div>
+                    <div class="content">
+                        <form name="formAltAula" class="ui form" ng-submit="alterarAula(altAula);" novalidate>
+                            <div class="required field">
+                                <label>Aula:</label>
+                                <select class="ui search dropdown" ng-model="altAula.id" ng-change="altAula = getAulaById(altAula.id);" required>
+                                    <option value="" disabled hidden>Selecione a aula</option>
+                                    <option class="item" ng-repeat="aula in aulas | orderBy: 'nome' track by aula.id" value="{{aula.id}}">{{aula.nome}}</option>
+                                </select>
+                            </div>
+                            <div class="required field" ng-show="altAula.id >= 0">
+                                <label>Nome da aula:</label>
+                                <input type="text" ng-model="altAula.nome" placeholder="Digite o nome da aula" minlength="3" maxlength="20" required>
+                            </div>
+                            <div class="field">
+                                <button type="submit" class="ui button" ng-class="{'disabled': formAltAula.$invalid}" ng-disabled="formAltAula.$invalid">Alterar aula</button>
+                            </div>
+                        </form>
+                    </div>
                     <!-- Remover aula -->
                     <div class="title">
                         <i class="dropdown icon"></i>
@@ -146,7 +169,7 @@
                                         <td>{{instrutor.jaDeuAula|booleanToYesOrNo}}</td>
                                         <td>
                                             <div class="ui list">
-                                                <div class="item" ng-repeat="aula in getAulas(instrutor.aula) | orderBy: 'nome' track by aula.id">
+                                                <div class="item" ng-repeat="aula in getAulasPorArray(instrutor.aula) | orderBy: 'nome' track by aula.id">
                                                     {{aula.id}} - {{aula.nome}}
                                                 </div>
                                             </div>

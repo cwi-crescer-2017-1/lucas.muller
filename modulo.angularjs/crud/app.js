@@ -54,8 +54,8 @@ app.controller('CrudCtrl', function($scope) {
 
     $scope.adicionarAula = function(aula) {
         let nAula = angular.copy(aula);
-        let aulas = $scope.aulas
-        let aulaJaExiste = aulas.some(e=>e.nome.toLowerCase().includes(aula.nome.toLowerCase()));
+        let aulas = $scope.aulas;
+        let aulaJaExiste = verificaNomeAula(aula.nome);
         if(aulaJaExiste) {
             alert("Aula já cadastrada!");
             return;
@@ -65,6 +65,29 @@ app.controller('CrudCtrl', function($scope) {
         $scope.novaAula = {};
         $scope.formAddAula.$setPristine();
         alert("Aula adicionada com sucesso!");
+    };
+
+    $scope.alterarAula = function(aula) {
+        let nAula = angular.copy(aula);
+        let aulas = $scope.aulas;
+        let aulaJaExiste = verificaNomeAula(aula.nome);
+        if(aulaJaExiste) {
+            alert("Aula já cadastrada!");
+            return;
+        }
+        let index = aulas.findIndex(e => e.id == aula.id);
+        if(index === -1) {
+            alert("Erro interno ao alterar aula!");
+            return;
+        }
+        $scope.aulas[index] = nAula;
+        $scope.altAula = {};
+        $scope.formAltAula.$setPristine();
+        alert("Aula alterada com sucesso!");
+    };
+
+    function verificaNomeAula(nome) {
+        return $scope.aulas.some(e=>e.nome.toLowerCase().includes(nome.toLowerCase()));
     };
     
     $scope.removerAula = function(id) {
@@ -85,7 +108,15 @@ app.controller('CrudCtrl', function($scope) {
         }
     };
 
-    $scope.getAulas = function(ids) {
+    $scope.getInstrutorById = function(id) {
+        return angular.copy($scope.instrutores.find(e => e.id == id));
+    };
+
+    $scope.getAulaById = function(id) {
+        return angular.copy($scope.aulas.find(e => e.id == id));
+    };
+
+    $scope.getAulasPorArray = function(ids) {
         let arr = [];
         ids.forEach(e => arr.push($scope.aulas.find(a => a.id == e)));
         return arr;
