@@ -30,9 +30,15 @@
                                     <input name="sobrenome" ng-model="novoInstrutor.sobrenome" type="text" placeholder="Digite o sobrenome do instrutor" ng-maxlength="30">
                                 </div>
                             </div>
-                            <div class="required field">
-                                <label>Email:</label>
-                                <input name="email" ng-model="novoInstrutor.email" type="email" placeholder="Digite o email do instrutor" required>
+                            <div class="two fields">
+                                <div class="required field">
+                                    <label>Email:</label>
+                                    <input name="email" ng-model="novoInstrutor.email" type="email" placeholder="Digite o email do instrutor" required>
+                                </div>
+                                <div class="field">
+                                    <label>Url da foto do instrutor:</label>
+                                    <input name="foto" ng-model="novoInstrutor.fotoUrl" type="text" placeholder="Digite o url da foto do instrutor">
+                                </div>
                             </div>
                             <div class="three fields">
                                 <div class="required field">
@@ -176,7 +182,7 @@
                                                     <span title="ID {{aula.id}}">{{aula.nome}}</span>
                                                 </div>
                                                 <div class="item" ng-show="aulasDoInstrutor.length === 0">
-                                                    Instrutor sem aulas adicionadas!
+                                                    Instrutor sem aulas adicionadas
                                                 </div>
                                             </div>
                                         </td>
