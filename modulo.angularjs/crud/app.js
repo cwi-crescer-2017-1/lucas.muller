@@ -1,8 +1,8 @@
-var app = angular.module('app', []);
+var app = angular.module('app', ['toastr']);
 
 app.constant('fotoUrlDefault', 'https://kokensupport.com/styles/simplicity_gray/theme/images/no_avatar.gif');
 
-app.controller('CrudCtrl', function($scope, fotoUrlDefault) {
+app.controller('CrudCtrl', function($scope, fotoUrlDefault, toastr) {
     $scope.instrutores = [
         {
             id: 0,
@@ -40,52 +40,52 @@ app.controller('CrudCtrl', function($scope, fotoUrlDefault) {
         nInstrutor.id = instrutores[instrutores.length-1].id + 1;
         nInstrutor.fotoUrl = nInstrutor.fotoUrl || fotoUrlDefault;
         if(verificaNomeInstrutor(instrutor)){
-            alert("Instrutor já cadastrado!");
+            toastr.warning("Instrutor já cadastrado!");
             return;
         } 
         if(verificaEmailInstrutor(instrutor)) {
-            alert("Email já está sendo utilizado!");
+            toastr.warning("Email já está sendo utilizado!");
             return;
         }
         $scope.instrutores.push(nInstrutor);
         $scope.novoInstrutor = {};
         $scope.formAddInstrutor.$setPristine();
-        alert("Instrutor adicionado com sucesso!");
+        toastr.success("Instrutor adicionado com sucesso!");
     };
 
     $scope.alterarInstrutor = function(instrutor) {
         let nInstrutor = angular.copy(instrutor);
         let instrutores = $scope.instrutores;
-        // if(verificaNomeInstrutor(instrutor)){
-        //     alert("Instrutor já cadastrado!");
-        //     return;
-        // } 
+        if(verificaNomeInstrutor(instrutor)){
+            toastr.warning("Instrutor já cadastrado!");
+            return;
+        } 
         if(verificaEmailInstrutor(instrutor)) {
-            alert("Email já está sendo utilizado por outro instrutor!");
+            toastr.warning("Email já está sendo utilizado por outro instrutor!");
             return;
         }
         let index = instrutores.findIndex(e => e.id == instrutor.id);
         if(index === -1) {
-            alert("Erro interno ao alterar instrutor!");
+            toastr.error("Erro interno ao alterar instrutor!");
             return;
         }
         $scope.instrutores[index] = nInstrutor;
         //$scope.altInstrutorSelectedId = "";
         $scope.altInstrutor = {};
         $scope.formAltInstrutor.$setPristine();
-        alert("Instrutor alterado com sucesso!");
+        toastr.success("Instrutor alterado com sucesso!");
     };
 
     $scope.removerInstrutor = function(id) {
         let index = $scope.instrutores.findIndex(e => e.id == id);
         if(index === -1) { 
-            alert("Erro interno ao remover instrutor!");
+            toastr.error("Erro interno ao remover instrutor!");
             return;
         }
         $scope.instrutores.splice(index, 1);
         $scope.removerInstrutor.id = "";
         $scope.formExcInstrutor.$setPristine();
-        alert("Instrutor removido com sucesso!");
+        toastr.success("Instrutor removido com sucesso!");
     };
 
     function verificaNomeInstrutor(instrutor) {
@@ -101,14 +101,14 @@ app.controller('CrudCtrl', function($scope, fotoUrlDefault) {
         let aulas = $scope.aulas;
         let aulaJaExiste = verificaNomeAula(aula.nome);
         if(aulaJaExiste) {
-            alert("Aula já cadastrada!");
+            toastr.warning("Aula já cadastrada!");
             return;
         }
         nAula.id = aulas[aulas.length-1].id + 1;
         $scope.aulas.push(nAula);
         $scope.novaAula = {};
         $scope.formAddAula.$setPristine();
-        alert("Aula adicionada com sucesso!");
+        toastr.success("Aula adicionada com sucesso!");
     };
 
     $scope.alterarAula = function(aula) {
@@ -121,13 +121,13 @@ app.controller('CrudCtrl', function($scope, fotoUrlDefault) {
         // }
         let index = aulas.findIndex(e => e.id == aula.id);
         if(index === -1) {
-            alert("Erro interno ao alterar aula!");
+            toastr.error("Erro interno ao alterar aula!");
             return;
         }
         $scope.aulas[index] = nAula;
         $scope.altAula = {};
         $scope.formAltAula.$setPristine();
-        alert("Aula alterada com sucesso!");
+        toastr.success("Aula alterada com sucesso!");
     };
 
     function verificaNomeAula(nome) {
@@ -137,18 +137,18 @@ app.controller('CrudCtrl', function($scope, fotoUrlDefault) {
     $scope.removerAula = function(id) {
         var aulaTemVinculos = $scope.instrutores.some(e=>e.aula.includes(""+id));
         if(aulaTemVinculos) {
-            alert("Não é possível excluir esta aula. Está sendo utilizada.");
+            toastr.warning("Não é possível excluir esta aula. Está sendo utilizada.");
             return;
         } else {
             var index = $scope.aulas.findIndex(e => e.id == id);
             if(index === -1) {
-                alert("Erro interno ao remover aula!");
+                toastr.error("Erro interno ao remover aula!");
                 return;
             }
             $scope.aulas.splice(index, 1);
             $scope.removerAula.id = "";
             $scope.formExcAula.$setPristine();
-            alert("Aula removida com sucesso!");
+            toastr.success("Aula removida com sucesso!");
         }
     };
 

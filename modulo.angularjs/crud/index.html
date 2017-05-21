@@ -6,9 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--CSS-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" />
+        <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" />
     </head>
-    <body>
-        <div class="ui text container" style="padding: 20px 0;">
+    <body style="background-color: #f7f7f7;">
+        <div class="ui container" style="padding: 20px 0;">
             <div class="ui segment" ng-controller="CrudCtrl">
                 <h1 class="ui header">Trabalho CRUD&nbsp;&nbsp;<span class="ui tag label">CrudCtrl</span></h1>
                 <h4 class="ui dividing header">Ações disponíveis</h4>
@@ -114,7 +115,7 @@
                                     </div>
                                     <div class="field">
                                         <label>Aulas do instrutor:</label>
-                                        <select id="teste" class="ui search dropdown" multiple="" ng-model="altInstrutor.aula">
+                                        <select class="ui search dropdown" multiple="" ng-model="altInstrutor.aula">
                                             <option value="" disabled hidden>Selecione a aula</option>
                                             <option ng-repeat="aula in aulas | orderBy: 'nome' track by $index" value="{{aula.id}}">{{aula.nome}}</option>
                                         </select>
@@ -178,12 +179,14 @@
                                     <option value="" disabled hidden>Selecione a aula</option>
                                 </select>
                             </div>
-                            <div class="required field" ng-show="altAula.id >= 0" ng-class="{'error': formAltAula.nome.$invalid && formAltAula.nome.$touched}">
-                                <label>Nome da aula:</label>
-                                <input name="nome" type="text" ng-model="altAula.nome" placeholder="Digite o nome da aula" ng-minlength="3" ng-maxlength="20" required>
-                            </div>
-                            <div class="field">
-                                <button type="submit" class="ui button" ng-class="{'disabled': formAltAula.$invalid}" ng-disabled="formAltAula.$invalid">Alterar aula</button>
+                            <div ng-show="altAula.id >= 0">
+                                <div class="required field" ng-class="{'error': formAltAula.nome.$invalid && formAltAula.nome.$touched}">
+                                    <label>Nome da aula:</label>
+                                    <input name="nome" type="text" ng-model="altAula.nome" placeholder="Digite o nome da aula" ng-minlength="3" ng-maxlength="20" required>
+                                </div>
+                                <div class="field">
+                                    <button type="submit" class="ui button" ng-class="{'disabled': formAltAula.$invalid}" ng-disabled="formAltAula.$invalid">Alterar aula</button>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -207,6 +210,7 @@
                         </form>
                     </div>
                 </div>
+                <!-- Tabelas dos dados -->
                 <h4 class="ui dividing header">Tabelas dos dados</h4>
                 <div class="ui fluid accordion">
                      <!-- Tabela de instrutores -->
@@ -215,7 +219,7 @@
                         Tabela de instrutores
                     </div>
                     <div class="active content">
-                        <div ng-show="instrutores.length > 0">
+                        <div ng-if="instrutores.length > 0">
                             <div class="ui right action left icon fluid input">
                                 <i class="search icon"></i>
                                 <input type="text" ng-model="filtroInstrutor" placeholder="Pesquisar instrutor...">
@@ -241,13 +245,13 @@
                                         <td>{{instrutor.idade}}</td>
                                         <td>{{instrutor.jaDeuAula|booleanToYesOrNo}}</td>
                                         <td>
-                                            <div class="ui list">
+                                            <div class="ui bulleted list" ng-hide="aulasDoInstrutor.length === 0">
                                                 <div class="item" ng-repeat="aula in aulasDoInstrutor = (getAulasPorArray(instrutor.aula)) | orderBy: 'nome' track by aula.id">
                                                     <span title="ID {{aula.id}}">{{aula.nome}}</span>
                                                 </div>
-                                                <div class="item" ng-show="aulasDoInstrutor.length === 0">
-                                                    Instrutor sem aulas adicionadas
-                                                </div>
+                                            </div>
+                                            <div ng-show="aulasDoInstrutor.length === 0">
+                                                Instrutor sem aulas adicionadas
                                             </div>
                                         </td>
                                     </tr>
@@ -263,7 +267,7 @@
                             </table>
                         </div>
                         <div ng-if="filterInstrutores.length === 0 || instrutores.length === 0">
-                            <p>Nenhum instrutor encontrado.</p>
+                            <p><strong>Nenhum instrutor encontrado.</strong></p>
                         </div>
                     </div>
                     <!-- Tabela de aulas -->
@@ -272,7 +276,7 @@
                         Tabela de aulas
                     </div>
                     <div class="content">
-                        <div ng-show="aulas.length > 0">
+                        <div ng-if="aulas.length > 0">
                             <div class="ui right action left icon fluid input">
                                 <i class="search icon"></i>
                                 <input type="text" ng-model="filtroAula" placeholder="Pesquisar aula...">
@@ -299,7 +303,7 @@
                             </table>
                         </div>
                         <div ng-if="filterAula.length === 0 || aulas.length === 0">
-                            <p>Nenhuma aula encontrada.</p>
+                            <p><strong>Nenhuma aula encontrada.</strong></p>
                         </div>
                     </div>
                 </div>
@@ -311,6 +315,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.4/angular-locale_pt-br.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+        <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
         <script src="app.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
