@@ -1,0 +1,55 @@
+{
+  "instrutores": [
+    {
+      "id": 0,
+      "nome": "Bernardo",
+      "sobrenome": "Rezende",
+      "idade": 30,
+      "email": "bernardo@cwi.com.br",
+      "jaDeuAula": true,
+      "aula": [
+        "0",
+        "2"
+      ],
+      "fotoUrl": "http://fullmoonbrewwork.com/wp-content/uploads/2014/06/FMBW_Beers_Phuket-Lager-300x300.png"
+    },
+    {
+      "id": 1,
+      "nome": "André",
+      "sobrenome": "Nunes",
+      "idade": 35,
+      "email": "andre.nunes@cwi.com.br",
+      "jaDeuAula": true,
+      "aula": [
+        "4"
+      ],
+      "fotoUrl": "https://pedrotavars.files.wordpress.com/2012/02/moneysmiley.png"
+    }
+  ],
+  "aulas": [
+    {
+      "id": 0,
+      "nome": "OO"
+    },
+    {
+      "id": 1,
+      "nome": "HTML e CSS"
+    },
+    {
+      "id": 2,
+      "nome": "Javascript"
+    },
+    {
+      "id": 3,
+      "nome": "AngularJS"
+    },
+    {
+      "id": 4,
+      "nome": "Banco de Dados I"
+    },
+    {
+      "nome": "Banco de Dados II",
+      "id": 5
+    }
+  ]
+}

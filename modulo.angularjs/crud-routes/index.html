@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="app">
+    <head>
+        <title>AngularJS - Crud com Rotas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" />
+        <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" />
+    </head>
+    <body style="background-color: #f7f7f7;">
+        <div class="ui container" style="padding: 20px 0;">
+            <div class="ui segment" ng-controller="MainCtrl">
+                <h1 class="ui header">Trabalho CRUD com Rotas e Factories&nbsp;&nbsp;<span class="ui tag label">MainCtrl</span></h1>
+                <div class="ui stackable grid">
+                    <div class="row">
+                        <div class="four wide column">
+                            <div class="ui vertical menu">
+                                <div class="item">
+                                    <div class="header">Instrutores</div>
+                                    <div class="menu">
+                                        <a class="item" href="#!/instrutores/" ng-class="{'active':$route.current.routeName==='instrutores'}">Tabela</a>
+                                        <a class="item" href="#!/instrutores/adicionar" ng-class="{'active':$route.current.routeName==='instrutores-add'}">Adicionar</a>
+                                        <a class="item" href="#!/instrutores/alterar" ng-class="{'active':$route.current.routeName==='instrutores-alt'}">Alterar</a>
+                                        <a class="item" href="#!/instrutores/remover" ng-class="{'active':$route.current.routeName==='instrutores-del'}">Remover</a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="header">Aulas</div>
+                                    <div class="menu">
+                                        <a class="item" href="#!/aulas/" ng-class="{'active':$route.current.routeName==='aulas'}">Tabela</a>
+                                        <a class="item" href="#!/aulas/adicionar" ng-class="{'active':$route.current.routeName==='aulas-add'}">Adicionar</a>
+                                        <a class="item" href="#!/aulas/alterar" ng-class="{'active':$route.current.routeName==='aulas-alt'}">Alterar</a>
+                                        <a class="item" href="#!/aulas/remover" ng-class="{'active':$route.current.routeName==='aulas-del'}">Remover</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="twelve wide column">
+                            <ng-view></ng-view>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.4/angular-locale_pt-br.min.js"></script>
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js" />-->
+        <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

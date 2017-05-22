@@ -1,0 +1,52 @@
+<!-- Tabela de instrutores -->
+<h4 class="ui dividing header">Tabela de instrutores</h4>
+<div ng-if="instrutores.length > 0">
+    <div class="ui right action left icon fluid input">
+        <i class="search icon"></i>
+        <input type="text" ng-model="filtroInstrutor" placeholder="Pesquisar instrutor...">
+    </div>
+    <table class="ui definition striped celled table">
+        <thead>
+            <tr><th class="center aligned">ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Idade</th>
+                <th>Já deu aula</th>
+                <th>Aulas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="instrutor in filterInstrutores = (instrutores | filter: filtroInstrutor) | orderBy: 'nome' track by instrutor.id">
+                <td class="center aligned">{{instrutor.id}}</td>
+                <td>
+                    <img class="ui avatar image" ng-src="{{instrutor.fotoUrl}}">
+                    <span>{{instrutor.nome}} {{instrutor.sobrenome}}</span>
+                </td>
+                <td><a href="mailto:{{instrutor.email}}">{{instrutor.email}}</a></td>
+                <td>{{instrutor.idade}}</td>
+                <td>{{instrutor.jaDeuAula|booleanToYesOrNo}}</td>
+                <td>
+                    <div class="ui bulleted list" ng-hide="aulasDoInstrutor.length === 0">
+                        <div class="item" ng-repeat="aula in aulasDoInstrutor = (getAulasPorArray(instrutor.aula)) | orderBy: 'nome' track by aula.id">
+                            <span title="ID {{aula.id}}">{{aula.nome}}</span>
+                        </div>
+                    </div>
+                    <div ng-show="aulasDoInstrutor.length === 0">
+                        Instrutor sem aulas adicionadas
+                    </div>
+                </td>
+            </tr>
+            </div>
+        </tbody>
+        <tfoot class="full-width">
+            <tr>
+                <th colspan="6" class="right aligned">
+                    {{filterInstrutores.length}} instrutor(es) encontrado(s).
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<div ng-if="filterInstrutores.length === 0 || instrutores.length === 0">
+    <p><strong>Nenhum instrutor encontrado.</strong></p>
+</div>

@@ -1,0 +1,31 @@
+<!-- Tabela de aulas -->
+<h4 class="ui dividing header">Tabela de aulas</h4>
+<div ng-if="aulas.length > 0">
+    <div class="ui right action left icon fluid input">
+        <i class="search icon"></i>
+        <input type="text" ng-model="filtroAula" placeholder="Pesquisar aula...">
+    </div>
+    <table class="ui definition striped celled table">
+            <thead>
+                <tr><th class="center aligned">ID</th>
+                    <th>Aula</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="aula in filterAula = (aulas | filter: filtroAula) | orderBy: 'nome' track by aula.id">
+                    <td class="center aligned">{{aula.id}}</td>
+                    <td>{{aula.nome}}</td>
+                </tr>
+            </tbody>
+            <tfoot class="full-width">
+                <tr>
+                    <th colspan="2" class="right aligned">
+                        {{filterAula.length}} aula(s) encontrada(s).
+                    </th>
+                </tr>
+            </tfoot>
+    </table>
+</div>
+<div ng-if="filterAula.length === 0 || aulas.length === 0">
+    <p><strong>Nenhuma aula encontrada.</strong></p>
+</div>

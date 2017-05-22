@@ -1,0 +1,14 @@
+<!-- Remover instrutor -->
+<h4 class="ui dividing header">Remover instrutor</h4>
+<form name="formExcInstrutor" class="ui form" ng-submit="removerInstrutor(removerInstrutor.id);" novalidate>
+    <div class="required field">
+        <label>Instrutor:</label>
+        <select class="ui dropdown" ng-model="removerInstrutor.id" required>
+            <option value="" disabled hidden>Selecione o instrutor</option>
+            <option class="item" ng-repeat="instrutor in instrutores | orderBy: 'nome' track by instrutor.id" value="{{instrutor.id}}">{{instrutor.nome}} {{instrutor.sobrenome}} - {{instrutor.email}}</option>
+        </select>
+    </div>
+    <div class="field">
+        <button type="submit" class="ui button" ng-class="{'disabled': formExcInstrutor.$invalid}" ng-disabled="formExcInstrutor.$invalid">Remover instrutor</button>
+    </div>
+</form>

@@ -1,0 +1,14 @@
+ <!-- Remover aula -->
+<h4 class="ui dividing header">Remover aula</h4>
+<form name="formExcAula" class="ui form" ng-submit="removerAula(removerAula.id);" novalidate>
+    <div class="required field">
+        <label>Aula:</label>
+        <select class="ui search dropdown" ng-model="removerAula.id" required>
+            <option value="" disabled hidden>Selecione a aula</option>
+            <option class="item" ng-repeat="aula in aulas | orderBy: 'nome' track by aula.id" value="{{aula.id}}">{{aula.nome}}</option>
+        </select>
+    </div>
+    <div class="field">
+        <button type="submit" class="ui button" ng-class="{'disabled': formExcAula.$invalid}" ng-disabled="formExcAula.$invalid">Remover aula</button>
+    </div>
+</form>

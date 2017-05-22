@@ -1,0 +1,19 @@
+<!-- Alterar aula -->
+<h4 class="ui dividing header">Alterar aula</h4>
+<form name="formAltAula" class="ui form" ng-submit="alterarAula(altAula);" novalidate>
+    <div class="required field">
+        <label>Aula:</label>
+        <select class="ui search dropdown" ng-options="aula as aula.nome for aula in aulas | orderBy: 'nome' track by aula.id" ng-model="altAula" required>
+            <option value="" disabled hidden>Selecione a aula</option>
+        </select>
+    </div>
+    <div ng-show="altAula.id >= 0">
+        <div class="required field" ng-class="{'error': formAltAula.nome.$invalid && formAltAula.nome.$touched}">
+            <label>Nome da aula:</label>
+            <input name="nome" type="text" ng-model="altAula.nome" placeholder="Digite o nome da aula" ng-minlength="3" ng-maxlength="20" required>
+        </div>
+        <div class="field">
+            <button type="submit" class="ui button" ng-class="{'disabled': formAltAula.$invalid}" ng-disabled="formAltAula.$invalid">Alterar aula</button>
+        </div>
+    </div>
+</form>

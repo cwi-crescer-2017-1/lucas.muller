@@ -1,0 +1,47 @@
+<!-- Adicionar instrutor -->
+<h4 class="ui dividing header">Adicionar instrutor</h4>
+<form name="formAddInstrutor" class="ui form" ng-submit="adicionarInstrutor(novoInstrutor);" novalidate>
+    <div class="two fields">
+        <div class="required field" ng-class="{'error':formAddInstrutor.nome.$invalid && formAddInstrutor.nome.$touched}">
+            <label>Nome do instrutor:</label>
+            <input name="nome" ng-model="novoInstrutor.nome" type="text" placeholder="Digite o nome do instrutor" ng-minlength="3" ng-maxlength="20" required>
+        </div>
+        <div class="field" ng-class="{'error':formAddInstrutor.sobrenome.$invalid && formAddInstrutor.sobrenome.$touched}">
+            <label>Sobrenome do instrutor:</label>
+            <input name="sobrenome" ng-model="novoInstrutor.sobrenome" type="text" placeholder="Digite o sobrenome do instrutor" ng-maxlength="30">
+        </div>
+    </div>
+    <div class="two fields">
+        <div class="required field" ng-class="{'error':formAddInstrutor.email.$invalid && formAddInstrutor.email.$touched}">
+            <label>Email:</label>
+            <input name="email" ng-model="novoInstrutor.email" type="email" placeholder="Digite o email do instrutor" required>
+        </div>
+        <div class="field" ng-class="{'error':formAddInstrutor.foto.$invalid && formAddInstrutor.foto.$touched}">
+            <label>Url da foto do instrutor:</label>
+            <input name="foto" ng-model="novoInstrutor.fotoUrl" type="text" placeholder="Digite o url da foto do instrutor">
+        </div>
+    </div>
+    <div class="three fields">
+        <div class="required field" ng-class="{'error':formAddInstrutor.idade.$invalid && formAddInstrutor.idade.$touched}">
+            <label>Idade:</label>
+            <input name="idade" ng-model="novoInstrutor.idade" type="number" placeholder="Digite a idade do instrutor" ng-max="90" required>
+        </div>
+        <div class="field">
+            <label>&nbsp;</label>
+            <div class="ui checkbox" style="top: 7px;">
+                <input name="jaDeuAula" type="checkbox" ng-model="novoInstrutor.jaDeuAula">
+                <label>Instrutor já deu aula</label>
+            </div>
+        </div>
+        <div class="field">
+            <label>Aulas do instrutor:</label>
+            <select class="ui search dropdown" multiple="" ng-model="novoInstrutor.aula">
+                <option value="" disabled hidden>Selecione a aula</option>
+                <option ng-repeat="aula in aulas | orderBy: 'nome' track by $index" value="{{aula.id}}">{{aula.nome}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="field">
+        <button type="submit" class="ui button" ng-class="{'disabled': formAddInstrutor.$invalid}" ng-disabled="formAddInstrutor.$invalid">Adicionar instrutor</button>
+    </div>
+</form>

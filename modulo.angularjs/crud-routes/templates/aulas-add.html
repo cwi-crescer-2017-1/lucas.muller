@@ -1,0 +1,11 @@
+ <!-- Adicionar aula -->
+<h4 class="ui dividing header">Adicionar aula</h4>
+<form name="formAddAula" class="ui form" ng-submit="adicionarAula(novaAula);" novalidate>
+    <div class="required field" ng-class="{'error': formAddAula.nome.$invalid && formAddAula.nome.$touched}">
+        <label>Nome da aula:</label>
+        <input name="nome" type="text" ng-model="novaAula.nome" placeholder="Digite o nome da aula" ng-minlength="3" ng-maxlength="20" required>
+    </div>
+    <div class="field">
+        <button type="submit" class="ui button" ng-class="{'disabled': formAddAula.$invalid}" ng-disabled="formAddAula.$invalid">Adicionar aula</button>
+    </div>
+</form>
