@@ -6,15 +6,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" />
         <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" />
+        <style>
+            body {
+                background-color: #f7f7f7;
+            }
+            
+            div.ui.container {
+                padding: 20px 0;
+            }
+
+            select.multiple {
+                height: 50px !important;
+            }
+        </style>
     </head>
-    <body style="background-color: #f7f7f7;">
-        <div class="ui container" style="padding: 20px 0;">
+    <body>
+        <div class="ui container">
             <div class="ui segment" ng-controller="MainCtrl">
                 <h1 class="ui header">Trabalho CRUD com Rotas, API e Factories&nbsp;&nbsp;<span class="ui tag label">MainCtrl</span></h1>
                 <div class="ui stackable grid">
                     <div class="row">
-                        <div class="four wide column">
-                            <div class="ui vertical menu">
+                        <div class="three wide column">
+                            <div class="ui fluid vertical menu">
                                 <div class="item">
                                     <div class="header">Instrutores</div>
                                     <div class="menu">
@@ -35,7 +48,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="twelve wide column">
+                        <div class="thirteen wide column">
                             <ng-view></ng-view>
                         </div>
                     </div>

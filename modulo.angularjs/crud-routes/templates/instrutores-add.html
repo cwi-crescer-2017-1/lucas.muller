@@ -35,7 +35,7 @@
         </div>
         <div class="field">
             <label>Aulas do instrutor:</label>
-            <select class="ui search dropdown" multiple="" ng-model="novoInstrutor.aula">
+            <select class="ui search multiple dropdown" multiple="" ng-model="novoInstrutor.aula">
                 <option value="" disabled hidden>Selecione a aula</option>
                 <option ng-repeat="aula in aulas | orderBy: 'nome' track by $index" value="{{aula.id}}">{{aula.nome}}</option>
             </select>
