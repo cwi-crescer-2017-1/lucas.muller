@@ -1,7 +1,7 @@
 <!-- Tabela de instrutores -->
 <h4 class="ui dividing header">
     Tabela de instrutores
-    <a class="ui blue label" ng-click="atualizarInstrutores();">
+    <a class="ui blue label" ng-click="toastr.info('Atualizando instrutores...'); atualizarInstrutores();">
         <i class="refresh icon"></i>
         Atualizar
     </a>
@@ -11,7 +11,7 @@
         <i class="search icon"></i>
         <input type="text" ng-model="filtroInstrutor" placeholder="Pesquisar instrutor...">
     </div>
-    <table class="ui striped celled table">
+    <table class="ui grey striped celled table">
         <thead>
             <tr><th class="center aligned">ID</th>
                 <th>Nome</th>
@@ -23,12 +23,16 @@
         </thead>
         <tbody>
             <tr ng-repeat="instrutor in filterInstrutores = (instrutores | filter: filtroInstrutor) | orderBy: 'nome' track by instrutor.id">
-                <td class="center aligned">{{instrutor.id}}</td>
+                <td class="center aligned">
+                    <a ng-href="#!/instrutores/{{instrutor.id}}">
+                        {{instrutor.id}}
+                    </a>
+                </td>
                 <td>
                     <img class="ui avatar image" ng-src="{{instrutor.fotoUrl}}">
                     <span>{{instrutor.nome}} {{instrutor.sobrenome}}</span>
                 </td>
-                <td><a href="mailto:{{instrutor.email}}">{{instrutor.email}}</a></td>
+                <td><a ng-href="mailto:{{instrutor.email}}">{{instrutor.email}}</a></td>
                 <td>{{instrutor.idade}}</td>
                 <td>{{instrutor.jaDeuAula|booleanToYesOrNo}}</td>
                 <td>

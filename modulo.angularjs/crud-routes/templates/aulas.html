@@ -1,7 +1,7 @@
 <!-- Tabela de aulas -->
 <h4 class="ui dividing header">
     Tabela de aulas
-    <a class="ui blue label" ng-click="atualizarAulas();">
+    <a class="ui blue label" ng-click="toastr.info('Atualizando aulas...'); atualizarAulas();">
         <i class="refresh icon"></i>
         Atualizar
     </a>
@@ -11,7 +11,7 @@
         <i class="search icon"></i>
         <input type="text" ng-model="filtroAula" placeholder="Pesquisar aula...">
     </div>
-    <table class="ui striped celled table">
+    <table class="ui grey striped celled table">
             <thead>
                 <tr><th class="center aligned">ID</th>
                     <th>Aula</th>

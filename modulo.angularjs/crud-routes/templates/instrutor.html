@@ -1,0 +1,32 @@
+<h4 class="ui dividing header">
+    Instrutor de ID {{id}}
+</h4>
+<div class="ui active centered inline text loader" ng-if="instrutor === undefined">Carregando instrutor</div>
+<div class="ui items" ng-if="instrutor !== undefined && instrutor !== null">
+  <div class="item">
+    <div class="ui small image">
+      <img ng-src="{{instrutor.fotoUrl}}">
+    </div>
+    <div class="content">
+      <a class="header">{{instrutor.nome}} {{instrutor.sobrenome}}</a>
+      <div class="description">
+            <p><b>Email:</b> <a ng-href="mailto:{{instrutor.email}}">{{instrutor.email}}</a></p>
+            <p><b>Idade:</b> {{instrutor.idade}} anos.</p>
+            <p><b>Já deu aula?</b> 
+                <span ng-if="instrutor.jaDeuAula">Este instrutor já deu aula.</span>
+                <span ng-if="!instrutor.jaDeuAula">Este instrutor ainda não deu aula.</span>
+            </p>
+            <p><b>Aulas deste instrutor:</b></p>
+            <div class="ui bulleted list">
+                <div class="item" ng-repeat="aula in aulasDoInstrutor = (getAulasPorArray(instrutor.aula)) | orderBy: 'nome' track by aula.id">
+                    <span title="ID {{aula.id}}">{{aula.nome}}</span>
+                </div>
+                <div class="item" ng-if="aulasDoInstrutor.length === 0">Este instrutor não tem aulas.</div>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ui error message" ng-if="instrutor === null">
+    Erro ao obter instrutor! Verifique se ele existe.
+</div>

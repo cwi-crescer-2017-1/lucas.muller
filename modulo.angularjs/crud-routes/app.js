@@ -6,6 +6,11 @@ app.config(function($routeProvider) {
             templateUrl: 'templates/instrutores.html',
             routeName: 'instrutores'
         })
+        .when('/instrutores/:id', {
+            controller: 'InstrutorCtrl',
+            templateUrl: 'templates/instrutor.html',
+            routeName: 'instrutor'
+        })
         .when('/instrutores/adicionar', {
             controller: 'AddInstrutorCtrl',
             templateUrl: 'templates/instrutores-add.html',
@@ -66,8 +71,13 @@ app.factory('instrutorService', function($http, $q, toastr, apiUrlBase, fotoUrlD
         return $http.get(apiUrlBase + '/instrutores');
     };
 
+    function getInstrutorPorId(id) {
+        return $http.get(apiUrlBase + '/instrutores/' + id);
+    };
+
     return {
         getInstrutores: getInstrutoresAPI,
+        getInstrutorPorId: getInstrutorPorId,
         adicionarInstrutor: adicionarInstrutor,
         alterarInstrutor: alterarInstrutor,
         removerInstrutorPorID: removerInstrutorPorID        
@@ -107,6 +117,7 @@ app.factory('aulaService', function($http, $q, instrutorService, apiUrlBase, toa
 
 app.controller('MainCtrl', function($scope, $route, toastr, aulaService, instrutorService) {
     $scope.$route = $route;
+    $scope.toastr = toastr;
     $scope.atualizarInstrutores = function() {
         instrutorService.getInstrutores().then(response => {
             $scope.instrutores = response.data;
@@ -131,6 +142,16 @@ app.controller('MainCtrl', function($scope, $route, toastr, aulaService, instrut
         
         return aulas.filter(e=>ids.includes(""+e.id));
     };
+});
+
+app.controller('InstrutorCtrl', function($scope, $routeParams, instrutorService) {
+    $scope.id = $routeParams.id;
+    function getInstrutor() {
+        instrutorService.getInstrutorPorId($scope.id).then(response => {
+           $scope.instrutor = response.data;
+        }, () => { $scope.instrutor = null; });
+    };
+    getInstrutor();
 });
 
 app.controller('AddInstrutorCtrl', function($scope, instrutorService, toastr) {
