@@ -1,5 +1,11 @@
 <!-- Tabela de instrutores -->
-<h4 class="ui dividing header">Tabela de instrutores</h4>
+<h4 class="ui dividing header">
+    Tabela de instrutores
+    <a class="ui blue label" ng-click="atualizarInstrutores();">
+        <i class="refresh icon"></i>
+        Atualizar
+    </a>
+</h4>
 <div ng-if="instrutores.length > 0">
     <div class="ui right action left icon fluid input">
         <i class="search icon"></i>

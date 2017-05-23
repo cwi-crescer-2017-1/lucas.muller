@@ -1,5 +1,11 @@
 <!-- Tabela de aulas -->
-<h4 class="ui dividing header">Tabela de aulas</h4>
+<h4 class="ui dividing header">
+    Tabela de aulas
+    <a class="ui blue label" ng-click="atualizarAulas();">
+        <i class="refresh icon"></i>
+        Atualizar
+    </a>
+</h4>
 <div ng-if="aulas.length > 0">
     <div class="ui right action left icon fluid input">
         <i class="search icon"></i>

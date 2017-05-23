@@ -44,169 +44,184 @@ app.config(function($routeProvider) {
 });
 
 app.constant('fotoUrlDefault', 'https://kokensupport.com/styles/simplicity_gray/theme/images/no_avatar.gif');
+app.constant('apiUrlBase', 'http://localhost:3000');
 
-app.factory('instrutorService', function(toastr, fotoUrlDefault) {
-    let instrutores = [
-        {
-            id: 0,
-            nome: 'Bernardo',
-            sobrenome: 'Rezende',
-            idade: 30,
-            email: 'bernardo@cwi.com.br',
-            jaDeuAula: true,
-            aula: ["0", "2"],
-            fotoUrl: "http://fullmoonbrewwork.com/wp-content/uploads/2014/06/FMBW_Beers_Phuket-Lager-300x300.png"
-        },
-        {
-            id: 1,
-            nome: 'André',
-            sobrenome: 'Nunes',
-            idade: 35,
-            email: 'andre.nunes@cwi.com.br',
-            jaDeuAula: true,
-            aula: ["4"],
-            fotoUrl: "https://pedrotavars.files.wordpress.com/2012/02/moneysmiley.png"
-        }
-    ];
+//            TO-DO LIST
+//  -----------------------------------
+//  - Fazer verificações nos services.
+//  - Fazer getAulasPorArrayDeIDs().
+//  - Fazer aula tem vinculos no remover aula.
 
-    let ultimoID = 1;
+app.factory('instrutorService', function($http, $q, toastr, apiUrlBase, fotoUrlDefault) {
+    // let instrutores = [
+    //     {
+    //         id: 0,
+    //         nome: 'Bernardo',
+    //         sobrenome: 'Rezende',
+    //         idade: 30,
+    //         email: 'bernardo@cwi.com.br',
+    //         jaDeuAula: true,
+    //         aula: ["0", "2"],
+    //         fotoUrl: "http://fullmoonbrewwork.com/wp-content/uploads/2014/06/FMBW_Beers_Phuket-Lager-300x300.png"
+    //     },
+    //     {
+    //         id: 1,
+    //         nome: 'André',
+    //         sobrenome: 'Nunes',
+    //         idade: 35,
+    //         email: 'andre.nunes@cwi.com.br',
+    //         jaDeuAula: true,
+    //         aula: ["4"],
+    //         fotoUrl: "https://pedrotavars.files.wordpress.com/2012/02/moneysmiley.png"
+    //     }
+    // ];
+
+    // let ultimoID = 1;
 
     function verificaNomeInstrutor(instrutor) {
-        return instrutores.some(e=> (e.nome + " " + e.sobrenome).toLowerCase().includes((instrutor.nome + " " + instrutor.sobrenome).toLowerCase()) && e.id !== instrutor.id);
+        // return instrutores.some(e=> (e.nome + " " + e.sobrenome).toLowerCase().includes((instrutor.nome + " " + instrutor.sobrenome).toLowerCase()) && e.id !== instrutor.id);
+        return false;
     };
 
     function verificaEmailInstrutor(instrutor) {
-        return instrutores.some(e=> e.email.toLowerCase().includes(instrutor.email.toLowerCase()) && e.id !== instrutor.id);
+        // return instrutores.some(e=> e.email.toLowerCase().includes(instrutor.email.toLowerCase()) && e.id !== instrutor.id);
+        return false;
     };
 
     function adicionarInstrutor(instrutor) {
+        let promise = $q.defer();
         let nInstrutor = angular.copy(instrutor);
-        nInstrutor.id = angular.copy(++ultimoID);
         nInstrutor.fotoUrl = nInstrutor.fotoUrl || fotoUrlDefault;
         if(verificaNomeInstrutor(instrutor)){
             toastr.warning("Instrutor já cadastrado!");
-            return false;
-        } 
-        if(verificaEmailInstrutor(instrutor)) {
+            promise.resolve(false);
+        } else if(verificaEmailInstrutor(instrutor)) {
             toastr.warning("Email já está sendo utilizado!");
-            return false;
+            promise.resolve(false);
+        } else {
+            $http.post(apiUrlBase + '/instrutores', nInstrutor)
+                .then(()=>{ promise.resolve(true); }, () => { promise.resolve(false); });
         }
-        instrutores.push(nInstrutor);
-        toastr.success("Instrutor adicionado com sucesso!");
-        return true;
+        return promise.promise;
     };
 
     function alterarInstrutor(instrutor) {
-        let nInstrutor = angular.copy(instrutor);
+        let promise = $q.defer();
         if(verificaNomeInstrutor(instrutor)){
             toastr.warning("Instrutor já cadastrado!");
-            return false;
+            promise.resolve(false);
         } 
-        if(verificaEmailInstrutor(instrutor)) {
+        else if(verificaEmailInstrutor(instrutor)) {
             toastr.warning("Email já está sendo utilizado por outro instrutor!");
-            return false;
+            promise.resolve(false);
+        } else {
+            $http.put(apiUrlBase + '/instrutores/' + instrutor.id, instrutor)
+                .then(()=>{ promise.resolve(true); }, () => { promise.resolve(false); });
         }
-        let index = instrutores.findIndex(e => e.id == instrutor.id);
-        if(index === -1) {
-            toastr.error("Erro interno ao alterar instrutor!");
-            return false;
-        }
-        instrutores[index] = nInstrutor;
-        toastr.success("Instrutor alterado com sucesso!");
-        return true;
+        return promise.promise;
     };
 
     function removerInstrutorPorID(id) {
-        let index = instrutores.findIndex(e => e.id == id);
-        if(index === -1) { 
-            toastr.error("Erro interno ao remover instrutor!");
-            return false;
-        }
-        instrutores.splice(index, 1);
-        toastr.success("Instrutor removido com sucesso!");
-        return true;
+        let promise = $q.defer();
+        $http.delete(apiUrlBase + '/instrutores/' +id)
+                .then(()=>{ promise.resolve(true); }, () => { promise.resolve(false); });
+        return promise.promise;
+    };
+
+    function getInstrutoresAPI() {
+        return $http.get(apiUrlBase + '/instrutores');
     };
 
     return {
-        getInstrutores: () => instrutores,
+        getInstrutores: getInstrutoresAPI,
         adicionarInstrutor: adicionarInstrutor,
         alterarInstrutor: alterarInstrutor,
         removerInstrutorPorID: removerInstrutorPorID        
     };
 });
 
-app.factory('aulaService', function(instrutorService, toastr) {
-    let aulas = [
-        {id: 0, nome: 'OO'},
-        {id: 1, nome: 'HTML e CSS'},
-        {id: 2, nome: 'Javascript'},
-        {id: 3, nome: 'AngularJS'},
-        {id: 4, nome: 'Banco de Dados I'}
-    ];
-
-    let ultimoID = 4;
+app.factory('aulaService', function($http, $q, instrutorService, apiUrlBase, toastr) {
+    // let aulas = [
+    //     {id: 0, nome: 'OO'},
+    //     {id: 1, nome: 'HTML e CSS'},
+    //     {id: 2, nome: 'Javascript'},
+    //     {id: 3, nome: 'AngularJS'},
+    //     {id: 4, nome: 'Banco de Dados I'}
+    // ];
 
     function verificaNomeAula(aula) {
-        return aulas.some(e=>e.nome.toLowerCase().includes(aula.nome.toLowerCase()) && e.id !== aula.id);
+        // return aulas.some(e=>e.nome.toLowerCase().includes(aula.nome.toLowerCase()) && e.id !== aula.id);
+        return false;
     };
 
     function adicionarAula(aula) {
-        let nAula = angular.copy(aula);
+        let promise = $q.defer();
         let aulaJaExiste = verificaNomeAula(aula);
         if(aulaJaExiste) {
             toastr.warning("Aula já cadastrada!");
-            return false;
+            promise.resolve(false);
+        } else {
+            $http.post(apiUrlBase + '/aulas', aula).then(response => {
+                promise.resolve(true);
+            }, () => { promise.resolve(false); });
         }
-        nAula.id = angular.copy(++ultimoID);
-        aulas.push(nAula);
-        toastr.success("Aula adicionada com sucesso!");
-        return true;
+        return promise.promise;
     };
 
     function alterarAula(aula) {
-        let nAula = angular.copy(aula);
+        let promise = $q.defer();
         let aulaJaExiste = verificaNomeAula(aula);
         if(aulaJaExiste) {
-            alert("Aula já cadastrada!");
-            return false;
+            toast.warning("Aula já cadastrada!");
+            promise.resolve(false);
+        } else {
+            $http.put(apiUrlBase + '/aulas/' + aula.id, aula)
+                .then(()=> { promise.resolve(true) }, () => { promise.resolve(false); });
         }
-        let index = aulas.findIndex(e => e.id == aula.id);
-        if(index === -1) {
-            toastr.error("Erro interno ao alterar aula!");
-            return false;
-        }
-        aulas[index] = nAula;
-        toastr.success("Aula alterada com sucesso!");
-        return true;
+        return promise.promise;
     };
 
     function removerAulaPorID(id) {
-        let aulaTemVinculos = instrutorService.getInstrutores().some(e=>e.aula.includes(""+id));
+        let promise = $q.defer();
+        // let aulaTemVinculos = instrutorService.getInstrutores().some(e=>e.aula.includes(""+id));
+        let aulaTemVinculos = false;
         if(aulaTemVinculos) {
             toastr.warning("Não é possível excluir esta aula. Está sendo utilizada.");
-            return false;
+            promise.resolve(false);
         } else {
-            var index = aulas.findIndex(e => e.id == id);
-            if(index === -1) {
-                toastr.error("Erro interno ao remover aula!");
-                return false;
-            }
-            aulas.splice(index, 1);
-            toastr.success("Aula removida com sucesso!");
-            return true;
+            $http.delete(apiUrlBase + '/aulas/' + id).then(response => {
+                promise.resolve(true)
+            }, () => { promise.resolve(false); });
         }
+        return promise.promise;
     };
 
     function getAulasPorArrayDeIDs(ids) {
+        // if(angular.isUndefined(ids) || ids.length === 0)
+        //     return [];
+        // let arr = [];
+        // ids.forEach(e => arr.push(aulas.find(a => a.id == e)));
+        // return arr;
         if(angular.isUndefined(ids) || ids.length === 0)
             return [];
-        let arr = [];
-        ids.forEach(e => arr.push(aulas.find(a => a.id == e)));
-        return arr;
+        else {
+            getAulasAPI.then(response => {
+                let aulas = response.data;
+                return aulas.filter(e => ids.includes(e.id));
+            });
+        }
+    };
+
+    function getAulaPorID(id) {
+        return $http.get(apiUrlBase + '/aulas/' + id);
+    };
+
+    function getAulasAPI() {
+        return $http.get(apiUrlBase + '/aulas');
     };
 
     return {
-        getAulas: ()=> aulas,
+        getAulas: getAulasAPI,
         getAulasPorArrayDeIDs: getAulasPorArrayDeIDs,
         adicionarAula: adicionarAula,
         alterarAula: alterarAula,
@@ -216,62 +231,101 @@ app.factory('aulaService', function(instrutorService, toastr) {
 
 app.controller('MainCtrl', function($scope, $route, aulaService, instrutorService) {
     $scope.$route = $route;
-    $scope.instrutores = instrutorService.getInstrutores();
-    $scope.aulas = aulaService.getAulas();
+    $scope.atualizarInstrutores = function() {
+        instrutorService.getInstrutores().then(response => {
+            $scope.instrutores = response.data;
+            console.log("Instrutores atualizados!");
+        });
+    };
+    $scope.atualizarInstrutores();
+
+    $scope.atualizarAulas = function() {
+        aulaService.getAulas().then(response => {
+            $scope.aulas = response.data;
+            console.log("Aulas atualizadas!");
+        });
+    };
+    $scope.atualizarAulas();
+
     $scope.getAulasPorArray = aulaService.getAulasPorArrayDeIDs;
 });
 
-app.controller('AddInstrutorCtrl', function($scope, instrutorService) {
+app.controller('AddInstrutorCtrl', function($scope, instrutorService, toastr) {
     $scope.adicionarInstrutor = function(instrutor) {
-        if(instrutorService.adicionarInstrutor(instrutor) === true) {
-            $scope.novoInstrutor = {};
-            $scope.formAddInstrutor.$setPristine();
-        }
+        instrutorService.adicionarInstrutor(instrutor).then((response) => {
+            if(response === true) {
+                $scope.novoInstrutor = {};
+                $scope.formAddInstrutor.$setPristine();
+                $scope.atualizarInstrutores();
+                toastr.success("Instrutor adicionado com sucesso!");
+            }
+        });
     };
 });
 
-app.controller('AltInstrutorCtrl', function($scope, instrutorService) {
+app.controller('AltInstrutorCtrl', function($scope, toastr, instrutorService) {
     $scope.alterarInstrutor = function(instrutor) {
-        if(instrutorService.alterarInstrutor(instrutor) === true) {
-            $scope.altInstrutor = {};
-            $scope.formAltInstrutor.$setPristine();
-        }
+        instrutorService.alterarInstrutor(instrutor).then(response => {
+            if(response === true) {
+                $scope.altInstrutor = {};
+                $scope.formAltInstrutor.$setPristine();
+                $scope.atualizarInstrutores();
+                toastr.success("Instrutor alterado com sucesso!");
+            }
+        });
     };
 });
 
-app.controller('DelInstrutorCtrl', function($scope, instrutorService) {
+app.controller('DelInstrutorCtrl', function($scope, toastr, instrutorService) {
     $scope.removerInstrutor = function(id) {
-        if(instrutorService.removerInstrutorPorID(id) === true) {
-            $scope.removerInstrutor.id = "";
-            $scope.formExcInstrutor.$setPristine();
-        }
+        instrutorService.removerInstrutorPorID(id).then(response => {
+            if(response === true) {
+                $scope.removerInstrutor.id = "";
+                $scope.formExcInstrutor.$setPristine();
+                $scope.atualizarInstrutores();
+                toastr.success("Instrutor removido com sucesso!");
+            }
+        });
     }
 });
 
-app.controller('AddAulaCtrl', function($scope, aulaService) {
+app.controller('AddAulaCtrl', function($scope, aulaService, toastr) {
     $scope.adicionarAula = function(aula) {
-        if(aulaService.adicionarAula(aula) === true) {
-            $scope.novaAula = {};
-            $scope.formAddAula.$setPristine();
-        }
+        aulaService.adicionarAula(aula)
+            .then(response => {
+                if(response === true) {
+                    $scope.novaAula = {};
+                    $scope.formAddAula.$setPristine();
+                    $scope.atualizarAulas();
+                    toastr.success("Aula adicionada com sucesso!");
+                }
+            });
     };
 });
 
-app.controller('AltAulaCtrl', function($scope, aulaService) {
+app.controller('AltAulaCtrl', function($scope, aulaService, toastr) {
     $scope.alterarAula = function(aula) {
-        if(aulaService.alterarAula(aula) === true) {
-            $scope.altAula = {};
-            $scope.formAltAula.$setPristine();
-        }
+        aulaService.alterarAula(aula).then(response => {
+            if(response === true) {
+                $scope.altAula = {};
+                $scope.formAltAula.$setPristine();
+                $scope.atualizarAulas();
+                toastr.success("Aula alterada com sucesso!");
+            }
+        });
     };
 });
 
-app.controller('DelAulaCtrl', function($scope, aulaService) {
+app.controller('DelAulaCtrl', function($scope, aulaService, toastr) {
     $scope.removerAula = function(id) {
-        if(aulaService.removerAulaPorID(id) === true) {
-            $scope.removerAula.id = "";
-            $scope.formExcAula.$setPristine();
-        }
+        aulaService.removerAulaPorID(id).then(response => {
+            if(response === true) {
+                $scope.removerAula.id = "";
+                $scope.formExcAula.$setPristine();
+                $scope.atualizarAulas();
+                toastr.success("Aula removida com sucesso!");
+            }
+        });
     };
 });
 
