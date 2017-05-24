@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Exercicio3
 {
-    class Program
+    public enum Categoria
     {
-        static void Main(string[] args)
-        {
-
-        }
+        Comercio = 170,
+        Industria = 200
     }
 }
