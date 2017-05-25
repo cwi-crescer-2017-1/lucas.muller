@@ -34,20 +34,20 @@ namespace TestesExerc3
             var fgtsAliquotaEsperado = 11;
             var fgtsValorEsperado = 110;
 
-            Assert.AreEqual(demonstrativo.SalarioBase, salarioBase, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasExtras.QtdHoras, quantidadeHorasExtrasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasExtras.ValorTotalHoras, valorTotalHorasExtrasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasDescontadas.QtdHoras, quantidadeHorasDescontadasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasDescontadas.ValorTotalHoras, valorTotalHorasDescontadasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.TotalProventos, totalProventosEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Inss.Aliquota, inssAliquotaEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Inss.Valor, inssValorEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Irrf.Aliquota, irrfAliquotaEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Irrf.Valor, irrfValorEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.TotalDescontos, totalDescontosEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.TotalLiquido, totalLiquidoEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Fgts.Aliquota, fgtsAliquotaEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Fgts.Valor, fgtsValorEsperado, MargemErro);
+            Assert.AreEqual(salarioBase, demonstrativo.SalarioBase, MargemErro);
+            Assert.AreEqual(quantidadeHorasExtrasEsperado, demonstrativo.HorasExtras.QtdHoras, MargemErro);
+            Assert.AreEqual(valorTotalHorasExtrasEsperado, demonstrativo.HorasExtras.ValorTotalHoras, MargemErro);
+            Assert.AreEqual(quantidadeHorasDescontadasEsperado, demonstrativo.HorasDescontadas.QtdHoras, MargemErro);
+            Assert.AreEqual(valorTotalHorasDescontadasEsperado, demonstrativo.HorasDescontadas.ValorTotalHoras, MargemErro);
+            Assert.AreEqual(totalProventosEsperado, demonstrativo.TotalProventos, MargemErro);
+            Assert.AreEqual(inssAliquotaEsperado, demonstrativo.Inss.Aliquota, MargemErro);
+            Assert.AreEqual(inssValorEsperado, demonstrativo.Inss.Valor, MargemErro);
+            Assert.AreEqual(irrfAliquotaEsperado, demonstrativo.Irrf.Aliquota, MargemErro);
+            Assert.AreEqual(irrfValorEsperado, demonstrativo.Irrf.Valor, MargemErro);
+            Assert.AreEqual(totalDescontosEsperado, demonstrativo.TotalDescontos, MargemErro);
+            Assert.AreEqual(totalLiquidoEsperado, demonstrativo.TotalLiquido, MargemErro);
+            Assert.AreEqual(fgtsAliquotaEsperado, demonstrativo.Fgts.Aliquota, MargemErro);
+            Assert.AreEqual(fgtsValorEsperado, demonstrativo.Fgts.Valor, MargemErro);
         }
 
         [TestMethod]
@@ -67,28 +67,28 @@ namespace TestesExerc3
             var valorTotalHorasDescontadasEsperado = 0;
             var totalProventosEsperado = 1399.44;
             var inssAliquotaEsperado = 9;
-            var inssValorEsperado = 125.95;
+            var inssValorEsperado = 125.94;
             var irrfAliquotaEsperado = 0;
             var irrfValorEsperado = 0;
-            var totalDescontosEsperado = 125.95;
+            var totalDescontosEsperado = 125.94;
             var totalLiquidoEsperado = 1273.5;
             var fgtsAliquotaEsperado = 11;
             var fgtsValorEsperado = 153.93;
 
-            Assert.AreEqual(demonstrativo.SalarioBase, salarioBase, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasExtras.QtdHoras, quantidadeHorasExtrasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasExtras.ValorTotalHoras, valorTotalHorasExtrasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasDescontadas.QtdHoras, quantidadeHorasDescontadasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasDescontadas.ValorTotalHoras, valorTotalHorasDescontadasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.TotalProventos, totalProventosEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Inss.Aliquota, inssAliquotaEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Inss.Valor, inssValorEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Irrf.Aliquota, irrfAliquotaEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Irrf.Valor, irrfValorEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.TotalDescontos, totalDescontosEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.TotalLiquido, totalLiquidoEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Fgts.Aliquota, fgtsAliquotaEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Fgts.Valor, fgtsValorEsperado, MargemErro);
+            Assert.AreEqual(salarioBase, demonstrativo.SalarioBase, MargemErro);
+            Assert.AreEqual(quantidadeHorasExtrasEsperado, demonstrativo.HorasExtras.QtdHoras, MargemErro);
+            Assert.AreEqual(valorTotalHorasExtrasEsperado, demonstrativo.HorasExtras.ValorTotalHoras, MargemErro);
+            Assert.AreEqual(quantidadeHorasDescontadasEsperado, demonstrativo.HorasDescontadas.QtdHoras, MargemErro);
+            Assert.AreEqual(valorTotalHorasDescontadasEsperado, demonstrativo.HorasDescontadas.ValorTotalHoras, MargemErro);
+            Assert.AreEqual(totalProventosEsperado, demonstrativo.TotalProventos, MargemErro);
+            Assert.AreEqual(inssAliquotaEsperado, demonstrativo.Inss.Aliquota, MargemErro);
+            Assert.AreEqual(inssValorEsperado, demonstrativo.Inss.Valor, MargemErro);
+            Assert.AreEqual(irrfAliquotaEsperado, demonstrativo.Irrf.Aliquota, MargemErro);
+            Assert.AreEqual(irrfValorEsperado, demonstrativo.Irrf.Valor, MargemErro);
+            Assert.AreEqual(totalDescontosEsperado, demonstrativo.TotalDescontos, MargemErro);
+            Assert.AreEqual(totalLiquidoEsperado, demonstrativo.TotalLiquido, MargemErro);
+            Assert.AreEqual(fgtsAliquotaEsperado, demonstrativo.Fgts.Aliquota, MargemErro);
+            Assert.AreEqual(fgtsValorEsperado, demonstrativo.Fgts.Valor, MargemErro);
         }
 
         [TestMethod]
@@ -116,20 +116,20 @@ namespace TestesExerc3
             var fgtsAliquotaEsperado = 11;
             var fgtsValorEsperado = 177.41;
 
-            Assert.AreEqual(demonstrativo.SalarioBase, salarioBase, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasExtras.QtdHoras, quantidadeHorasExtrasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasExtras.ValorTotalHoras, valorTotalHorasExtrasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasDescontadas.QtdHoras, quantidadeHorasDescontadasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasDescontadas.ValorTotalHoras, valorTotalHorasDescontadasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.TotalProventos, totalProventosEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Inss.Aliquota, inssAliquotaEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Inss.Valor, inssValorEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Irrf.Aliquota, irrfAliquotaEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Irrf.Valor, irrfValorEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.TotalDescontos, totalDescontosEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.TotalLiquido, totalLiquidoEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Fgts.Aliquota, fgtsAliquotaEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Fgts.Valor, fgtsValorEsperado, MargemErro);
+            Assert.AreEqual(salarioBase, demonstrativo.SalarioBase, MargemErro);
+            Assert.AreEqual(quantidadeHorasExtrasEsperado, demonstrativo.HorasExtras.QtdHoras, MargemErro);
+            Assert.AreEqual(valorTotalHorasExtrasEsperado, demonstrativo.HorasExtras.ValorTotalHoras, MargemErro);
+            Assert.AreEqual(quantidadeHorasDescontadasEsperado, demonstrativo.HorasDescontadas.QtdHoras, MargemErro);
+            Assert.AreEqual(valorTotalHorasDescontadasEsperado, demonstrativo.HorasDescontadas.ValorTotalHoras, MargemErro);
+            Assert.AreEqual(totalProventosEsperado, demonstrativo.TotalProventos, MargemErro);
+            Assert.AreEqual(inssAliquotaEsperado, demonstrativo.Inss.Aliquota, MargemErro);
+            Assert.AreEqual(inssValorEsperado, demonstrativo.Inss.Valor, MargemErro);
+            Assert.AreEqual(irrfAliquotaEsperado, demonstrativo.Irrf.Aliquota, MargemErro);
+            Assert.AreEqual(irrfValorEsperado, demonstrativo.Irrf.Valor, MargemErro);
+            Assert.AreEqual(totalDescontosEsperado, demonstrativo.TotalDescontos, MargemErro);
+            Assert.AreEqual(totalLiquidoEsperado, demonstrativo.TotalLiquido, MargemErro);
+            Assert.AreEqual(fgtsAliquotaEsperado, demonstrativo.Fgts.Aliquota, MargemErro);
+            Assert.AreEqual(fgtsValorEsperado, demonstrativo.Fgts.Valor, MargemErro);
         }
 
         [TestMethod]
@@ -155,22 +155,22 @@ namespace TestesExerc3
             var totalDescontosEsperado = 181.23;
             var totalLiquidoEsperado = 1631.11;
             var fgtsAliquotaEsperado = 11;
-            var fgtsValorEsperado = 199.36;
+            var fgtsValorEsperado = 199.35;
 
-            Assert.AreEqual(demonstrativo.SalarioBase, salarioBase, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasExtras.QtdHoras, quantidadeHorasExtrasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasExtras.ValorTotalHoras, valorTotalHorasExtrasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasDescontadas.QtdHoras, quantidadeHorasDescontadasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasDescontadas.ValorTotalHoras, valorTotalHorasDescontadasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.TotalProventos, totalProventosEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Inss.Aliquota, inssAliquotaEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Inss.Valor, inssValorEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Irrf.Aliquota, irrfAliquotaEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Irrf.Valor, irrfValorEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.TotalDescontos, totalDescontosEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.TotalLiquido, totalLiquidoEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Fgts.Aliquota, fgtsAliquotaEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Fgts.Valor, fgtsValorEsperado, MargemErro);
+            Assert.AreEqual(salarioBase, demonstrativo.SalarioBase, MargemErro);
+            Assert.AreEqual(quantidadeHorasExtrasEsperado, demonstrativo.HorasExtras.QtdHoras, MargemErro);
+            Assert.AreEqual(valorTotalHorasExtrasEsperado, demonstrativo.HorasExtras.ValorTotalHoras, MargemErro);
+            Assert.AreEqual(quantidadeHorasDescontadasEsperado, demonstrativo.HorasDescontadas.QtdHoras, MargemErro);
+            Assert.AreEqual(valorTotalHorasDescontadasEsperado, demonstrativo.HorasDescontadas.ValorTotalHoras, MargemErro);
+            Assert.AreEqual(totalProventosEsperado, demonstrativo.TotalProventos, MargemErro);
+            Assert.AreEqual(inssAliquotaEsperado, demonstrativo.Inss.Aliquota, MargemErro);
+            Assert.AreEqual(inssValorEsperado, demonstrativo.Inss.Valor, MargemErro);
+            Assert.AreEqual(irrfAliquotaEsperado, demonstrativo.Irrf.Aliquota, MargemErro);
+            Assert.AreEqual(irrfValorEsperado, demonstrativo.Irrf.Valor, MargemErro);
+            Assert.AreEqual(totalDescontosEsperado, demonstrativo.TotalDescontos, MargemErro);
+            Assert.AreEqual(totalLiquidoEsperado, demonstrativo.TotalLiquido, MargemErro);
+            Assert.AreEqual(fgtsAliquotaEsperado, demonstrativo.Fgts.Aliquota, MargemErro);
+            Assert.AreEqual(fgtsValorEsperado, demonstrativo.Fgts.Valor, MargemErro);
         }
 
         [TestMethod]
@@ -198,20 +198,20 @@ namespace TestesExerc3
             var fgtsAliquotaEsperado = 11;
             var fgtsValorEsperado = 221.47;
 
-            Assert.AreEqual(demonstrativo.SalarioBase, salarioBase, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasExtras.QtdHoras, quantidadeHorasExtrasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasExtras.ValorTotalHoras, valorTotalHorasExtrasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasDescontadas.QtdHoras, quantidadeHorasDescontadasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasDescontadas.ValorTotalHoras, valorTotalHorasDescontadasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.TotalProventos, totalProventosEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Inss.Aliquota, inssAliquotaEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Inss.Valor, inssValorEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Irrf.Aliquota, irrfAliquotaEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Irrf.Valor, irrfValorEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.TotalDescontos, totalDescontosEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.TotalLiquido, totalLiquidoEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Fgts.Aliquota, fgtsAliquotaEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Fgts.Valor, fgtsValorEsperado, MargemErro);
+            Assert.AreEqual(salarioBase, demonstrativo.SalarioBase, MargemErro);
+            Assert.AreEqual(quantidadeHorasExtrasEsperado, demonstrativo.HorasExtras.QtdHoras, MargemErro);
+            Assert.AreEqual(valorTotalHorasExtrasEsperado, demonstrativo.HorasExtras.ValorTotalHoras, MargemErro);
+            Assert.AreEqual(quantidadeHorasDescontadasEsperado, demonstrativo.HorasDescontadas.QtdHoras, MargemErro);
+            Assert.AreEqual(valorTotalHorasDescontadasEsperado, demonstrativo.HorasDescontadas.ValorTotalHoras, MargemErro);
+            Assert.AreEqual(totalProventosEsperado, demonstrativo.TotalProventos, MargemErro);
+            Assert.AreEqual(inssAliquotaEsperado, demonstrativo.Inss.Aliquota, MargemErro);
+            Assert.AreEqual(inssValorEsperado, demonstrativo.Inss.Valor, MargemErro);
+            Assert.AreEqual(irrfAliquotaEsperado, demonstrativo.Irrf.Aliquota, MargemErro);
+            Assert.AreEqual(irrfValorEsperado, demonstrativo.Irrf.Valor, MargemErro);
+            Assert.AreEqual(totalDescontosEsperado, demonstrativo.TotalDescontos, MargemErro);
+            Assert.AreEqual(totalLiquidoEsperado, demonstrativo.TotalLiquido, MargemErro);
+            Assert.AreEqual(fgtsAliquotaEsperado, demonstrativo.Fgts.Aliquota, MargemErro);
+            Assert.AreEqual(fgtsValorEsperado, demonstrativo.Fgts.Valor, MargemErro);
         }
 
         [TestMethod]
@@ -239,20 +239,20 @@ namespace TestesExerc3
             var fgtsAliquotaEsperado = 11;
             var fgtsValorEsperado = 660;
 
-            Assert.AreEqual(demonstrativo.SalarioBase, salarioBase, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasExtras.QtdHoras, quantidadeHorasExtrasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasExtras.ValorTotalHoras, valorTotalHorasExtrasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasDescontadas.QtdHoras, quantidadeHorasDescontadasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.HorasDescontadas.ValorTotalHoras, valorTotalHorasDescontadasEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.TotalProventos, totalProventosEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Inss.Aliquota, inssAliquotaEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Inss.Valor, inssValorEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Irrf.Aliquota, irrfAliquotaEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Irrf.Valor, irrfValorEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.TotalDescontos, totalDescontosEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.TotalLiquido, totalLiquidoEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Fgts.Aliquota, fgtsAliquotaEsperado, MargemErro);
-            Assert.AreEqual(demonstrativo.Fgts.Valor, fgtsValorEsperado, MargemErro);
+            Assert.AreEqual(salarioBase, demonstrativo.SalarioBase, MargemErro);
+            Assert.AreEqual(quantidadeHorasExtrasEsperado, demonstrativo.HorasExtras.QtdHoras, MargemErro);
+            Assert.AreEqual(valorTotalHorasExtrasEsperado, demonstrativo.HorasExtras.ValorTotalHoras, MargemErro);
+            Assert.AreEqual(quantidadeHorasDescontadasEsperado, demonstrativo.HorasDescontadas.QtdHoras, MargemErro);
+            Assert.AreEqual(valorTotalHorasDescontadasEsperado, demonstrativo.HorasDescontadas.ValorTotalHoras, MargemErro);
+            Assert.AreEqual(totalProventosEsperado, demonstrativo.TotalProventos, MargemErro);
+            Assert.AreEqual(inssAliquotaEsperado, demonstrativo.Inss.Aliquota, MargemErro);
+            Assert.AreEqual(inssValorEsperado, demonstrativo.Inss.Valor, MargemErro);
+            Assert.AreEqual(irrfAliquotaEsperado, demonstrativo.Irrf.Aliquota, MargemErro);
+            Assert.AreEqual(irrfValorEsperado, demonstrativo.Irrf.Valor, MargemErro);
+            Assert.AreEqual(totalDescontosEsperado, demonstrativo.TotalDescontos, MargemErro);
+            Assert.AreEqual(totalLiquidoEsperado, demonstrativo.TotalLiquido, MargemErro);
+            Assert.AreEqual(fgtsAliquotaEsperado, demonstrativo.Fgts.Aliquota, MargemErro);
+            Assert.AreEqual(fgtsValorEsperado, demonstrativo.Fgts.Valor, MargemErro);
         }
     }
 }

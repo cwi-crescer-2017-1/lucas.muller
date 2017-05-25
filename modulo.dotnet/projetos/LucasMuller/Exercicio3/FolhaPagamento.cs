@@ -12,26 +12,26 @@ namespace Exercicio3
         {
             #region Variáveis
             double valorHora = salarioBase / horasCategoria;
-            HorasCalculadas hExtras = new HorasCalculadas(horasExtras, Arredonda(valorHora * horasExtras));
-            HorasCalculadas hDescontadas = new HorasCalculadas(horasDescontadas, Arredonda(valorHora * horasDescontadas));
-            double totalProventos = Arredonda(salarioBase + hExtras.ValorTotalHoras - hDescontadas.ValorTotalHoras);
+            HorasCalculadas hExtras = new HorasCalculadas(horasExtras, TruncaValor(valorHora * horasExtras));
+            HorasCalculadas hDescontadas = new HorasCalculadas(horasDescontadas, TruncaValor(valorHora * horasDescontadas));
+            double totalProventos = TruncaValor(salarioBase + hExtras.ValorTotalHoras - hDescontadas.ValorTotalHoras);
             Desconto inss = CalculaINSS(totalProventos);
             Desconto irpf = CalculaIRPF(totalProventos, inss);
-            double totalDescontos = Arredonda(inss.Valor + irpf.Valor);
+            double totalDescontos = TruncaValor(inss.Valor + irpf.Valor);
             double aliquotaFgts = 11;
-            Desconto fgts = new Desconto(aliquotaFgts, Arredonda((totalProventos * aliquotaFgts) / 100));
+            Desconto fgts = new Desconto(aliquotaFgts, TruncaValor((totalProventos * aliquotaFgts) / 100));
             #endregion
 
             Demonstrativo dmst = new Demonstrativo(
-                Arredonda(salarioBase), // salário base
-                Arredonda(horasCategoria), // horas categoria
+                TruncaValor(salarioBase), // salário base
+                TruncaValor(horasCategoria), // horas categoria
                 hExtras, // valor horas extras
                 hDescontadas, // valor horas descontadas
                 totalProventos, // total proventos
                 inss, // inss
                 irpf, // irpf
                 totalDescontos, // total de descontos
-                Arredonda(totalProventos - totalDescontos), // salário liquido
+                TruncaValor(totalProventos - totalDescontos), // salário liquido
                 fgts // fgts
             );
             return dmst;
@@ -46,7 +46,7 @@ namespace Exercicio3
                 aliquota = 9;
             else
                 aliquota = 10;
-            return new Desconto(aliquota, Arredonda((totalProventos * aliquota) / 100));
+            return new Desconto(aliquota, TruncaValor((totalProventos * aliquota) / 100));
         }
 
         private static Desconto CalculaIRPF(double totalProventos, Desconto inss)
@@ -63,12 +63,12 @@ namespace Exercicio3
                 aliquota = 22.5;
             else
                 aliquota = 27.5;
-            return new Desconto(aliquota, Arredonda((valor * aliquota) / 100));
+            return new Desconto(aliquota, TruncaValor((valor * aliquota) / 100));
         }
 
-        private static double Arredonda(double numero)
+        private static double TruncaValor(double valor)
         {
-            return Math.Round(numero, 2);
+            return Math.Truncate(valor * 100) / 100;
         }
     }
 }
