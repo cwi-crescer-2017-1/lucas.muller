@@ -1,9 +1,0 @@
-C:\Users\lucas.muller\Desktop\Repos & Projects\lucas.muller\modulo.dotnet\projetos\LucasMuller\TestesExerc3\bin\Debug\TestesExerc3.dll
-C:\Users\lucas.muller\Desktop\Repos & Projects\lucas.muller\modulo.dotnet\projetos\LucasMuller\TestesExerc3\bin\Debug\TestesExerc3.pdb
-C:\Users\lucas.muller\Desktop\Repos & Projects\lucas.muller\modulo.dotnet\projetos\LucasMuller\TestesExerc3\bin\Debug\Exercicio3.exe
-C:\Users\lucas.muller\Desktop\Repos & Projects\lucas.muller\modulo.dotnet\projetos\LucasMuller\TestesExerc3\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-C:\Users\lucas.muller\Desktop\Repos & Projects\lucas.muller\modulo.dotnet\projetos\LucasMuller\TestesExerc3\bin\Debug\Exercicio3.pdb
-C:\Users\lucas.muller\Desktop\Repos & Projects\lucas.muller\modulo.dotnet\projetos\LucasMuller\TestesExerc3\bin\Debug\pt-BR\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
-C:\Users\lucas.muller\Desktop\Repos & Projects\lucas.muller\modulo.dotnet\projetos\LucasMuller\TestesExerc3\obj\Debug\TestesExerc3.csprojResolveAssemblyReference.cache
-C:\Users\lucas.muller\Desktop\Repos & Projects\lucas.muller\modulo.dotnet\projetos\LucasMuller\TestesExerc3\obj\Debug\TestesExerc3.dll
-C:\Users\lucas.muller\Desktop\Repos & Projects\lucas.muller\modulo.dotnet\projetos\LucasMuller\TestesExerc3\obj\Debug\TestesExerc3.pdb

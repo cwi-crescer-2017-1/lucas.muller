@@ -1,6 +1,0 @@
-C:\Users\lucas.muller\Desktop\Repos & Projects\lucas.muller\modulo.dotnet\projetos\Aula1\Demo1\bin\Debug\Demo1.exe.config
-C:\Users\lucas.muller\Desktop\Repos & Projects\lucas.muller\modulo.dotnet\projetos\Aula1\Demo1\bin\Debug\Demo1.exe
-C:\Users\lucas.muller\Desktop\Repos & Projects\lucas.muller\modulo.dotnet\projetos\Aula1\Demo1\bin\Debug\Demo1.pdb
-C:\Users\lucas.muller\Desktop\Repos & Projects\lucas.muller\modulo.dotnet\projetos\Aula1\Demo1\obj\Debug\Demo1.csprojResolveAssemblyReference.cache
-C:\Users\lucas.muller\Desktop\Repos & Projects\lucas.muller\modulo.dotnet\projetos\Aula1\Demo1\obj\Debug\Demo1.exe
-C:\Users\lucas.muller\Desktop\Repos & Projects\lucas.muller\modulo.dotnet\projetos\Aula1\Demo1\obj\Debug\Demo1.pdb
