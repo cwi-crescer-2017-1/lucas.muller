@@ -53,7 +53,7 @@ namespace Exercicio3
         {
             double aliquota = 0;
             if (totalProventos <= 1710.78)
-                return new Desconto(0, totalProventos);
+                return new Desconto(0, 0);
             else if (totalProventos <= 2563.91)
                 aliquota = 7.5;
             else if (totalProventos <= 3418.59)
@@ -63,7 +63,6 @@ namespace Exercicio3
             else
                 aliquota = 27.5;
             return new Desconto(aliquota, ((totalProventos - inss.Valor) * aliquota) / 100);
-
         }
     }
 }
