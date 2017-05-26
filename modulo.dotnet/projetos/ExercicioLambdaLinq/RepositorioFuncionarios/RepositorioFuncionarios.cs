@@ -116,20 +116,8 @@ namespace Repositorio
         public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
         {
             return Funcionarios
-                    .Where(funcionario => Between(CalcularIdade(funcionario.DataNascimento), idade - 5, idade + 5, true))
+                    .Where(funcionario => (funcionario.DataNascimento.CalcularAnos()).Between(idade - 5, idade + 5, true))
                     .ToList();
-        }
-
-        public static bool Between(double num, double lower, double upper, bool inclusive = false)
-        {
-            return inclusive
-                    ? lower <= num && num <= upper
-                    : lower < num && num < upper;
-        }
-
-        private static int CalcularIdade(DateTime dataNascimento)
-        {
-            return (int) (DateTime.Now - dataNascimento).TotalDays / 365;
         }
 
         public double SalarioMedio(TurnoTrabalho? turno = null)
@@ -193,26 +181,50 @@ namespace Repositorio
 
         public dynamic FuncionarioMaisComplexo()
         {
-            //Funcionario funcionarioMaisComplexo = null;
-            //var quantConsoantesNome = 0;
-            //Funcionarios.ForEach(funcionario =>
-            //{
+            var filtroFuncionarios = Funcionarios
+                .Where(funcionario => funcionario.Cargo.Titulo != "Desenvolvedor Júnior"
+                        && funcionario.TurnoTrabalho != TurnoTrabalho.Tarde)
+                .ToList();
 
-            //});
-            //return funcionarioMaisComplexo;
-            throw new NotImplementedException();
-        }
-
-
-        public static int QuantidadeConsoantes(string palavra)
-        {
-            char[] chrConsonants = { 'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'X',
-                'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'x' };
-            int quantidade = 0;
-            palavra.ToList().ForEach(letra => {
-                if(chrConsonants.Contains(letra)) quantidade++;
-            });
-            return quantidade;
+            Funcionario funcionarioMaisComplexo = filtroFuncionarios.OrderByDescending(funcionario => funcionario.Nome.GetQuantidadeConsoantes()).First();
+            var salarioFuncionarioMaisComplexo = funcionarioMaisComplexo.Cargo.Salario;
+            var quantFuncionariosCargoDoFuncionarioMaisComplexo = Funcionarios.Count(funcionario => funcionario.Cargo.Equals(funcionarioMaisComplexo.Cargo));
+            return new
+            {
+                Nome = funcionarioMaisComplexo.Nome,
+                DataNascimento = funcionarioMaisComplexo.DataNascimento.ToString("dd/MM/yyy"),
+                SalarioRS = string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:C}", salarioFuncionarioMaisComplexo),
+                SalarioUS = string.Format(CultureInfo.GetCultureInfo("en-US"), "{0:C}", salarioFuncionarioMaisComplexo),
+                QuantidadeMesmoCargo = quantFuncionariosCargoDoFuncionarioMaisComplexo
+            };
         }
     }
+
+    #region Extensões
+    public static class DateTimeExtensions
+    {
+        public static double CalcularAnos(this DateTime dataNascimento)
+        {
+            return (DateTime.Now - dataNascimento).TotalDays / 365;
+        }
+    }
+    public static class DoubleExtensions
+    {
+        public static bool Between(this double num, double lower, double upper, bool inclusive = false)
+        {
+            return inclusive
+                    ? lower <= num && num <= upper
+                    : lower < num && num < upper;
+        }
+    }
+    public static class StringExtensions
+    {
+        public static int GetQuantidadeConsoantes(this string palavra)
+        {
+            char[] chrConsonants = { 'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z',
+                'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z' };
+            return palavra.ToList().Count(letra => chrConsonants.Contains(letra));
+        }
+    }
+    #endregion
 }

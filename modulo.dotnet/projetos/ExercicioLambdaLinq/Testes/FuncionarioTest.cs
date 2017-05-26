@@ -160,9 +160,11 @@ namespace Testes
         {
             var palavra1 = "Lucas";
             var palavra2 = "Desenvolvedor"; 
+            var palavra3 = "Dollynho Developer";
 
-            Assert.AreEqual(3, RepositorioFuncionarios.QuantidadeConsoantes(palavra1));
-            Assert.AreEqual(8, RepositorioFuncionarios.QuantidadeConsoantes(palavra2));
+            Assert.AreEqual(3, palavra1.GetQuantidadeConsoantes());
+            Assert.AreEqual(8, palavra2.GetQuantidadeConsoantes());
+            Assert.AreEqual(11, palavra3.GetQuantidadeConsoantes());
         }
     }
 }
