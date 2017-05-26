@@ -125,11 +125,10 @@ namespace Repositorio
 
         public double SalarioMedio(TurnoTrabalho? turno = null)
         {
-            var media = Enumerable.Average(
+            var media = (
                 Funcionarios
                     .Where(funcionario => turno == null ? true : funcionario.TurnoTrabalho == turno)
-                    .Select(funcionario => funcionario.Cargo.Salario)
-                    .ToList()
+                    .Average(funcionario => funcionario.Cargo.Salario)
             );
             return media;
         }
