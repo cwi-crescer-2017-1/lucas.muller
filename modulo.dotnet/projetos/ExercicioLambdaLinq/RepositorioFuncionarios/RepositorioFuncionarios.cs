@@ -125,12 +125,11 @@ namespace Repositorio
 
         public double SalarioMedio(TurnoTrabalho? turno = null)
         {
-            var media = (
+            return (
                 Funcionarios
                     .Where(funcionario => turno == null ? true : funcionario.TurnoTrabalho == turno)
                     .Average(funcionario => funcionario.Cargo.Salario)
             );
-            return media;
         }
 
         public IList<Funcionario> AniversariantesDoMes()
