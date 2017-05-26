@@ -13,7 +13,8 @@ namespace Repositorio
     public class RepositorioFuncionarios
     {
         public List<Funcionario> Funcionarios { get; private set; }
-        
+
+        #region Criar base do repositório
         public RepositorioFuncionarios()
         {
             CriarBase();
@@ -82,7 +83,9 @@ namespace Repositorio
             margareteRicardo.TurnoTrabalho = TurnoTrabalho.Manha;
             Funcionarios.Add(margareteRicardo);
         }
+        #endregion
 
+        #region Funções
         public IList<Funcionario> BuscarPorCargo(Cargo cargo)
         {
             return Funcionarios.Where(funcionario => funcionario.Cargo.Equals(cargo)).ToList(); 
@@ -122,26 +125,13 @@ namespace Repositorio
 
         public double SalarioMedio(TurnoTrabalho? turno = null)
         {
-            var quantFuncionariosFiltro = 0;
-            var somaSalarios = 0.0;
-            if(turno == null)
-            {
-                Funcionarios.ForEach(funcionario => {
-                    somaSalarios += funcionario.Cargo.Salario;
-                    quantFuncionariosFiltro++;
-                });
-            }
-            else
-            {
+            var media = Enumerable.Average(
                 Funcionarios
-                    .Where(funcionario => funcionario.TurnoTrabalho == turno)
+                    .Where(funcionario => turno == null ? true : funcionario.TurnoTrabalho == turno)
+                    .Select(funcionario => funcionario.Cargo.Salario)
                     .ToList()
-                    .ForEach(funcionario => {
-                        somaSalarios += funcionario.Cargo.Salario;
-                        quantFuncionariosFiltro++;
-                    });
-            }
-            return somaSalarios / quantFuncionariosFiltro;
+            );
+            return media;
         }
 
         public IList<Funcionario> AniversariantesDoMes()
@@ -186,7 +176,7 @@ namespace Repositorio
                         && funcionario.TurnoTrabalho != TurnoTrabalho.Tarde)
                 .ToList();
 
-            Funcionario funcionarioMaisComplexo = filtroFuncionarios.OrderByDescending(funcionario => funcionario.Nome.GetQuantidadeConsoantes()).First();
+            Funcionario funcionarioMaisComplexo = filtroFuncionarios.OrderByDescending(funcionario => funcionario.Nome.QuantidadeConsoantes()).First();
             var salarioFuncionarioMaisComplexo = funcionarioMaisComplexo.Cargo.Salario;
             var quantFuncionariosCargoDoFuncionarioMaisComplexo = Funcionarios.Count(funcionario => funcionario.Cargo.Equals(funcionarioMaisComplexo.Cargo));
             return new
@@ -198,6 +188,7 @@ namespace Repositorio
                 QuantidadeMesmoCargo = quantFuncionariosCargoDoFuncionarioMaisComplexo
             };
         }
+        #endregion
     }
 
     #region Extensões
@@ -219,7 +210,7 @@ namespace Repositorio
     }
     public static class StringExtensions
     {
-        public static int GetQuantidadeConsoantes(this string palavra)
+        public static int QuantidadeConsoantes(this string palavra)
         {
             char[] chrConsonants = { 'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z',
                 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z' };

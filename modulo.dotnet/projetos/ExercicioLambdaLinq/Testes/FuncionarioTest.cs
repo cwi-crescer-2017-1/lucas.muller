@@ -150,7 +150,7 @@ namespace Testes
             dynamic funcionarioComplex = repositorioFuncionarios.FuncionarioMaisComplexo();
             Assert.AreEqual("Dollynho Developer", funcionarioComplex.Nome);
             Assert.AreEqual("10/10/1980", funcionarioComplex.DataNascimento);
-            Assert.AreEqual("R$ 550,50", funcionarioComplex.SalarioRS);
+            Assert.AreEqual("R$550,50", funcionarioComplex.SalarioRS);
             Assert.AreEqual("$550.50", funcionarioComplex.SalarioUS);
             Assert.AreEqual(1, funcionarioComplex.QuantidadeMesmoCargo);
         }
@@ -162,9 +162,9 @@ namespace Testes
             var palavra2 = "Desenvolvedor"; 
             var palavra3 = "Dollynho Developer";
 
-            Assert.AreEqual(3, palavra1.GetQuantidadeConsoantes());
-            Assert.AreEqual(8, palavra2.GetQuantidadeConsoantes());
-            Assert.AreEqual(11, palavra3.GetQuantidadeConsoantes());
+            Assert.AreEqual(3, palavra1.QuantidadeConsoantes());
+            Assert.AreEqual(8, palavra2.QuantidadeConsoantes());
+            Assert.AreEqual(11, palavra3.QuantidadeConsoantes());
         }
     }
 }
