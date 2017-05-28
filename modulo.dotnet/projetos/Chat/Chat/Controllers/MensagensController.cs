@@ -13,15 +13,21 @@ namespace Chat.Controllers
         private static List<Mensagem> Mensagens = new List<Mensagem>();
 
         [HttpGet]
-        public IHttpActionResult ObterMensagens()
+        public IHttpActionResult ObterMensagens(string order = null, int newerThan = 0, int limit = 0)
         {
-            return Ok(Mensagens);
+            List<Mensagem> filtro = null;
+            if (order == "desc") filtro = (Mensagens.OrderByDescending(msg => msg.EnviadoEm).ToList());
+            else filtro = Mensagens.OrderBy(msg => msg.EnviadoEm).ToList();
+
+            if (newerThan != 0) filtro = filtro.Where(msg => msg.Id > newerThan).ToList();
+            if (limit > 0) filtro = filtro.Take(limit).ToList();
+            return Ok(filtro);
         }
 
         [HttpGet]
         public IHttpActionResult ObterMensagem(int id)
         {
-            var filtro = Mensagens.Where(msg => msg.Id == id);
+            var filtro = Mensagens.Where(msg => msg.Id == id).ToList();
             if (filtro.Count() == 0)
                 return NotFound();
             else

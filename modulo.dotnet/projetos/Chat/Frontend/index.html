@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt_BR" ng-app="chat">
+    <head>
+        <title>Chat do Crescer</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body ng-controller="ChatCtrl">
+        <div id="content" class="ui text container vertical-align">
+            <div class="ui basic segment">
+                <div id="header" class="ui large center aligned icon header">
+                    <i class="talk icon"></i>
+                    <div class="content">
+                        Chat do Crescer
+                    </div>
+                </div>
+                <hr>
+                <div id="chat" class="ui basic secondary segment">
+                    <div class="ui black chat-message segment" ng-repeat="mensagem in mensagens" ng-class="{'secondary':mensagem.IdUsuarioAutor == usuario}">
+                        <div class="ui tiny header">
+                            <img class="ui mini circular image" ng-src="{{getMensagemAutor(mensagem.IdUsuarioAutor).FotoUrl||'https://kokensupport.com/styles/simplicity_gray/theme/images/no_avatar.gif'}}">
+                            <div class="content">
+                                {{getMensagemAutor(mensagem.IdUsuarioAutor).Nome}} <span ng-if="mensagem.IdUsuarioAutor == usuario">(você)</span>
+                                <div class="ui sub header">{{mensagem.EnviadoEm | date: 'dd/MM/yyyy HH:mm'}}</div>
+                            </div>
+                        </div>
+                        <p>{{mensagem.Texto}}</p>
+                    </div>
+                    <div ng-if="usuario != null && usuario != 0 && mensagens.length == 0" class="center-text">
+                        <p><b>Nenhuma mensagem até agora :(</b></p>
+                    </div>
+                    <div ng-if="error == true" class="center-text">
+                        <p><b>Erro ao obter novas mensagens. Verifique sua conexão.</b></p>
+                    </div>
+                    <div style="min-height: 10px;"></div>
+                </div>
+                <hr>
+                <form ng-submit="enviaMensagem(novaMensagem.Texto)">
+                    <div class="ui action fluid input">
+                        <input type="text" ng-model="novaMensagem.Texto" placeholder="Digite sua mensagem..." required>
+                        <button class="ui secondary right labeled icon button" type="submit">
+                            <i class="right send icon"></i>
+                            Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="app.js"></script> 
+        <script>
+            // scrollar para final do chat
+            var chat = document.getElementById('chat');
+            chat.scrollTop = chat.scrollHeight;
+        </script>
+    </body>
+</html>

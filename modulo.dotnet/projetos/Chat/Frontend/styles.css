@@ -1,0 +1,24 @@
+#chat {
+    height: 400px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#chat .chat-message {
+    margin: 10px 0 10px 0;
+}
+
+hr {
+    border-color: black;
+}
+
+.vertical-align {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.center-text {
+    text-align: center;
+}
