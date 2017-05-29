@@ -18,6 +18,9 @@
                 </div>
                 <hr>
                 <div id="chat" class="ui basic secondary segment">
+                    <div ng-if="error == true" class="center-text">
+                        <p><b>Erro ao obter novas mensagens. Verifique sua conexão.</b></p>
+                    </div>
                     <div class="ui black chat-message segment" ng-repeat="mensagem in mensagens" ng-class="{'secondary':mensagem.IdUsuarioAutor == usuario}">
                         <div class="ui tiny header">
                             <img class="ui mini circular image" ng-src="{{getMensagemAutor(mensagem.IdUsuarioAutor).FotoUrl||'https://kokensupport.com/styles/simplicity_gray/theme/images/no_avatar.gif'}}">
@@ -30,9 +33,6 @@
                     </div>
                     <div ng-if="usuario != null && usuario != 0 && mensagens.length == 0" class="center-text">
                         <p><b>Nenhuma mensagem até agora :(</b></p>
-                    </div>
-                    <div ng-if="error == true" class="center-text">
-                        <p><b>Erro ao obter novas mensagens. Verifique sua conexão.</b></p>
                     </div>
                     <div style="min-height: 10px;"></div>
                 </div>
