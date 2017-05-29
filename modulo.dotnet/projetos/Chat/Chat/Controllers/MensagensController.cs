@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Web.Http;
 
 namespace Chat.Controllers
@@ -44,6 +45,7 @@ namespace Chat.Controllers
             if (usuarioAutorExiste)
             {
                 mensagem.Id = ++Mensagem.UltimoID;
+                mensagem.Texto = Regex.Replace(mensagem.Texto, @"(andr[e|é] nunes)", "$$$$$$$$$$ $$$$$$$$$$", RegexOptions.IgnoreCase);
                 Mensagens.Add(mensagem);
                 return Ok(mensagem);
             }
