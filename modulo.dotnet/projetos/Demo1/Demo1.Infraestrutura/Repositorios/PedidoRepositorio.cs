@@ -124,5 +124,125 @@ namespace Demo1.Infraestrutura.Repositorios
                 }
             }
         }
+
+        public void Excluir(int id)
+        {
+            using (var conexao = new SqlConnection(stringConexaoBD))
+            {
+                conexao.Open();
+
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText = @"DELETE Pedido WHERE Id = @id; DELETE ItemPedido WHERE PedidoId = @id;";
+                    comando.Parameters.AddWithValue("@id", id);
+                    comando.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void Criar(Pedido pedido)
+        {
+            using (var conexao = new SqlConnection(stringConexaoBD))
+            {
+                conexao.Open();
+
+                foreach (ItemPedido item in pedido.Itens)
+                {
+                    using (var comando = conexao.CreateCommand())
+                    {
+                        comando.CommandText = @"SELECT Estoque FROM Produto WHERE Id = @prodId";
+                        comando.Parameters.AddWithValue("@prodId", item.ProdutoId);
+                        var quantProdutoEmEstoque = (int)(comando.ExecuteScalar());
+
+                        if (quantProdutoEmEstoque < item.Quantidade)
+                            throw new Exception($"Produto {item.ProdutoId} não tem estoque suficiente.");
+                    }
+                }
+
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText = @"INSERT INTO Pedido (NomeCliente) VALUES (@nomeCliente)";
+                    comando.Parameters.AddWithValue("@nomeCliente", pedido.NomeCliente);
+                    comando.ExecuteNonQuery();
+                }
+
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText = @"SELECT @@IDENTITY";
+                    pedido.Id = (int)((decimal) comando.ExecuteScalar());
+                }
+
+                
+                foreach (ItemPedido item in pedido.Itens)
+                {
+                    using (var comando = conexao.CreateCommand())
+                    {
+                        comando.CommandText = @"INSERT INTO ItemPedido (PedidoId, ProdutoId, Quantidade)
+                                                VALUES (@pedId, @prodId, @quant);
+                                                UPDATE Produto SET Estoque = Estoque - @quant;";
+                        comando.Parameters.AddWithValue("@pedId", pedido.Id);
+                        comando.Parameters.AddWithValue("@prodId", item.ProdutoId);
+                        comando.Parameters.AddWithValue("@quant", item.Quantidade);
+                        comando.ExecuteNonQuery();
+                    }
+
+                    using (var comando = conexao.CreateCommand())
+                    {
+                        comando.CommandText = @"SELECT @@IDENTITY";
+                        item.Id = (int)((decimal) comando.ExecuteScalar());
+                    }
+                }
+            }
+        }
+
+        public void Alterar(Pedido pedido)
+        {
+            using (var conexao = new SqlConnection(stringConexaoBD))
+            {
+                conexao.Open();
+
+                foreach (ItemPedido item in pedido.Itens)
+                {
+                    using (var comando = conexao.CreateCommand())
+                    {
+                        comando.CommandText = @"SELECT Estoque FROM Produto WHERE Id = @prodId";
+                        comando.Parameters.AddWithValue("@prodId", item.ProdutoId);
+                        var quantProdutoEmEstoque = (int)(comando.ExecuteScalar());
+
+                        if (quantProdutoEmEstoque < item.Quantidade)
+                            throw new Exception($"Produto {item.ProdutoId} não tem estoque suficiente.");
+                    }
+                }
+
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText = @"UPDATE Pedido SET NomeCliente = @nomeCliente WHERE Id = @pedID; 
+                                            DELETE ItemPedido WHERE PedidoId = @pedId;"; // deleta itens do pedido
+                    comando.Parameters.AddWithValue("@nomeCliente", pedido.NomeCliente);
+                    comando.Parameters.AddWithValue("@pedId", pedido.Id);
+                    comando.ExecuteNonQuery();
+                }
+
+                foreach (ItemPedido item in pedido.Itens)
+                {
+                    using (var comando = conexao.CreateCommand())
+                    {
+                        comando.CommandText = @"INSERT INTO ItemPedido (PedidoId, ProdutoId, Quantidade)
+                                                VALUES (@pedId, @prodId, @quant);
+                                                UPDATE Produto SET Estoque = Estoque - @quant;";
+                        comando.Parameters.AddWithValue("@pedId", pedido.Id);
+                        comando.Parameters.AddWithValue("@prodId", item.ProdutoId);
+                        comando.Parameters.AddWithValue("@quant", item.Quantidade);
+                        comando.ExecuteNonQuery();
+                    }
+
+                    using (var comando = conexao.CreateCommand())
+                    {
+                        comando.CommandText = @"SELECT @@IDENTITY";
+                        item.Id = (int)((decimal) comando.ExecuteScalar());
+                    }
+                }
+            }
+        }
     }
 }

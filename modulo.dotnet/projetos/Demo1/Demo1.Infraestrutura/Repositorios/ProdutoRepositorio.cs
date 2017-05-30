@@ -78,7 +78,6 @@ namespace Demo1.Infraestrutura.Repositorios
         }
 
         public void Criar(Produto produto) 
-        // void insert(string conexao, string comando, SqlParameterCollection params, out int id)
         {
             using (var conexao = new SqlConnection(stringConexaoBD))
             {
