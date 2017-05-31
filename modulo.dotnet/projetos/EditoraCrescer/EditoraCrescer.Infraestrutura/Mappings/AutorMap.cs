@@ -12,8 +12,8 @@ namespace EditoraCrescer.Infraestrutura.Mappings
     {
         public AutorMap()
         {
-            ToTable("Autores");
-            Property(p => p.Nome).HasMaxLength(300);
+            ToTable("Autor");
+            Property(p => p.Nome).HasMaxLength(300).IsRequired();
         }
     }
 }

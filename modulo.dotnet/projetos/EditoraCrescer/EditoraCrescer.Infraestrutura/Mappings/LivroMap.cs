@@ -12,9 +12,10 @@ namespace EditoraCrescer.Infraestrutura.Mappings
     {
         public LivroMap()
         {
-            ToTable("Livros");
+            ToTable("Livro");
             HasKey(p => p.Isbn);
             HasRequired(p => p.Autor).WithMany().HasForeignKey(x => x.IdAutor);
+            // HasRequired(p => p.Revisor).WithMany().HasForeignKey(x => x.IdRevisor);
         }
     }
 }
