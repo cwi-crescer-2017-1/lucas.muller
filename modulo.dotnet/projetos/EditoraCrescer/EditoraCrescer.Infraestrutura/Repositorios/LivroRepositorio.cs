@@ -2,12 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace EditoraCrescer.Infraestrutura.Repositorios
 {
-    public class LivroRepositorio
+    public class LivroRepositorio : IDisposable
     {
         private Contexto contexto = new Contexto();
 
@@ -16,12 +18,59 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 
         public List<Livro> Obter()
         {
-            return contexto.Livros.ToList();
+            return contexto.Livros.Include(x => x.Autor).Include(x => x.Revisor).ToList();
         }
 
+        public dynamic ObterFormaResumida()
+        {
+            return contexto.Livros.Select(livro => new
+            {
+                Isbn = livro.Isbn,
+                Titulo = livro.Titulo,
+                Capa = livro.Capa,
+                Autor = livro.Autor.Nome,
+                Genero = livro.Genero
+            }).ToList();
+        }
+
+        public dynamic ObterLancamentosFormaResumida()
+        {
+            DateTime diaDeHojeMenosSeteDias = DateTime.Now.AddDays(-7);
+            return contexto.Livros
+                            .Include(x => x.Autor)
+                            .Where(x => x.DataPublicacao >= diaDeHojeMenosSeteDias)
+                            .Select(livro => new
+                            {
+                                Isbn = livro.Isbn,
+                                Titulo = livro.Titulo,
+                                Capa = livro.Capa,
+                                Autor = livro.Autor.Nome,
+                                Genero = livro.Genero
+                            })
+                            .ToList();
+        }
         public Livro Obter(int isbn)
         {
-            return contexto.Livros.FirstOrDefault(x => x.Isbn == isbn);
+            return contexto.Livros.Include(x => x.Autor).Include(x => x.Revisor).FirstOrDefault(x => x.Isbn == isbn);
+        }
+
+        public List<Livro> ObterPorGenero(string genero)
+        {
+            return contexto.Livros.Where(x => x.Genero.Contains(genero)).Include(x => x.Autor).Include(x => x.Revisor).ToList();
+        }
+
+        public dynamic ObterPorGeneroFormaResumida(string genero)
+        {
+            return contexto.Livros.Where(x => x.Genero.Contains(genero))
+                                  .Select(livro => new
+                                  {
+                                      Isbn = livro.Isbn,
+                                      Titulo = livro.Titulo,
+                                      Capa = livro.Capa,
+                                      Autor = livro.Autor.Nome,
+                                      Genero = livro.Genero
+                                  })
+                                  .ToList();
         }
 
         public Livro Criar(Livro livro)
@@ -29,6 +78,16 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             var livroCriado = contexto.Livros.Add(livro);
             contexto.SaveChanges();
             return livroCriado;
+        }
+
+        public bool Atualizar(Livro livro)
+        {
+            // verifica se livro existe
+            if (contexto.Livros.Count(x => x.Isbn == livro.Isbn) < 1) return false;
+
+            contexto.Entry(livro).State = System.Data.Entity.EntityState.Modified;
+            contexto.SaveChanges();
+            return true;
         }
 
         public bool Excluir(int isbn)
@@ -44,6 +103,11 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                 contexto.SaveChanges();
                 return true;
             }
+        }
+
+        public void Dispose()
+        {
+            ((IDisposable)contexto).Dispose();
         }
     }
 }

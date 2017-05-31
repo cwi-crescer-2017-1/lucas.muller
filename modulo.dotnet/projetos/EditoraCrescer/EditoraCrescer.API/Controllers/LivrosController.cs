@@ -10,6 +10,7 @@ using System.Web.Http;
 
 namespace EditoraCrescer.API.Controllers
 {
+    [RoutePrefix("api/Livros")]
     public class LivrosController : ApiController
     {
         private LivroRepositorio repositorio = new LivroRepositorio();
@@ -17,16 +18,30 @@ namespace EditoraCrescer.API.Controllers
         [HttpGet]
         public IHttpActionResult Listar()
         {
-            return Ok(repositorio.Obter());
+            return Ok(repositorio.ObterFormaResumida());
         }
 
         [HttpGet]
-        [Route("api/Livros/{isbn}")]
+        [Route("{isbn:int}")]
         public IHttpActionResult ObterLivro(int isbn)
         {
             var livro = repositorio.Obter(isbn);
             if (livro == null) return NotFound();
             else return Ok(livro);
+        }
+
+        [HttpGet]
+        [Route("Lancamentos")]
+        public IHttpActionResult ObterLancamentos()
+        {
+            return Ok(repositorio.ObterLancamentosFormaResumida());
+        }
+
+        [HttpGet]
+        [Route("{genero}")]
+        public IHttpActionResult ObterLivrosPorGenero(string genero)
+        {
+            return Ok(repositorio.ObterPorGeneroFormaResumida(genero));
         }
 
         [HttpPost]
@@ -35,13 +50,30 @@ namespace EditoraCrescer.API.Controllers
             return Ok(repositorio.Criar(livro));
         }
 
+        [HttpPut]
+        [Route("{isbn:int}")]
+        public IHttpActionResult AlterarLivro(int isbn, Livro livro)
+        {
+            livro.Isbn = isbn;
+            if (repositorio.Atualizar(livro)) return Ok(livro);
+            else return NotFound();
+        }
+
         [HttpDelete]
-        [Route("api/Livros/{isbn}")]
+        [Route("{isbn}")]
         public IHttpActionResult RemoverLivro(int isbn)
         {
             var result = repositorio.Excluir(isbn);
             if (result) return Ok();
             else return BadRequest();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+                repositorio.Dispose();
+
+            base.Dispose(disposing);
         }
     }
 }

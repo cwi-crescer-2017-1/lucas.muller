@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EditoraCrescer.Infraestrutura.Repositorios
 {
-    public class RevisorRepositorio
+    public class RevisorRepositorio : IDisposable
     {
         private Contexto contexto = new Contexto();
 
@@ -28,6 +28,16 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             return revisorCriado;
         }
 
+        public bool Atualizar(Revisor revisor)
+        {
+            // verifica se livro existe
+            if (contexto.Revisores.Count(x => x.Id == revisor.Id) < 1) return false;
+
+            contexto.Entry(revisor).State = System.Data.Entity.EntityState.Modified;
+            contexto.SaveChanges();
+            return true;
+        }
+
         public bool Excluir(int id)
         {
             var revisor = contexto.Revisores.FirstOrDefault(x => x.Id == id);
@@ -41,6 +51,11 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                 contexto.SaveChanges();
                 return true;
             }
+        }
+
+        public void Dispose()
+        {
+            ((IDisposable)contexto).Dispose();
         }
     }
 }

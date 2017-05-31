@@ -8,6 +8,7 @@ using System.Web.Http;
 
 namespace EditoraCrescer.API.Controllers
 {
+    [RoutePrefix("api/Revisores")]
     public class RevisoresController : ApiController
     {
         private RevisorRepositorio repositorio = new RevisorRepositorio();
@@ -32,12 +33,28 @@ namespace EditoraCrescer.API.Controllers
             return Ok(repositorio.Criar(revisor));
         }
 
+        [HttpPut]
+        public IHttpActionResult AlterarRevisor(int id, Revisor revisor)
+        {
+            revisor.Id = id;
+            if (repositorio.Atualizar(revisor)) return Ok(revisor);
+            else return NotFound();
+        }
+
         [HttpDelete]
         public IHttpActionResult RemoverRevisor(int id)
         {
             var result = repositorio.Excluir(id);
             if (result) return Ok();
             else return BadRequest();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+                repositorio.Dispose();
+
+            base.Dispose(disposing);
         }
     }
 }

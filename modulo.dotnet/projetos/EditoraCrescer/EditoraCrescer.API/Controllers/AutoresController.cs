@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace EditoraCrescer.API.Controllers
 {
+    [RoutePrefix("api/Autores")]
     public class AutoresController : ApiController
     {
         private AutorRepositorio repositorio = new AutorRepositorio();
@@ -20,7 +21,6 @@ namespace EditoraCrescer.API.Controllers
         }
 
         [HttpGet]
-        [Route("api/Autores/{id}")]
         public IHttpActionResult ObterAutor(int id)
         {
             var autor = repositorio.Obter(id);
@@ -29,25 +29,40 @@ namespace EditoraCrescer.API.Controllers
         }
 
         [HttpGet]
-        [Route("api/Autores/{id}/Livros")]
-        public IHttpActionResult ObterLivros(int id)
+        [Route("{id:int}/Livros")]
+        public IHttpActionResult ObterLivrosDoAutor(int id)
         {
             return Ok(repositorio.ObterLivros(id));
         }
 
         [HttpPost]
-        public IHttpActionResult CadastrarLivro(Autor autor)
+        public IHttpActionResult CadastrarAutor(Autor autor)
         {
             return Ok(repositorio.Criar(autor));
         }
 
+        [HttpPut]
+        public IHttpActionResult AlterarAutor(int id, Autor autor)
+        {
+            autor.Id = id;
+            repositorio.Alterar(autor);
+            return Ok(autor);
+        }
+
         [HttpDelete]
-        [Route("api/Autores/{id}")]
-        public IHttpActionResult RemoverLivro(int id)
+        public IHttpActionResult RemoverAutor(int id)
         {
             var result = repositorio.Excluir(id);
             if (result) return Ok();
             else return BadRequest();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+                repositorio.Dispose();
+
+            base.Dispose(disposing);
         }
     }
 }

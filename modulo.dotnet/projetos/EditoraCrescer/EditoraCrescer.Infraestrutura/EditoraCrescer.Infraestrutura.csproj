@@ -67,6 +67,14 @@
     <Compile Include="Migrations\201705311655102_RenomeandoTabelas.Designer.cs">
       <DependentUpon>201705311655102_RenomeandoTabelas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705311704212_AdicionarRevisorComoFKEMLivros.cs" />
+    <Compile Include="Migrations\201705311704212_AdicionarRevisorComoFKEMLivros.Designer.cs">
+      <DependentUpon>201705311704212_AdicionarRevisorComoFKEMLivros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705311840548_AdicionarCapaAosLivros.cs" />
+    <Compile Include="Migrations\201705311840548_AdicionarCapaAosLivros.Designer.cs">
+      <DependentUpon>201705311840548_AdicionarCapaAosLivros.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AutorRepositorio.cs" />
@@ -86,6 +94,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705311655102_RenomeandoTabelas.resx">
       <DependentUpon>201705311655102_RenomeandoTabelas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705311704212_AdicionarRevisorComoFKEMLivros.resx">
+      <DependentUpon>201705311704212_AdicionarRevisorComoFKEMLivros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705311840548_AdicionarCapaAosLivros.resx">
+      <DependentUpon>201705311840548_AdicionarCapaAosLivros.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
