@@ -59,10 +59,15 @@
     <Compile Include="Migrations\201705301952032_CriacaoDoBanco.Designer.cs">
       <DependentUpon>201705301952032_CriacaoDoBanco.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705311359583_AdicionarRevisor.cs" />
+    <Compile Include="Migrations\201705311359583_AdicionarRevisor.Designer.cs">
+      <DependentUpon>201705311359583_AdicionarRevisor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AutorRepositorio.cs" />
     <Compile Include="Repositorios\LivroRepositorio.cs" />
+    <Compile Include="Repositorios\RevisorRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -71,6 +76,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201705301952032_CriacaoDoBanco.resx">
       <DependentUpon>201705301952032_CriacaoDoBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705311359583_AdicionarRevisor.resx">
+      <DependentUpon>201705311359583_AdicionarRevisor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

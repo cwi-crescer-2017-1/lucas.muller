@@ -38,14 +38,14 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 
         public bool Excluir(int id)
         {
-            var livro = contexto.Autores.FirstOrDefault(x => x.Id == id);
-            if (livro == null)
+            var autor = contexto.Autores.FirstOrDefault(x => x.Id == id);
+            if (autor == null)
             {
                 return false;
             }
             else
             {
-                contexto.Autores.Remove(livro);
+                contexto.Autores.Remove(autor);
                 contexto.SaveChanges();
                 return true;
             }
