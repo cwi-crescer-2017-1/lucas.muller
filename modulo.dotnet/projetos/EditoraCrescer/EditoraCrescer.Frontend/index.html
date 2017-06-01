@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="EditoraCrescer">
+    <head>
+        <title ng-bind="siteName"></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body ng-cloak>
+        <div id="topo" ng-controller="MainCtrl">
+            <div class="center-align white-text">
+                <h2 class="barrio" ng-bind="siteName"></h2>
+                <a ui-sref="index({pagina:1})" ui-sref-active="btn-active" class="btn btn-flat white-text">Início</a> 
+            </div>
+
+            <div id="lancamentos" class="card">
+                <div class="card-content">
+                    <span class="card-title">
+                        Lançamentos
+                        <a class="chip" href="#modal1">
+                            Assinar newsletter e receber lançamentos
+                        </a>
+                    </span>
+                    <div class="row" ng-show="erroAoObterLancamentos == false && lancamentos != null">
+                        <div class="col s12 m2" ng-repeat="livro in lancamentos">
+                            <div class="card">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <img class="activator" ng-src="{{livro.Capa}}">
+                                </div>
+                                <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4">
+                                        <i class="material-icons right">close</i>
+                                    </span>
+                                    <h5>{{livro.Titulo}}</h5>
+                                    <p>Livro por {{livro.Autor}}.</p>
+                                    <p><a ui-sref="livro({id: {{livro.Isbn}}})">VER LIVRO</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <center ng-show="erroAoObterLancamentos == false && lancamentos == null">
+                        <loader></loader>
+                    </center>
+                    <div ng-show="erroAoObterLancamentos == true">
+                        <h5 class="center-align">Erro ao obter lançamentos.</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ui-view></ui-view>
+
+        <!-- Modal newsletter -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Assinar newsletter</h4>
+                <p>Preencha seu email abaixo e assine o newsletter</p>
+                <form>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" placeholder="Digite seu email">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="http://unpkg.com/angular-ui-router@latest/release/angular-ui-router.min.js"></script>
+        <script src="app.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+        <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+        <script type="text/javascript">
+         $(document).ready(function(){
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
+        });
+        </script>
+    </body>
+</html>

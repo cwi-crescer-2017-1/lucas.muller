@@ -1,0 +1,12 @@
+body {
+    background-color: #303f9f;
+}
+
+.barrio {
+    font-family: 'Barrio', cursive;
+}
+
+.btn-active {
+    background-color: rgba(0,0,0,0.1);
+    box-shadow: none;
+}

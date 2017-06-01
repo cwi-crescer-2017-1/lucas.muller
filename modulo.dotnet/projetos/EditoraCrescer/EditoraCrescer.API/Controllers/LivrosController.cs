@@ -22,6 +22,12 @@ namespace EditoraCrescer.API.Controllers
         }
 
         [HttpGet]
+        public IHttpActionResult Listar(int limit, int page)
+        {
+            return Ok(repositorio.ObterFormaResumidaComPaginacao(limit, page));   
+        }
+
+        [HttpGet]
         [Route("{isbn:int}")]
         public IHttpActionResult ObterLivro(int isbn)
         {
@@ -35,6 +41,13 @@ namespace EditoraCrescer.API.Controllers
         public IHttpActionResult ObterLancamentos()
         {
             return Ok(repositorio.ObterLancamentosFormaResumida());
+        }
+
+        [HttpGet]
+        [Route("Lancamentos")]
+        public IHttpActionResult ObterLancamentos(int limit)
+        {
+            return Ok(repositorio.ObterLancamentosFormaResumida(limit));
         }
 
         [HttpGet]

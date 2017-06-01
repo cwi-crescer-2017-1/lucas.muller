@@ -21,6 +21,29 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             return contexto.Livros.Include(x => x.Autor).Include(x => x.Revisor).ToList();
         }
 
+        public dynamic ObterFormaResumidaComPaginacao(int limit, int page)
+        {
+            dynamic livros = contexto.Livros.OrderByDescending(x => x.DataPublicacao)
+                .Skip(limit*(page-1)).Take(limit)
+                .Select(livro => new
+                {
+                    Isbn = livro.Isbn,
+                    Titulo = livro.Titulo,
+                    Capa = livro.Capa,
+                    Autor = livro.Autor.Nome,
+                    Genero = livro.Genero
+                }).ToList();
+            var quantPaginas = (int)Math.Ceiling((double)contexto.Livros.Count() / limit);
+
+            return new
+            {
+                Livros = livros,
+                Pagina = page,
+                QuantPaginas = quantPaginas,
+                UltimaPagina = page >= quantPaginas
+            };
+        }
+
         public dynamic ObterFormaResumida()
         {
             return contexto.Livros.Select(livro => new
@@ -38,6 +61,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             DateTime diaDeHojeMenosSeteDias = DateTime.Now.AddDays(-7);
             return contexto.Livros
                             .Include(x => x.Autor)
+                            .OrderByDescending(x => x.DataPublicacao)
                             .Where(x => x.DataPublicacao >= diaDeHojeMenosSeteDias)
                             .Select(livro => new
                             {
@@ -49,6 +73,26 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                             })
                             .ToList();
         }
+
+        public dynamic ObterLancamentosFormaResumida(int limit)
+        {
+            DateTime diaDeHojeMenosSeteDias = DateTime.Now.AddDays(-7);
+            return contexto.Livros
+                            .Include(x => x.Autor)
+                            .OrderByDescending(x => x.DataPublicacao)
+                            .Where(x => x.DataPublicacao >= diaDeHojeMenosSeteDias)
+                            .Take(limit)
+                            .Select(livro => new
+                            {
+                                Isbn = livro.Isbn,
+                                Titulo = livro.Titulo,
+                                Capa = livro.Capa,
+                                Autor = livro.Autor.Nome,
+                                Genero = livro.Genero
+                            })
+                            .ToList();
+        }
+
         public Livro Obter(int isbn)
         {
             return contexto.Livros.Include(x => x.Autor).Include(x => x.Revisor).FirstOrDefault(x => x.Isbn == isbn);
