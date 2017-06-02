@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row cards-livros">
-        <div class="col s12 m4" ng-repeat="livro in livros" ng-show="livros != null && erroAoObterLivros == false">
+        <div class="col s6 m4 livro" ng-repeat="livro in livros" ng-if="livros != null && erroAoObterLivros == false">
             <div class="card">
                 <div class="card-image">
                     <img ng-src="{{livro.Capa}}">
@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>
-        <div class="col s12" ng-show="livros.length == 0 && erroAoObterLivros == false">
+        <div class="col s12" ng-if="livros.length == 0 && erroAoObterLivros == false">
             <div class="card">
                 <div class="card-content">
                     <h6 class="center-align">Nenhum livro encontrado!</h6>
@@ -23,41 +23,41 @@
     </div>
     <div class="row">
         <div class="col s12">
-            <div class="card" ng-show="erroAoObterLivros == false && livros == null">
+            <div class="card" ng-if="erroAoObterLivros == false && livros == null">
                 <div class="card-content">
                     <center>
                         <loader></loader>
                     </center>
                 </div>
             </div>
-            <div class="card" ng-show="erroAoObterLivros == true">
+            <div class="card" ng-if="erroAoObterLivros == true">
                 <div class="card-content">
                     <h5 class="center-align">Erro ao obter livros.</h5>
                 </div>
             </div>
         </div>
-        <div class="col s12" ng-show="livros != null && ultimaPagina && livros.length > 0">
+        <div class="col s12" ng-if="livros != null && ultimaPagina && livros.length > 0">
             <div class="card">
                 <div class="card-content">
                     <h6 class="center-align">Sem mais livros</h6>
                 </div>
             </div>
         </div>
-        <div class="col s12" ng-show="erroAoObterLivros == false && livros != null">
-            <a ui-sref="index({ pagina: {{pagina-1}} })" ng-hide="pagina == 1" class="btn red white-text left">anterior</a>
-            <a ui-sref="index({ pagina: {{pagina+1}} })" ng-hide="ultimaPagina" class="btn red white-text right">próximo</a>
+        <div class="col s12" ng-if="erroAoObterLivros == false && livros != null">
+            <a ui-sref="index({ pagina: {{pagina-1}} })" ng-if="pagina != 1" class="btn red white-text left">anterior</a>
+            <a ui-sref="index({ pagina: {{pagina+1}} })" ng-if="!ultimaPagina" class="btn red white-text right">próximo</a>
         </div>
     </div>
 </div>
 <script type="text/javascript-lazy">
     $(document).ready(function() {
-        var $grid = $('.cards-livros').imagesLoaded( function() {
+        var $grid = $('.cards-livros').imagesLoaded(function() {
             setTimeout(function(){
                 $grid.masonry({
-                    itemSelector: '.col',
+                    itemSelector: '.livro',
                     horizontalOrder: true
                 });
-            }, 500);
+            }, 1000);
         });
     });
 </script>

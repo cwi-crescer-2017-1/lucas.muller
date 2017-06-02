@@ -11,6 +11,7 @@ namespace EditoraCrescer.API
         public static void Register(HttpConfiguration config)
         {
             // Serviços e configuração da API da Web
+            //config.Filters.Add(new ErrosGlobaisFilterAttribute());
             config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             // Rotas da API da Web

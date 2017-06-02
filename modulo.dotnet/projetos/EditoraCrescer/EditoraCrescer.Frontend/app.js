@@ -15,8 +15,22 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'LivroCtrl'
     };
 
+    var administrativoState = {
+        name: 'adm-index',
+        url: '/administrativo',
+        template: `<h1>Hello!</h1>`
+    };
+
+    var loginState = {
+        name: 'adm-login',
+        url: '/administrativo/login',
+        templateUrl: 'templates/adm/login.html'
+    }
+
     $stateProvider.state(indexState);
     $stateProvider.state(livroState);
+    $stateProvider.state(administrativoState);
+    $stateProvider.state(loginState);
     $urlRouterProvider.otherwise('/index/');
 });
 

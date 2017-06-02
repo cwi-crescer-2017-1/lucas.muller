@@ -50,11 +50,14 @@
   <ItemGroup>
     <Compile Include="Contexto.cs" />
     <Compile Include="Entidades\Autor.cs" />
+    <Compile Include="Entidades\EntidadeBasica.cs" />
     <Compile Include="Entidades\Livro.cs" />
-    <Compile Include="Entidades\Revisor.cs" />
+    <Compile Include="Entidades\Permissao.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Mappings\AutorMap.cs" />
     <Compile Include="Mappings\LivroMap.cs" />
-    <Compile Include="Mappings\RevisorMap.cs" />
+    <Compile Include="Mappings\PermissaoMap.cs" />
+    <Compile Include="Mappings\UsuarioMap.cs" />
     <Compile Include="Migrations\201705301952032_CriacaoDoBanco.cs" />
     <Compile Include="Migrations\201705301952032_CriacaoDoBanco.Designer.cs">
       <DependentUpon>201705301952032_CriacaoDoBanco.cs</DependentUpon>
@@ -79,11 +82,24 @@
     <Compile Include="Migrations\201706012053222_CorrigirDataRevisao.Designer.cs">
       <DependentUpon>201706012053222_CorrigirDataRevisao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706022022321_AdicionarUsuariosEPermissoes.cs" />
+    <Compile Include="Migrations\201706022022321_AdicionarUsuariosEPermissoes.Designer.cs">
+      <DependentUpon>201706022022321_AdicionarUsuariosEPermissoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706022105464_RemoverRevisor.cs" />
+    <Compile Include="Migrations\201706022105464_RemoverRevisor.Designer.cs">
+      <DependentUpon>201706022105464_RemoverRevisor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706022121381_TrocarNomeFKRevisor.cs" />
+    <Compile Include="Migrations\201706022121381_TrocarNomeFKRevisor.Designer.cs">
+      <DependentUpon>201706022121381_TrocarNomeFKRevisor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AutorRepositorio.cs" />
     <Compile Include="Repositorios\LivroRepositorio.cs" />
-    <Compile Include="Repositorios\RevisorRepositorio.cs" />
+    <Compile Include="Repositorios\UsuarioRepositorio.cs" />
+    <Compile Include="Servicos\EmailService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -108,6 +124,16 @@
     <EmbeddedResource Include="Migrations\201706012053222_CorrigirDataRevisao.resx">
       <DependentUpon>201706012053222_CorrigirDataRevisao.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706022022321_AdicionarUsuariosEPermissoes.resx">
+      <DependentUpon>201706022022321_AdicionarUsuariosEPermissoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706022105464_RemoverRevisor.resx">
+      <DependentUpon>201706022105464_RemoverRevisor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706022121381_TrocarNomeFKRevisor.resx">
+      <DependentUpon>201706022121381_TrocarNomeFKRevisor.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

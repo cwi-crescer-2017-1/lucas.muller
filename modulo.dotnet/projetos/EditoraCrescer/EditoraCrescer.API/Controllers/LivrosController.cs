@@ -24,7 +24,7 @@ namespace EditoraCrescer.API.Controllers
         [HttpGet]
         public IHttpActionResult Listar(int limit, int page)
         {
-            return Ok(repositorio.ObterFormaResumidaComPaginacao(limit, page));   
+            return Ok(repositorio.ObterFormaResumidaComPaginacao(limit, page));
         }
 
         [HttpGet]
@@ -32,8 +32,10 @@ namespace EditoraCrescer.API.Controllers
         public IHttpActionResult ObterLivro(int isbn)
         {
             var livro = repositorio.Obter(isbn);
-            if (livro == null) return NotFound();
-            else return Ok(livro);
+            if (livro == null)
+                return NotFound();
+            else
+                return Ok(livro);
         }
 
         [HttpGet]
