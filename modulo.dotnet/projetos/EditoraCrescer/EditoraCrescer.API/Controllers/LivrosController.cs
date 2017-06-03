@@ -1,4 +1,5 @@
-﻿using EditoraCrescer.Infraestrutura;
+﻿using EditoraCrescer.API.App_Start;
+using EditoraCrescer.Infraestrutura;
 using EditoraCrescer.Infraestrutura.Entidades;
 using EditoraCrescer.Infraestrutura.Repositorios;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Web.Http;
 
 namespace EditoraCrescer.API.Controllers
@@ -14,6 +16,7 @@ namespace EditoraCrescer.API.Controllers
     public class LivrosController : ApiController
     {
         private LivroRepositorio repositorio = new LivroRepositorio();
+        readonly UsuarioRepositorio usuarioRepositorio = new UsuarioRepositorio();
 
         [HttpGet]
         public IHttpActionResult Listar()
@@ -60,6 +63,7 @@ namespace EditoraCrescer.API.Controllers
         }
 
         [HttpPost]
+        [BasicAuthorization(Roles = "Administrador, Publicador")]
         public IHttpActionResult CadastrarLivro(Livro livro)
         {
             return Ok(repositorio.Criar(livro));
@@ -67,6 +71,7 @@ namespace EditoraCrescer.API.Controllers
 
         [HttpPut]
         [Route("{isbn:int}")]
+        [BasicAuthorization(Roles = "Administrador, Publicador")]
         public IHttpActionResult AlterarLivro(int isbn, Livro livro)
         {
             livro.Isbn = isbn;
@@ -74,8 +79,26 @@ namespace EditoraCrescer.API.Controllers
             else return NotFound();
         }
 
+        [HttpGet, Route("{isbn:int}/Revisar")]
+        [BasicAuthorization(Roles = "Administrador, Revisor")]
+        public IHttpActionResult RevisarLivro(int isbn)
+        {
+            Usuario usu = usuarioRepositorio.Obter(Thread.CurrentPrincipal.Identity.Name);
+            if (repositorio.Revisar(usu.Id, isbn)) return Ok();
+            else return BadRequest();
+        }
+
+        [HttpGet, Route("{isbn:int}/Publicar")]
+        [BasicAuthorization(Roles = "Administrador, Publicador")]
+        public IHttpActionResult PublicarLivro(int isbn)
+        {
+            if (repositorio.Publicar(isbn)) return Ok();
+            else return BadRequest();
+        }
+
         [HttpDelete]
         [Route("{isbn}")]
+        [BasicAuthorization(Roles = "Administrador, Publicador")]
         public IHttpActionResult RemoverLivro(int isbn)
         {
             var result = repositorio.Excluir(isbn);

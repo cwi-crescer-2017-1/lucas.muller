@@ -23,7 +23,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 
         public dynamic ObterFormaResumidaComPaginacao(int limit, int page)
         {
-            dynamic livros = contexto.Livros.OrderByDescending(x => x.DataPublicacao)
+            dynamic livros = contexto.Livros.Where(x => x.DataPublicacao!=null).OrderByDescending(x => x.DataPublicacao)
                 .Skip(limit*(page-1)).Take(limit)
                 .Select(livro => new
                 {
@@ -46,7 +46,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 
         public dynamic ObterFormaResumida()
         {
-            return contexto.Livros.Select(livro => new
+            return contexto.Livros.Where(x => x.DataPublicacao != null).Select(livro => new
             {
                 Isbn = livro.Isbn,
                 Titulo = livro.Titulo,
@@ -62,7 +62,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             return contexto.Livros
                             .Include(x => x.Autor)
                             .OrderByDescending(x => x.DataPublicacao)
-                            .Where(x => x.DataPublicacao >= diaDeHojeMenosSeteDias)
+                            .Where(x => x.DataPublicacao != null && x.DataPublicacao >= diaDeHojeMenosSeteDias)
                             .Select(livro => new
                             {
                                 Isbn = livro.Isbn,
@@ -132,6 +132,39 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             contexto.Entry(livro).State = System.Data.Entity.EntityState.Modified;
             contexto.SaveChanges();
             return true;
+        }
+
+        public bool Revisar(int idRevisor, int isbn)
+        {
+            var livro = contexto.Livros.FirstOrDefault(x => x.Isbn == isbn);
+            if (livro == null)
+            {
+                return false;
+            }
+            else
+            {
+                livro.IdRevisor = idRevisor;
+                livro.DataRevisao = DateTime.Now;
+                contexto.Entry(livro).State = System.Data.Entity.EntityState.Modified;
+                contexto.SaveChanges();
+                return true;
+            }
+        }
+
+        public bool Publicar(int isbn)
+        {
+            var livro = contexto.Livros.FirstOrDefault(x => x.Isbn == isbn);
+            if (livro == null)
+            {
+                return false;
+            }
+            else
+            {
+                livro.DataPublicacao = DateTime.Now;
+                contexto.Entry(livro).State = System.Data.Entity.EntityState.Modified;
+                contexto.SaveChanges();
+                return true;
+            }
         }
 
         public bool Excluir(int isbn)

@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Novo livro</span>
+                    <form name="novoLivroForm" ng-submit="cadastrar(novoLivro);">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="titulo" name="titulo" ng-model="novoLivro.Titulo" type="text" ng-class="{'valid': novoLivroForm.titulo.$valid, 'invalid': novoLivroForm.titulo.$touched && novoLivroForm.titulo.$invalid}" required>
+                                <label for="titulo">Título</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="descricao" ng-model="novoLivro.Descricao" class="materialize-textarea"></textarea>
+                                <label for="descricao">Descrição</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <label>Autor</label>
+                                <select ng-model="novoLivro.IdAutor" ng-options="autor.Id as autor.Nome for autor in autores | orderBy:'Nome' track by autor.Id" name="autor" class="browser-default" ng-class="{'valid': novoLivroForm.autor.$valid, 'invalid': novoLivroForm.autor.$touched && novoLivroForm.autor.$invalid}" required>
+                                    <option value="" disabled hidden selected>Selecione o autor do livro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="capa" name="capa" ng-model="novoLivro.Capa" type="text" ng-class="{'valid': novoLivroForm.capa.$valid, 'invalid': novoLivroForm.capa.$touched && novoLivroForm.capa.$invalid}" required>
+                                <label for="capa">URL da Capa</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="genero" name="genero" ng-model="novoLivro.Genero" type="text" ng-class="{'valid': novoLivroForm.genero.$valid, 'invalid': novoLivroForm.genero.$touched && novoLivroForm.genero.$invalid}" required>
+                                <label for="genero">Gênero</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <button type="submit" class="btn right" ng-class="{'disabled': novoLivroForm.$invalid}">Cadastrar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

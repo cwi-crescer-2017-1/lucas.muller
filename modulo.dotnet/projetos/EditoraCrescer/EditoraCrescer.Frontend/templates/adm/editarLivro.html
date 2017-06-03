@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Editar livro {{livro.Titulo}}</span>
+                    <form name="livroForm" ng-submit="editar(livro);">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="titulo" name="titulo" ng-model="livro.Titulo" type="text" ng-class="{'valid': livroForm.titulo.$valid, 'invalid': livroForm.titulo.$touched && livroForm.titulo.$invalid}" required>
+                                <label for="titulo">Título</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="descricao" ng-model="livro.Descricao" class="materialize-textarea"></textarea>
+                                <label for="descricao">Descrição</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <label>Autor</label>
+                                <select ng-model="livro.Autor" ng-options="autor as autor.Nome for autor in autores | orderBy:'Nome' track by autor.Id" name="autor" class="browser-default" ng-class="{'valid': livroForm.autor.$valid, 'invalid': livroForm.autor.$touched && livroForm.autor.$invalid}" required>
+                                    <!--<option value="" disabled hidden selected>Selecione o autor do livro</option>-->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="capa" name="capa" ng-model="livro.Capa" type="text" ng-class="{'valid': livroForm.capa.$valid, 'invalid': livroForm.capa.$touched && livroForm.capa.$invalid}" required>
+                                <label for="capa">URL da Capa</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="genero" name="genero" ng-model="livro.Genero" type="text" ng-class="{'valid': livroForm.genero.$valid, 'invalid': livroForm.genero.$touched && livroForm.genero.$invalid}" required>
+                                <label for="genero">Gênero</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <button type="submit" class="btn right" ng-class="{'disabled': livroForm.$invalid}">Editar</button>
+                                <a type="submit" ui-sref="livro({id: {{livro.Isbn}}})" class="btn btn-flat right">Cancelar</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

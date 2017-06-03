@@ -94,6 +94,10 @@
     <Compile Include="Migrations\201706022121381_TrocarNomeFKRevisor.Designer.cs">
       <DependentUpon>201706022121381_TrocarNomeFKRevisor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706030318160_SetarCamposOpcionaisEmLivros.cs" />
+    <Compile Include="Migrations\201706030318160_SetarCamposOpcionaisEmLivros.Designer.cs">
+      <DependentUpon>201706030318160_SetarCamposOpcionaisEmLivros.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AutorRepositorio.cs" />
@@ -132,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706022121381_TrocarNomeFKRevisor.resx">
       <DependentUpon>201706022121381_TrocarNomeFKRevisor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706030318160_SetarCamposOpcionaisEmLivros.resx">
+      <DependentUpon>201706030318160_SetarCamposOpcionaisEmLivros.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

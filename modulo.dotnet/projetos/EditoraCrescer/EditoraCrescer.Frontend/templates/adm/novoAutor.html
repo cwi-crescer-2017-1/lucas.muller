@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Novo autor</span>
+                    <form name="novoAutorForm" ng-submit="cadastrar(novoAutor);">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="nome" name="nome" ng-model="novoAutor.Nome" type="text" ng-class="{'valid': novoAutorForm.nome.$valid, 'invalid': novoAutorForm.nome.$touched && novoAutorForm.nome.$invalid}" required>
+                                <label for="nome">Nome</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <button type="submit" class="btn right" ng-class="{'disabled': novoAutorForm.$invalid}">Cadastrar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

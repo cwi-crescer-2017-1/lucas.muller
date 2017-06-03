@@ -17,7 +17,7 @@
 
             <div class="card horizontal" ng-if="livro != null">
                 <div class="card-image">
-                    <img ng-src="{{livro.Capa}}" style="max-height: 380px;">
+                    <img ng-src="{{livro.Capa}}" style="max-height: 400px;">
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
@@ -29,10 +29,29 @@
                             <li>ISBN: {{livro.Isbn}}</li>
                             <li>Autor: {{livro.Autor.Nome}}</li>
                             <li>Gênero: {{livro.Genero}}</li>
-                            <li>Publicação: {{livro.DataPublicacao|date:'dd/MM/yyyy'}}</li>
-                            <li>Revisor: {{livro.Revisor.Nome}}</li>
-                            <li>Revisão: {{livro.DataRevisao|date:'dd/MM/yyyy'}}</li>
+                            <li>Publicação: 
+                                <span ng-if="livro.DataPublicacao != null">{{livro.DataPublicacao|date:'dd/MM/yyyy'}}</span>
+                                <span ng-if="livro.DataPublicacao == null">Este livro ainda não foi publicado</span>
+                            </li>
+                            <div ng-if="livro.IdRevisor != null">
+                                <li>Revisor: {{livro.Revisor.Nome}}</li>
+                                <li>Revisão: {{livro.DataRevisao|date:'dd/MM/yyyy'}}</li>
+                            </div>
+                            <div ng-if="livro.IdRevisor == null">
+                                <li>Revisor: Este livro ainda não foi revisado</li>
+                            </div>
                         </ul>
+                        <div ng-if="auth.isAutenticado() == true">
+                            <p><b>Gerenciamento do livro:</b></p>
+                            <span ng-if="auth.possuiPermissao('Administrador') || auth.possuiPermissao('Publicador')">
+                                <a ui-sref="adm-livro-editar({id: {{livro.Isbn}} })" class="btn btn-flat">Editar</a>
+                                <a ui-sref="adm-livro-excluir({id: {{livro.Isbn}} })" class="btn btn-flat">Excluir</a>
+                                <a ui-sref="adm-livro-publicar({id: {{livro.Isbn}} })" ng-if="livro.IdRevisor != null && livro.DataPublicacao == null" class="btn btn-flat">Publicar</a>
+                            </span>
+                            <span ng-if="livro.IdRevisor == null && (auth.possuiPermissao('Administrador') || auth.possuiPermissao('Revisor'))">
+                                <a class="btn btn-flat" ui-sref="adm-livro-revisar({id: {{livro.Isbn}} })">Revisar</a>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>

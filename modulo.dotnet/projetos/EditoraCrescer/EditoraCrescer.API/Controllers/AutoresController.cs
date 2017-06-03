@@ -1,4 +1,5 @@
-﻿using EditoraCrescer.Infraestrutura.Entidades;
+﻿using EditoraCrescer.API.App_Start;
+using EditoraCrescer.Infraestrutura.Entidades;
 using EditoraCrescer.Infraestrutura.Repositorios;
 using System;
 using System.Collections.Generic;
@@ -36,12 +37,14 @@ namespace EditoraCrescer.API.Controllers
         }
 
         [HttpPost]
+        [BasicAuthorization(Roles = "Administrador, Publicador")]
         public IHttpActionResult CadastrarAutor(Autor autor)
         {
             return Ok(repositorio.Criar(autor));
         }
 
         [HttpPut]
+        [BasicAuthorization(Roles = "Administrador, Publicador")]
         public IHttpActionResult AlterarAutor(int id, Autor autor)
         {
             autor.Id = id;
@@ -49,13 +52,14 @@ namespace EditoraCrescer.API.Controllers
             return Ok(autor);
         }
 
-        [HttpDelete]
-        public IHttpActionResult RemoverAutor(int id)
-        {
-            var result = repositorio.Excluir(id);
-            if (result) return Ok();
-            else return BadRequest();
-        }
+        //[HttpDelete]
+        //[BasicAuthorization(Roles = "Administrador, Publicador")]
+        //public IHttpActionResult RemoverAutor(int id)
+        //{
+        //    var result = repositorio.Excluir(id);
+        //    if (result) return Ok();
+        //    else return BadRequest();
+        //}
 
         protected override void Dispose(bool disposing)
         {
