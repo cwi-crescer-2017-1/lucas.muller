@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F278BEDF-64A9-414C-B08E-6227206CA5A1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TrabalhoFinal.Infraestrutura</RootNamespace>
+    <AssemblyName>TrabalhoFinal.Infraestrutura</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contexto.cs" />
+    <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Entidades\Genero.cs" />
+    <Compile Include="Entidades\Opcional.cs" />
+    <Compile Include="Entidades\Pacote.cs" />
+    <Compile Include="Entidades\Produto.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Mappings\ClienteMap.cs" />
+    <Compile Include="Entidades\Locacao.cs" />
+    <Compile Include="Mappings\LocacaoMap.cs" />
+    <Compile Include="Mappings\OpcionalMap.cs" />
+    <Compile Include="Mappings\PacoteMap.cs" />
+    <Compile Include="Mappings\ProdutoMap.cs" />
+    <Compile Include="Mappings\UsuarioMap.cs" />
+    <Compile Include="Migrations\201706051846529_AdicionarTabelaDeUsuarios.cs" />
+    <Compile Include="Migrations\201706051846529_AdicionarTabelaDeUsuarios.Designer.cs">
+      <DependentUpon>201706051846529_AdicionarTabelaDeUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706051847575_AdicionarTabelaDeClientes.cs" />
+    <Compile Include="Migrations\201706051847575_AdicionarTabelaDeClientes.Designer.cs">
+      <DependentUpon>201706051847575_AdicionarTabelaDeClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706051849172_AdicionarTabelaDeProdutos.cs" />
+    <Compile Include="Migrations\201706051849172_AdicionarTabelaDeProdutos.Designer.cs">
+      <DependentUpon>201706051849172_AdicionarTabelaDeProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706051853361_AdicionarMultaPorDiaAosProdutos.cs" />
+    <Compile Include="Migrations\201706051853361_AdicionarMultaPorDiaAosProdutos.Designer.cs">
+      <DependentUpon>201706051853361_AdicionarMultaPorDiaAosProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706051856027_AdicionarTabelaDePacotes.cs" />
+    <Compile Include="Migrations\201706051856027_AdicionarTabelaDePacotes.Designer.cs">
+      <DependentUpon>201706051856027_AdicionarTabelaDePacotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706051858089_AdicionarTabelaDeOpcionais.cs" />
+    <Compile Include="Migrations\201706051858089_AdicionarTabelaDeOpcionais.Designer.cs">
+      <DependentUpon>201706051858089_AdicionarTabelaDeOpcionais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706051858423_AdicionarTabelaDeOpcionais1.cs" />
+    <Compile Include="Migrations\201706051858423_AdicionarTabelaDeOpcionais1.Designer.cs">
+      <DependentUpon>201706051858423_AdicionarTabelaDeOpcionais1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706051907414_AdicionarTabelaDeLocacoes.cs" />
+    <Compile Include="Migrations\201706051907414_AdicionarTabelaDeLocacoes.Designer.cs">
+      <DependentUpon>201706051907414_AdicionarTabelaDeLocacoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706051959039_CorrigirContexto.cs" />
+    <Compile Include="Migrations\201706051959039_CorrigirContexto.Designer.cs">
+      <DependentUpon>201706051959039_CorrigirContexto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706052029310_AlterarCpfParaLongEmClientes.cs" />
+    <Compile Include="Migrations\201706052029310_AlterarCpfParaLongEmClientes.Designer.cs">
+      <DependentUpon>201706052029310_AlterarCpfParaLongEmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706052046217_AlterarCpfParaStringEmClientes.cs" />
+    <Compile Include="Migrations\201706052046217_AlterarCpfParaStringEmClientes.Designer.cs">
+      <DependentUpon>201706052046217_AlterarCpfParaStringEmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\ClienteRepositorio.cs" />
+    <Compile Include="Repositorios\UsuarioRepositorio.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706051846529_AdicionarTabelaDeUsuarios.resx">
+      <DependentUpon>201706051846529_AdicionarTabelaDeUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706051847575_AdicionarTabelaDeClientes.resx">
+      <DependentUpon>201706051847575_AdicionarTabelaDeClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706051849172_AdicionarTabelaDeProdutos.resx">
+      <DependentUpon>201706051849172_AdicionarTabelaDeProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706051853361_AdicionarMultaPorDiaAosProdutos.resx">
+      <DependentUpon>201706051853361_AdicionarMultaPorDiaAosProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706051856027_AdicionarTabelaDePacotes.resx">
+      <DependentUpon>201706051856027_AdicionarTabelaDePacotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706051858089_AdicionarTabelaDeOpcionais.resx">
+      <DependentUpon>201706051858089_AdicionarTabelaDeOpcionais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706051858423_AdicionarTabelaDeOpcionais1.resx">
+      <DependentUpon>201706051858423_AdicionarTabelaDeOpcionais1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706051907414_AdicionarTabelaDeLocacoes.resx">
+      <DependentUpon>201706051907414_AdicionarTabelaDeLocacoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706051959039_CorrigirContexto.resx">
+      <DependentUpon>201706051959039_CorrigirContexto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706052029310_AlterarCpfParaLongEmClientes.resx">
+      <DependentUpon>201706052029310_AlterarCpfParaLongEmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706052046217_AlterarCpfParaStringEmClientes.resx">
+      <DependentUpon>201706052046217_AlterarCpfParaStringEmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
