@@ -23,6 +23,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
         resolve: {
             verifica: function(authService) {
                 return authService.isAutenticadoPromise();
+            },
+            getNaoRevisados: function(LivrosFactory) {
+                return LivrosFactory.ObterNaoRevisados();
             }
         }
     };
@@ -192,6 +195,7 @@ app.factory('LivrosFactory', function($http, APIBaseURL) {
         EditarLivro: (id, livro) => $http.put(`${APIBaseURL}/livros/${id}`, livro),
         RevisarLivro: (id) => $http.get(`${APIBaseURL}/livros/${id}/revisar`),
         PublicarLivro: (id) => $http.get(`${APIBaseURL}/livros/${id}/publicar`),
+        ObterNaoRevisados: () => $http.get(`${APIBaseURL}/livros/naorevisados`)
     };
 });
 
@@ -291,12 +295,14 @@ app.controller('LoginCtrl', function(authService, authConfig, $state, $scope, to
     };
 });
 
-app.controller('AdmCtrl', function($scope, authService, toastr) {
+app.controller('AdmCtrl', function($scope, authService, toastr, getNaoRevisados) {
     $scope.user = authService.getUsuario();
     $scope.logout = function(usuario) {
         authService.logout(usuario);
         toastr.info('Você fez logout com sucesso!');
     };
+    $scope.naorevisados = getNaoRevisados.data;
+    $scope.auth = authService;
 });
 
 app.controller('NovoAutorCtrl', function($scope, AutoresFactory, toastr, $state) {
@@ -326,7 +332,7 @@ app.controller('NovoLivroCtrl', function($scope, LivrosFactory, toastr, $state, 
             toastr.success('Livro cadastrado com sucesso!');
             console.log(response.data);
             $scope.novoLivro = [];
-            $state.go('adm-index');
+            $state.go('livro', {id: response.data.Isbn});
         }, (response) => {
             toastr.error(response.status==401? 'Você não tem permissão.':response.status==500?'Erro no servidor.':'Verifique seus dados e conexão.', 'Erro ao cadastrar');
         });
@@ -353,8 +359,9 @@ app.controller('EditarLivroCtrl', function($scope, obterLivro, obterAutores, $st
     $scope.editar = function(livro) {
         console.log(livro);
         livro.IdAutor = livro.Autor.Id;
-        LivrosFactory.EditarLivro($stateParams.id, livro).then(() => {
+        LivrosFactory.EditarLivro($stateParams.id, livro).then((response) => {
             toastr.success('Livro editado com sucesso');
+            $state.go('livro', {id: response.data.Isbn});
         }, () => {
             toastr.error('Erro ao editar livro.');
         });
@@ -367,7 +374,7 @@ app.controller('RevisarLivroCtrl', function($scope, obterLivro, LivrosFactory, t
         LivrosFactory.RevisarLivro(isbn).then((response) => {
             toastr.success('Livro revisado com sucesso!');
             console.log(response.data);
-            $state.go('adm-index');
+            $state.go('livro', {id: isbn});
         }, (response) => {
             toastr.error(response.status==401? 'Você não tem permissão.':response.status==500?'Erro no servidor.':'Verifique seus dados e conexão.', 'Erro ao revisar livro');
         });
@@ -379,7 +386,7 @@ app.controller('PublicarLivroCtrl', function($scope, obterLivro, LivrosFactory, 
         LivrosFactory.PublicarLivro(isbn).then((response) => {
             toastr.success('Livro publicado com sucesso!');
             console.log(response.data);
-            $state.go('adm-index');
+            $state.go('livro', {id: isbn});
         }, (response) => {
             toastr.error(response.status==401? 'Você não tem permissão.':response.status==500?'Erro no servidor.':'Verifique seus dados e conexão.', 'Erro ao publicar livro');
         });

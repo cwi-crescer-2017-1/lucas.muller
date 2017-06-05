@@ -42,6 +42,14 @@ namespace EditoraCrescer.API.Controllers
         }
 
         [HttpGet]
+        [Route("naorevisados")]
+        [BasicAuthorization]
+        public IHttpActionResult ObterLivrosAindaNaoRevisadosOuPublicados()
+        {
+            return Ok(repositorio.ObterLivrosNaoRevisadosOuPublicados());
+        }
+
+        [HttpGet]
         [Route("Lancamentos")]
         public IHttpActionResult ObterLancamentos()
         {

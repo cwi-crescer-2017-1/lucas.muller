@@ -19,5 +19,17 @@ namespace EditoraCrescer.Infraestrutura.Entidades
         public int? IdRevisor { get; set; }
         public Usuario Revisor { get; set; }
         public DateTime? DataRevisao { get; set; }
+
+        public dynamic FormaResumida()
+        {
+            return new
+            {
+                Isbn = this.Isbn,
+                Titulo = this.Titulo,
+                Capa = this.Capa,
+                Autor = this.Autor.Nome,
+                Genero = this.Genero
+            };
+        }
     }
 }

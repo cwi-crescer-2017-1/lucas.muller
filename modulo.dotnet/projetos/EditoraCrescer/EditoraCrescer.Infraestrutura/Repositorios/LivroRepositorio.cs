@@ -56,6 +56,23 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             }).ToList();
         }
 
+        public dynamic ObterLivrosNaoRevisadosOuPublicadosFormaResumida()
+        {
+            return contexto.Livros.Where(x => x.DataRevisao == null || x.DataPublicacao == null).Select(livro => new
+            {
+                Isbn = livro.Isbn,
+                Titulo = livro.Titulo,
+                Capa = livro.Capa,
+                Autor = livro.Autor.Nome,
+                Genero = livro.Genero
+            }).ToList();
+        }
+
+        public dynamic ObterLivrosNaoRevisadosOuPublicados()
+        {
+            return contexto.Livros.Where(x => x.DataRevisao == null || x.DataPublicacao == null).ToList();
+        }
+
         public dynamic ObterLancamentosFormaResumida()
         {
             DateTime diaDeHojeMenosSeteDias = DateTime.Now.AddDays(-7);
@@ -137,7 +154,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
         public bool Revisar(int idRevisor, int isbn)
         {
             var livro = contexto.Livros.FirstOrDefault(x => x.Isbn == isbn);
-            if (livro == null)
+            if (livro == null || livro.IdRevisor != null)
             {
                 return false;
             }
@@ -154,7 +171,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
         public bool Publicar(int isbn)
         {
             var livro = contexto.Livros.FirstOrDefault(x => x.Isbn == isbn);
-            if (livro == null)
+            if (livro == null || livro.DataPublicacao != null)
             {
                 return false;
             }
