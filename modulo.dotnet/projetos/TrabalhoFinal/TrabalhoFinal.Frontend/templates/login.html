@@ -1,0 +1,18 @@
+<div class="ui container">
+    <div class="ui basic segment">
+        <h2 class="ui centered header">Fazer login</h2>
+    </div>
+    <div class="ui segment">
+        <form name="loginForm" class="ui form" ng-submit="logar(login)" ng-class="{'loading': loading}">
+            <div class="required field" ng-class="{'error': loginForm.email.$touched && loginForm.email.$invalid}">
+                <label>Email</label>
+                <input type="email" name="email" ng-model="login.email" placeholder="Digite seu email" required>
+            </div>
+            <div class="required field" ng-class="{'error': loginForm.email.$touched && loginForm.email.$invalid}">
+                <label>Senha</label>
+                <input type="password" name="senha" ng-model="login.senha" placeholder="Digite sua senha" required>
+            </div>
+            <button class="ui button" type="submit" ng-class="{'disabled': loginForm.$invalid}">Fazer login</button>
+        </form>
+    </div>
+</div>

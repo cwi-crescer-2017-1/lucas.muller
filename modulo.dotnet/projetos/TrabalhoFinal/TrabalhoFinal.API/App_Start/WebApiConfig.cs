@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using TrabalhoFinal.API.App_Start;
 
 namespace TrabalhoFinal.API
 {
@@ -12,6 +13,7 @@ namespace TrabalhoFinal.API
         {
             // Web API configuration and services
             config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+            config.Filters.Add(new ErrosGlobaisFilterAttribute());
 
             // Web API routes
             config.MapHttpAttributeRoutes();

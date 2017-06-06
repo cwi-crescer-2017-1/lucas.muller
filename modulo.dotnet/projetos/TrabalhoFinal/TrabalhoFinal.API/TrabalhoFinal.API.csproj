@@ -105,6 +105,10 @@
     <Compile Include="App_Start\ErrosGlobaisFilterAttribute.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\LocacoesController.cs" />
+    <Compile Include="Controllers\OpcionaisController.cs" />
+    <Compile Include="Controllers\PacotesController.cs" />
+    <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -125,6 +129,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TrabalhoFinal.Dominio\TrabalhoFinal.Dominio.csproj">
+      <Project>{8BD178A6-8ADD-4B3D-A6FC-51E591ADA9B7}</Project>
+      <Name>TrabalhoFinal.Dominio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TrabalhoFinal.Infraestrutura\TrabalhoFinal.Infraestrutura.csproj">
       <Project>{F278BEDF-64A9-414C-B08E-6227206CA5A1}</Project>
       <Name>TrabalhoFinal.Infraestrutura</Name>

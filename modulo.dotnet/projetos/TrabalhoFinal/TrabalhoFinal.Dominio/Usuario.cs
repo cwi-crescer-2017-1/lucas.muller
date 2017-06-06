@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrabalhoFinal.Infraestrutura.Entidades
+namespace TrabalhoFinal.Dominio
 {
     public class Usuario
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
-using TrabalhoFinal.Infraestrutura.Entidades;
+using TrabalhoFinal.Dominio;
 
 namespace TrabalhoFinal.Infraestrutura.Repositorios
 {

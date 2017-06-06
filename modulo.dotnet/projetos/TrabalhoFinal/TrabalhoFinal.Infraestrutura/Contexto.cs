@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TrabalhoFinal.Infraestrutura.Entidades;
+using TrabalhoFinal.Dominio;
 using TrabalhoFinal.Infraestrutura.Mappings;
 
 namespace TrabalhoFinal.Infraestrutura

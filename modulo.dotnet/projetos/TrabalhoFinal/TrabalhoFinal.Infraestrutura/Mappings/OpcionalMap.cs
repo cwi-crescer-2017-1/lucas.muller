@@ -4,7 +4,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TrabalhoFinal.Infraestrutura.Entidades;
+using TrabalhoFinal.Dominio;
 
 namespace TrabalhoFinal.Infraestrutura.Mappings
 {

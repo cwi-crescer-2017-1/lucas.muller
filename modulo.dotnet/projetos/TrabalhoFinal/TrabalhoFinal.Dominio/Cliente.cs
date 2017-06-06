@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrabalhoFinal.Infraestrutura.Entidades
+namespace TrabalhoFinal.Dominio
 {
     public class Cliente
     {

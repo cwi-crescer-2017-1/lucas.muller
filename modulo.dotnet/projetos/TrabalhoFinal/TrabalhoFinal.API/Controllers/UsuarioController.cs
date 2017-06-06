@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Http;
 using TrabalhoFinal.API.App_Start;
 using TrabalhoFinal.API.Models;
-using TrabalhoFinal.Infraestrutura.Entidades;
+using TrabalhoFinal.Dominio;
 using TrabalhoFinal.Infraestrutura.Repositorios;
 
 namespace TrabalhoFinal.API.Controllers

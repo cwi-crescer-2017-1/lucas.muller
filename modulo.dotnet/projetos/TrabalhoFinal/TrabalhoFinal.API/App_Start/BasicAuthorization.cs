@@ -9,7 +9,7 @@ using System.Threading;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Controllers;
-using TrabalhoFinal.Infraestrutura.Entidades;
+using TrabalhoFinal.Dominio;
 using TrabalhoFinal.Infraestrutura.Repositorios;
 
 namespace TrabalhoFinal.API.App_Start
