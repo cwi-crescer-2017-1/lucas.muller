@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 using TrabalhoFinal.Dominio;
+using System.Text.RegularExpressions;
 
 namespace TrabalhoFinal.Infraestrutura.Repositorios
 {
@@ -22,6 +23,11 @@ namespace TrabalhoFinal.Infraestrutura.Repositorios
             return contexto.Clientes.Where(x => x.Id == id).FirstOrDefault();
         }
 
+        public List<Cliente> Obter(string nome)
+        {
+            return contexto.Clientes.Where(x => x.Nome.Contains(nome)).ToList();
+        }
+
         public List<Locacao> ObterLocacoes(int id)
         {
             return contexto.Locacoes
@@ -29,7 +35,8 @@ namespace TrabalhoFinal.Infraestrutura.Repositorios
                 .Include(x => x.Produto)
                 .Include(x => x.Opcionais)
                 .Include(x => x.Cliente)
-                .Where(x => x.IdCliente == id).ToList();
+                .Where(x => x.IdCliente == id)
+                .OrderByDescending(x => x.DataDevolucaoPrevista).ToList();
         }
 
         public Cliente Criar(Cliente cliente)

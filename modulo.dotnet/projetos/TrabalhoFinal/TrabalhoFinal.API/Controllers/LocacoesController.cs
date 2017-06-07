@@ -29,6 +29,26 @@ namespace TrabalhoFinal.API.Controllers
             return Ok(repo.Obter(id));
         }
 
+        [HttpGet]
+        [BasicAuthorization(Roles = "Gerente")]
+        [Route("relatorios/mensal/{data:datetime}")]
+        public IHttpActionResult ObterRelatorioMensal(DateTime data)
+        {
+            if (data == null)
+                return BadRequest();
+
+            var retorno = repo.ObterRelatorioMensal(data);
+            return Ok(retorno);
+        }
+
+        [HttpGet]
+        [BasicAuthorization(Roles = "Gerente")]
+        [Route("relatorios/atrasos")]
+        public IHttpActionResult ObterRelatorioAtrasos()
+        {
+            return Ok(repo.ObterRelatorioAtrasos());
+        }
+
         [HttpPost]
         public IHttpActionResult Criar(Locacao locacao)
         {
@@ -37,6 +57,19 @@ namespace TrabalhoFinal.API.Controllers
                 return BadRequest(String.Join(" ", msg));
 
             return Ok(repo.Criar(locacao));
+        }
+
+        [HttpPost]
+        [Route("orcamento")]
+        public IHttpActionResult GerarOrcamento(Locacao locacao)
+        {
+            locacao.DataLocacao = DateTime.Now;
+            List<string> msg = null;
+            if (VerificaLocacaoRepositorio.Verifica(locacao, out msg) == false)
+                return BadRequest(String.Join(" ", msg));
+
+            locacao.PrecoFinalPrevisto = repo.CalcularPreco(locacao, locacao.DataDevolucaoPrevista);
+            return Ok(locacao);
         }
 
         [HttpGet, Route("{id:int}/devolver")]

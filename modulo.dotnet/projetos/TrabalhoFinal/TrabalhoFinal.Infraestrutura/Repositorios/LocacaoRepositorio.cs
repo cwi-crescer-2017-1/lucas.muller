@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TrabalhoFinal.Dominio;
 using System.Configuration;
+using System.Data.Entity.Core.Objects;
 
 namespace TrabalhoFinal.Infraestrutura.Repositorios
 {
@@ -33,6 +34,32 @@ namespace TrabalhoFinal.Infraestrutura.Repositorios
                 .FirstOrDefault();
         }
 
+        public List<Locacao> ObterRelatorioMensal(DateTime data)
+        {
+            var dataRetroativa = data.AddDays(-30);
+            return contexto.Locacoes
+                .Where(x => x.DataDevolucaoEfetiva != null
+                            && x.DataDevolucaoEfetiva >= dataRetroativa)
+                .Include(x => x.Pacote)
+                .Include(x => x.Produto)
+                .Include(x => x.Opcionais)
+                .Include(x => x.Cliente)
+                .ToList();
+        }
+
+        public List<Locacao> ObterRelatorioAtrasos()
+        {
+            return contexto.Locacoes
+                .Where(x => x.DataDevolucaoEfetiva.HasValue == false
+                            && x.DataDevolucaoPrevista <= DateTime.Now)
+                .OrderByDescending(x => x.DataDevolucaoPrevista)
+                .Include(x => x.Pacote)
+                .Include(x => x.Produto)
+                .Include(x => x.Opcionais)
+                .Include(x => x.Cliente)
+                .ToList();
+        }
+
         public Locacao Criar(Locacao locacao)
         {
             locacao.DataLocacao = DateTime.Now;
@@ -55,7 +82,7 @@ namespace TrabalhoFinal.Infraestrutura.Repositorios
             bool atraso = DateTime.Now.Date > locacao.DataDevolucaoPrevista.Date;
             DateTime now = DateTime.Now;
             locacao.DataDevolucaoEfetiva = now;
-            if(!atraso)
+            if (!atraso)
             {
                 locacao.PrecoFinalEfetivo = locacao.PrecoFinalPrevisto;
             }
@@ -71,7 +98,7 @@ namespace TrabalhoFinal.Infraestrutura.Repositorios
         }
 
 
-        private double CalcularPreco(Locacao locacao, DateTime devolucao)
+        public double CalcularPreco(Locacao locacao, DateTime devolucao)
         {
             int diasLocados = (devolucao.Date - locacao.DataLocacao.Date).Days;
             Produto prod = contexto.Produtos.Where(x => x.Id == locacao.IdProduto).FirstOrDefault();
@@ -82,10 +109,18 @@ namespace TrabalhoFinal.Infraestrutura.Repositorios
 
             var precoDiariaPacote = pac == null ? 0 : pac.PrecoDiaria;
             var precoOpcionais = 0.0;
-            if (locacao.Opcionais.Count > 0)
-                precoOpcionais = locacao.Opcionais.Sum(x => x.Preco);
+            List<Opcional> opsDoBanco = new List<Opcional>();
+            if (locacao.Opcionais != null)
+            {
+                foreach (var opcional in locacao.Opcionais)
+                {
+                    opsDoBanco.Add(contexto.Opcionais.AsNoTracking().Where(x => x.Id == opcional.Id).FirstOrDefault());
+                }
+                if (opsDoBanco.Count > 0)
+                    precoOpcionais = opsDoBanco.Sum(x => x.Preco);
+            }
 
-            return (prod.PrecoDiaria * diasLocados) + (precoDiariaPacote * diasLocados) + precoOpcionais;
+            return (prod.PrecoDiaria  + precoDiariaPacote + precoOpcionais) * diasLocados;
         }
 
         public bool Remover(int id)

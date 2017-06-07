@@ -1,0 +1,38 @@
+<div class="ui container">
+    <br>
+    <div class="ui segment">
+        <form name="clienteForm" class="ui form" ng-submit="salvar(cliente)">
+            <h4 class="ui dividing header">Novo cliente</h4>
+            <div class="two fields">
+                <div class="required field" ng-class="{'error': clienteForm.nome.$touched && clienteForm.nome.$invalid}">
+                    <label>Nome</label>
+                    <input name="nome" ng-model="cliente.nome" type="text" placeholder="Digite o nome do cliente" required>
+                </div>
+                <div class="required field" ng-class="{'error': clienteForm.cpf.$touched && clienteForm.cpf.$invalid}">
+                    <label>CPF</label>
+                    <input name="cpf" ng-model="cliente.cpf" type="text" ng-minlength="11" ng-maxlength="11" placeholder="Digite o CPF do cliente" required>
+                </div>
+            </div>
+            <div class="required field" ng-class="{'error': clienteForm.endereco.$touched && clienteForm.endereco.$invalid}">
+                <label>Endereço</label>
+                <input name="endereco" ng-model="cliente.endereco" type="text" placeholder="Digite o endereco do cliente" required>
+            </div>
+            <div class="two fields">
+                <div class="required field" ng-class="{'error': clienteForm.genero.$touched && clienteForm.genero.$invalid}">
+                    <label>Gênero</label>
+                    <select name="genero" ng-model="cliente.genero" required>
+                        <option value="" hidden disabled selected>Selecione o gênero</option>
+                        <option value="0">Não informado</option>
+                        <option value="1">Masculino</option>
+                        <option value="2">Feminino</option>
+                    </select>
+                </div>
+                <div class="required field" ng-class="{'error': clienteForm.nascimento.$touched && clienteForm.nascimento.$invalid}">
+                    <label>Data de Nascimento</label>
+                    <input name="nascimento" ng-model="cliente.datanascimento" type="date" required>
+                </div>
+            </div>
+            <button class="ui button" type="submit" ng-class="{'disabled': clienteForm.$invalid}">Adicionar cliente</button>
+        </form>
+    </div>
+</div>

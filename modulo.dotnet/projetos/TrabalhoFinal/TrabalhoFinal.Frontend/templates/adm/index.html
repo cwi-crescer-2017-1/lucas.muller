@@ -1,0 +1,101 @@
+<div class="ui container">
+    <br>
+    <div class="ui segment">
+        <form name="locacaoForm" ng-submit="buscar(cliente.nome)" class="ui form" ng-class="{'loading': buscando}">
+            <h4 class="ui dividing header">Buscar cliente</h4>
+            <div class="required field" ng-class="{'error': locacaoForm.nome.$touched && locacaoForm.nome.$invalid}">
+                <label >Nome do cliente</label>
+                <div class="ui icon fluid input">
+                    <input name="nome" ng-model="cliente.nome" type="text" placeholder="Procurar cliente por nome..." required>
+                    <i class="search icon"></i>
+                </div>
+            </div>
+        </form>
+        <div class="ui divided list">
+            <div class="item" ng-if="clientes != null && clientes.length > 0" ng-repeat="cliente in clientes">
+                <div class="right floated content">
+                    <div class="ui button" ui-sref="adm.editarCliente({id:{{cliente.Id}}})">Gerenciar cliente</div>
+                    <div class="ui positive button" ui-sref="adm.novaLocacao({id:{{cliente.Id}}})">Nova locação</div>
+                </div>
+                <div class="content">
+                    <span class="header">{{cliente.Nome}}</span>
+                    <div class="description">CPF <b>{{cliente.Cpf}}</b> - Endereço: <b>{{cliente.Endereco}}</b></div>
+                </div>
+            </div>
+            <div class="item" ng-if="clientes.length == 0">
+                <div class="content">
+                    <span class="header">
+                        Nenhum cliente encontrado com esse nome.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui segment" ng-if="usuario.Gerente">
+        <h4 class="ui dividing header">Relatório de locação mensal</h4>
+        <form name="relatorioMensalForm" class="ui form" ng-submit="obterRelatorioMensal(dataRelatorioMensal)">
+            <div class="required field">
+                <label for="">Selecione a data</label>
+                <div class="ui action input">
+                    <input type="date" ng-model="dataRelatorioMensal" required>
+                    <button class="ui icon button" type="submit" ng-class="{'disabled': relatorioMensalForm.$invalid}">
+                        <i class="search icon"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <span ng-if="locacoesRelMensal.length == 0"><b>Sem locações finalizadas nesse período.</b></span>
+        <div class="ui items" ng-if="locacoesRelMensal.length > 0" ng-repeat="locacao in locacoesRelMensal">
+            <div class="item">
+                <div class="content">
+                    <span class="header">Locação {{locacao.Id}} - {{locacao.Produto.Descricao}}</span>
+                    <div class="meta">
+                        <a ui-sref="adm.editarCliente({id: locacao.Cliente.Id})">Ver cliente</a>
+                        <a ng-if="locacao.DataDevolucaoEfetiva == null" ng-click="devolver(locacao.Id)">Devolver veículo</a>
+                    </div>
+                    <div class="description">
+                        <p>Dados do cliente: {{locacao.Cliente.Nome}} (CPF {{locacao.Cliente.Cpf}})</p>
+                        <p ng-if="locacao.Pacote!=null">Pacote selecionado: {{locacao.Pacote.Nome}}</p>
+                        <p ng-if="locacao.Pacote==null">Pacote selecionado: nenhum pacote selecionado.</p>
+                        <p>Preço final previsto: {{locacao.PrecoFinalPrevisto|currency : 'R$ ' : 2}}</p>
+                        <p ng-if="locacao.PrecoFinalEfetivo!=null">Preço final efetivo: {{locacao.PrecoFinalEfetivo|currency : 'R$ ' : 2}}</p>
+                    </div>
+                    <div class="extra">
+                        <span>Devolução prevista para: {{locacao.DataDevolucaoPrevista|date:'dd/MM/yyyy'}}.</span>
+                        <span ng-if="locacao.DataDevolucaoEfetiva!=null">Devolução em: {{locacao.DataDevolucaoEfetiva|date:'dd/MM/yyyy'}}.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="locacoesRelMensal.length > 0">
+            <span class="ui label">Soma final das locações deste período: {{somaLocacoesRelMensal|currency : 'R$ ' : 2}}.</span>
+        </div>
+    </div>
+    <div class="ui segment">
+        <h4 class="ui dividing header">Relatório de atrasos</h4>
+        <span ng-if="locacoesAtrasadas.length == 0"><b>Sem locações atrasadas.</b></span>
+        <div class="ui items" ng-if="locacoesAtrasadas.length > 0" ng-repeat="locacao in locacoesAtrasadas">
+            <div class="item">
+                <div class="content">
+                    <span class="header">Locação {{locacao.Id}} - {{locacao.Produto.Descricao}}</span>
+                    <div class="meta">
+                        <a ui-sref="adm.editarCliente({id: locacao.Cliente.Id})">Ver cliente</a>
+                        <a ng-if="locacao.DataDevolucaoEfetiva == null" ng-click="devolver(locacao.Id)">Devolver veículo</a>
+                    </div>
+                    <div class="description">
+                        <p>Dados do cliente: {{locacao.Cliente.Nome}} (CPF {{locacao.Cliente.Cpf}})</p>
+                        <p ng-if="locacao.Pacote!=null">Pacote selecionado: {{locacao.Pacote.Nome}}</p>
+                        <p ng-if="locacao.Pacote==null">Pacote selecionado: nenhum pacote selecionado.</p>
+                        <p>Preço final previsto: {{locacao.PrecoFinalPrevisto|currency : 'R$ ' : 2}}</p>
+                        <p ng-if="locacao.PrecoFinalEfetivo!=null">Preço final efetivo: {{locacao.PrecoFinalEfetivo|currency : 'R$ ' : 2}}</p>
+                    </div>
+                    <div class="extra">
+                        <span>Devolução prevista para: {{locacao.DataDevolucaoPrevista|date:'dd/MM/yyyy'}}.</span>
+                        <span ng-if="locacao.DataDevolucaoEfetiva!=null">Devolução em: {{locacao.DataDevolucaoEfetiva|date:'dd/MM/yyyy'}}.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>

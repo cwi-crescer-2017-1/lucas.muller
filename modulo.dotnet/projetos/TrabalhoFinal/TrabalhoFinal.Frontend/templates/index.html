@@ -3,10 +3,13 @@
         <h2 class="ui centered header">{{siteName}}</h2>
     </div>
     <div class="ui segment">
-        <h3 class="ui header">Bem-vindo {{usuario.Nome}}!</h3>
+        <h3 class="ui header">Bem-vindo.</h3>
         <div class="ui secondary pointing menu">
-            <a class="item" ui-sref="index" ui-sref-active="active">
+            <a class="item" ui-sref="adm.index" ui-sref-active="active">
                 Início
+            </a>
+            <a class="item" ui-sref="adm.novoCliente" ui-sref-active="active">
+                Novo cliente
             </a>
             <div class="right menu">
                 <a class="ui item" ui-sref="logout">
@@ -15,21 +18,5 @@
             </div>
         </div>
     </div>
-    <div class="ui segment">
-        <h3 class="ui header">Nova locação</h3>
-        <form class="ui form">
-            <h4 class="ui dividing header">Selecione o cliente</h4>
-            <div class="inline field">
-                <label>Cliente já está cadastrado?</label>
-                <div class="ui fluid buttons">
-                    <button class="ui green button" ng-click="clienteNovo = false">Sim</button>
-                    <div class="or" data-text="ou"></div>
-                    <button class="ui teal button" ng-click="clienteNovo = true">Não</button>
-                </div>
-            </div>
-            <div class="inline field required" ng-if="clienteNovo == true">
-                <label>Cliente</label>
-            </div>
-        </form>
-    </div>
 </div>
+<div ui-view></div>

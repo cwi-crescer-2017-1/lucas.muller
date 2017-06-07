@@ -32,6 +32,12 @@ namespace TrabalhoFinal.API.Controllers
                 return Ok(cli);
         }
 
+        [HttpGet, Route("{nome}")]
+        public IHttpActionResult Obter(string nome)
+        {
+            return Ok(repo.Obter(nome));
+        }
+
         [HttpGet, Route("{id:int}/locacoes")]
         public IHttpActionResult ObterLocacoes(int id)
         {

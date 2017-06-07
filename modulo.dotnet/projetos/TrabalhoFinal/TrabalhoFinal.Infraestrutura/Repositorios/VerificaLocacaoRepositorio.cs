@@ -17,6 +17,8 @@ namespace TrabalhoFinal.Infraestrutura.Repositorios
                 mensagens.Add("Cliente inválido.");
             if (locacao.IdProduto == 0)
                 mensagens.Add("Produto inválido.");
+            if (locacao.DataDevolucaoPrevista <= DateTime.Now)
+                mensagens.Add("Data de devolução inválida");
             if (locacao.Opcionais == null)
                 locacao.Opcionais = new List<Opcional>();
 
@@ -42,7 +44,9 @@ namespace TrabalhoFinal.Infraestrutura.Repositorios
                         // verifica se tem opcionais em estoque
                         foreach (var opcional in locacao.Opcionais)
                         {
-                            Opcional op = contexto.Opcionais.Where(x => x.Id == opcional.Id).FirstOrDefault();
+                            Opcional op = contexto.Opcionais
+                                                  .AsNoTracking()
+                                                  .FirstOrDefault(x => x.Id == opcional.Id);
                             if (op == null)
                                 mensagens.Add($"Opcional de ID {op.Id} não existe.");
 

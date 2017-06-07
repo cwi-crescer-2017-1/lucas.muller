@@ -16,7 +16,6 @@ namespace TrabalhoFinal.API.App_Start
 {
     public class BasicAuthorization : AuthorizeAttribute
     {
-        readonly UsuarioRepositorio repositorio = new UsuarioRepositorio();
 
         public override void OnAuthorization(HttpActionContext actionContext)
         {
@@ -46,7 +45,7 @@ namespace TrabalhoFinal.API.App_Start
                 Usuario usuario = null;
                 if (ValidarUsuario(userNameAndPassword[0], userNameAndPassword[1], out usuario))
                 {
-                    string[] papeis = new string[usuario.Gerente?2:1];
+                    string[] papeis = new string[usuario.Gerente ? 2 : 1];
                     papeis[0] = "Operador";
                     if (usuario.Gerente)
                         papeis[1] = "Gerente";
@@ -89,14 +88,17 @@ namespace TrabalhoFinal.API.App_Start
         {
             usuarioRetorno = null;
 
-            var usuario = repositorio.Obter(login);
+            using (UsuarioRepositorio repositorio = new UsuarioRepositorio())
+            {
+                var usuario = repositorio.Obter(login);
 
-            if (usuario != null && usuario.ValidarSenha(senha))
-                usuarioRetorno = usuario;
-            else
-                usuario = null;
+                if (usuario != null && usuario.ValidarSenha(senha))
+                    usuarioRetorno = usuario;
+                else
+                    usuario = null;
 
-            return usuario != null;
+                return usuario != null;
+            }
         }
     }
 }
