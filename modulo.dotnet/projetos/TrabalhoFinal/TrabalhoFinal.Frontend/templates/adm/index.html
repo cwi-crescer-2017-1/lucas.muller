@@ -38,20 +38,20 @@
                 <label for="">Selecione a data</label>
                 <div class="ui action input">
                     <input type="date" ng-model="dataRelatorioMensal" required>
-                    <button class="ui icon button" type="submit" ng-class="{'disabled': relatorioMensalForm.$invalid}">
+                    <button class="ui icon button" type="submit" ng-class="{'disabled': relatorioMensalForm.$invalid || buscandoRelMensal}">
                         <i class="search icon"></i>
                     </button>
                 </div>
             </div>
         </form>
-        <span ng-if="locacoesRelMensal.length == 0"><b>Sem locações finalizadas nesse período.</b></span>
+        <p ng-if="locacoesRelMensal.length == 0"><b>Sem locações finalizadas nesse período.</b></p>
         <div class="ui items" ng-if="locacoesRelMensal.length > 0" ng-repeat="locacao in locacoesRelMensal">
             <div class="item">
                 <div class="content">
                     <span class="header">Locação {{locacao.Id}} - {{locacao.Produto.Descricao}}</span>
                     <div class="meta">
                         <a ui-sref="adm.editarCliente({id: locacao.Cliente.Id})">Ver cliente</a>
-                        <a ng-if="locacao.DataDevolucaoEfetiva == null" ng-click="devolver(locacao.Id)">Devolver veículo</a>
+                        <a ng-if="locacao.DataDevolucaoEfetiva == null" ng-click="devolver(locacao.Id, locacao.Cliente.Id);">Devolver veículo</a>
                     </div>
                     <div class="description">
                         <p>Dados do cliente: {{locacao.Cliente.Nome}} (CPF {{locacao.Cliente.Cpf}})</p>

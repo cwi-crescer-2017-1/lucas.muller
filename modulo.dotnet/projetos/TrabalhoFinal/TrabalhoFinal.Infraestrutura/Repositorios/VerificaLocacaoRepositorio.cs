@@ -72,8 +72,8 @@ namespace TrabalhoFinal.Infraestrutura.Repositorios
                                 mensagens.Add("Mobi não pode receber um reboque.");
                             else if (locacao.IdProduto == idHilux && locacao.Opcionais.Count(x => x.Id == idRack) > 0)
                                 mensagens.Add("Hilux não pode receber um rack.");
-                            else if (locacao.IdProduto == idKombi && locacao.Opcionais.Count(x => x.Id == idCaboBateria) > 0)
-                                mensagens.Add("Kombi não pode receber um cabo bateria.");
+                            else if (locacao.IdProduto != idKombi && locacao.Opcionais.Count(x => x.Id == idCaboBateria) > 0)
+                                mensagens.Add("Somente Kombi pode receber um cabo bateria.");
                     }
                 }
             }

@@ -42,7 +42,6 @@ namespace TrabalhoFinal.API.Controllers
         }
 
         [HttpGet]
-        [BasicAuthorization(Roles = "Gerente")]
         [Route("relatorios/atrasos")]
         public IHttpActionResult ObterRelatorioAtrasos()
         {

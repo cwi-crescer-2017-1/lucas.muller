@@ -63,7 +63,6 @@ angular.module('app')
     function buildarLocacao() {
         var locacao = $scope.locacao;
         locacao.Opcionais = $scope.opcionais.filter(x => x.selecionado == true);
-        console.log(locacao);
         return locacao;
     };
 })

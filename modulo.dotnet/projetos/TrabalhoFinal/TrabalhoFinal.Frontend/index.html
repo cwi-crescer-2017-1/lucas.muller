@@ -9,6 +9,14 @@
     </head>
     <body>
         <ui-view></ui-view>
+        <div ng-if="showSpinner" class="ui active page dimmer">
+            <div class="content">
+                <div class="center">
+                    <i class="huge spinner loading icon"></i>
+                    <p>Carregando</p>
+                </div>
+            </div>
+        </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="http://unpkg.com/angular-ui-router@latest/release/angular-ui-router.min.js"></script>

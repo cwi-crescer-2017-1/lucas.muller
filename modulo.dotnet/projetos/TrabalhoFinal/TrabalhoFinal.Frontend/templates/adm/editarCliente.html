@@ -36,7 +36,7 @@
     </div>
     <br>
     <div class="ui segment">
-        <a ui-sref="adm.novaLocacao({id: cliente.Id})" class="ui right floated positive mini button">Nova locação</a>
+        <a ui-sref="adm.novaLocacao({id: cliente.Id})" class="ui right floated positive mini button">Nova locação para este cliente</a>
         <h4 class="ui dividing header">Locações deste cliente:</h4>
         <span ng-if="locacoes.length == 0"><b>Cliente sem locações.</b></span>
         <div class="ui items" ng-if="locacoes.length > 0" ng-repeat="locacao in locacoes">

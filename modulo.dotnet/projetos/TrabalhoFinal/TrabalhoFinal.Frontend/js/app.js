@@ -1,6 +1,18 @@
 angular.module('app', ['auth', 'ui.router', 'toastr'])
-.run(function($rootScope) {
+.run(function($rootScope, $transitions, toastr, $state) {
     $rootScope.siteName = "Locações Crescer";
+    $rootScope.showSpinner = false;
+    // $transitions.onError({}, function() {
+    //     $rootScope.showSpinner = false;
+    //     $state.go('adm.erro');
+    //     // toastr.error('Verifique a API e sua conexão', 'Erro ao carregar página!');
+    // });
+    $transitions.onStart({}, function() {
+        $rootScope.showSpinner = true;
+    });
+    $transitions.onFinish({}, function() {
+        $rootScope.showSpinner = false;
+    });
 })
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -11,7 +23,7 @@ angular.module('app', ['auth', 'ui.router', 'toastr'])
         resolve: {
             verificaLogin: function(authService, $state) {
                 if(authService.isAutenticado())
-                    $state.go('index');
+                    $state.go('adm.index');
             }
         }
     })
@@ -33,12 +45,16 @@ angular.module('app', ['auth', 'ui.router', 'toastr'])
             }
         }
     })
+    .state('adm.erro', {
+        url: '/erro',
+        templateUrl: 'templates/adm/erro.html'
+    })
     .state('adm.index', {
         url: '/index',
         templateUrl: 'templates/adm/index.html',
         controller: 'IndexCtrl',
         resolve: {
-            locacoesAtrasadas: function(ApiService) {
+            locacoesAtrasadas: function(ApiService, authService) {
                 return ApiService.relatorios.atrasos();
             }
         }

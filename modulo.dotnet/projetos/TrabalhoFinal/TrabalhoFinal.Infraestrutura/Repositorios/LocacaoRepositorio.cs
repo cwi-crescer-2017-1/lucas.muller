@@ -39,7 +39,8 @@ namespace TrabalhoFinal.Infraestrutura.Repositorios
             var dataRetroativa = data.AddDays(-30);
             return contexto.Locacoes
                 .Where(x => x.DataDevolucaoEfetiva != null
-                            && x.DataDevolucaoEfetiva >= dataRetroativa)
+                            && x.DataDevolucaoEfetiva >= dataRetroativa
+                            && x.DataDevolucaoEfetiva <= data)
                 .Include(x => x.Pacote)
                 .Include(x => x.Produto)
                 .Include(x => x.Opcionais)
@@ -79,8 +80,8 @@ namespace TrabalhoFinal.Infraestrutura.Repositorios
             if (locacao == null)
                 return false;
 
-            bool atraso = DateTime.Now.Date > locacao.DataDevolucaoPrevista.Date;
-            DateTime now = DateTime.Now;
+            DateTime now = DateTime.Now.Date;
+            bool atraso = now > locacao.DataDevolucaoPrevista.Date;
             locacao.DataDevolucaoEfetiva = now;
             if (!atraso)
             {
