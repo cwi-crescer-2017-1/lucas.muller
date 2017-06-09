@@ -11,8 +11,10 @@ angular.module('app')
             toastr.error('Erro ao alterar cliente.');
         });
     };
-    $scope.devolver = function(id) {
-        ApiService.locacoes.devolver(id).then(() => {
+    $scope.devolver = devolver;
+    
+     function devolver(id) {
+        ApiService.locacao.devolver(id).then(() => {
             toastr.success('Devolvido com sucesso!');
         }, () => {
             toastr.error('Erro ao devolver veículo!');

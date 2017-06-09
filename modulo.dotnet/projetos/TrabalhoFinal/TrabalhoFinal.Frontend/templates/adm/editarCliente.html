@@ -44,7 +44,7 @@
                 <div class="content">
                     <span class="header">Locação {{locacao.Id}} - {{locacao.Produto.Descricao}}</span>
                     <div class="meta">
-                        <a ng-if="locacao.DataDevolucaoEfetiva == null" ng-click="devolver(locacao.Id)">Devolver veículo</a>
+                        <a ng-if="locacao.DataDevolucaoEfetiva == null" ng-click="devolver(locacao.Id);">Devolver veículo</a>
                     </div>
                     <div class="description">
                         <p ng-if="locacao.Pacote!=null">Pacote selecionado: {{locacao.Pacote.Nome}}</p>
