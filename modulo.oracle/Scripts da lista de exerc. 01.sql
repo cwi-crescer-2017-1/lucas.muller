@@ -19,6 +19,7 @@ WHERE IDPRODUTO NOT IN (
   GROUP BY ITEM.IDPRODUTO
 )
 ORDER BY IDPRODUTO;
+SELECT * FROM VWPRODUTOS_SEM_COMPRAS;
 
 /* 02 - Altere o status dos produtos (campo situacao) que não tiveram nenhum pedido nos últimos quatro meses. */
 UPDATE PRODUTO
