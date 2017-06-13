@@ -1,7 +1,7 @@
 /* -- LISTA DE EXERCÍCIO 01 -- */
 
 /* 01 - Liste os produtos (id e nome) que não tiveram nenhuma compra nos últimos quatro meses. */
-SELECT * FROM PRODUTO
+SELECT IDPRODUTO, NOME FROM PRODUTO
 WHERE IDPRODUTO NOT IN (
   SELECT ITEM.IDPRODUTO
   FROM PEDIDOITEM ITEM
