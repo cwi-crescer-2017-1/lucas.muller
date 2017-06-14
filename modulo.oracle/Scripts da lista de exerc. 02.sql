@@ -8,9 +8,8 @@ DECLARE
   CURSOR CidadesDuplicadas IS
     SELECT c1.Nome, c1.UF, COUNT(*) AS Duplicacoes
     FROM Cidade c1
-      JOIN Cidade c2 ON (c2.IDCidade <> c1.IDCidade
-        AND c1.Nome = c2.Nome AND c1.UF = c2.UF)
-    GROUP BY c1.Nome, c1.UF    
+    GROUP BY c1.Nome, c1.UF 
+    HAVING COUNT(*) > 1
     ORDER BY c1.Nome;
   CURSOR ClientesDaCidade (vNomeCidade IN varchar2, vUFCidade IN varchar2) IS
     SELECT cli.* FROM Cidade cid
@@ -30,6 +29,10 @@ BEGIN
   END LOOP;
 END;
 
+/* toda chave estrangeira tem que ter indíce */
+CREATE INDEX IX_Cidade_NomeUF ON Cidade(Nome, UF);
+CREATE INDEX IX_Cliente_Cidade ON Cliente(IDCidade);
+
 -- 02 - Faça uma rotina que permita atualizar o valor do pedido a partir dos seus itens. 
 --      Esta rotina deve receber por parametro o IDPedido e então verificar o valor total de seus itens (quantidade x valor unitário).
 DECLARE
@@ -41,7 +44,6 @@ BEGIN
   FROM PedidoItem
   WHERE IDPedido = vIDPedido;
   UPDATE Pedido SET VALORPEDIDO = vValorFinal WHERE IDPedido = vIDPedido;
-  COMMIT;
   DBMS_OUTPUT.PUT_LINE('Pedido atualizado! Valor final: ' || TO_CHAR(vValorFinal, 'L99G999D99MI'));
 END;
 
@@ -66,7 +68,6 @@ BEGIN
       JOIN Cliente cli on cli.IDCLIENTE = ped.IDCLIENTE
       WHERE ped.DATAPEDIDO >= ADD_MONTHS(TRUNC(SYSDATE, 'mm'), -6))
     AND Situacao != 'I';
-  COMMIT;
   DBMS_OUTPUT.PUT_LINE('Clientes inativos atualizados!');
 END;
 
