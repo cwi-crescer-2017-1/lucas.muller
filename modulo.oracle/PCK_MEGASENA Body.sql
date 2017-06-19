@@ -56,14 +56,22 @@ create or replace package body pck_megasena is
     vArrecadacaoUltimoConcurso Aposta.Valor%type;
     vUltimoAcumulou Concurso.Acumulou%type;
     vValorAcumulado Concurso.Premio_Sena%type := 0;
+    vAcumulado05 Concurso.Acumulado_Proximo_05%type;
+    vFinal05 number := 0;
    begin
    
         select MAX(IDConcurso) into vIDUltimoConcurso from Concurso;
         select SUM(Valor) into vArrecadacaoUltimoConcurso from Aposta where IDConcurso = vIDUltimoConcurso;
         select Acumulou into vUltimoAcumulou from Concurso where IDConcurso = vIDUltimoConcurso;
+        select Acumulado_Proximo_05 into vAcumulado05 from Concurso where IDConcurso = vIDUltimoConcurso;
+        select REMAINDER(vIDUltimoConcurso+1,5) into vFinal05 from dual;
         
         IF vUltimoAcumulou = 1 THEN
             select Premio_Sena into vValorAcumulado from Concurso where IDConcurso = vIDUltimoConcurso;
+        END IF;
+        
+        IF vFinal05 = 0 THEN
+          vValorAcumulado := vValorAcumulado + vAcumulado05;
         END IF;
         
         PCK_MEGASENA
