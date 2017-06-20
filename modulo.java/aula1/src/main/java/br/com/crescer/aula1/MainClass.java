@@ -5,26 +5,35 @@
  */
 package br.com.crescer.aula1;
 
+import java.math.BigDecimal;
 import java.text.Normalizer;
 import java.text.Normalizer.Form;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author lucas.muller
  */
-public class NovoClass {
+public class MainClass {
     public static void main(String[] args) {
         // System.out.println("Hello Lucas!");
         
         // stringBuilderExerc01();
         
-        exercLeData();
+        // exercLeData();
+        
+        // testaParcelador();
+        
+        // System.out.println(new StringUtils().isPalindromo("A sogra má e amargosa"));
     }
     
     /* 
@@ -70,6 +79,35 @@ public class NovoClass {
         }
         catch(Exception e) {
             System.out.println("Houve um erro: " + e.getMessage());
+        }
+    }
+
+    private static void testaParcelador() {
+        try {
+            Parcelador parcelador = new Parcelador();
+            Map<String, BigDecimal> parcelas = parcelador.calcular(new BigDecimal(1000), 10, 10, new SimpleDateFormat("dd/MM/yyyy").parse("30/06/2016"));
+            parcelas.forEach((String data, BigDecimal valor)->{
+                System.out.println(data + " - " + valor.doubleValue());
+            });
+        } catch (Exception ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+    }
+    
+    private static void testaTempoDecorrido() {
+        try {
+            Date dataParaComparar = new SimpleDateFormat("dd/MM/yyyy").parse("27/10/1999");
+            System.out.println(new CalendarUtils().tempoDecorrido(dataParaComparar));
+        } catch (Exception ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+    }
+    
+    private static void testaDiaSemana() {
+        try {
+            System.out.println(new CalendarUtils().diaSemana(new Date()));
+        } catch (Exception ex) {
+            System.out.println("Erro: " + ex.getMessage());
         }
     }
 }
