@@ -17,7 +17,7 @@ import java.util.List;
 public class StringUtils implements IStringUtils {
 
     public boolean isEmpty(String string) {
-        return string.isEmpty();
+        return string == null || string.trim().isEmpty();
     }
 
     public String inverter(String string) {
@@ -25,10 +25,12 @@ public class StringUtils implements IStringUtils {
     }
 
     public int contaVogais(String string) {
-        return string.length() - normalize(string.toLowerCase()).replaceAll("a|e|i|o|u|", "").length();
+        return isEmpty(string) ? 0 : string.length() - normalize(string).replaceAll("[aeiouAEIOU]", "").length();
     }
 
     public boolean isPalindromo(String string) {
+        if(isEmpty(string))
+            return false;
         String stringFormatada = normalize(string).replaceAll("\\s","").toLowerCase();
         String stringFormatadaInvertida = inverter(stringFormatada);
         return stringFormatada.equalsIgnoreCase(stringFormatadaInvertida);

@@ -84,7 +84,7 @@ public class MainClass {
 
     private static void testaParcelador() {
         try {
-            Parcelador parcelador = new Parcelador();
+            Parcelator parcelador = new Parcelator();
             Map<String, BigDecimal> parcelas = parcelador.calcular(new BigDecimal(1000), 10, 10, new SimpleDateFormat("dd/MM/yyyy").parse("30/06/2016"));
             parcelas.forEach((String data, BigDecimal valor)->{
                 System.out.println(data + " - " + valor.doubleValue());

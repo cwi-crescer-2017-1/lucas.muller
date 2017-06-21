@@ -13,10 +13,10 @@ import java.util.*;
  *
  * @author Lucas
  */
-public class Parcelador implements IParcelator {
+public class Parcelator implements IParcelator {
 
     public Map<String, BigDecimal> calcular(BigDecimal valorParcelar, int numeroParcelas, double taxaJuros, Date dataPrimeiroVencimento) {
-        Map mapDeParcelas = new HashMap();
+        Map<String, BigDecimal> mapDeParcelas = new LinkedHashMap();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Calendar dataIteracao = Calendar.getInstance();
         dataIteracao.setTime(dataPrimeiroVencimento);

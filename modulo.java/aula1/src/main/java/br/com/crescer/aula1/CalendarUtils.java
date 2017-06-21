@@ -5,17 +5,22 @@
  */
 package br.com.crescer.aula1;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Calendar;
 import java.util.Date;
+import static java.util.Calendar.DAY_OF_MONTH;
+import static java.util.Calendar.DAY_OF_WEEK;
+import static java.util.Calendar.MONTH;
+import static java.util.Calendar.YEAR;
 
 /**
  *
  * @author Lucas
  */
 public class CalendarUtils implements ICalendarUtils {
+    private static final Calendar CALENDAR = Calendar.getInstance();
+    private static final String TEMPLATE = "%s ano(s), %s messe(s) e %s dia(s)";
 
     public DiaSemana diaSemana(Date date) {
         Calendar calendar = Calendar.getInstance();
@@ -39,20 +44,15 @@ public class CalendarUtils implements ICalendarUtils {
                 return null;
         }
     }
-
+    
     public String tempoDecorrido(Date date) {
-        Calendar calendarData = Calendar.getInstance();
-        calendarData.setTime(date);
-        Period periodoEntre = Period.between(LocalDate.now(), LocalDate.of(
-                calendarData.get(Calendar.YEAR),
-                calendarData.get(Calendar.MONTH),
-                calendarData.get(Calendar.DAY_OF_MONTH)
-        ));
-        return String.format("%1s ano(s), %2s mês(es) e %3s dia(s)", 
-                Math.abs(periodoEntre.getYears()),
-                Math.abs(periodoEntre.getMonths()),
-                Math.abs(periodoEntre.getDays())
-        );
+        CALENDAR.setTime(new Date(this.getHoraZero(new Date()).getTime() - this.getHoraZero(date).getTime()));
+        return String.format(TEMPLATE, (CALENDAR.get(YEAR) - 1970), CALENDAR.get(MONTH), CALENDAR.get(DAY_OF_MONTH));
     }
     
+    private Date getHoraZero(Date date) {
+        CALENDAR.setTime(date);
+        CALENDAR.set(CALENDAR.get(YEAR), CALENDAR.get(MONTH), CALENDAR.get(DAY_OF_MONTH), 0, 0, 0);
+        return CALENDAR.getTime();
+    }
 }
