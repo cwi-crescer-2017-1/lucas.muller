@@ -20,12 +20,14 @@ import java.util.logging.Logger;
 public class ReaderUtilsImpl implements ReaderUtils {
 
     @Override
-    public String read(String string) throws Exception {
+    public String read(String string) {
         if(!string.contains(".txt"))
-            throw new Exception("Arquivo não é um txt.");
+            throw new RuntimeException("Arquivo não é um txt.");
         final File arquivo = new File(string);
+        if(!arquivo.exists())
+            throw new RuntimeException("Arquivo não encontrado.");
         if(arquivo.isDirectory())
-            throw new Exception("Arquivo inválido.");
+            throw new RuntimeException("Arquivo inválido.");
         try (
             final Reader reader = new FileReader(arquivo);
             final BufferedReader bufferReader = new BufferedReader(reader);
@@ -34,8 +36,8 @@ public class ReaderUtilsImpl implements ReaderUtils {
             bufferReader.lines()
                     .forEach(linha -> arquivos.append(linha).append("\n"));
             return arquivos.toString();
-        } catch (FileNotFoundException e) {
-            throw new Exception("Arquivo não encontrado.");
+        } catch (Exception e) {
+            throw new RuntimeException("Erro: " + e.getMessage());
         }
     }
     

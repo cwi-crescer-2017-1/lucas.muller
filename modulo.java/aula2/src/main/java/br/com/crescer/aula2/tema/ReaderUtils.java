@@ -10,6 +10,6 @@ package br.com.crescer.aula2.tema;
  */
 public interface ReaderUtils {
     
-    String read(String string) throws Exception;
+    String read(String string);
     
 }

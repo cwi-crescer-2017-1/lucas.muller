@@ -10,6 +10,6 @@ package br.com.crescer.aula2.tema;
  */
 public interface WriterUtils {
 
-    void write(String file, String conteudo) throws Exception;
+    void write(String file, String conteudo);
 
 }

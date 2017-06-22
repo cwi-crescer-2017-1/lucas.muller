@@ -18,19 +18,21 @@ import java.io.Writer;
 public class WriterUtilsImpl implements WriterUtils {
 
     @Override
-    public void write(String file, String conteudo) throws Exception {
+    public void write(String file, String conteudo) {
         if(!file.contains(".txt"))
-            throw new Exception("Arquivo não é um txt.");
+            throw new RuntimeException("Arquivo não é um txt.");
         final File arquivo = new File(file);
+        if(!arquivo.exists())
+            throw new RuntimeException("Arquivo não encontrado.");
         if(arquivo.isDirectory())
-            throw new Exception("Arquivo inválido.");
+            throw new RuntimeException("Arquivo inválido.");
         try (
             final Writer writer = new FileWriter(arquivo, true);
             final BufferedWriter bufferWriter = new BufferedWriter(writer);
         ) {
             bufferWriter.append(conteudo);
-        } catch (FileNotFoundException e) {
-            throw new Exception("Arquivo não encontrado.");
+        } catch (Exception e) {
+            throw new RuntimeException("Erro: " + e.getMessage());
         }
     }
     
