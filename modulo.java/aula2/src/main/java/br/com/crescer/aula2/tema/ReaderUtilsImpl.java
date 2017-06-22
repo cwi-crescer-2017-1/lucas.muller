@@ -12,6 +12,7 @@ import java.io.FileReader;
 import java.io.Reader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static java.util.stream.Collectors.toList;
 
 /**
  *
@@ -32,10 +33,7 @@ public class ReaderUtilsImpl implements ReaderUtils {
             final Reader reader = new FileReader(arquivo);
             final BufferedReader bufferReader = new BufferedReader(reader);
         ) {
-            StringBuilder arquivos = new StringBuilder();
-            bufferReader.lines()
-                    .forEach(linha -> arquivos.append(linha).append("\n"));
-            return arquivos.toString();
+            return String.join("\n", bufferReader.lines().collect(toList()));
         } catch (Exception e) {
             throw new RuntimeException("Erro: " + e.getMessage());
         }

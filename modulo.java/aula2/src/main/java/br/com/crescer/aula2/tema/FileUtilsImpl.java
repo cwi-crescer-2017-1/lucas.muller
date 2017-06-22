@@ -7,9 +7,11 @@ package br.com.crescer.aula2.tema;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static java.util.stream.Collectors.toList;
 
 /**
  *
@@ -20,7 +22,11 @@ public class FileUtilsImpl implements FileUtils {
     @Override
     public boolean mk(String string) {
         try {
-            return new File(string).createNewFile();
+            File file = new File(string);
+            if (file.getParentFile() != null) {
+                file.getParentFile().mkdirs();
+            }
+            return file.exists() || string.matches(".*\\..{3}") ? file.createNewFile() : file.mkdir();
         } catch (IOException ex) {
             Logger.getLogger(FileUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
             return false;
@@ -42,15 +48,16 @@ public class FileUtilsImpl implements FileUtils {
         final File arquivo = new File(string);
         if(!arquivo.exists())
             throw new RuntimeException("Arquivo não existe.");
-        if(arquivo.isFile())
+        if(arquivo.isFile()) {
             return arquivo.getAbsolutePath();
-        // se é diretório:
-        StringBuilder arquivos = new StringBuilder();
-        Arrays.asList(arquivo.listFiles())
-                .stream()
-                .map(File::getName)
-                .forEach(nome -> arquivos.append(nome).append("\n"));
-        return arquivos.toString();
+        } else {
+            ArrayList<String> arquivos = new ArrayList<>();
+            Arrays.asList(arquivo.listFiles())
+                    .stream()
+                    .map(File::getName)
+                    .forEach(s -> arquivos.add(s));
+            return String.join("\n", arquivos);
+        }
     }
 
     @Override
