@@ -13,30 +13,30 @@ import org.junit.Test;
  */
 public class WriterUtilsTest {
 
-    private static final String TARGET_PATH = "target";
-
-    private final WriterUtils writerUtils;
-
-    private String filename;
-
-    public WriterUtilsTest() {
-        this.writerUtils = new WriterUtilsImpl();
-    }
-
-    @Before
-    public void setBefore() throws IOException {
-        this.filename = TARGET_PATH + "/" + new Date().getTime() + "/testWrite.txt";
-        Files.createDirectories(Paths.get(filename).getParent());
-    }
-
-    /**
-     * Test of write method, of class WriterUtils.
-     */
-    @Test
-    public void testWrite() throws IOException {
-        final String test = "teste de inclusão " + new Date().getTime();
-        writerUtils.write(filename, test);
-        assertTrue(Files.readAllLines(Paths.get(filename)).contains(test));
-    }
+//    private static final String TARGET_PATH = "target";
+//
+//    private final WriterUtils writerUtils;
+//
+//    private String filename;
+//
+//    public WriterUtilsTest() {
+//        this.writerUtils = new WriterUtilsImpl();
+//    }
+//
+//    @Before
+//    public void setBefore() throws IOException {
+//        this.filename = TARGET_PATH + "/" + new Date().getTime() + "/testWrite.txt";
+//        Files.createDirectories(Paths.get(filename).getParent());
+//    }
+//
+//    /**
+//     * Test of write method, of class WriterUtils.
+//     */
+//    @Test
+//    public void testWrite() throws IOException {
+//        final String test = "teste de inclusão " + new Date().getTime();
+//        writerUtils.write(filename, test);
+//        assertTrue(Files.readAllLines(Paths.get(filename)).contains(test));
+//    }
 
 }

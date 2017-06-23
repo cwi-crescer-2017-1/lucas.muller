@@ -22,25 +22,27 @@ public class WriterUtilsImpl implements WriterUtils {
 
     @Override
     public void write(String file, String conteudo) {
-        if(!file.contains(".txt"))
-            throw new RuntimeException("Arquivo não é um txt.");
-        final File arquivo = new File(file);
-        if(arquivo.isDirectory())
-            throw new RuntimeException("Arquivo inválido.");
-        if(!arquivo.exists()) {
-            try {
-                arquivo.createNewFile();
-            } catch (IOException ex) {
-                Logger.getLogger(WriterUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
+        if(file.endsWith(".txt") || file.endsWith(".csv")) {
+            final File arquivo = new File(file);
+            if(arquivo.isDirectory())
+                throw new RuntimeException("Arquivo inválido.");
+            if(!arquivo.exists()) {
+                try {
+                    arquivo.createNewFile();
+                } catch (IOException ex) {
+                    Logger.getLogger(WriterUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        }
-        try (
-            final Writer writer = new FileWriter(arquivo, true);
-            final BufferedWriter bufferWriter = new BufferedWriter(writer);
-        ) {
-            bufferWriter.append(conteudo);
-        } catch (Exception e) {
-            throw new RuntimeException("Erro: " + e.getMessage());
+            try (
+                final Writer writer = new FileWriter(arquivo, true);
+                final BufferedWriter bufferWriter = new BufferedWriter(writer);
+            ) {
+                bufferWriter.append(conteudo);
+            } catch (Exception e) {
+                throw new RuntimeException("Erro: " + e.getMessage());
+            }
+        } else {
+            throw new RuntimeException("Arquivo não é um txt.");
         }
     }
     
