@@ -7,20 +7,19 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.Reader;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 import static java.util.stream.Collectors.toList;
-import java.util.stream.LongStream;
 
 public class SQLUtilsImpl implements SQLUtils {
     
     @Override
     public void runFile(String filename) {
-        if(!filename.endsWith(".sql")) return;
+        if(filename == null || !filename.endsWith(".sql")) 
+            throw new RuntimeException("Arquivo inválido.");
         try (final Statement statement = ConnectionUtils.getConnection().createStatement()) {
             final String queries = new ReaderUtilsImpl().read(filename);
             for(String query : queries.split(";")) {
@@ -34,6 +33,8 @@ public class SQLUtilsImpl implements SQLUtils {
 
     @Override
     public String executeQuery(String query) {
+        if(query == null)
+            throw new RuntimeException("Query inválida.");
         try (final Statement statement = ConnectionUtils.getConnection().createStatement();
                 final ResultSet rs = statement.executeQuery(query);) {
             return generateCSV(rs);
@@ -44,8 +45,11 @@ public class SQLUtilsImpl implements SQLUtils {
 
     @Override
     public void importCSV(File file) {
+        if(file == null)
+            throw new RuntimeException("Arquivo inválido.");
         final String nomeArquivo = file.getName();
-        if(nomeArquivo == null || !nomeArquivo.endsWith(".csv") || file.isDirectory() || !file.exists()) return;
+        if(nomeArquivo == null || !nomeArquivo.endsWith(".csv") || file.isDirectory() || !file.exists())
+            throw new RuntimeException("Arquivo inválido.");
         final String tabela = nomeArquivo.substring(0, nomeArquivo.lastIndexOf("."));
         try (
                 final Reader reader = new FileReader(file);

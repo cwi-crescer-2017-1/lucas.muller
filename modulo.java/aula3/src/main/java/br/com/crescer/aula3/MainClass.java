@@ -24,7 +24,7 @@ public class MainClass {
 //                System.out.println("Sucesso!");
 //            }
 //        }
-        //new SQLUtilsImpl().exportCSV("select sysdate, current_date from dual");
-        new SQLUtilsImpl().runFile("target/pessoa.sql");
+        new SQLUtilsImpl().exportCSV("select id, nome from cidade order by id");
+        //new SQLUtilsImpl().runFile("target/pessoa.sql");
     }
 }
