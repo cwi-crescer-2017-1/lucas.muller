@@ -5,7 +5,8 @@
  */
 package br.com.crescer.aula4;
 
-import javax.persistence.*;
+import br.com.crescer.aula4.tema.Cliente;
+import br.com.crescer.aula4.tema.ClienteDao;
 
 /**
  *
@@ -14,17 +15,13 @@ import javax.persistence.*;
 public class MainClass {
     
     public static void main(String[] args) {
-        final EntityManagerFactory emf = Persistence.createEntityManagerFactory("localPU");
-        final EntityManager em = emf.createEntityManager();
-        
-        final Cliente cliente = new Cliente(1L, "Lucas");
-        
-        em.getTransaction().begin();
-        em.persist(cliente);
-        em.getTransaction().commit();
-        
-        em.close();
-        emf.close();
+        ClienteDao clienteDao = new ClienteDao();
+        Cliente cliente = new Cliente();
+        cliente.setNome("Lucas Müller");
+        cliente.setCpf("123456");
+        cliente.setCelular("9989854");
+        clienteDao.save(cliente);
+        clienteDao.findAll().stream().map(e -> e.getNome()).forEach(System.out::println);
     }
     
 }

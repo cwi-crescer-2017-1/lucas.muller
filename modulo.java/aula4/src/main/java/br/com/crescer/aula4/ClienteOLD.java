@@ -15,16 +15,16 @@ import javax.persistence.Id;
  */
 @Entity
 @Table(name = "CLIENTE")
-public class Cliente implements Serializable {
+public class ClienteOLD implements Serializable {
 
     @Id    
     @Basic(optional = false)
     @Column(name = "ID_CLIENTE")
     private Long idPessoa;
 
-    public Cliente() { }
+    public ClienteOLD() { }
     
-    public Cliente(Long idPessoa, String nmPessoa) {
+    public ClienteOLD(Long idPessoa, String nmPessoa) {
         this.idPessoa = idPessoa;
         this.nmPessoa = nmPessoa;
     }
