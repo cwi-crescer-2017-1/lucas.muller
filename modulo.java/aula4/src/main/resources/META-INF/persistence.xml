@@ -3,7 +3,11 @@
   <persistence-unit name="localPU" transaction-type="RESOURCE_LOCAL">
     <!--<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    <class>br.com.crescer.aula4.ClienteOLD</class>
+    <class>br.com.crescer.aula4.tema.br.com.crescer.aula4.tema.Cliente</class>
+    <class>br.com.crescer.aula4.tema.br.com.crescer.aula4.tema.Funcionario</class>
+    <class>br.com.crescer.aula4.tema.br.com.crescer.aula4.tema.Genero</class>
+    <class>br.com.crescer.aula4.tema.br.com.crescer.aula4.tema.Locacao</class>
+    <class>br.com.crescer.aula4.tema.br.com.crescer.aula4.tema.Video</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
       <property name="javax.persistence.jdbc.user" value="AULAJAVA"/>

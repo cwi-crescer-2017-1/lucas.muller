@@ -14,48 +14,60 @@ import org.hibernate.Session;
 
 /**
  *
- * @author Lucas
+ * @author lucas.muller
+ * @param <Entity>
+ * @param <ID>
  */
-public class ClienteDao implements CrudDao<Cliente, Long> {
+public class CrudDaoImpl<Entity, ID> implements CrudDao<Entity, ID> {
+    private final Class<Entity> classe;
+    
+    public CrudDaoImpl (Class<Entity> classe) {
+        this.classe = classe;
+    }
 
     @Override
-    public Cliente save(Cliente e) {
+    public Entity save(Entity e) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("localPU");
         EntityManager em = emf.createEntityManager();
-        Session session = em.unwrap(Session.class);
-        
-        session.saveOrUpdate(e);
+        em.getTransaction().begin();
+        em.merge(e);
+        em.getTransaction().commit();
+        em.close();
+        emf.close();
         return e;
     }
 
     @Override
-    public void remove(Cliente e) {
+    public void remove(Entity e) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("localPU");
         EntityManager em = emf.createEntityManager();
-        Session session = em.unwrap(Session.class);
-        
-        session.delete(e);
+        em.getTransaction().begin();
+        em.remove(e);
+        em.getTransaction().commit();
+        em.close();
+        emf.close();
     }
 
     @Override
-    public Cliente loadById(Long id) {
+    public Entity loadById(ID id) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("localPU");
         EntityManager em = emf.createEntityManager();
-        Session session = em.unwrap(Session.class);
-        
-        Cliente cliente = (Cliente) session.load(Cliente.class, id);
-        return cliente;
+        Entity e = (Entity) em.find(this.classe, id);
+        em.close();
+        emf.close();
+        return e;
     }
 
     @Override
-    public List<Cliente> findAll() {
+    public List<Entity> findAll() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("localPU");
         EntityManager em = emf.createEntityManager();
-        Session session = em.unwrap(Session.class);
-        Criteria criteria = session.createCriteria(Cliente.class);
-        
-        List<Cliente> clientes = criteria.list();
-        return clientes;
+        Session sessao = em.unwrap(Session.class);
+        Criteria criteria = sessao.createCriteria(this.classe);
+        List<Entity> e = criteria.list();
+        em.close();
+        emf.close();
+        return e;
     }
     
 }
