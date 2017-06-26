@@ -5,8 +5,7 @@
  */
 package br.com.crescer.aula4;
 
-import br.com.crescer.aula4.tema.Cliente;
-import br.com.crescer.aula4.tema.CrudDaoImpl;
+import br.com.crescer.aula4.tema.ClienteDao;
 
 /**
  *
@@ -15,7 +14,7 @@ import br.com.crescer.aula4.tema.CrudDaoImpl;
 public class MainClass {
     
     public static void main(String[] args) {
-        CrudDaoImpl<Cliente, Long> clienteDao = new CrudDaoImpl<>(Cliente.class);
+        ClienteDao clienteDao = new ClienteDao();
 //        Cliente cliente = clienteDao.loadById(4L);
 //        cliente.setNome("Lucas Müller");
 //        cliente.setCpf("123456");
