@@ -16,11 +16,12 @@ public class MainClass {
     
     public static void main(String[] args) {
         CrudDaoImpl<Cliente, Long> clienteDao = new CrudDaoImpl<>(Cliente.class);
-        Cliente cliente = clienteDao.loadById(4L);
-        cliente.setNome("Lucas Müller");
-        cliente.setCpf("123456");
-        cliente.setCelular("9989854");
-        clienteDao.save(cliente);
+//        Cliente cliente = clienteDao.loadById(4L);
+//        cliente.setNome("Lucas Müller");
+//        cliente.setCpf("123456");
+//        cliente.setCelular("9989854");
+//        clienteDao.save(cliente);
+        clienteDao.remove(clienteDao.loadById(5L));
         clienteDao.findAll().stream().map(e -> e.getNome()).forEach(System.out::println);
     }
     

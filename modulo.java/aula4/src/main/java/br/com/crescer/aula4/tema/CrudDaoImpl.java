@@ -42,7 +42,7 @@ public class CrudDaoImpl<Entity, ID> implements CrudDao<Entity, ID> {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("localPU");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.remove(e);
+        em.remove(em.merge(e));
         em.getTransaction().commit();
         em.close();
         emf.close();
