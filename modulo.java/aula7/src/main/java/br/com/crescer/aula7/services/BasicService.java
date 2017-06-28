@@ -19,7 +19,7 @@ public interface BasicService<Entidade, ID> {
     
     Entidade save(Entidade et);
     
-    Entidade update(Entidade et);
+    Entidade update(ID id, Entidade et);
     
     void delete(ID id);
 }

@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.crescer.aula7.repositorios;
+package br.com.crescer.aula7.services;
 
 import br.com.crescer.aula7.entidades.Genero;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Service;
 
 /**
  *
- * @author lucas.muller
+ * @author Lucas
  */
-public interface GeneroRepository extends PagingAndSortingRepository<Genero, Long> {
+@Service
+public final class GeneroService extends GenericService<Genero, Long> {
     
 }

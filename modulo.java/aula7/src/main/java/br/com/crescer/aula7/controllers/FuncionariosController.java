@@ -5,42 +5,42 @@
  */
 package br.com.crescer.aula7.controllers;
 
-import br.com.crescer.aula7.entidades.Cliente;
-import br.com.crescer.aula7.services.ClienteService;
+import br.com.crescer.aula7.entidades.Funcionario;
+import br.com.crescer.aula7.services.FuncionarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 /**
  *
- * @author lucas.muller
+ * @author Lucas
  */
 @RestController
-@RequestMapping("/clientes")
-public class ClientesController {
+@RequestMapping("/funcionarios")
+public class FuncionariosController {
     
     @Autowired
-    ClienteService service;
+    FuncionarioService service;
     
     @GetMapping
-    public Page<Cliente> findAll(@RequestParam(required = false) Integer page, @RequestParam(required = false) Integer limit) {
+    public Page<Funcionario> findAll(@RequestParam(required = false) Integer page, @RequestParam(required = false) Integer limit) {
         return service.findAll(page, limit);
     }
     
     @GetMapping("/{id}")
-    public Cliente findByID(@PathVariable Long id) {
+    public Funcionario findByID(@PathVariable Long id) {
         return service.findByID(id);
     }
     
     @PostMapping
-    public Cliente save(@RequestBody Cliente cliente) {
-        return service.save(cliente);
+    public Funcionario save(@RequestBody Funcionario entidade) {
+        return service.save(entidade);
     }
     
     @PutMapping("/{id}")
-    public Cliente update(@PathVariable Long id, @RequestBody Cliente cliente) {
-        cliente.setId(id);
-        return service.update(id, cliente);
+    public Funcionario update(@PathVariable Long id, @RequestBody Funcionario entidade) {
+        entidade.setId(id);
+        return service.update(id, entidade);
     }
     
     @DeleteMapping("/{id}")

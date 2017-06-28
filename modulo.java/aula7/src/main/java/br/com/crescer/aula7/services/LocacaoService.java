@@ -5,14 +5,14 @@
  */
 package br.com.crescer.aula7.services;
 
-import br.com.crescer.aula7.entidades.Funcionario;
+import br.com.crescer.aula7.entidades.Locacao;
 import org.springframework.stereotype.Service;
 
 /**
  *
- * @author lucas.muller
+ * @author Lucas
  */
 @Service
-public final class FuncionarioService extends GenericService<Funcionario, Long> {
+public final class LocacaoService extends GenericService<Locacao, Long> {
     
 }

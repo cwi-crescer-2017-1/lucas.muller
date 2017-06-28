@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  *
- * @author lucas.muller
+ * @author Lucas
  */
-@ResponseStatus(value=HttpStatus.NOT_FOUND, reason="Cliente não encontrado")
-public class ClienteNotFoundException extends RuntimeException {
+@ResponseStatus(value=HttpStatus.NOT_FOUND, reason="Entidade não encontrada")
+public class NotFoundException extends RuntimeException {
     
 }
