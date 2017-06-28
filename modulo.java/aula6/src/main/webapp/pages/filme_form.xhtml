@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h:outputText id="title" value="#{bundle.filme_title}"/>
+        </div>
+        <div class="panel-body">
+
+            <div class="form-group"> 
+                <h:outputLabel for="nome" value="#{bundle.filme_titulo}"></h:outputLabel>
+                <h:inputText id="nome" value="#{filmeMBean.entity.titulo}" styleClass="form-control"/>
+            </div>
+
+            <div class="form-group"> 
+                <h:outputLabel for="genero" value="#{bundle.filme_genero}"></h:outputLabel>
+                <h:selectOneMenu id="genero" value="#{filmeMBean.entity.genero}" styleClass="form-control" converter="generoConverter">
+                    <f:selectItems value="#{filmeMBean.generos}" var="genero" itemLabel="#{genero.descricao}"/>
+                </h:selectOneMenu>
+            </div>
+
+            <div class="form-group"> 
+                <h:outputLabel for="diretor" value="#{bundle.filme_diretor}"></h:outputLabel>
+                <h:inputText id="diretor" value="#{filmeMBean.entity.diretor}" styleClass="form-control"/>
+            </div>
+
+            <div class="form-group"> 
+                <h:outputLabel for="lancamento" value="#{bundle.filme_lancamento}"></h:outputLabel>
+                <h:inputText id="lancamento" value="#{filmeMBean.entity.lancamento}" styleClass="form-control" converter="dateConverter">
+                    <f:passThroughAttribute name="type" value="date"/>
+                </h:inputText>
+            </div>
+
+            <div class="form-group"> 
+                <h:outputLabel for="classificacao" value="#{bundle.filme_classificacao}"></h:outputLabel>
+                <h:selectOneMenu id="classificacao" value="#{filmeMBean.entity.classificacao}" styleClass="form-control" converter="classificacaoConverter">
+                    <f:selectItems value="#{filmeMBean.classificacoes}" var="classificacao" itemLabel="#{classificacao.descricao}"/>
+                </h:selectOneMenu>
+            </div>
+
+            <div class="form-group"> 
+                <h:outputLabel for="idioma" value="#{bundle.filme_idioma}"></h:outputLabel>
+                <h:selectOneMenu id="idioma" value="#{filmeMBean.entity.idioma}" styleClass="form-control" converter="idiomaConverter">
+                    <f:selectItems value="#{filmeMBean.idiomas}" var="idioma" itemLabel="#{idioma.nome}"/>
+                </h:selectOneMenu>
+            </div>
+
+            <div class="form-group"> 
+                <h:outputLabel for="elenco" value="#{bundle.filme_elenco}"></h:outputLabel>
+                <h:selectOneMenu id="elenco" value="#{filmeMBean.entity.elenco}" styleClass="form-control" converter="elencoConverter">
+                    <f:selectItems value="#{filmeMBean.elencos}" var="elenco" itemLabel="#{elenco.descricao}"/>
+                </h:selectOneMenu>
+            </div>
+
+            <h:commandButton type="submit" value="Enviar" styleClass="btn btn-success" action="#{filmeMBean.adicionar}">    
+                <f:ajax execute="@form" render="@form" />
+            </h:commandButton>
+
+            <h:dataTable id="pessoas" value="#{filmeMBean.list}" var="filme" styleClass="table table-hover">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.filme_id}"/>
+                    </f:facet>
+                    <h:outputText value="#{filme.id}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.filme_titulo}"/>
+                    </f:facet>
+                    <h:outputText value="#{filme.titulo}"/>
+                </h:column>
+
+            </h:dataTable>
+            <h:messages styleClass="alert" errorClass="alert-danger"/>
+        </div>
+    </div>
+
+</ui:composition>

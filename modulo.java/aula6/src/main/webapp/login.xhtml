@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="/templates/template.xhtml"    >
+
+    <ui:define name="form">
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h1 class="page-header">
+                    <h:outputText value="#{bundle.login_title}"/>
+                </h1> 
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-success">
+                    <div class="panel-heading" style="padding: 20px;">
+                        <span class="glyphicon glyphicon-user"></span> 
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <h:outputLabel for="username" value="#{bundle.login_username}"/>
+                            <h:inputText id="username" styleClass="form-control" value="#{loginMBean.user.username}" required="true" validator="emailValidator"/>
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel for="password" value="#{bundle.login_password}"/>
+                            <h:inputSecret id="password" styleClass="form-control" label="#{bundle['page.template.password']}" value="#{loginMBean.user.password}" required="true"/>
+                        </div>
+                        <div class="form-group">
+                            <h:commandButton styleClass="btn btn-success" value="#{bundle.login_enviar}" action="#{loginMBean.login}"/>
+                        </div>
+                        <div class="messages">
+                            <h:messages errorClass="alert alert-danger"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

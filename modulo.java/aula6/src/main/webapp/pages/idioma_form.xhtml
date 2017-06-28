@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h:outputText id="title" value="#{bundle.idioma_title}"/>
+        </div>
+        <div class="panel-body">
+
+            <div class="form-group"> 
+                <h:outputLabel for="nome" value="#{bundle.idioma_nome}"></h:outputLabel>
+                <h:inputText id="nome" value="#{idiomaMBean.entity.nome}" styleClass="form-control"/>
+            </div>
+
+            <h:commandButton type="submit" value="Enviar" styleClass="btn btn-success" action="#{idiomaMBean.adicionar}">    
+                <f:ajax execute="@form" render="@form" />
+            </h:commandButton>
+
+            <h:dataTable id="pessoas" value="#{idiomaMBean.list}" var="idioma" styleClass="table table-hover">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.idioma_id}"/>
+                    </f:facet>
+                    <h:outputText value="#{idioma.id}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.idioma_nome}"/>
+                    </f:facet>
+                    <h:outputText value="#{idioma.nome}"/>
+                </h:column>
+
+            </h:dataTable>
+
+            <h:messages styleClass="alert" errorClass="alert-danger"/>
+        </div>
+    </div>
+
+</ui:composition>

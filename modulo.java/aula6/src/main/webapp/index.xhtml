@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+
+    template="/templates/master.xhtml"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="content">
+        
+        <div class="col-md-6"> 
+            <h:form>
+                <ui:include src="/pages/ator_form.xhtml"/>
+            </h:form>
+        </div>
+        <div class="col-md-6">
+            <h:form>
+                <ui:include src="/pages/elenco_form.xhtml"/>
+            </h:form>
+        </div>
+        <div class="col-md-6">
+            <h:form>
+                <ui:include src="/pages/classificacao_form.xhtml"/>
+            </h:form>
+        </div>
+        <div class="col-md-6">
+            <h:form>
+                <ui:include src="/pages/genero_form.xhtml"/>
+            </h:form>
+        </div>
+        <div class="col-md-6">
+            <h:form>
+                <ui:include src="/pages/idioma_form.xhtml"/>
+            </h:form>
+        </div>
+        <div class="col-md-6">
+            <h:form>
+                <ui:include src="/pages/filme_form.xhtml"/>
+            </h:form>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

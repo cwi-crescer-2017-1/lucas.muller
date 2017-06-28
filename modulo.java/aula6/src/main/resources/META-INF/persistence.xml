@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="crescer" transaction-type="JTA">
+        <jta-data-source>jdbc/crescer</jta-data-source>
+        <class>br.com.crescer.aula6.entity.Ator</class>
+        <class>br.com.crescer.aula6.entity.Classificacao</class>
+        <class>br.com.crescer.aula6.entity.Elenco</class>
+        <class>br.com.crescer.aula6.entity.Filme</class>
+        <class>br.com.crescer.aula6.entity.Genero</class>
+        <class>br.com.crescer.aula6.entity.Idioma</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <!--Descomentar para criar recriar as tabela.-->
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+        </properties>
+    </persistence-unit>
+</persistence>

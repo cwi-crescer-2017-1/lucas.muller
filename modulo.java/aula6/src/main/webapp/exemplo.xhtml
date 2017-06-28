@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+
+    template="/templates/template.xhtml"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="form">
+
+        <div class="form-group"> 
+            <h:outputLabel for="nome" value="#{bundle.pessoa_nome}"></h:outputLabel>
+            <h:inputText id="nome" value="#{hello.pessoa.nmPessoa}" styleClass="form-control"/>
+        </div>
+
+        <h:commandButton type="submit" value="Enviar" styleClass="btn btn-success" action="#{hello.adicionar}">    
+            <f:ajax execute="@form" render="@form" />
+        </h:commandButton>
+
+        <h:dataTable id="pessoas" value="#{hello.pessoas}" var="pessoa" styleClass="table table-hover">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.pessoa_id}"/>
+                </f:facet>
+                <h:outputText value="#{pessoa.idPessoa}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.pessoa_nome}"/>
+                </f:facet>
+                <h:outputText value="#{pessoa.nmPessoa}"/>
+            </h:column>
+
+        </h:dataTable>
+
+        <h:messages id="messages">
+
+        </h:messages>
+
+
+    </ui:define>
+
+</ui:composition>

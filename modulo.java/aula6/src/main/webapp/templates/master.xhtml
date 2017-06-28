@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <title>Aula JSF</title>
+    </h:head>
+
+    <h:body>
+        <nav class="navbar navbar-default navbar-top-bottom">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        <span class="glyphicon glyphicon-th"></span> Aula 6
+                    </div>
+                </div>
+                <!--<p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>--> 
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <h1 class="page-header">
+                JSF AULA 6
+            </h1>
+            <h:form>
+                <div class="row">
+                    <ui:insert name="content"/>
+                </div>
+            </h:form>
+        </div>
+    </h:body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.0"
+              xmlns="http://java.sun.com/xml/ns/javaee" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+
+    <application>
+        <resource-bundle>
+            <base-name>messages</base-name>
+            <var>bundle</var>
+        </resource-bundle>
+        <locale-config>
+            <default-locale>pt_BR</default-locale>
+            <supported-locale>en_US</supported-locale>
+        </locale-config>
+    </application>
+
+    
+    <navigation-rule>
+        <from-view-id>/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/faces/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/</from-view-id>
+        <navigation-case>
+            <from-outcome>logout</from-outcome>
+            <to-view-id>/faces/login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+</faces-config>

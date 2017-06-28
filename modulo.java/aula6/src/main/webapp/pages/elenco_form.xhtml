@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h:outputText id="title" value="#{bundle.elenco_title}"/> 
+        </div>
+        <div class="panel-body">
+
+            <div class="form-group"> 
+                <h:outputLabel for="nome" value="#{bundle.elenco_descricao}"></h:outputLabel>
+                <h:inputText id="nome" value="#{elencoMBean.entity.descricao}" styleClass="form-control"/>
+            </div>
+
+            <div class="form-group"> 
+                <h:outputLabel for="genero" value="#{bundle.elenco_atores}"></h:outputLabel>
+                <h:selectManyListbox id="genero" value="#{elencoMBean.entity.atores}" styleClass="form-control" converter="atorConverter">
+                    <f:selectItems value="#{elencoMBean.atores}" var="ator" itemLabel="#{ator.nome}" itemValue="#{ator}"/>
+                </h:selectManyListbox>
+            </div>
+
+            <h:commandButton type="submit" value="Enviar" styleClass="btn btn-success" action="#{elencoMBean.adicionar}">    
+                <f:ajax execute="@form" render="@form" />
+            </h:commandButton>
+
+            <h:dataTable id="pessoas" value="#{elencoMBean.list}" var="elenco" styleClass="table table-hover table-striped" columnClasses="col-md-2, col-md-4, col-md-6">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.elenco_id}"/>
+                    </f:facet>
+                    <h:outputText value="#{elenco.id}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.elenco_descricao}"/>
+                    </f:facet>
+                    <h:outputText value="#{elenco.descricao}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.elenco_atores}"/>
+                    </f:facet>
+                    <ui:repeat value="#{elenco.atores}" var="ator">
+                        <h:outputText value="#{ator.nome}"/> <br/>
+                    </ui:repeat>
+                </h:column>
+
+            </h:dataTable>
+
+            <h:messages styleClass="alert" errorClass="alert-danger"/>
+
+        </div>
+    </div>
+
+</ui:composition>
