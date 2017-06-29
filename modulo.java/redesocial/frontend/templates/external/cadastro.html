@@ -1,0 +1,36 @@
+<div class="ui segment">
+    <h2 class="ui header">Cadastrar-se no {{siteName}}</h2>
+    <form name="form" action="" class="ui large form">
+        <div class="required field" ng-class="{'error': form.nome.$touched && form.nome.$invalid}">
+            <label for="">Nome</label>
+            <input name="nome" type="text" ng-model="usuario.nome" placeholder="Digite seu nome" autofocus required/>
+        </div>
+        <div class="required field" ng-class="{'error': form.email.$touched && form.email.$invalid}">
+            <label for="">Email</label>
+            <input name="email" type="email" ng-model="usuario.email" placeholder="Digite seu email" required/>
+        </div>
+        <div class="required field" ng-class="{'error': form.sexo.$touched && form.sexo.$invalid}">
+            <label for="">Sexo</label>
+            <select name="sexo" ng-model="usuario.sexo" required>
+                <option value="" hidden>Selecione seu sexo</option>
+                <option value="0">Não Informado</option>
+                <option value="1">Masculino</option>
+                <option value="2">Feminino</option>
+            </select>
+        </div>
+        <div class="field" ng-class="{'error': form.nascimento.$touched && form.nascimento.$invalid}">
+            <label for="">Data de nascimento</label>
+            <input name="nascimento" type="date" ng-model="usuario.nascimento"/>
+        </div>
+        <div class="required field" ng-class="{'error': form.senha.$touched && form.senha.$invalid}">
+            <label for="">Senha</label>
+            <input name="senha" type="password" ng-model="usuario.senha" placeholder="Digite sua senha" required/>
+        </div>
+        <div class="field">
+            <button class="ui button large teal" ng-class="{'disabled': form.$invalid}">
+                Cadastrar-se
+            </button>
+        </div>
+    </form>
+</div>
+<span>Já tem uma conta no {{siteName}}? <a ui-sref="login">Fazer login</a></span>

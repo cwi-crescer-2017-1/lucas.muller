@@ -1,0 +1,19 @@
+<div class="ui segment">
+    <h2 class="ui header">Entrar no {{siteName}}</h2>
+    <form name="form" action="" class="ui large form">
+        <div class="required field" ng-class="{'error': form.email.$touched && form.email.$invalid}">
+            <label for="">Email</label>
+            <input name="email" type="email" ng-model="usuario.email" placeholder="Digite seu email" autofocus required/>
+        </div>
+        <div class="required field" ng-class="{'error': form.senha.$touched && form.senha.$invalid}">
+            <label for="">Senha</label>
+            <input name="senha" type="password" ng-model="usuario.senha" placeholder="Digite sua senha" required/>
+        </div>
+        <div class="field">
+            <button class="ui button large teal" ng-class="{'disabled': form.$invalid}">
+                Fazer login
+            </button>
+        </div>
+    </form>
+</div>
+<span>Ainda não tem uma conta? <a ui-sref="cadastro">Cadastrar-se</a></span>
