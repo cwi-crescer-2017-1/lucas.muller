@@ -5,6 +5,7 @@
  */
 package br.com.crescer.redesocial.entidades;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
@@ -13,6 +14,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -45,8 +48,8 @@ public class Post implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
-    @NotNull
     @Column(name = "ID")
+    @NotNull
     private BigDecimal id;
     @Basic(optional = false)
     @NotNull
@@ -60,7 +63,9 @@ public class Post implements Serializable {
     private Date data;
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "ID")
     @ManyToOne(optional = false)
+    @JsonProperty("usuario")
     private Usuario idusuario;
+    @JsonProperty("likes")
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idpost")
     private Collection<PostLike> postLikeCollection;
 

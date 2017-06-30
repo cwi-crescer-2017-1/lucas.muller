@@ -5,6 +5,7 @@
  */
 package br.com.crescer.redesocial.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
@@ -66,16 +67,21 @@ public class Usuario implements Serializable {
     @NotNull
     @Size(min = 1, max = 200)
     @Column(name = "SENHA")
+    @JsonIgnore
     private String senha;
     @Column(name = "DATA_NASCIMENTO")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataNascimento;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
     private Collection<Post> postCollection;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
     private Collection<PostLike> postLikeCollection;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario1")
     private Collection<UsuarioAmizade> usuarioAmizadeCollection;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario2")
     private Collection<UsuarioAmizade> usuarioAmizadeCollection1;
 
@@ -141,7 +147,7 @@ public class Usuario implements Serializable {
         this.dataNascimento = dataNascimento;
     }
 
-    @XmlTransient
+//    @XmlTransient
     public Collection<Post> getPostCollection() {
         return postCollection;
     }
@@ -150,7 +156,7 @@ public class Usuario implements Serializable {
         this.postCollection = postCollection;
     }
 
-    @XmlTransient
+//    @XmlTransient
     public Collection<PostLike> getPostLikeCollection() {
         return postLikeCollection;
     }
@@ -159,7 +165,7 @@ public class Usuario implements Serializable {
         this.postLikeCollection = postLikeCollection;
     }
 
-    @XmlTransient
+//    @XmlTransient
     public Collection<UsuarioAmizade> getUsuarioAmizadeCollection() {
         return usuarioAmizadeCollection;
     }
@@ -168,7 +174,7 @@ public class Usuario implements Serializable {
         this.usuarioAmizadeCollection = usuarioAmizadeCollection;
     }
 
-    @XmlTransient
+//    @XmlTransient
     public Collection<UsuarioAmizade> getUsuarioAmizadeCollection1() {
         return usuarioAmizadeCollection1;
     }

@@ -5,6 +5,8 @@
  */
 package br.com.crescer.redesocial.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.persistence.Basic;
@@ -38,12 +40,22 @@ public class PostLike implements Serializable {
     @NotNull
     @Column(name = "ID")
     private BigDecimal id;
+    
     @JoinColumn(name = "IDPOST", referencedColumnName = "ID")
     @ManyToOne(optional = false)
+    @JsonIgnore
     private Post idpost;
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "ID")
     @ManyToOne(optional = false)
+    @JsonIgnore
     private Usuario idusuario;
+    @Column(name = "IDUSUARIO", insertable = false, updatable = false)
+    @JsonProperty("idusuario")
+    private BigDecimal idusuario2;
+
+    public BigDecimal getIdusuario2() {
+        return idusuario2;
+    }
 
     public PostLike() {
     }

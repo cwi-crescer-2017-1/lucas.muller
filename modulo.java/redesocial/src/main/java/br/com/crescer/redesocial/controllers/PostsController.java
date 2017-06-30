@@ -6,6 +6,7 @@
 package br.com.crescer.redesocial.controllers;
 
 import br.com.crescer.redesocial.entidades.Post;
+import br.com.crescer.redesocial.services.LikesService;
 import br.com.crescer.redesocial.services.PostsService;
 import java.math.BigDecimal;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,12 @@ public class PostsController {
     @Autowired
     private PostsService service;
     
+    @Autowired
+    private LikesService likesService;
+    
+    @Autowired
+    UsuarioLogado usuarioLogado;
+    
     @GetMapping
     public Page<Post> findAll(@RequestParam(required = false) Integer page, @RequestParam(required = false) Integer limit) {
         return service.findAll(page, limit);
@@ -31,6 +38,16 @@ public class PostsController {
     @GetMapping("/{id}")
     public Post findByID(@PathVariable BigDecimal id) {
         return service.findByID(id);
+    }
+    
+    @GetMapping("/{id}/curtir")
+    public void curtirPost(@PathVariable BigDecimal id) {
+        likesService.curtir(id, usuarioLogado.getUsuarioLogado().getId());
+    }
+    
+    @GetMapping("/{id}/descurtir")
+    public void descurtirPost(@PathVariable BigDecimal id) {
+        likesService.descurtir(id, usuarioLogado.getUsuarioLogado().getId());
     }
     
     @PostMapping
@@ -48,4 +65,5 @@ public class PostsController {
     public void delete(@PathVariable BigDecimal id) {
         service.delete(id);
     }
+    
 }

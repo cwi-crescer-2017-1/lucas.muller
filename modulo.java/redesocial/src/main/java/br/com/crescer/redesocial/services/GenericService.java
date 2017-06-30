@@ -13,10 +13,10 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  */
 public class GenericService<T extends Object, ID extends Serializable, Repository extends PagingAndSortingRepository<T, ID>> implements BasicService<T, ID> {
     
-    private static final int MIN_LIMIT = 10;
+    protected static final int MIN_LIMIT = 10;
     
     @Autowired
-    private Repository repo;
+    protected Repository repo;
 
     @Override
     public Page<T> findAll(Integer page, Integer limit) {

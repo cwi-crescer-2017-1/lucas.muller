@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.crescer.redesocial.services;
+package br.com.crescer.redesocial.repositorios;
 
 import br.com.crescer.redesocial.entidades.Post;
 import java.math.BigDecimal;
@@ -13,6 +13,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  *
  * @author lucas.muller
  */
-public interface PostsRepository extends PagingAndSortingRepository<Post, BigDecimal>{
+public interface PostsRepository extends PagingAndSortingRepository<Post, BigDecimal>  {
     
 }
