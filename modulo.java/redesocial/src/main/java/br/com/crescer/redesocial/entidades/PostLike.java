@@ -12,11 +12,14 @@ import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -28,6 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "POST_LIKE")
 @XmlRootElement
+@SequenceGenerator(name="seq", sequenceName = "POST_LIKE_SEQ", initialValue=1, allocationSize=1)
 @NamedQueries({
     @NamedQuery(name = "PostLike.findAll", query = "SELECT p FROM PostLike p"),
     @NamedQuery(name = "PostLike.findById", query = "SELECT p FROM PostLike p WHERE p.id = :id")})
@@ -39,6 +43,7 @@ public class PostLike implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
     private BigDecimal id;
     
     @JoinColumn(name = "IDPOST", referencedColumnName = "ID")

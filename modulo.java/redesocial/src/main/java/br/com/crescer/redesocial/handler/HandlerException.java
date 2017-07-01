@@ -1,5 +1,6 @@
 package br.com.crescer.redesocial.handler;
 
+import br.com.crescer.redesocial.exceptions.NotFoundException;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -19,8 +20,19 @@ public class HandlerException {
     @ExceptionHandler(value = Throwable.class)
     @ResponseBody
     public HandlerExceptionMessage defaultErrorHandler(final HttpServletRequest httpServletRequest, final Exception exception) throws Exception {
+        return makeHandler(exception);
+    }
+    
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(value = NotFoundException.class)
+    @ResponseBody
+    public HandlerExceptionMessage notFoundHandler(final HttpServletRequest httpServletRequest, final Exception exception) throws Exception {
+        return makeHandler(exception);
+    }
+    
+    private HandlerExceptionMessage makeHandler(final Exception exception) {
         final HandlerExceptionMessage handlerExceptionMessage = new HandlerExceptionMessage();
-        handlerExceptionMessage.setException(exception);
+        //handlerExceptionMessage.setException(exception); -- para evitar stacktrace
         handlerExceptionMessage.setMessage(createCustomExceptionMessage(exception));
         return handlerExceptionMessage;
     }

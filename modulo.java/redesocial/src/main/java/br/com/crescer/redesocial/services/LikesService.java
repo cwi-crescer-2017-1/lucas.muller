@@ -39,7 +39,7 @@ public class LikesService extends GenericService<PostLike, BigDecimal, LikesRepo
     public void descurtir(BigDecimal idPost, BigDecimal idUsuario) {
         PostLike like = repo.findOneByIdpost_idAndIdusuario_id(idPost, idUsuario);
         if(like == null)
-            throw new NotFoundException();
+            throw new RuntimeException("Você não curtiu esse post");
         repo.delete(like.getId());
     }
     

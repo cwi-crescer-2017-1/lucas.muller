@@ -7,6 +7,8 @@ package br.com.crescer.redesocial.repositorios;
 
 import br.com.crescer.redesocial.entidades.Post;
 import java.math.BigDecimal;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
@@ -14,5 +16,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  * @author lucas.muller
  */
 public interface PostsRepository extends PagingAndSortingRepository<Post, BigDecimal>  {
+    
+    Page<Post> findAllByOrderByDataDesc(Pageable pgbl);
     
 }

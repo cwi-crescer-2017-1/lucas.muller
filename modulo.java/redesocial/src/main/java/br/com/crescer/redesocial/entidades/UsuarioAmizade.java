@@ -10,11 +10,14 @@ import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -26,6 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "USUARIO_AMIZADE")
 @XmlRootElement
+@SequenceGenerator(name="seq", sequenceName = "USUARIO_AMIZADE_SEQ", initialValue=1, allocationSize=1)
 @NamedQueries({
     @NamedQuery(name = "UsuarioAmizade.findAll", query = "SELECT u FROM UsuarioAmizade u"),
     @NamedQuery(name = "UsuarioAmizade.findById", query = "SELECT u FROM UsuarioAmizade u WHERE u.id = :id"),
@@ -38,6 +42,7 @@ public class UsuarioAmizade implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
     private BigDecimal id;
     @Basic(optional = false)
     @NotNull

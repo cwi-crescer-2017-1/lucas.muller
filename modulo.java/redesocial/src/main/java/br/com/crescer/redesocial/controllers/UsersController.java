@@ -11,8 +11,9 @@ import br.com.crescer.redesocial.entidades.UsuarioAmizade;
 import br.com.crescer.redesocial.services.PostsService;
 import br.com.crescer.redesocial.services.UsersService;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,7 +46,7 @@ public class UsersController {
     
     @GetMapping("/amigos")
     public Collection<UsuarioAmizade> getUserAmigos() {
-        Collection<UsuarioAmizade> amigos = new ArrayList();
+        Set<UsuarioAmizade> amigos = new HashSet();
         amigos.addAll(usuarioLogado.getUsuarioLogado().getUsuarioAmizadeCollection());
         amigos.addAll(usuarioLogado.getUsuarioLogado().getUsuarioAmizadeCollection1());
         return amigos;
@@ -65,6 +66,8 @@ public class UsersController {
     
     @PostMapping
     public Usuario save(@RequestBody Usuario entidade) {
+        if(usuarioLogado.getUsuarioLogado() != null)
+            throw new RuntimeException("Você já está cadastrado");
         return service.save(entidade);
     }
     

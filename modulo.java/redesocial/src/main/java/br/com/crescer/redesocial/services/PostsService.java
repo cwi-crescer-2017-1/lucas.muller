@@ -8,8 +8,12 @@ package br.com.crescer.redesocial.services;
 import br.com.crescer.redesocial.controllers.UsuarioLogado;
 import br.com.crescer.redesocial.entidades.Post;
 import br.com.crescer.redesocial.repositorios.PostsRepository;
+import static br.com.crescer.redesocial.services.GenericService.MIN_LIMIT;
 import java.math.BigDecimal;
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 /**
@@ -23,7 +27,16 @@ public class PostsService extends GenericService<Post, BigDecimal, PostsReposito
     private UsuarioLogado usuario;
 
     @Override
+    public Page<Post> findAll(Integer page, Integer limit) {
+        return repo.findAllByOrderByDataDesc(new PageRequest(
+                page == null ? 0 : page, 
+                limit == null || limit == 0 ? MIN_LIMIT : limit
+        ));
+    }
+
+    @Override
     public Post save(Post et) {
+        et.setData(new Date());
         et.setIdusuario(usuario.getUsuarioLogado());
         return super.save(et);
     }

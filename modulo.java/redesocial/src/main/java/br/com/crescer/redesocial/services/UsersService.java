@@ -5,10 +5,12 @@
  */
 package br.com.crescer.redesocial.services;
 
+import br.com.crescer.redesocial.controllers.UsuarioLogado;
 import br.com.crescer.redesocial.entidades.Usuario;
 import br.com.crescer.redesocial.exceptions.NotFoundException;
 import br.com.crescer.redesocial.repositorios.UsersRepository;
 import java.math.BigDecimal;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -29,19 +31,23 @@ public class UsersService extends GenericService<Usuario, BigDecimal, UsersRepos
     
     @Override
     public Usuario save(Usuario et) {
+        if(repo.findOneByEmailIgnoreCase(et.getEmail()) != null)
+            throw new RuntimeException("Email já está em uso por outro usuário");
         return repo.save(criptografarSenha(et));
     }
     
     @Override
     public Usuario update(BigDecimal id, Usuario et) {
-        if(repo.exists(id)) {
-            if(et.getSenha() != null)
-                atualizarSenha(et, et.getSenha());
-            else
-                et.setSenha(repo.findOne(id).getSenha());
-            return repo.save(et);
-        } else
-            throw new NotFoundException();
+        Usuario usuario = repo.findOne(id); // usuario do banco
+        if(usuario == null)
+            throw new NotFoundException("Usuário não encontrado");
+        
+        et.setEmail(usuario.getEmail()); // para não ser possível trocar de senha
+        if(et.getSenha() != null)
+            et.setSenha(getSenhaCriptografada(et.getSenha()));
+        else
+            et.setSenha(usuario.getSenha());
+        return repo.save(et);
     }
     
     public Usuario atualizarSenha(Usuario et, String novaSenha) {
@@ -55,6 +61,8 @@ public class UsersService extends GenericService<Usuario, BigDecimal, UsersRepos
     }
     
     private String getSenhaCriptografada(String senha) {
+        if(senha == null || senha.trim().length() == 0)
+            throw new RuntimeException("A senha não pode ser nula ou vazia.");
         return new BCryptPasswordEncoder().encode(senha);
     }
     

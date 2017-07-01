@@ -14,10 +14,13 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -33,6 +36,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "USUARIO")
 @XmlRootElement
+@SequenceGenerator(name="seq", sequenceName = "USUARIO_SEQ", initialValue=1, allocationSize=1)
 @NamedQueries({
     @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u"),
     @NamedQuery(name = "Usuario.findById", query = "SELECT u FROM Usuario u WHERE u.id = :id"),
@@ -49,6 +53,7 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
     private BigDecimal id;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="E-mail inválido")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
@@ -67,7 +72,6 @@ public class Usuario implements Serializable {
     @NotNull
     @Size(min = 1, max = 200)
     @Column(name = "SENHA")
-    @JsonIgnore
     private String senha;
     @Column(name = "DATA_NASCIMENTO")
     @Temporal(TemporalType.TIMESTAMP)

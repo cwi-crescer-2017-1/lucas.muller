@@ -22,6 +22,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -37,6 +38,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "POST")
 @XmlRootElement
+@SequenceGenerator(name="seq", sequenceName = "POST_SEQ", initialValue=1, allocationSize=1)
 @NamedQueries({
     @NamedQuery(name = "Post.findAll", query = "SELECT p FROM Post p"),
     @NamedQuery(name = "Post.findById", query = "SELECT p FROM Post p WHERE p.id = :id"),
@@ -50,6 +52,7 @@ public class Post implements Serializable {
     @Basic(optional = false)
     @Column(name = "ID")
     @NotNull
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
     private BigDecimal id;
     @Basic(optional = false)
     @NotNull
