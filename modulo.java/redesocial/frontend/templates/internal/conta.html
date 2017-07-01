@@ -1,13 +1,13 @@
 <div class="ui segment">
-    <h2 class="ui header">Cadastrar-se no {{siteName}}</h2>
-    <form name="form" ng-submit="cadastrar(usuario)" class="ui large form">
+    <h2 class="ui header">Alterar sua conta do {{siteName}}</h2>
+    <form name="form" ng-submit="alterar(usuario)" class="ui large form">
         <div class="required field" ng-class="{'error': form.nome.$touched && form.nome.$invalid}">
             <label for="">Nome</label>
             <input name="nome" type="text" ng-model="usuario.nome" placeholder="Digite seu nome" autofocus required/>
         </div>
-        <div class="required field" ng-class="{'error': form.email.$touched && form.email.$invalid}">
+        <div class="required field">
             <label for="">Email</label>
-            <input name="email" type="email" ng-model="usuario.email" placeholder="Digite seu email" required/>
+            <input name="email" type="email" ng-model="usuario.email" placeholder="Digite seu email" disabled required/>
         </div>
         <div class="required field" ng-class="{'error': form.sexo.$touched && form.sexo.$invalid}">
             <label for="">Sexo</label>
@@ -22,15 +22,20 @@
             <label for="">Data de nascimento</label>
             <input name="nascimento" type="date" ng-model="usuario.dataNascimento"/>
         </div>
-        <div class="required field" ng-class="{'error': form.senha.$touched && form.senha.$invalid}">
+        <div class="field">
+            <div class="ui checkbox">
+                <input id="alterarSenha" type="checkbox" value="true" ng-model="alterarSenha" ng-change="usuario.senha = null;">
+                <label for="alterarSenha">Alterar senha</label>
+            </div>
+        </div>
+        <div class="field" ng-class="{'error': form.senha.$touched && form.senha.$invalid, 'required': alterarSenha}">
             <label for="">Senha</label>
-            <input name="senha" type="password" ng-model="usuario.senha" placeholder="Digite sua senha" required/>
+            <input name="senha" type="password" ng-model="usuario.senha" placeholder="Digite sua senha" ng-disabled="!alterarSenha" ng-required="alterarSenha"/>
         </div>
         <div class="field">
             <button class="ui button large {{colorClass}}" type="submit" ng-class="{'disabled': form.$invalid}">
-                Cadastrar-se
+                Alterar conta
             </button>
         </div>
     </form>
 </div>
-<span>Já tem uma conta no {{siteName}}? <a ui-sref="login">Fazer login</a></span>

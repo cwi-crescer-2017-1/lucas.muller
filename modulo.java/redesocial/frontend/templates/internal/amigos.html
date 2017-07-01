@@ -1,0 +1,67 @@
+<div class="ui segment">
+    <h2 class="ui header">Seus amigos no {{siteName}}</h2>
+    <div ng-if="!obtendoAmigos">
+        <h3 class="ui sub dividing header">Solicitações pendentes</h3><br>
+        <div ng-if="solicitacoes.length == 0">
+            <span>
+                <i class="thumbs outline up icon"></i>
+                Nenhuma solicitação até o momento.
+            </span><br><br>
+        </div>
+        <div class="ui stackable three cards">
+            <div class="card" ng-repeat="solicitacao in solicitacoes">
+                <div class="content">
+                <img class="right floated mini ui image" gravatar-src-once="solicitacao.idusuario1.email">
+                <div class="header">
+                    {{solicitacao.idusuario1.nome}}
+                </div>
+                <div class="meta">
+                    {{solicitacao.idusuario1.email}}
+                </div>
+                <div class="description">
+                    Oi, posso ser seu amigo?
+                </div>
+                </div>
+                <div class="extra content">
+                    <div ng-if="!!!solicitacao.rejeitada" class="ui two buttons">
+                        <div ng-click="aceitarAmizade(solicitacao)" class="ui inverted green button">
+                            <i class="thumbs up icon"></i>
+                            Sim
+                        </div>
+                        <div ng-click="rejeitarAmizade(solicitacao)" class="ui inverted red button">
+                            <i class="thumbs down icon"></i>
+                            Não
+                        </div>
+                    </div>
+                    <div ng-if="solicitacao.rejeitada" class="ui fluid disabled red button">
+                        Solicitação rejeitada
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="ui sub dividing header">Amigos ativos</h3>
+        <span ng-if="amigos.length == 0"><br>
+            <i class="frown icon"></i>
+            Nenhum amigo adicionado até o momento.
+        </span>
+        <div class="ui stackable three cards">
+            <div class="card" ng-repeat="amigo in amigos">
+                <div class="content">
+                <img class="right floated mini ui image" gravatar-src-once="getAmigo(amigo).email">
+                <div class="header">
+                    {{getAmigo(amigo).nome}}
+                </div>
+                <div class="meta">
+                    {{getAmigo(amigo).email}}
+                </div>
+                </div>
+                <div class="extra content">
+                    <a ui-sref="user({id: getAmigo(amigo).id})" class="ui fluid {{colorClass}} button">
+                        Ver perfil
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="obtendoAmigos" class="ui active centered inline loader"></div>
+</div>

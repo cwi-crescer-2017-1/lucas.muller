@@ -1,0 +1,65 @@
+<div id="menu" class="ui top fixed {{colorClass}} inverted borderless large stackable menu">
+  <a class="active icon item" ui-sref="feed">
+    <i class="{{iconClass}} large icon"></i>
+  </a>
+  <div class="ui search item">
+    <div class="ui inverted icon disabled input">
+      <input class="prompt" type="text" placeholder="Procure amigos...">
+      <i class="search link icon"></i>
+    </div>
+  </div>
+  <div class="right menu">
+    <a class="item" ui-sref="user({id: usuario.id})" ui-sref-active="active">
+      <img gravatar-src-once="usuario.email" class="ui avatar image" /> Seu perfil
+    </a>
+    <a ui-sref="logout" class="item">Logout</a>
+  </div>
+</div>
+<div id="breaker"></div>
+<!-- conteúdo vai aqui -->
+<div class="ui basic segment">
+  <div class="ui stackable grid">
+    <div class="row">
+      <div class="four wide column">
+        <div  class="ui vertical {{colorClass}} fluid menu">
+          <div class="header item">
+            <img gravatar-src-once="usuario.email" class="ui avatar image" /> {{usuario.nome}}
+          </div>
+          <a class="item" ui-sref="feed" ui-sref-active="active">
+            Seu feed
+          </a>
+          <a class="item" ui-sref="user({id: usuario.id})" ui-sref-active="active">
+            Seu perfil
+          </a>
+          <a class="item" ui-sref="amigos" ui-sref-active="active">
+            Seus amigos
+          </a>
+          <a class="item" ui-sref="conta" ui-sref-active="active">
+            Sua conta
+          </a>
+          <a class="item" ui-sref="logout">
+            Logout
+          </a>
+        </div>
+        <center>
+            <span class="ui {{colorClass}} label">&copy; {{siteName}} Network.</span>
+        </center>
+      </div>
+      <div class="twelve wide column">
+        <div ui-view></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript-lazy">
+    corrigirMenu();
+
+    window.onresize = function() {
+        corrigirMenu();
+    };
+
+    function corrigirMenu() {
+    var breaker = document.querySelector("#breaker");
+    breaker.style.height = document.querySelector("#menu").offsetHeight + 'px';
+    }
+</script>

@@ -10,7 +10,7 @@ angular.module('auth').config(function ($httpProvider) {
 });
 
 // Service de autenticação
-angular.module('auth').factory('authService', function (authConfig, $http, $q, $state, $localStorage) {
+angular.module('auth').factory('authService', function (authConfig, toastr, $http, $q, $state, $localStorage) {
 
   // Utiliza constant de configuração
   let urlUsuario = authConfig.urlUsuario;
@@ -37,6 +37,7 @@ angular.module('auth').factory('authService', function (authConfig, $http, $q, $
 
         // Adiciona usuário e header ao localstorage
         $localStorage.usuarioLogado = response.data;
+        $localStorage.usuarioLogado.senha = null;
         $localStorage.headerAuth = montarHeader(usuario)['Authorization'];
 
         // Adiciona header de autenticação em todos os próximos requests
@@ -104,6 +105,7 @@ angular.module('auth').factory('authService', function (authConfig, $http, $q, $
 
     } else {
       //$location.path(urlLogin);
+      toastr.error('Você precisa estar autenticado', 'Faça login');
       $state.go(urlLogin);
       deferred.reject();
     }

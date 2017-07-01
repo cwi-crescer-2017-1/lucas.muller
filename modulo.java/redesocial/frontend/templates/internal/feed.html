@@ -1,0 +1,48 @@
+<div class="ui segment">
+    <h3 class="ui header">O que você está pensando?</h3>
+    <form name="postForm" ng-submit="addPost(post)" class="ui form" ng-class="{'loading': postando}">
+        <div class="field" ng-class="{'error': postForm.texto.$invalid && postForm.texto.$touched}">
+            <textarea name="texto" ng-model="post.texto" rows="2" placeholder="Comece digitando aqui... (até 200 caracteres)" maxlength="200" required></textarea>
+        </div>
+        <div class="field">
+            <div class="ui ribbon label">
+            <i class="globe icon"></i> Seu post será público
+            </div>
+            <button type="submit" class="medium ui right floated {{colorClass}} button" ng-class="{'disabled': postForm.$invalid}">
+                Postar
+            </button>
+            <div style="clear: both;"></div>
+        </div>
+    </form>
+</div>
+<div class="ui fluid card" ng-repeat="post in posts">
+    <div class="content">
+    <div class="right floated meta">{{post.data|timeAgo}}</div>
+    <img class="ui avatar image" gravatar-src-once="post.usuario.email"> {{post.usuario.nome}}
+    </div>
+    <div class="content">
+        <p>{{post.texto}}</p>
+        <div class="right floated">
+            <a ng-click="curtir(post)" ng-if="post.likes == null || !jaCurtiu(post)">
+                <i class="heart outline red icon"></i>
+            </a>
+            <a ng-click="descurtir(post)" ng-if="post.likes != null && jaCurtiu(post)">
+                <i class="heart red icon"></i>
+            </a>
+            <span ng-switch="contaCurtidas(post)">
+                <span ng-switch-when="0">Nenhum like</span>
+                <span ng-switch-when="1">Um like</span>
+                <span ng-switch-default>{{post.likes.length}} likes</span>
+            </span>
+        </div>
+    </div>
+</div>
+<div ng-if="loadingPosts" class="ui active centered inline loader"></div>
+<center ng-if="!loadingPosts">
+    <span class="ui large label" ng-if="lastPage">
+        Sem mais posts no seu feed
+    </span>
+    <a class="ui large label" ng-click="getNextPage()" ng-if="!lastPage">
+        Carregar mais posts
+    </a>
+</center>

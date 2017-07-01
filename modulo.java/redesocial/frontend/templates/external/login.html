@@ -1,6 +1,6 @@
 <div class="ui segment">
     <h2 class="ui header">Entrar no {{siteName}}</h2>
-    <form name="form" action="" class="ui large form">
+    <form name="form" ng-submit="login(usuario)" class="ui large form" ng-class="{'loading': carregando}">
         <div class="required field" ng-class="{'error': form.email.$touched && form.email.$invalid}">
             <label for="">Email</label>
             <input name="email" type="email" ng-model="usuario.email" placeholder="Digite seu email" autofocus required/>
@@ -10,7 +10,7 @@
             <input name="senha" type="password" ng-model="usuario.senha" placeholder="Digite sua senha" required/>
         </div>
         <div class="field">
-            <button class="ui button large teal" ng-class="{'disabled': form.$invalid}">
+            <button class="ui button large {{colorClass}}" type="submit" ng-class="{'disabled': form.$invalid}">
                 Fazer login
             </button>
         </div>
