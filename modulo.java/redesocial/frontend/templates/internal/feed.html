@@ -14,6 +14,10 @@
             <div style="clear: both;"></div>
         </div>
     </form>
+    <div class="ui top right attached black label">
+        <i class="info circle icon"></i>
+        Markdown & links suportados
+    </div>
 </div>
 <div class="ui fluid card" ng-repeat="post in posts">
     <div class="content">
@@ -24,19 +28,25 @@
     </a>
     </div>
     <div class="content">
-        <p>{{post.texto}}</p>
+        <div ng-bind-html="getTextoFormatado(post.texto)"></div><br>
         <div class="right floated">
             <a ng-click="curtir(post)" ng-if="post.likes == null || !jaCurtiu(post)">
-                <i class="heart outline red icon"></i>
+                <i class="thumbs outline up icon"></i>
             </a>
             <a ng-click="descurtir(post)" ng-if="post.likes != null && jaCurtiu(post)">
-                <i class="heart red icon"></i>
+                <i class="thumbs up icon"></i>
             </a>
             <span ng-switch="contaCurtidas(post)">
                 <span ng-switch-when="0">Nenhum like</span>
                 <span ng-switch-when="1">Um like</span>
                 <span ng-switch-default>{{post.likes.length}} likes</span>
             </span>
+        </div>
+        <div ng-if="usuario.id == post.usuario.id">
+            <a ng-click="removerPost(post.id)" style="color: red;">
+                <i class="trash outline red icon"></i>
+                Remover post
+            </a>
         </div>
     </div>
 </div>

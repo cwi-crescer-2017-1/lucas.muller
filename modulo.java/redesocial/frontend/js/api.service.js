@@ -12,6 +12,7 @@ angular.module('app')
         getAmigos: () => $http.get(`${apiBaseUrl}/user/amigos`),
         addPost: (post) => $http.post(`${apiBaseUrl}/posts`, post),
         getPosts: (page, limit) => $http.get(`${apiBaseUrl}/posts?page=${page}&limit=${limit}`),
+        removerPost: (idpost) => $http.delete(`${apiBaseUrl}/posts/${idpost}`),
         curtirPost: (idpost) => $http.get(`${apiBaseUrl}/posts/${idpost}/curtir`),
         descurtirPost: (idpost) => $http.get(`${apiBaseUrl}/posts/${idpost}/descurtir`),
         aceitarAmizade: (idamizade) => $http.get(`${apiBaseUrl}/amizades/${idamizade}/aceitar`),
