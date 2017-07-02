@@ -64,7 +64,7 @@ public class UsersController {
     }
     
     @GetMapping("/{id}/posts")
-    public Iterable<Post> findByUser(@PathVariable BigDecimal id) {
+    public Iterable<Post> getUserPostsByID(@PathVariable BigDecimal id) {
         return service.findByID(id).getPostCollection();
     }
     

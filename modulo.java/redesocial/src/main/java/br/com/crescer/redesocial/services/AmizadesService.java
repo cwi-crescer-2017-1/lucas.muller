@@ -36,9 +36,10 @@ public class AmizadesService extends GenericService<UsuarioAmizade, BigDecimal, 
     }
     
     public UsuarioAmizade aceitarAmizade(BigDecimal idAmizade) {
-        UsuarioAmizade am = repo.findOne(idAmizade);
-        if(am == null)
-            throw new NotFoundException("Solicitação não encontrada");
+        UsuarioAmizade am = super.findByID(idAmizade);
+        
+        if(usuario.getUsuarioLogado().getId().intValueExact() != am.getIdusuario2().getId().intValueExact())
+            throw new RuntimeException("Você não pode aceitar essa solicitação");
         
         am.setAtivo('1');
         return super.save(am);

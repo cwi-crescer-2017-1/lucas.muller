@@ -28,6 +28,9 @@ public class LikesService extends GenericService<PostLike, BigDecimal, LikesRepo
     private UsersService usersService;
     
     public void curtir(BigDecimal idPost, BigDecimal idUsuario) {
+        if(repo.findOneByIdpost_idAndIdusuario_id(idPost, idUsuario) != null)
+            throw new RuntimeException("Você já curtiu esse post");
+        
         PostLike like = new PostLike();
         Post post = postsService.findByID(idPost);
         Usuario usuario = usersService.findByID(idUsuario);

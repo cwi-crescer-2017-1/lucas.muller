@@ -5,11 +5,13 @@
  */
 package br.com.crescer.redesocial.services;
 
+import br.com.crescer.redesocial.entidades.Post;
 import br.com.crescer.redesocial.entidades.Usuario;
 import br.com.crescer.redesocial.exceptions.NotFoundException;
 import br.com.crescer.redesocial.repositorios.UsersRepository;
 import static br.com.crescer.redesocial.services.GenericService.MIN_LIMIT;
 import java.math.BigDecimal;
+import java.util.Collection;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -28,6 +30,11 @@ public class UsersService extends GenericService<Usuario, BigDecimal, UsersRepos
             return et;
         else
             throw new NotFoundException();
+    }
+    
+    public Collection<Post> findPostsByUserID(BigDecimal id) {
+        Usuario user = super.findByID(id);
+        return user.getPostCollection();
     }
     
     public Iterable<Usuario> findBySearch(String termo) {

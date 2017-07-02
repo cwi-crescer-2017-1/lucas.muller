@@ -6,6 +6,7 @@
 package br.com.crescer.redesocial.entidades;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
@@ -27,7 +28,6 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -72,6 +72,7 @@ public class Usuario implements Serializable {
     @NotNull
     @Size(min = 1, max = 200)
     @Column(name = "SENHA")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String senha;
     @Column(name = "DATA_NASCIMENTO")
     @Temporal(TemporalType.TIMESTAMP)

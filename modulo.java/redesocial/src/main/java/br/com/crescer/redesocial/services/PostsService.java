@@ -43,7 +43,7 @@ public class PostsService extends GenericService<Post, BigDecimal, PostsReposito
 
     @Override
     public Post update(BigDecimal id, Post et) {
-        if(usuario.getUsuarioLogado().getId() == et.getIdusuario().getId())
+        if(usuario.getUsuarioLogado().getId().intValueExact() == super.findByID(id).getIdusuario().getId().intValueExact())
             return super.update(id, et);
         else
             throw new RuntimeException("Você não pode alterar esse post.");
@@ -51,7 +51,7 @@ public class PostsService extends GenericService<Post, BigDecimal, PostsReposito
 
     @Override
     public void delete(BigDecimal id) {
-        if(usuario.getUsuarioLogado().getId() == repo.findOne(id).getIdusuario().getId())
+        if(usuario.getUsuarioLogado().getId().intValueExact() == super.findByID(id).getIdusuario().getId().intValueExact())
             super.delete(id);
         else
             throw new RuntimeException("Você não pode alterar esse post.");
