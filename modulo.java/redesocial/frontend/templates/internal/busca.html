@@ -1,0 +1,32 @@
+<div class="ui segment">
+    <h2 class="ui header">
+        Resultados da busca por '{{termo}}'
+    </h2>
+    <div class="ui stackable two cards">
+        <div class="card" ng-repeat="usuario in usuarios">
+            <div class="content">
+            <img class="right floated mini ui image" gravatar-src-once="usuario.email">
+            <div class="header">
+                {{usuario.nome}}
+            </div>
+            <div class="meta">
+                {{usuario.email}}
+            </div>
+            </div>
+            <div class="extra content">
+                <a ui-sref="user({id: usuario.id})" class="ui fluid {{colorClass}} button">
+                    Ver perfil
+                </a>
+            </div>
+        </div>
+    </div>
+    <div ng-if="loading" class="ui active centered inline loader"></div>
+    <center ng-if="!loading"><br>
+        <span class="ui large label" ng-if="lastPage">
+            Sem mais resultados
+        </span>
+        <a class="ui large label" ng-click="buscarMais()" ng-if="!lastPage">
+            Carregar mais usuários
+        </a>
+    </center>
+</div>

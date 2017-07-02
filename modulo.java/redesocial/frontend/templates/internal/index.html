@@ -2,10 +2,12 @@
   <a class="active icon item" ui-sref="feed">
     <i class="{{iconClass}} large icon"></i>
   </a>
-  <div class="ui search item">
-    <div class="ui inverted icon disabled input">
-      <input class="prompt" type="text" placeholder="Procure amigos...">
-      <i class="search link icon"></i>
+  <div class="item">
+    <div class="ui search">
+        <div class="ui inverted icon input">
+          <input class="prompt" type="search" ng-model="search.termo" ng-change="pesquisar(search.termo)" ng-model-options="{debounce:250}" placeholder="Procure amigos...">
+          <i class="search link icon" ng-click="pesquisar(search.termo)"></i>
+        </div>
     </div>
   </div>
   <div class="right menu">

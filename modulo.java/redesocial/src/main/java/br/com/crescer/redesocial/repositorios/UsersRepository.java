@@ -7,6 +7,8 @@ package br.com.crescer.redesocial.repositorios;
 
 import br.com.crescer.redesocial.entidades.Usuario;
 import java.math.BigDecimal;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
@@ -16,5 +18,11 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 public interface UsersRepository extends PagingAndSortingRepository<Usuario, BigDecimal> {
     
     Usuario findOneByEmailIgnoreCase(String email);
+    
+    Iterable<Usuario> findByNomeContainingIgnoreCase(String nome);
+    
+    Page<Usuario> findByNomeContainingIgnoreCase(Pageable pgbl, String nome);
+    
+    Page<Usuario> findByNomeContainingIgnoreCaseOrEmailContainingIgnoreCase(Pageable pgbl, String nome, String email);
     
 }

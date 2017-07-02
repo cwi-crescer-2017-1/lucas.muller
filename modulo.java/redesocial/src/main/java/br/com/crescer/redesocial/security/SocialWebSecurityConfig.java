@@ -42,8 +42,6 @@ public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests().anyRequest().authenticated()
                 .and()
                 .httpBasic()
-//                .and()
-//                .logout().logoutUrl("/logout").deleteCookies("JSESSIONID").permitAll()
                 .and()
                 .cors()
                 .and()
@@ -57,7 +55,7 @@ public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**");
+                registry.addMapping("/**").allowedMethods("*").allowedOrigins("*");
             }
         };
     }

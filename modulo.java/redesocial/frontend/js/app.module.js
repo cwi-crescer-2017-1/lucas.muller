@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router', 'ui.gravatar', 'yaru22.angular-timeago', 'toastr', 'auth'])
+angular.module('app', ['ui.router', 'ngStorage', 'ui.gravatar', 'yaru22.angular-timeago', 'toastr', 'auth'])
 .constant('siteName', 'Cube')
 .constant('defaultRoute', '/login')
 .constant('iconClass', 'cube')
@@ -29,10 +29,10 @@ angular.module('app', ['ui.router', 'ui.gravatar', 'yaru22.angular-timeago', 'to
     $transitions.onFinish({}, function() {
         $rootScope.showSpinner = false;
     });
-    $transitions.onError({}, function() {
-        $rootScope.showSpinner = false;
-        toastr.error(`Houve um erro ao carregar esta página`);
-    });
+    // $transitions.onError({}, function() {
+    //     $rootScope.showSpinner = false;
+    //     toastr.error(`Houve um erro ao carregar esta página`);
+    // });
 })
 .config(function($stateProvider, $urlRouterProvider, defaultRoute, toastrConfig) {
     angular.extend(toastrConfig, {
@@ -86,8 +86,12 @@ angular.module('app', ['ui.router', 'ui.gravatar', 'yaru22.angular-timeago', 'to
                     return authService.isAutenticadoPromise();
                 }
             },
-            controller: function($scope, authService) {
-                $scope.usuario = angular.copy(authService.getUsuario());
+            controller: function($scope, $state, $localStorage) {
+                $scope.usuario = $localStorage.usuarioLogado;
+                $scope.pesquisar = function(termo) {
+                    if(termo != null && termo.trim().length > 0)
+                        $state.go('busca', {termo: termo});
+                }
             }
         }).state('feed', {
             url: '/feed',
@@ -104,7 +108,8 @@ angular.module('app', ['ui.router', 'ui.gravatar', 'yaru22.angular-timeago', 'to
             url: '/user/{id:int}',
             parent: 'internal',
             data : { pageTitle: 'Usuário' },
-            template: `<h1>Em breve</h1>`,
+            templateUrl: 'templates/internal/perfil.html',
+            controller: 'PerfilCtrl',
             resolve: {
                 checkLogin: function(authService) {
                     return authService.isAutenticadoPromise();
@@ -127,6 +132,17 @@ angular.module('app', ['ui.router', 'ui.gravatar', 'yaru22.angular-timeago', 'to
             data : { pageTitle: 'Seus amigos' },
             templateUrl: 'templates/internal/amigos.html',
             controller: 'AmigosCtrl',
+            resolve: {
+                checkLogin: function(authService) {
+                    return authService.isAutenticadoPromise();
+                }
+            }
+        }).state('busca', {
+            url: '/busca/{termo}',
+            parent: 'internal',
+            data : { pageTitle: 'Busca' },
+            templateUrl: 'templates/internal/busca.html',
+            controller: 'BuscaCtrl',
             resolve: {
                 checkLogin: function(authService) {
                     return authService.isAutenticadoPromise();

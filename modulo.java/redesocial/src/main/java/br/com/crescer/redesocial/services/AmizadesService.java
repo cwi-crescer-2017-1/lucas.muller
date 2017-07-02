@@ -20,8 +20,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class AmizadesService extends GenericService<UsuarioAmizade, BigDecimal, AmizadesRepository> {
 
+    @Autowired
+    private UsuarioLogado usuario;
+    
     @Override
     public UsuarioAmizade save(UsuarioAmizade et) {
+        if(et.getIdusuario1().getId().intValueExact() == et.getIdusuario2().getId().intValueExact())
+            throw new RuntimeException("Usuários são iguais.");
+        // usuário 1 é aquele q enviou a solicitação
+        // se for nulo, setar para o usuário logado
+        if(et.getIdusuario1() == null)
+            et.setIdusuario1(usuario.getUsuarioLogado());
         et.setAtivo('0');
         return super.save(et);
     }
@@ -29,7 +38,7 @@ public class AmizadesService extends GenericService<UsuarioAmizade, BigDecimal, 
     public UsuarioAmizade aceitarAmizade(BigDecimal idAmizade) {
         UsuarioAmizade am = repo.findOne(idAmizade);
         if(am == null)
-            throw new NotFoundException();
+            throw new NotFoundException("Solicitação não encontrada");
         
         am.setAtivo('1');
         return super.save(am);

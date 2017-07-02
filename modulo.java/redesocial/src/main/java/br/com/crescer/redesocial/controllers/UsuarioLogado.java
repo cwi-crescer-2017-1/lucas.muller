@@ -21,13 +21,17 @@ public class UsuarioLogado {
     private UsersService usersService;
     
     public Usuario getUsuarioLogado() {
-        return Optional.ofNullable(SecurityContextHolder.getContext())
-                .map(SecurityContext::getAuthentication)
-                .map(Authentication::getPrincipal)
-                .map(User.class::cast)
-                .map(User::getUsername)
-                .map(usersService::findByEmail)
-                .orElse(null);
+        try {
+            return Optional.ofNullable(SecurityContextHolder.getContext())
+                    .map(SecurityContext::getAuthentication)
+                    .map(Authentication::getPrincipal)
+                    .map(User.class::cast)
+                    .map(User::getUsername)
+                    .map(usersService::findByEmail)
+                    .orElse(null);
+        } catch(ClassCastException ex) {
+            return null;
+        }
     }
     
 }

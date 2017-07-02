@@ -15,6 +15,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -37,6 +38,16 @@ public class UsersController {
     @GetMapping
     public Usuario getUserDetails() {
         return usuarioLogado.getUsuarioLogado();
+    }
+    
+    @GetMapping("/{id}")
+    public Usuario getUserByID(@PathVariable BigDecimal id) {
+        return service.findByID(id);
+    }
+    
+    @GetMapping("/search")
+    public Page<Usuario> findBySearch(@RequestParam(required = false) Integer page, @RequestParam(required = false) Integer limit, @RequestParam String termo) {
+        return service.findBySearch(page, limit, termo);
     }
     
     @GetMapping("/posts")
@@ -67,7 +78,7 @@ public class UsersController {
     @PostMapping
     public Usuario save(@RequestBody Usuario entidade) {
         if(usuarioLogado.getUsuarioLogado() != null)
-            throw new RuntimeException("Você já está cadastrado");
+            throw new RuntimeException("Você já está logado");
         return service.save(entidade);
     }
     

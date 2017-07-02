@@ -1,0 +1,44 @@
+<div class="ui segment">
+    <div ng-if="loading" class="ui active centered inline loader"></div>
+    <div ng-if="!loading && notFound">
+        <center>
+            <h1 class="ui header">404</h1>
+            <span class="ui big red label">Este usuário não existe</span>
+        </center>
+    </div>
+    <div ng-if="!loading && !notFound && dados">
+        <div class="ui items">
+            <div class="item">
+                <div class="ui tiny image">
+                    <img gravatar-src-once="dados.email">
+                </div>
+                    <div class="content">
+                    <a class="header">{{dados.nome}}</a>
+                    <div class="meta">
+                        <span>{{dados.email}}</span>
+                    </div>
+                    <div class="description">
+                        <p></p>
+                    </div>
+                    <div class="extra">
+                        <span class="ui teal large label" ng-if="dados.id == usuario.id">
+                            <i class="user icon"></i>
+                            Você
+                        </span>
+                        <span class="ui orange large label" ng-switch="dados.sexo">
+                            <span ng-switch-when="2"><i class="female icon"></i> Mulher</span>
+                            <span ng-switch-when="1"><i class="male icon"></i> Homem</span>
+                            <span ng-switch-default><i class="genderless icon"></i> Gênero não informado</span>
+                        </span>
+                        <span ng-if="dados.id != usuario.id">
+                            <span ng-if="amigos" class="ui green large label"><i class="checkmark icon"></i> Amigos</span>
+                            <span ng-if="!amigos && solicitacaoEnviada" class="ui blue large label"><i class="inbox icon"></i> Aguardando solicitação</span>
+                            <a ng-if="!amigos && !solicitacaoEnviada" class="ui blue large label" ng-click="enviarSolicitacaoAmizade()"><i class="add user icon"></i> Adicionar</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="ui header">-- aqui deve aparecer os posts do usuário</h1>
+</div>

@@ -5,12 +5,13 @@
  */
 package br.com.crescer.redesocial.services;
 
-import br.com.crescer.redesocial.controllers.UsuarioLogado;
 import br.com.crescer.redesocial.entidades.Usuario;
 import br.com.crescer.redesocial.exceptions.NotFoundException;
 import br.com.crescer.redesocial.repositorios.UsersRepository;
+import static br.com.crescer.redesocial.services.GenericService.MIN_LIMIT;
 import java.math.BigDecimal;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +30,17 @@ public class UsersService extends GenericService<Usuario, BigDecimal, UsersRepos
             throw new NotFoundException();
     }
     
+    public Iterable<Usuario> findBySearch(String termo) {
+        return repo.findByNomeContainingIgnoreCase(termo);
+    }
+    
+    public Page<Usuario> findBySearch(Integer page, Integer limit, String termo) {
+        return repo.findByNomeContainingIgnoreCaseOrEmailContainingIgnoreCase(new PageRequest(
+                page == null ? 0 : page, 
+                limit == null || limit == 0 ? MIN_LIMIT : limit
+        ), termo, termo);
+    }
+    
     @Override
     public Usuario save(Usuario et) {
         if(repo.findOneByEmailIgnoreCase(et.getEmail()) != null)
@@ -42,7 +54,7 @@ public class UsersService extends GenericService<Usuario, BigDecimal, UsersRepos
         if(usuario == null)
             throw new NotFoundException("Usuário não encontrado");
         
-        et.setEmail(usuario.getEmail()); // para não ser possível trocar de senha
+        et.setEmail(usuario.getEmail()); // para não ser possível trocar de email
         if(et.getSenha() != null)
             et.setSenha(getSenhaCriptografada(et.getSenha()));
         else

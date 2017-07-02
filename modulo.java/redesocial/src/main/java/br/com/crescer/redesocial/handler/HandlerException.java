@@ -32,7 +32,7 @@ public class HandlerException {
     
     private HandlerExceptionMessage makeHandler(final Exception exception) {
         final HandlerExceptionMessage handlerExceptionMessage = new HandlerExceptionMessage();
-        //handlerExceptionMessage.setException(exception); -- para evitar stacktrace
+        handlerExceptionMessage.setException(exception); // para evitar stacktrace
         handlerExceptionMessage.setMessage(createCustomExceptionMessage(exception));
         return handlerExceptionMessage;
     }
