@@ -4,8 +4,8 @@ angular.module('app')
     return {
         cadastrarUsuario: (usuario) => $http.post(`${apiBaseUrl}/user`, usuario),
         alterarUsuario: (usuario) => $http.put(`${apiBaseUrl}/user`, usuario),
-        getUsuario: (usuario) => $http.get(`${apiBaseUrl}/user/${usuario}`),
-        // getPostsUsuario: (usuario) => $http.get(`${apiBaseUrl}/user/${usuario}/posts`),
+        getUsuario: (idusuario) => $http.get(`${apiBaseUrl}/user/${idusuario}`),
+        getPostsUsuario: (idusuario) => $http.get(`${apiBaseUrl}/user/${idusuario}/posts`),
         // getAmigosUsuario: (usuario) => $http.get(`${apiBaseUrl}/user/${usuario}/amigos`),
         buscarUsuario: (termo) => $http.get(`${apiBaseUrl}/user/search?termo=${termo}`),
         buscarUsuario: (termo, page, limit) => $http.get(`${apiBaseUrl}/user/search?termo=${termo}&page=${page}&limit=${limit}`),
