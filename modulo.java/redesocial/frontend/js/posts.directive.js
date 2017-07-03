@@ -29,8 +29,8 @@ angular.module('app')
             };
 
             $scope.getTextoFormatado = function(texto) {
-                //texto = texto.replace(/(\S#(?:\[[^\]]+\]|\S+))/g, `\\$1`);
                 texto = markdown.toHTML(texto);
+                texto = texto.replace(/\n/g, `<br />`);
                 texto = texto.replace(/(https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))/g, `<a href="$1" target="_blank">$1</a>`);
                 return $sce.trustAsHtml(texto);
             };

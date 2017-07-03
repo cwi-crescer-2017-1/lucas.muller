@@ -10,11 +10,12 @@
         <div ng-bind-html="getTextoFormatado(post.texto)"></div><br>
         <div class="right floated">
             <a ng-click="curtir(post)" ng-if="post.likes == null || !jaCurtiu(post)">
-                <i class="thumbs outline up icon"></i>
+                <i class="thumbs outline up icon"></i> Curtir
             </a>
             <a ng-click="descurtir(post)" ng-if="post.likes != null && jaCurtiu(post)">
-                <i class="thumbs up icon"></i>
+                <i class="thumbs up icon"></i> Descurtir
             </a>
+            <span>•</span>
             <span ng-switch="contaCurtidas(post)">
                 <span ng-switch-when="0">Nenhum like</span>
                 <span ng-switch-when="1">Um like</span>

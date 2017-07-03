@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('FeedCtrl', function($scope, authService, toastr, apiService) {
+.controller('FeedCtrl', function($scope, $filter, authService, toastr, apiService) {
     $scope.usuario = authService.getUsuario();
     $scope.posts = [];
     $scope.page = 0;
