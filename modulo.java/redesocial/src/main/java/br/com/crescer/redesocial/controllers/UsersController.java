@@ -12,7 +12,10 @@ import br.com.crescer.redesocial.services.PostsService;
 import br.com.crescer.redesocial.services.UsersService;
 import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -52,7 +55,15 @@ public class UsersController {
     
     @GetMapping("/posts")
     public Collection<Post> getUserPosts() {
-        return usuarioLogado.getUsuarioLogado().getPostCollection();
+        List <Post> posts = (List <Post>) usuarioLogado.getUsuarioLogado().getPostCollection();
+        Collections.sort(posts, new Comparator<Post>() {
+            public int compare(Post o1, Post o2) {
+                if (o1.getData() == null || o2.getData() == null)
+                  return 0;
+                return o2.getData().compareTo(o1.getData());
+            }
+        });
+        return posts;
     }
     
     @GetMapping("/amigos")
@@ -65,7 +76,15 @@ public class UsersController {
     
     @GetMapping("/{id}/posts")
     public Iterable<Post> getUserPostsByID(@PathVariable BigDecimal id) {
-        return service.findByID(id).getPostCollection();
+        List <Post> posts = (List <Post>) service.findByID(id).getPostCollection();
+        Collections.sort(posts, new Comparator<Post>() {
+            public int compare(Post o1, Post o2) {
+                if (o1.getData() == null || o2.getData() == null)
+                  return 0;
+                return o2.getData().compareTo(o1.getData());
+            }
+        });
+        return posts;
     }
     
     @PutMapping

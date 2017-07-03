@@ -22,7 +22,10 @@
     </div>
     <div ng-if="loading" class="ui active centered inline loader"></div>
     <center ng-if="!loading"><br>
-        <span class="ui large label" ng-if="lastPage">
+        <span class="ui large label" ng-if="usuarios.length == 0">
+            Nenhum usuário encontrado
+        </span>
+        <span class="ui large label" ng-if="usuarios.length != 0 && lastPage">
             Sem mais resultados
         </span>
         <a class="ui large label" ng-click="buscarMais()" ng-if="!lastPage">

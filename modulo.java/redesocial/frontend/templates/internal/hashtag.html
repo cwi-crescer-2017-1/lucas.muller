@@ -1,0 +1,16 @@
+<div class="ui segment">
+    <h2 class="ui header">
+        Resultados da busca por '{{hashtag}}'
+    </h2>
+</div>
+<posts-repeat ng-if="!loadingPosts" posts="posts"></posts-repeat>
+<br>
+<div ng-if="loadingPosts" class="ui active centered inline loader"></div>
+<center ng-if="!loadingPosts">
+    <span class="ui large label" ng-if="lastPage">
+        Sem mais posts
+    </span>
+    <a class="ui large label" ng-click="getNextPage()" ng-if="!lastPage">
+        Carregar mais posts
+    </a>
+</center>

@@ -1,6 +1,6 @@
 angular.module('app')
 .controller('ContaCtrl', function($scope, $localStorage, authService, apiService, toastr) {
-    $scope.usuario = angular.copy($scope.usuario);
+    $scope.usuario = angular.copy($localStorage.usuarioLogado);
     if($scope.usuario.dataNascimento != null)
         $scope.usuario.dataNascimento = new Date($scope.usuario.dataNascimento);
     $scope.alterar = function(usuario) {

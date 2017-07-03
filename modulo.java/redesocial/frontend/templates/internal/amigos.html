@@ -12,9 +12,9 @@
             <div class="card" ng-repeat="solicitacao in solicitacoes">
                 <div class="content">
                 <img class="right floated mini ui image" gravatar-src-once="solicitacao.idusuario1.email">
-                <div class="header">
+                <a class="header" ui-sref="user({id: solicitacao.idusuario1.id})">
                     {{solicitacao.idusuario1.nome}}
-                </div>
+                </a>
                 <div class="meta">
                     {{solicitacao.idusuario1.email}}
                 </div>

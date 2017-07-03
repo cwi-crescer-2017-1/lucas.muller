@@ -90,7 +90,9 @@ angular.module('app', ['ui.router', 'ngStorage', 'ui.gravatar', 'yaru22.angular-
                 $scope.usuario = $localStorage.usuarioLogado;
                 $scope.pesquisar = function(termo) {
                     if(termo != null && termo.trim().length > 0)
-                        $state.go('busca', {termo: termo});
+                        $state.go('userBusca', {termo: termo});
+                    else
+                        $state.go('feed');
                 }
             }
         }).state('feed', {
@@ -99,6 +101,17 @@ angular.module('app', ['ui.router', 'ngStorage', 'ui.gravatar', 'yaru22.angular-
             templateUrl: 'templates/internal/feed.html',
             data : { pageTitle: 'Feed' },
             controller: 'FeedCtrl',
+            resolve: {
+                checkLogin: function(authService) {
+                    return authService.isAutenticadoPromise();
+                }
+            }
+        }).state('hashtag', {
+            url: '/feed/busca/{hashtag}',
+            parent: 'internal',
+            templateUrl: 'templates/internal/hashtag.html',
+            data : { pageTitle: 'Hashtag' },
+            controller: 'BuscaHashtagCtrl',
             resolve: {
                 checkLogin: function(authService) {
                     return authService.isAutenticadoPromise();
@@ -137,8 +150,8 @@ angular.module('app', ['ui.router', 'ngStorage', 'ui.gravatar', 'yaru22.angular-
                     return authService.isAutenticadoPromise();
                 }
             }
-        }).state('busca', {
-            url: '/busca/{termo}',
+        }).state('userBusca', {
+            url: '/user/busca/{termo}',
             parent: 'internal',
             data : { pageTitle: 'Busca' },
             templateUrl: 'templates/internal/busca.html',
@@ -153,14 +166,14 @@ angular.module('app', ['ui.router', 'ngStorage', 'ui.gravatar', 'yaru22.angular-
 })
 .directive('script', function() {
     return {
-      restrict: 'E',
-      scope: false,
-      link: function(scope, elem, attr) {
-        if (attr.type === 'text/javascript-lazy') {
-          var code = elem.text();
-          var f = new Function(code);
-          f();
+        restrict: 'E',
+        scope: false,
+        link: function(scope, elem, attr) {
+            if (attr.type === 'text/javascript-lazy') {
+                var code = elem.text();
+                var f = new Function(code);
+                f();
+            }
         }
-      }
     };
-  });
+});

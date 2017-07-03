@@ -28,50 +28,6 @@ angular.module('app')
         return $sce.trustAsHtml(texto);
     };
 
-    $scope.removerPost = function(idpost) {
-        if(confirm('Você tem certeza que quer remover este post?') == false)
-            return;
-            
-        apiService.removerPost(idpost).then(() => {
-            $scope.posts.splice($scope.posts.findIndex(el => el.id == idpost), 1);
-            toastr.success('Post removido com sucesso');
-        }, (response) => {
-            toastr.error(response.data.message, 'Erro ao remover post');
-        });
-    };
-
-    $scope.jaCurtiu = function(post) {
-        return post.likes.some(el => el.idusuario == $scope.usuario.id);
-    };
-
-    $scope.contaCurtidas = function(post) {
-        return post.likes == null ? 0 : post.likes.length;
-    };
-
-    let curtindo = false;
-    $scope.curtir = function(post) {
-        if(curtindo)
-            return;
-        curtindo = true;
-        apiService.curtirPost(post.id).then(() => {
-            curtindo = false;
-            post.likes.push({idusuario: $scope.usuario.id});
-            toastr.success('Post curtido');
-        }, () => {
-            curtindo = false;
-            toastr.error('Erro ao curtir post');
-        }); 
-    };
-
-    $scope.descurtir = function(post) {
-        apiService.descurtirPost(post.id).then(() => {
-            post.likes.splice(post.likes.findIndex(el => el.idusuario == $scope.usuario.id), 1);
-            toastr.info('Post descurtido');
-        }, () => {
-            toastr.error('Erro ao descurtir post');
-        }); 
-    };
-
     function getPostsUsuario() {
         $scope.loadingPosts = true;
         apiService.getPostsUsuario($scope.id).then((response) => {
@@ -97,6 +53,7 @@ angular.module('app')
                 apiService.getAmigos($scope.usuario.id).then((response) => {
                     $scope.amigos = response.data.some(usu => (usu.idusuario1.id == $scope.id|| usu.idusuario2.id == $scope.id) && usu.ativo == 1);
                     $scope.solicitacaoEnviada = response.data.some(usu => (usu.idusuario1.id == $scope.id || usu.idusuario2.id == $scope.id) && usu.ativo == 0);
+                    // $scope.solicitaoRecebida = response.data.some(usu => usu.idusuario2.id == $scope.usuario.id && usu.ativo == 0);
                     $scope.loading = false;
                 }, () => {
                     $scope.loading = false;

@@ -31,8 +31,13 @@ public class PostsController {
     UsuarioLogado usuarioLogado;
     
     @GetMapping
-    public Page<Post> findAll(@RequestParam(required = false) Integer page, @RequestParam(required = false) Integer limit) {
-        return service.findAll(page, limit);
+    public Page<Post> getFeed(@RequestParam(required = false) Integer page, @RequestParam(required = false) Integer limit) {
+        return service.getFeed(page, limit);
+    }
+    
+    @GetMapping("/search")
+    public Page<Post> findPostsContaining(@RequestParam(required = false) Integer page, @RequestParam(required = false) Integer limit, @RequestParam String texto) {
+        return service.findPostsContaining(page, limit, texto);
     }
     
     @GetMapping("/{id}")
